@@ -1,0 +1,2462 @@
+{
+  "generated_at": "2026-06-06T23:07:34Z",
+  "methodology": {
+    "name": "ICST (DPPRA)",
+    "scale": "DPPRA",
+    "version": "2.11",
+    "run": "RUN_03",
+    "next_version": "2.12"
+  },
+  "taxonomy": [
+    {
+      "code": "GOV",
+      "label": "Government & Policy",
+      "color": "#1e293b",
+      "description": "Agencies, regulators, official memoranda and law.",
+      "doc_count": 15
+    },
+    {
+      "code": "JRN",
+      "label": "Academic",
+      "color": "#2563eb",
+      "description": "Peer-reviewed journal articles; the calibration anchor.",
+      "doc_count": 14
+    },
+    {
+      "code": "FRM",
+      "label": "Public",
+      "color": "#0f766e",
+      "description": "Civic and open public discourse: forums, threads, op-eds, journalism. The project's contrast layer \u2014 lived rather than curated reality.",
+      "doc_count": 12
+    },
+    {
+      "code": "INS",
+      "label": "Institutional & Independent",
+      "color": "#9333ea",
+      "description": "Civil-society and smaller institutional actors: professional societies, non-profits & advocacy, universities \u2014 and smaller single-product companies, as distinct from the major labs.",
+      "doc_count": 14
+    },
+    {
+      "code": "COR",
+      "label": "Corporate (major)",
+      "color": "#b45309",
+      "description": "Self-authored disclosures from the major AI corporations whose market and infrastructural power shapes AI's direction, scope, and societal effect (e.g. Microsoft, OpenAI, Nvidia, Anthropic).",
+      "doc_count": 10
+    }
+  ],
+  "integrity_subcodes": [
+    {
+      "n": 1,
+      "label": "Academic Integrity",
+      "desc": "Authorship, plagiarism, student conduct."
+    },
+    {
+      "n": 2,
+      "label": "Research Integrity",
+      "desc": "Scholarly honesty, fabrication, misconduct."
+    },
+    {
+      "n": 3,
+      "label": "Assessment Integrity",
+      "desc": "Grading, credentialing, test validity (instrument, not learner honesty)."
+    },
+    {
+      "n": 4,
+      "label": "System Integrity / TEVV (Test, Evaluation, Verification & Validation)",
+      "desc": "Testing, benchmarking, evaluation, red-teaming."
+    },
+    {
+      "n": 5,
+      "label": "Data / Provenance Integrity",
+      "desc": "Source grounding, data lineage."
+    },
+    {
+      "n": 6,
+      "label": "Epistemic Integrity",
+      "desc": "Hallucinations, truthfulness, citations."
+    }
+  ],
+  "adversarial_layer": {
+    "status": "active",
+    "label": "Adversarial counter-reading",
+    "note": "A fourth pass that argues AGAINST the three-coder consensus \u2014 an honest adversary, every challenge text-grounded. In use as of Run 1.",
+    "passes": [
+      {
+        "run": "RUN_01",
+        "date": "2026-05-31",
+        "scale": "DPPRA v2.9",
+        "headline": "Run 1 is mostly defensible \u2014 no challenge is a clean 'simply wrong.' The attack surfaced one systematic artifact (title-anchoring on spine-5s), two near-degenerate measurement problems, and confirmed two known soft joints. ~3 codings warrant adjudication; 2 methodology fixes for v2.10.",
+        "findings": [
+          {
+            "tag": "A",
+            "title": "Title-anchoring on spine-5s",
+            "type": "artifact",
+            "strength": "strong",
+            "disposition": "adjudicate SRC_000007; note 004/005",
+            "detail": "Three spine-5s match a headline word in the title (SRC_000007 Explainable\u2192transparency=5; 004 Accelerating\u2192mech=5; 005 Driving Efficient\u2192mech=5). The spine must be read from the body's section distribution, not the title."
+          },
+          {
+            "tag": "B",
+            "title": "Presence binaries near-degenerate",
+            "type": "measurement",
+            "strength": "strong",
+            "disposition": "v2.10 fix",
+            "detail": "dppra_*_presence and cb_cost_presence_binary code 'present' on almost every doc (no variance); the real signal lives in strength. Drop or re-gate them."
+          },
+          {
+            "tag": "C",
+            "title": "Alignment cap compresses variation",
+            "type": "cap_masking",
+            "strength": "moderate",
+            "disposition": "note",
+            "detail": "Every GOV memo caps at alignment 4, every corporate doc at 3 \u2014 flattening real differences in implementation depth (M-24-10 vs M-25-22; Microsoft RAI vs thinner disclosures)."
+          },
+          {
+            "tag": "D",
+            "title": "Forum spine: named-harm vs discourse-form",
+            "type": "artifact",
+            "strength": "moderate",
+            "disposition": "adjudicate SRC_000013",
+            "detail": "SRC_000013 (Google/Pentagon) coded nonmaleficence=5, but a forum thread's organizing logic may be its discourse/condemnation (DPPRA-D); the 5 may follow rhetorical heat, not structure."
+          },
+          {
+            "tag": "E",
+            "title": "Integrity routing may over-discipline",
+            "type": "scope_error",
+            "strength": "moderate",
+            "disposition": "v2.10 targets this",
+            "detail": "SRC_000008 (EU): int_epistemic=4 is the lead, yet eth_integrity=3 \u2014 routing pulls the headline below its strongest sub-dimension. v2.10 rule: eth_integrity \u2248 strongest applicable int_* sub-dimension."
+          },
+          {
+            "tag": "F",
+            "title": "Justice over-reads",
+            "type": "over_code",
+            "strength": "moderate",
+            "disposition": "adjudicate SRC_000009 + 018",
+            "detail": "SRC_000009 (takaful) justice=4 \u2014 'adl named but not operationalized as rights/remedy. SRC_000018 (AI Now) justice=5 \u2014 spine may be accountability/power-concentration, not justice."
+          }
+        ],
+        "recommendations_v210": [
+          "Removal-test wording: spine from body distribution, NOT the title.",
+          "Presence binaries: drop or re-gate (degenerate; also helps binary \u03b1).",
+          "eth_integrity \u2248 strongest applicable int_* sub-dimension.",
+          "Forum spine rule: discourse-form vs named-harm \u2014 decide once, corpus-wide.",
+          "Adjudicate SRC_000007, 009, 018, 013.",
+          "Optional: finer alignment gradation so the 3/4 cap doesn't flatten depth."
+        ],
+        "survives": [
+          "GOV int_academic/research/assessment = N/A (correct for procurement memos).",
+          "Single-5 CAP on SRC_000002 (accountability) and 016 (catastrophic-harm) hold the removal test.",
+          "FRM negative-valence reads and the COR>INS reliability gap are robust.",
+          "86\u201391% within-\u00b11 agreement is real, not a shared-anchoring artifact."
+        ]
+      },
+      {
+        "run": "RUN_02",
+        "date": "2026-06-04",
+        "scale": "DPPRA v2.10",
+        "headline": "Run 2 (22 docs, full three-coder) is structurally sound but the v2.10 fixes did NOT all land. Reliability is below threshold (pooled ordinal alpha=0.534, nominal=0.628, binary=0.396 over 40 pooled docs). The attack found one dominant artifact (a three-way CAP/spine divergence), one self-contradictory rule (eth_integrity), two RECURRING Run-1 findings the v2.10 spec failed to fix (title-anchoring, degenerate presence binaries), and quantified the Codex hot-rater offset. ~4 codings warrant adjudication; 6 fixes for v2.11.",
+        "findings": [
+          {
+            "tag": "A",
+            "title": "CAP/spine convention diverges three ways",
+            "type": "artifact",
+            "strength": "strong",
+            "disposition": "v2.11 must operationalize the 5",
+            "detail": "Claude codes ZERO spine-5s on 16/22 docs; Codex codes exactly one 5 on 21/22; PXY ranges 0-4 (SRC_000020 and 031 each carry four 5s). The <=one-dimension=5 CAP never defines the THRESHOLD for reaching 5, so each coder set a different bar. Primary driver of ordinal alpha=0.534 and the weakest pair (Claude+Codex 0.41)."
+          },
+          {
+            "tag": "B",
+            "title": "eth_integrity rule was theoretically too thin (RESOLVED in v2.11)",
+            "type": "construct_validity",
+            "strength": "strong",
+            "disposition": "RESOLVED: v2.11 redefines integrity as principled consistency + follow-through",
+            "detail": "v2.10 narrowed eth_integrity to knowledge-honesty ONLY and routed testing/data/say-do AWAY from it, breaking construct validity (worst field, alpha=0.113). v2.11 restores the full construct (epistemic honesty AND follow-through) and makes int_*/decoupling EVIDENCE STREAMS that feed/undercut the headline."
+          },
+          {
+            "tag": "C",
+            "title": "Title-anchoring recurs (Run-1 Finding A not fixed)",
+            "type": "artifact",
+            "strength": "moderate",
+            "disposition": "re-assert removal-test; adjudicate SRC_000023, 037",
+            "detail": "SRC_000023 (Transparency in Frontier AI Act) -> transparency=5; SRC_000037 (Transparency and accountability in AI systems) -> transparency=5 + accountability=5. The spine still follows the headline word, not the body distribution."
+          },
+          {
+            "tag": "D",
+            "title": "Presence binaries degenerate AND inflating the binary headline",
+            "type": "measurement",
+            "strength": "strong",
+            "disposition": "dropped in v2.11 (binary alpha corrected 0.396 -> 0.335)",
+            "detail": "The 7 dppra_*/cb_*_presence binaries sit at near-unanimous agreement; removing them moves pooled binary alpha 0.396 -> 0.335 (they were INFLATING, not dragging). Drop stands (no signal; they mask the real weak spot, the cb_* cost/benefit indicators)."
+          },
+          {
+            "tag": "E",
+            "title": "Codex hot-rater offset quantified",
+            "type": "calibration",
+            "strength": "strong",
+            "disposition": "mirror watchouts (chop highs AND lows)",
+            "detail": "Codex >= Claude on the 0-5 ladder on 20/22 docs (unidirectional); defaults eth_nonmaleficence toward 5. This is the GPT-runs-hot signal the thesis identified, not a defect. v2.11 adds mirror watchouts: Codex cools, Claude commits when the gate is met."
+          },
+          {
+            "tag": "F",
+            "title": "Forum thinness floor (SRC_000040)",
+            "type": "artifact",
+            "strength": "moderate",
+            "disposition": "adjudicate + thinness gate",
+            "detail": "A thin forum item (040) produced unstable spine reads; PXY FRM block absent. Add a thinness gate so sparse forum threads do not force spurious spine-5s."
+          }
+        ],
+        "recommendations_v211": [
+          "Operationalize the 5: proportion gate (plurality of body sections) + removal test + two-sided anchors.",
+          "Redefine eth_integrity as principled consistency + follow-through; int_*/decoupling become evidence streams.",
+          "Drop the 7 degenerate presence binaries (read presence off *_strength).",
+          "Mirror watchouts: Codex cools (proportion gate before any 5), Claude commits when the gate is met.",
+          "int_academic/research/assessment = 9 (N/A) for non-education sources.",
+          "Adjudicate SRC_000023, 037 (title-anchoring), 040 (forum floor)."
+        ],
+        "survives": "int_system_tevv dominance, layer-N/A routing, and cross-family coder independence all held. 86-91% within-+/-1 agreement is real, not a shared-anchoring artifact.",
+        "reliability_snapshot": {
+          "note": "pooled 3-coder Krippendorff alpha, v2.10 instrument (Claude x Codex x PXY), 40 docs",
+          "ALL": {
+            "ordinal_0_5": 0.534,
+            "nominal": 0.628,
+            "binary": 0.396
+          }
+        }
+      },
+      {
+        "run": "RUN_03",
+        "date": "2026-06-05",
+        "scale": "DPPRA v2.11 (frozen instrument)",
+        "headline": "Per-coder, per-layer adversarial pass: one document per coder per layer (GOV/INS/FRM/COR = 12 targeted audits), each reviewer instructed to REFUTE. Result reframes the reliability problem: disagreement is INSTRUMENT-LOCATED, not coder-located. The eth_* / dppra_p1 ethical spine largely SURVIVED attack; what blew up was a small fixed set of under-specified categorical/attribution fields plus confidence noise. Confidence fields confirmed irrelevant to the document and formally excluded from alpha. Five instrument defects isolated -> v2.12.",
+        "method": "For each layer the most-divergent document per coder was selected by an automated 3-coder outlier scan; an independent adversarial agent (default-skeptical, evidence-bound) attacked that coder's contested fields against the source text + v2.11 anchors, ruling each SURVIVES / REFUTED / INSTRUMENT-AMBIGUITY.",
+        "findings": [
+          {
+            "tag": "A",
+            "title": "dominant_value_type coded BLIND (no legend in v2.11 inject)",
+            "type": "instrument_defect",
+            "strength": "strong",
+            "disposition": "v2.12 MUST inject the dominant_value_type value-label legend",
+            "detail": "Every one of the 12 adversarial agents independently flagged that dominant_value_type has no value-label legend in the SCORING inject. Coders split 2/5/6 with no shared referent. A categorical field is being assigned without a definition. Highest-leverage fix; direct cause of the weak NOMINAL pooled alpha (FRM 0.456, JRN 0.474, COR 0.549)."
+          },
+          {
+            "tag": "B",
+            "title": "cb attribution enums lack a diffuse / collective / none-asserted value",
+            "type": "instrument_defect",
+            "strength": "strong",
+            "disposition": "v2.12 add explicit diffuse/collective and none-asserted codes to cb_primary_cost_bearer / material_beneficiary / value_capturer",
+            "detail": "Recurs in COR, GOV, INS and FRM. When a text asserts NO concentrated bearer/beneficiary (e.g. humanity-as-a-whole, or a corporate page that rhetorically eliminates costs), Gemini codes 0 (=absent) while peers force 6 (=society). Neither is right: the enum cannot express diffuse/collective or genuine non-assertion. FRM/058 Gemini zeroed four such fields its own narrative described; GOV/053 value_capturer=0 vs peers 4/6."
+          },
+          {
+            "tag": "C",
+            "title": "cb_balance and cb_distribution_direction polarity undefined",
+            "type": "instrument_defect",
+            "strength": "strong",
+            "disposition": "v2.12 add explicit two-pole anchors + worked example to both fields",
+            "detail": "Coders split the full range; one agent: the enum polarity is under-specified. Gemini repeatedly codes cb_balance against its own valence_positive (COR/064 balance=1 with valence_positive=0.90). cb_distribution_direction spans 1/3/5 with no shared legend (GOV/056)."
+          },
+          {
+            "tag": "D",
+            "title": "One-5 CAP violated (mostly Codex); self-report unreliable",
+            "type": "artifact",
+            "strength": "strong",
+            "disposition": "v2.12 add a machine CAP/self-report check at intake",
+            "detail": "GOV/056 Codex emitted FIVE 0-5 fields at 5 (only dppra_p1 defensible); COR/063 two 5s. Codex cap_rule_notes misreported its own output (claimed one 5 while two/five present). Claude enforces the cap, sometimes holding a co-strong dimension at 4 and reading as cold. The CAP needs an automated guard, not coder self-report."
+          },
+          {
+            "tag": "E",
+            "title": "Confidence fields are a coder signature, not a document property",
+            "type": "construct_validity",
+            "strength": "strong",
+            "disposition": "RESOLVED: formally excluded from alpha in v2.12 (already dropped via PROCESS set)",
+            "detail": "coding_confidence/final_confidence split 2/3/5 on nearly every document by CODER (Gemini ~5 overconfident, Codex ~2 over-modest from the cooling addendum, Claude ~3/4), independent of the text. They measure the rater, not the artifact, and were already excluded from the pooled headline; v2.12 states this as an explicit methodological rule."
+          },
+          {
+            "tag": "F",
+            "title": "Coder tendencies are FIELD-FAMILY-specific, not coder-global (mirror model too simple)",
+            "type": "calibration",
+            "strength": "moderate",
+            "disposition": "v2.12 note: calibration addenda must be scoped to field families",
+            "detail": "Claude: cold on ordinal intensities (GOV/054, INS/051) but HOT/mis-anchored on FRM cb-attribution (057). Codex: hot on caps/strength + metaphor-as-mechanism on int_* (FRM/059) but the cooling addendum OVER-corrects to cold on INS intensities (050). Gemini: hot on prominence-as-intensity + overconfident, but zeros the cb-distribution cluster (under). Each coder flips direction by field family; the Claude=cold / Codex=hot mirror is an oversimplification."
+          },
+          {
+            "tag": "G",
+            "title": "int_* integrity streams inflate via metaphor-as-mechanism; text-access asymmetry confound",
+            "type": "construct_validity",
+            "strength": "moderate",
+            "disposition": "v2.12 tighten int_* to require an operational mechanism; log text_access per doc and gate cross-coder comparison on equal access",
+            "detail": "FRM/059 Codex read a rhetorical essay's metaphors (who-is-harvested, ask-what-you-are-training) as substantive TEVV/data-provenance/surveillance. Separately INS/051 Claude=Partial vs peers Full: several cold Claude reads were unread-content artifacts, not calibration -> codings across unequal text access are not strictly comparable."
+          }
+        ],
+        "recommendations_v212": [
+          "Inject the dominant_value_type value-label legend (Finding A).",
+          "Add diffuse/collective + none-asserted codes to the three cb_primary_* attribution enums (Finding B).",
+          "Add explicit two-pole anchors + worked examples to cb_balance and cb_distribution_direction (Finding C).",
+          "Add an automated one-5 CAP guard + cap self-report verifier at intake (Finding D).",
+          "Formalize exclusion of confidence/process fields from reliability alpha (Finding E).",
+          "Scope calibration addenda to field families; require an operational mechanism for int_* firing; record text_access per doc and compare only equal-access codings (Findings F,G)."
+        ],
+        "survives": "The eth_* ethical spine and dppra_p1 (binding/policy strength) largely withstood adversarial attack across all four layers. Structural 5s landed defensibly on the substantive safety frameworks (OpenAI Preparedness, Anthropic Core Views) and never on marketing pages. The COI on the Anthropic doc (Claude coding its own developer) was detected, mild (~+1 on two credibility-adjacent fields), and partly self-mitigated. Conclusion: the instrument MEASURES the ethical content reliably; the pooled alpha is dragged down by ~6 under-specified categorical/attribution fields + confidence noise, all fixable in v2.12 without touching a single ethical judgment.",
+        "reliability_snapshot": {
+          "note": "pooled 3-coder Krippendorff alpha, confidence/process fields EXCLUDED, v2.11 instrument",
+          "GOV": {
+            "ordinal_0_5": 0.545,
+            "nominal": 0.658,
+            "binary": 0.493
+          },
+          "INS": {
+            "ordinal_0_5": 0.634,
+            "nominal": 0.706,
+            "binary": 0.595
+          },
+          "JRN": {
+            "ordinal_0_5": 0.605,
+            "nominal": 0.474,
+            "binary": 0.622
+          },
+          "FRM": {
+            "ordinal_0_5": 0.678,
+            "nominal": 0.456,
+            "binary": 0.661
+          },
+          "COR": {
+            "ordinal_0_5": 0.56,
+            "nominal": 0.549,
+            "binary": 0.49
+          }
+        }
+      }
+    ]
+  },
+  "coders": {
+    "active": [
+      {
+        "name": "Claude",
+        "vendor": "Anthropic",
+        "role": "Reference / canonical coder \u2014 defines the schema all coders emit.",
+        "chosen": "Most disciplined on structure; serves as the schema author and consistency anchor.",
+        "excels": "Schema fidelity, careful DPPRA structural reasoning, consistent rubric application.",
+        "limits": "Can over-discipline integrity routing \u2014 the adversarial pass found it pulling eth_integrity below its own strongest sub-dimension (the v2.10 fix). Schema-drift risk if unguarded.",
+        "found": "A coder-specific watchout guards its schema drift; Run-1 adversarial flagged integrity over-routing on SRC_000008.",
+        "note": "Reference / canonical coder (Anthropic): defines the schema all coders emit. Most disciplined on structure; its one risk is schema drift, which a coder-specific watch-out guards."
+      },
+      {
+        "name": "Codex",
+        "vendor": "OpenAI",
+        "added": "2026-05-31",
+        "role": "Cross-family OpenAI coder \u2014 added 2026-05-31 to replace a drifted personal ChatGPT instance.",
+        "chosen": "Added 2026-05-31 to correct for a personal ChatGPT instance whose years of accumulated, idiosyncratic conditioning proved problematic in coding (it ran hot). A clean OpenAI-family coder covers the family without the personal-instance baggage.",
+        "excels": "Balanced calibration \u2014 signed bias \u00b10.03 versus the personal ChatGPT instance's +0.144. The single biggest reliability win in the project.",
+        "limits": "Shares general OpenAI-family priors; newest member, least Run-history.",
+        "found": "Solved the hot-anchoring bias that the thesis's same-family (Plus+EDU) design could not catch.",
+        "note": "Added 2026-05-31 (OpenAI). Replaced a personal ChatGPT instance whose years of accumulated, idiosyncratic conditioning ran hot in coding (signed bias +0.144); Codex is the clean OpenAI-family coder at signed bias \u00b10.03."
+      },
+      {
+        "name": "Gemini",
+        "vendor": "Google",
+        "model": "2.5 Flash (AI Studio)",
+        "added": "2026-06-04",
+        "role": "Third cross-family voice (Google) \u2014 replaced Perplexity on the v2.11 batch.",
+        "chosen": "Swapped in for Perplexity to keep a genuinely independent third model family after PXY's recurring cost and reliability breakage. Free Flash tier via AI Studio; no same-family priors with Claude or Codex.",
+        "excels": "Clean moderate validator \u2014 the best-agreeing pair with Claude (claude+gemini pooled ordinal alpha 0.701, the strongest of the three pairs on the v2.11 batch).",
+        "limits": "Reads prominence as intensity (runs warm on some fields); zeros the cost/benefit attribution cluster where a diffuse/collective value is intended; over-confident on the (alpha-excluded) confidence fields; occasionally omits the layer-N/A fields, which the capture pipeline backfills.",
+        "found": "RUN_03 localized its divergences to the under-specified categorical/attribution fields, not the ethical spine \u2014 a v2.12 instrument fix, not a coder defect.",
+        "note": "Cross-family coder (Google), added 2026-06-04 to replace Perplexity for the v2.11 batch. Free Gemini Flash via AI Studio; the best-agreeing pair with Claude (ordinal alpha 0.701)."
+      }
+    ],
+    "excluded": [
+      {
+        "name": "GPT (ChatGPT Plus)",
+        "reason": "Ran hot \u2014 a degenerate high-anchored pass (signed bias +0.144). A drifted personal instance, NOT the underlying model. Replaced by OpenAI Codex.",
+        "detail": "Excluded as a corrupted instance, not a model judgment; Codex covers the OpenAI family cleanly."
+      },
+      {
+        "name": "Perplexity (PXY)",
+        "reason": "Retired 2026-06-04 \u2014 recurring subscription cost (~$60/mo after forced plan upgrades) and reliability breakage (halting on the source-manifest gate). Replaced by Gemini for the v2.11 batch.",
+        "detail": "Served as the third cross-family voice through Run-1/Run-2 (pinned to Sonar 2); swapped out on cost/reliability grounds, not a model-quality judgment."
+      },
+      {
+        "name": "DeepSeek",
+        "reason": "Output degradation / truncation on long institutional documents.",
+        "detail": "Dropped after it failed to complete the longer GOV/INS sources intact."
+      }
+    ]
+  },
+  "coverage": {
+    "docs": 65,
+    "coders": 3,
+    "three_coder": 40
+  },
+  "reliability": {
+    "ordinal_0_5_alpha": 0.662,
+    "nominal_alpha": 0.575,
+    "binary_alpha": 0.599,
+    "baseline_v_prev_ordinal": 0.626,
+    "target_ordinal": 0.667,
+    "n_docs": 65,
+    "note": "Krippendorff alpha, pooled. >=.80 reliable | .667-.80 tentative."
+  },
+  "by_sector": {
+    "ALL": {
+      "layer": "ALL",
+      "n_docs": 18,
+      "doc_ids": [
+        "SRC_000015",
+        "SRC_000016",
+        "SRC_000010",
+        "SRC_000011",
+        "SRC_000012",
+        "SRC_000013",
+        "SRC_000014",
+        "SRC_000002",
+        "SRC_000003",
+        "SRC_000004",
+        "SRC_000005",
+        "SRC_000017",
+        "SRC_000018",
+        "SRC_000019",
+        "SRC_000006",
+        "SRC_000007",
+        "SRC_000008",
+        "SRC_000009"
+      ],
+      "principles": [
+        {
+          "key": "eth_equity_code",
+          "label": "Equity",
+          "mean": 2.44,
+          "n": 18
+        },
+        {
+          "key": "eth_accountability_code",
+          "label": "Accountability",
+          "mean": 3.94,
+          "n": 18
+        },
+        {
+          "key": "eth_transparency_code",
+          "label": "Transparency",
+          "mean": 3.44,
+          "n": 18
+        },
+        {
+          "key": "eth_privacy_code",
+          "label": "Privacy",
+          "mean": 2.72,
+          "n": 18
+        },
+        {
+          "key": "eth_autonomy_code",
+          "label": "Autonomy",
+          "mean": 2.89,
+          "n": 18
+        },
+        {
+          "key": "eth_integrity_code",
+          "label": "Integrity",
+          "mean": 3.44,
+          "n": 18
+        },
+        {
+          "key": "eth_nonmaleficence_code",
+          "label": "Non-Maleficence",
+          "mean": 3.39,
+          "n": 18
+        },
+        {
+          "key": "eth_beneficence_mech_code",
+          "label": "Beneficence (Mech)",
+          "mean": 2.89,
+          "n": 18
+        },
+        {
+          "key": "eth_beneficence_eth_code",
+          "label": "Beneficence (Ethical)",
+          "mean": 2.72,
+          "n": 18
+        },
+        {
+          "key": "eth_justice_code",
+          "label": "Justice",
+          "mean": 3.0,
+          "n": 18
+        }
+      ],
+      "dppra": [
+        {
+          "key": "dppra_d_strength_code",
+          "label": "D \u2014 Discourse",
+          "mean": 4.0
+        },
+        {
+          "key": "dppra_p1_strength_code",
+          "label": "P1 \u2014 Policy",
+          "mean": 3.44
+        },
+        {
+          "key": "dppra_p2_strength_code",
+          "label": "P2 \u2014 Practice",
+          "mean": 3.0
+        },
+        {
+          "key": "dppra_r_strength_code",
+          "label": "R \u2014 Resources",
+          "mean": 2.33
+        },
+        {
+          "key": "dppra_a_strength_code",
+          "label": "A \u2014 Accountability",
+          "mean": 3.33
+        },
+        {
+          "key": "dppra_alignment_score_code",
+          "label": "DPPRA Alignment",
+          "mean": 2.83
+        }
+      ],
+      "integrity": [
+        {
+          "key": "int_academic_intensity_code",
+          "label": "Academic",
+          "mean": 0.56,
+          "n": 18
+        },
+        {
+          "key": "int_research_intensity_code",
+          "label": "Research",
+          "mean": 1.0,
+          "n": 18
+        },
+        {
+          "key": "int_assessment_intensity_code",
+          "label": "Assessment",
+          "mean": 0.5,
+          "n": 18
+        },
+        {
+          "key": "int_system_tevv_intensity_code",
+          "label": "System/TEVV",
+          "mean": 2.56,
+          "n": 18
+        },
+        {
+          "key": "int_data_prov_intensity_code",
+          "label": "Data/Provenance",
+          "mean": 2.56,
+          "n": 18
+        },
+        {
+          "key": "int_epistemic_intensity_code",
+          "label": "Epistemic",
+          "mean": 2.89,
+          "n": 18
+        }
+      ],
+      "valence": {
+        "positive": 0.365,
+        "neutral_mixed": 0.345,
+        "negative": 0.29
+      },
+      "distributions": {
+        "dominant_value_type": {
+          "Institutional": 9,
+          "Market": 2,
+          "Humanistic": 3,
+          "Pedagogical": 2,
+          "Mechanical": 1,
+          "Redistributive": 1
+        },
+        "cb_balance": {
+          "mixed/balanced": 11,
+          "costs>benefits": 4,
+          "asymmetric": 1,
+          "benefits>costs": 2
+        },
+        "decoupling": {
+          "low-moderate": 12,
+          "high": 2,
+          "moderate": 4
+        }
+      },
+      "reliability": {
+        "per_doc": [],
+        "mean_unanimous_pct": null,
+        "mean_within1_pct": null
+      },
+      "per_doc": [
+        {
+          "src": "SRC_000015",
+          "alignment": 4,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000016",
+          "alignment": 4,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000010",
+          "alignment": 1,
+          "dominant_value": "Market"
+        },
+        {
+          "src": "SRC_000011",
+          "alignment": 2,
+          "dominant_value": "Humanistic"
+        },
+        {
+          "src": "SRC_000012",
+          "alignment": 2,
+          "dominant_value": "Pedagogical"
+        },
+        {
+          "src": "SRC_000013",
+          "alignment": 1,
+          "dominant_value": "Market"
+        },
+        {
+          "src": "SRC_000014",
+          "alignment": 3,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000002",
+          "alignment": 4,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000003",
+          "alignment": 4,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000004",
+          "alignment": 4,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000005",
+          "alignment": 4,
+          "dominant_value": "Mechanical"
+        },
+        {
+          "src": "SRC_000017",
+          "alignment": 3,
+          "dominant_value": "Humanistic"
+        },
+        {
+          "src": "SRC_000018",
+          "alignment": 2,
+          "dominant_value": "Redistributive"
+        },
+        {
+          "src": "SRC_000019",
+          "alignment": 3,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000006",
+          "alignment": 2,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000007",
+          "alignment": 3,
+          "dominant_value": "Pedagogical"
+        },
+        {
+          "src": "SRC_000008",
+          "alignment": 3,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000009",
+          "alignment": 2,
+          "dominant_value": "Humanistic"
+        }
+      ],
+      "sector_label": "All sectors (composite)"
+    },
+    "GOV": {
+      "layer": "GOV",
+      "n_docs": 4,
+      "doc_ids": [
+        "SRC_000002",
+        "SRC_000003",
+        "SRC_000004",
+        "SRC_000005"
+      ],
+      "principles": [
+        {
+          "key": "eth_equity_code",
+          "label": "Equity",
+          "mean": 3.0,
+          "n": 4
+        },
+        {
+          "key": "eth_accountability_code",
+          "label": "Accountability",
+          "mean": 4.25,
+          "n": 4
+        },
+        {
+          "key": "eth_transparency_code",
+          "label": "Transparency",
+          "mean": 4.0,
+          "n": 4
+        },
+        {
+          "key": "eth_privacy_code",
+          "label": "Privacy",
+          "mean": 3.75,
+          "n": 4
+        },
+        {
+          "key": "eth_autonomy_code",
+          "label": "Autonomy",
+          "mean": 2.25,
+          "n": 4
+        },
+        {
+          "key": "eth_integrity_code",
+          "label": "Integrity",
+          "mean": 3.25,
+          "n": 4
+        },
+        {
+          "key": "eth_nonmaleficence_code",
+          "label": "Non-Maleficence",
+          "mean": 3.5,
+          "n": 4
+        },
+        {
+          "key": "eth_beneficence_mech_code",
+          "label": "Beneficence (Mech)",
+          "mean": 4.5,
+          "n": 4
+        },
+        {
+          "key": "eth_beneficence_eth_code",
+          "label": "Beneficence (Ethical)",
+          "mean": 3.0,
+          "n": 4
+        },
+        {
+          "key": "eth_justice_code",
+          "label": "Justice",
+          "mean": 3.0,
+          "n": 4
+        }
+      ],
+      "dppra": [
+        {
+          "key": "dppra_d_strength_code",
+          "label": "D \u2014 Discourse",
+          "mean": 3.75
+        },
+        {
+          "key": "dppra_p1_strength_code",
+          "label": "P1 \u2014 Policy",
+          "mean": 4.5
+        },
+        {
+          "key": "dppra_p2_strength_code",
+          "label": "P2 \u2014 Practice",
+          "mean": 4.0
+        },
+        {
+          "key": "dppra_r_strength_code",
+          "label": "R \u2014 Resources",
+          "mean": 3.25
+        },
+        {
+          "key": "dppra_a_strength_code",
+          "label": "A \u2014 Accountability",
+          "mean": 4.25
+        },
+        {
+          "key": "dppra_alignment_score_code",
+          "label": "DPPRA Alignment",
+          "mean": 4.0
+        }
+      ],
+      "integrity": [
+        {
+          "key": "int_academic_intensity_code",
+          "label": "Academic",
+          "mean": 0.0,
+          "n": 4
+        },
+        {
+          "key": "int_research_intensity_code",
+          "label": "Research",
+          "mean": 0.0,
+          "n": 4
+        },
+        {
+          "key": "int_assessment_intensity_code",
+          "label": "Assessment",
+          "mean": 0.0,
+          "n": 4
+        },
+        {
+          "key": "int_system_tevv_intensity_code",
+          "label": "System/TEVV",
+          "mean": 4.0,
+          "n": 4
+        },
+        {
+          "key": "int_data_prov_intensity_code",
+          "label": "Data/Provenance",
+          "mean": 4.0,
+          "n": 4
+        },
+        {
+          "key": "int_epistemic_intensity_code",
+          "label": "Epistemic",
+          "mean": 2.5,
+          "n": 4
+        }
+      ],
+      "valence": {
+        "positive": 0.579,
+        "neutral_mixed": 0.311,
+        "negative": 0.11
+      },
+      "distributions": {
+        "dominant_value_type": {
+          "Institutional": 3,
+          "Mechanical": 1
+        },
+        "cb_balance": {
+          "mixed/balanced": 2,
+          "benefits>costs": 2
+        },
+        "decoupling": {
+          "low-moderate": 4
+        }
+      },
+      "reliability": {
+        "per_doc": [],
+        "mean_unanimous_pct": null,
+        "mean_within1_pct": null
+      },
+      "per_doc": [
+        {
+          "src": "SRC_000002",
+          "alignment": 4,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000003",
+          "alignment": 4,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000004",
+          "alignment": 4,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000005",
+          "alignment": 4,
+          "dominant_value": "Mechanical"
+        }
+      ],
+      "sector_label": "Government & Policy"
+    },
+    "JRN": {
+      "layer": "JRN",
+      "n_docs": 4,
+      "doc_ids": [
+        "SRC_000006",
+        "SRC_000007",
+        "SRC_000008",
+        "SRC_000009"
+      ],
+      "principles": [
+        {
+          "key": "eth_equity_code",
+          "label": "Equity",
+          "mean": 3.25,
+          "n": 4
+        },
+        {
+          "key": "eth_accountability_code",
+          "label": "Accountability",
+          "mean": 4.25,
+          "n": 4
+        },
+        {
+          "key": "eth_transparency_code",
+          "label": "Transparency",
+          "mean": 4.0,
+          "n": 4
+        },
+        {
+          "key": "eth_privacy_code",
+          "label": "Privacy",
+          "mean": 3.0,
+          "n": 4
+        },
+        {
+          "key": "eth_autonomy_code",
+          "label": "Autonomy",
+          "mean": 3.75,
+          "n": 4
+        },
+        {
+          "key": "eth_integrity_code",
+          "label": "Integrity",
+          "mean": 3.5,
+          "n": 4
+        },
+        {
+          "key": "eth_nonmaleficence_code",
+          "label": "Non-Maleficence",
+          "mean": 2.75,
+          "n": 4
+        },
+        {
+          "key": "eth_beneficence_mech_code",
+          "label": "Beneficence (Mech)",
+          "mean": 3.25,
+          "n": 4
+        },
+        {
+          "key": "eth_beneficence_eth_code",
+          "label": "Beneficence (Ethical)",
+          "mean": 3.25,
+          "n": 4
+        },
+        {
+          "key": "eth_justice_code",
+          "label": "Justice",
+          "mean": 3.25,
+          "n": 4
+        }
+      ],
+      "dppra": [
+        {
+          "key": "dppra_d_strength_code",
+          "label": "D \u2014 Discourse",
+          "mean": 4.5
+        },
+        {
+          "key": "dppra_p1_strength_code",
+          "label": "P1 \u2014 Policy",
+          "mean": 3.25
+        },
+        {
+          "key": "dppra_p2_strength_code",
+          "label": "P2 \u2014 Practice",
+          "mean": 2.5
+        },
+        {
+          "key": "dppra_r_strength_code",
+          "label": "R \u2014 Resources",
+          "mean": 1.5
+        },
+        {
+          "key": "dppra_a_strength_code",
+          "label": "A \u2014 Accountability",
+          "mean": 3.25
+        },
+        {
+          "key": "dppra_alignment_score_code",
+          "label": "DPPRA Alignment",
+          "mean": 2.5
+        }
+      ],
+      "integrity": [
+        {
+          "key": "int_academic_intensity_code",
+          "label": "Academic",
+          "mean": 0.75,
+          "n": 4
+        },
+        {
+          "key": "int_research_intensity_code",
+          "label": "Research",
+          "mean": 1.5,
+          "n": 4
+        },
+        {
+          "key": "int_assessment_intensity_code",
+          "label": "Assessment",
+          "mean": 0.75,
+          "n": 4
+        },
+        {
+          "key": "int_system_tevv_intensity_code",
+          "label": "System/TEVV",
+          "mean": 2.5,
+          "n": 4
+        },
+        {
+          "key": "int_data_prov_intensity_code",
+          "label": "Data/Provenance",
+          "mean": 2.5,
+          "n": 4
+        },
+        {
+          "key": "int_epistemic_intensity_code",
+          "label": "Epistemic",
+          "mean": 3.5,
+          "n": 4
+        }
+      ],
+      "valence": {
+        "positive": 0.3,
+        "neutral_mixed": 0.44,
+        "negative": 0.26
+      },
+      "distributions": {
+        "dominant_value_type": {
+          "Institutional": 2,
+          "Pedagogical": 1,
+          "Humanistic": 1
+        },
+        "cb_balance": {
+          "mixed/balanced": 4
+        },
+        "decoupling": {
+          "low-moderate": 3,
+          "moderate": 1
+        }
+      },
+      "reliability": {
+        "per_doc": [],
+        "mean_unanimous_pct": null,
+        "mean_within1_pct": null
+      },
+      "per_doc": [
+        {
+          "src": "SRC_000006",
+          "alignment": 2,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000007",
+          "alignment": 3,
+          "dominant_value": "Pedagogical"
+        },
+        {
+          "src": "SRC_000008",
+          "alignment": 3,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000009",
+          "alignment": 2,
+          "dominant_value": "Humanistic"
+        }
+      ],
+      "sector_label": "Academic"
+    },
+    "FRM": {
+      "layer": "FRM",
+      "n_docs": 5,
+      "doc_ids": [
+        "SRC_000010",
+        "SRC_000011",
+        "SRC_000012",
+        "SRC_000013",
+        "SRC_000014"
+      ],
+      "principles": [
+        {
+          "key": "eth_equity_code",
+          "label": "Equity",
+          "mean": 1.2,
+          "n": 5
+        },
+        {
+          "key": "eth_accountability_code",
+          "label": "Accountability",
+          "mean": 3.4,
+          "n": 5
+        },
+        {
+          "key": "eth_transparency_code",
+          "label": "Transparency",
+          "mean": 2.4,
+          "n": 5
+        },
+        {
+          "key": "eth_privacy_code",
+          "label": "Privacy",
+          "mean": 1.4,
+          "n": 5
+        },
+        {
+          "key": "eth_autonomy_code",
+          "label": "Autonomy",
+          "mean": 2.8,
+          "n": 5
+        },
+        {
+          "key": "eth_integrity_code",
+          "label": "Integrity",
+          "mean": 3.2,
+          "n": 5
+        },
+        {
+          "key": "eth_nonmaleficence_code",
+          "label": "Non-Maleficence",
+          "mean": 3.2,
+          "n": 5
+        },
+        {
+          "key": "eth_beneficence_mech_code",
+          "label": "Beneficence (Mech)",
+          "mean": 1.8,
+          "n": 5
+        },
+        {
+          "key": "eth_beneficence_eth_code",
+          "label": "Beneficence (Ethical)",
+          "mean": 1.8,
+          "n": 5
+        },
+        {
+          "key": "eth_justice_code",
+          "label": "Justice",
+          "mean": 3.0,
+          "n": 5
+        }
+      ],
+      "dppra": [
+        {
+          "key": "dppra_d_strength_code",
+          "label": "D \u2014 Discourse",
+          "mean": 3.8
+        },
+        {
+          "key": "dppra_p1_strength_code",
+          "label": "P1 \u2014 Policy",
+          "mean": 2.2
+        },
+        {
+          "key": "dppra_p2_strength_code",
+          "label": "P2 \u2014 Practice",
+          "mean": 2.8
+        },
+        {
+          "key": "dppra_r_strength_code",
+          "label": "R \u2014 Resources",
+          "mean": 2.6
+        },
+        {
+          "key": "dppra_a_strength_code",
+          "label": "A \u2014 Accountability",
+          "mean": 2.8
+        },
+        {
+          "key": "dppra_alignment_score_code",
+          "label": "DPPRA Alignment",
+          "mean": 1.8
+        }
+      ],
+      "integrity": [
+        {
+          "key": "int_academic_intensity_code",
+          "label": "Academic",
+          "mean": 0.4,
+          "n": 5
+        },
+        {
+          "key": "int_research_intensity_code",
+          "label": "Research",
+          "mean": 1.2,
+          "n": 5
+        },
+        {
+          "key": "int_assessment_intensity_code",
+          "label": "Assessment",
+          "mean": 0.6,
+          "n": 5
+        },
+        {
+          "key": "int_system_tevv_intensity_code",
+          "label": "System/TEVV",
+          "mean": 1.4,
+          "n": 5
+        },
+        {
+          "key": "int_data_prov_intensity_code",
+          "label": "Data/Provenance",
+          "mean": 1.8,
+          "n": 5
+        },
+        {
+          "key": "int_epistemic_intensity_code",
+          "label": "Epistemic",
+          "mean": 2.8,
+          "n": 5
+        }
+      ],
+      "valence": {
+        "positive": 0.164,
+        "neutral_mixed": 0.301,
+        "negative": 0.535
+      },
+      "distributions": {
+        "dominant_value_type": {
+          "Market": 2,
+          "Humanistic": 1,
+          "Pedagogical": 1,
+          "Institutional": 1
+        },
+        "cb_balance": {
+          "costs>benefits": 3,
+          "mixed/balanced": 1,
+          "asymmetric": 1
+        },
+        "decoupling": {
+          "high": 2,
+          "moderate": 2,
+          "low-moderate": 1
+        }
+      },
+      "reliability": {
+        "per_doc": [],
+        "mean_unanimous_pct": null,
+        "mean_within1_pct": null
+      },
+      "per_doc": [
+        {
+          "src": "SRC_000010",
+          "alignment": 1,
+          "dominant_value": "Market"
+        },
+        {
+          "src": "SRC_000011",
+          "alignment": 2,
+          "dominant_value": "Humanistic"
+        },
+        {
+          "src": "SRC_000012",
+          "alignment": 2,
+          "dominant_value": "Pedagogical"
+        },
+        {
+          "src": "SRC_000013",
+          "alignment": 1,
+          "dominant_value": "Market"
+        },
+        {
+          "src": "SRC_000014",
+          "alignment": 3,
+          "dominant_value": "Institutional"
+        }
+      ],
+      "sector_label": "Public"
+    },
+    "INS": {
+      "layer": "INS",
+      "n_docs": 3,
+      "doc_ids": [
+        "SRC_000017",
+        "SRC_000018",
+        "SRC_000019"
+      ],
+      "principles": [
+        {
+          "key": "eth_equity_code",
+          "label": "Equity",
+          "mean": 3.0,
+          "n": 3
+        },
+        {
+          "key": "eth_accountability_code",
+          "label": "Accountability",
+          "mean": 4.0,
+          "n": 3
+        },
+        {
+          "key": "eth_transparency_code",
+          "label": "Transparency",
+          "mean": 3.33,
+          "n": 3
+        },
+        {
+          "key": "eth_privacy_code",
+          "label": "Privacy",
+          "mean": 4.0,
+          "n": 3
+        },
+        {
+          "key": "eth_autonomy_code",
+          "label": "Autonomy",
+          "mean": 3.0,
+          "n": 3
+        },
+        {
+          "key": "eth_integrity_code",
+          "label": "Integrity",
+          "mean": 3.67,
+          "n": 3
+        },
+        {
+          "key": "eth_nonmaleficence_code",
+          "label": "Non-Maleficence",
+          "mean": 3.67,
+          "n": 3
+        },
+        {
+          "key": "eth_beneficence_mech_code",
+          "label": "Beneficence (Mech)",
+          "mean": 2.0,
+          "n": 3
+        },
+        {
+          "key": "eth_beneficence_eth_code",
+          "label": "Beneficence (Ethical)",
+          "mean": 3.33,
+          "n": 3
+        },
+        {
+          "key": "eth_justice_code",
+          "label": "Justice",
+          "mean": 3.33,
+          "n": 3
+        }
+      ],
+      "dppra": [
+        {
+          "key": "dppra_d_strength_code",
+          "label": "D \u2014 Discourse",
+          "mean": 4.0
+        },
+        {
+          "key": "dppra_p1_strength_code",
+          "label": "P1 \u2014 Policy",
+          "mean": 3.67
+        },
+        {
+          "key": "dppra_p2_strength_code",
+          "label": "P2 \u2014 Practice",
+          "mean": 2.0
+        },
+        {
+          "key": "dppra_r_strength_code",
+          "label": "R \u2014 Resources",
+          "mean": 1.33
+        },
+        {
+          "key": "dppra_a_strength_code",
+          "label": "A \u2014 Accountability",
+          "mean": 2.67
+        },
+        {
+          "key": "dppra_alignment_score_code",
+          "label": "DPPRA Alignment",
+          "mean": 2.67
+        }
+      ],
+      "integrity": [
+        {
+          "key": "int_academic_intensity_code",
+          "label": "Academic",
+          "mean": 1.67,
+          "n": 3
+        },
+        {
+          "key": "int_research_intensity_code",
+          "label": "Research",
+          "mean": 2.0,
+          "n": 3
+        },
+        {
+          "key": "int_assessment_intensity_code",
+          "label": "Assessment",
+          "mean": 1.0,
+          "n": 3
+        },
+        {
+          "key": "int_system_tevv_intensity_code",
+          "label": "System/TEVV",
+          "mean": 1.67,
+          "n": 3
+        },
+        {
+          "key": "int_data_prov_intensity_code",
+          "label": "Data/Provenance",
+          "mean": 2.33,
+          "n": 3
+        },
+        {
+          "key": "int_epistemic_intensity_code",
+          "label": "Epistemic",
+          "mean": 3.0,
+          "n": 3
+        }
+      ],
+      "valence": {
+        "positive": 0.399,
+        "neutral_mixed": 0.326,
+        "negative": 0.276
+      },
+      "distributions": {
+        "dominant_value_type": {
+          "Humanistic": 1,
+          "Redistributive": 1,
+          "Institutional": 1
+        },
+        "cb_balance": {
+          "mixed/balanced": 2,
+          "costs>benefits": 1
+        },
+        "decoupling": {
+          "low-moderate": 2,
+          "moderate": 1
+        }
+      },
+      "reliability": {
+        "per_doc": [],
+        "mean_unanimous_pct": null,
+        "mean_within1_pct": null
+      },
+      "per_doc": [
+        {
+          "src": "SRC_000017",
+          "alignment": 3,
+          "dominant_value": "Humanistic"
+        },
+        {
+          "src": "SRC_000018",
+          "alignment": 2,
+          "dominant_value": "Redistributive"
+        },
+        {
+          "src": "SRC_000019",
+          "alignment": 3,
+          "dominant_value": "Institutional"
+        }
+      ],
+      "sector_label": "Institutional & Independent"
+    },
+    "COR": {
+      "layer": "COR",
+      "n_docs": 2,
+      "doc_ids": [
+        "SRC_000015",
+        "SRC_000016"
+      ],
+      "principles": [
+        {
+          "key": "eth_equity_code",
+          "label": "Equity",
+          "mean": 2.0,
+          "n": 2
+        },
+        {
+          "key": "eth_accountability_code",
+          "label": "Accountability",
+          "mean": 4.0,
+          "n": 2
+        },
+        {
+          "key": "eth_transparency_code",
+          "label": "Transparency",
+          "mean": 4.0,
+          "n": 2
+        },
+        {
+          "key": "eth_privacy_code",
+          "label": "Privacy",
+          "mean": 1.5,
+          "n": 2
+        },
+        {
+          "key": "eth_autonomy_code",
+          "label": "Autonomy",
+          "mean": 2.5,
+          "n": 2
+        },
+        {
+          "key": "eth_integrity_code",
+          "label": "Integrity",
+          "mean": 4.0,
+          "n": 2
+        },
+        {
+          "key": "eth_nonmaleficence_code",
+          "label": "Non-Maleficence",
+          "mean": 4.5,
+          "n": 2
+        },
+        {
+          "key": "eth_beneficence_mech_code",
+          "label": "Beneficence (Mech)",
+          "mean": 3.0,
+          "n": 2
+        },
+        {
+          "key": "eth_beneficence_eth_code",
+          "label": "Beneficence (Ethical)",
+          "mean": 2.5,
+          "n": 2
+        },
+        {
+          "key": "eth_justice_code",
+          "label": "Justice",
+          "mean": 2.0,
+          "n": 2
+        }
+      ],
+      "dppra": [
+        {
+          "key": "dppra_d_strength_code",
+          "label": "D \u2014 Discourse",
+          "mean": 4.0
+        },
+        {
+          "key": "dppra_p1_strength_code",
+          "label": "P1 \u2014 Policy",
+          "mean": 4.5
+        },
+        {
+          "key": "dppra_p2_strength_code",
+          "label": "P2 \u2014 Practice",
+          "mean": 4.0
+        },
+        {
+          "key": "dppra_r_strength_code",
+          "label": "R \u2014 Resources",
+          "mean": 3.0
+        },
+        {
+          "key": "dppra_a_strength_code",
+          "label": "A \u2014 Accountability",
+          "mean": 4.0
+        },
+        {
+          "key": "dppra_alignment_score_code",
+          "label": "DPPRA Alignment",
+          "mean": 4.0
+        }
+      ],
+      "integrity": [
+        {
+          "key": "int_academic_intensity_code",
+          "label": "Academic",
+          "mean": 0.0,
+          "n": 2
+        },
+        {
+          "key": "int_research_intensity_code",
+          "label": "Research",
+          "mean": 0.0,
+          "n": 2
+        },
+        {
+          "key": "int_assessment_intensity_code",
+          "label": "Assessment",
+          "mean": 0.0,
+          "n": 2
+        },
+        {
+          "key": "int_system_tevv_intensity_code",
+          "label": "System/TEVV",
+          "mean": 4.0,
+          "n": 2
+        },
+        {
+          "key": "int_data_prov_intensity_code",
+          "label": "Data/Provenance",
+          "mean": 2.0,
+          "n": 2
+        },
+        {
+          "key": "int_epistemic_intensity_code",
+          "label": "Epistemic",
+          "mean": 2.5,
+          "n": 2
+        }
+      ],
+      "valence": {
+        "positive": 0.522,
+        "neutral_mixed": 0.359,
+        "negative": 0.12
+      },
+      "distributions": {
+        "dominant_value_type": {
+          "Institutional": 2
+        },
+        "cb_balance": {
+          "mixed/balanced": 2
+        },
+        "decoupling": {
+          "low-moderate": 2
+        }
+      },
+      "reliability": {
+        "per_doc": [],
+        "mean_unanimous_pct": null,
+        "mean_within1_pct": null
+      },
+      "per_doc": [
+        {
+          "src": "SRC_000015",
+          "alignment": 4,
+          "dominant_value": "Institutional"
+        },
+        {
+          "src": "SRC_000016",
+          "alignment": 4,
+          "dominant_value": "Institutional"
+        }
+      ],
+      "sector_label": "Corporate (major)"
+    }
+  },
+  "corpus_items": [
+    {
+      "src_id": "SRC_000002",
+      "title": "Advancing Governance, Innovation, and Risk Management for Agency Use of Artificial Intelligence",
+      "author": "Executive Office of the President, Office of Management and Budget (OMB)",
+      "year": "2024",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 44,
+      "agreement_within1_pct": 92,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000003",
+      "title": "Advancing the Responsible Acquisition of Artificial Intelligence in Government",
+      "author": "Executive Office of the President, Office of Management and Budget (OMB); signed by Director Shalanda D. Young",
+      "year": "2024",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 42,
+      "agreement_within1_pct": 88,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000004",
+      "title": "Accelerating Federal Use of AI through Innovation, Governance, and Public Trust",
+      "author": "Executive Office of the President, Office of Management and Budget (OMB)",
+      "year": "2025",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 35,
+      "agreement_within1_pct": 88,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000005",
+      "title": "Driving Efficient Acquisition of Artificial Intelligence in Government",
+      "author": "Executive Office of the President, Office of Management and Budget (OMB); signed by Director Russell T. Vought",
+      "year": "2025",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 23,
+      "agreement_within1_pct": 65,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000020",
+      "title": "Regulation (EU) 2024/1689 (Artificial Intelligence Act)",
+      "author": "European Parliament and Council of the European Union",
+      "year": "2024",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 30,
+      "agreement_within1_pct": 87,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000021",
+      "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0), NIST AI 100-1",
+      "author": "National Institute of Standards and Technology (NIST), U.S. Department of Commerce",
+      "year": "2023",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 39,
+      "agreement_within1_pct": 96,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000022",
+      "title": "AI Risk Management Framework: Generative Artificial Intelligence Profile (NIST AI 600-1)",
+      "author": "National Institute of Standards and Technology (NIST), U.S. Department of Commerce",
+      "year": "2024",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 22,
+      "agreement_within1_pct": 78,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000023",
+      "title": "Senate Bill No. 53 \u2014 Transparency in Frontier Artificial Intelligence Act (TFAIA)",
+      "author": "California State Legislature (Sen. Wiener)",
+      "year": "2025",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 30,
+      "agreement_within1_pct": 70,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000028",
+      "title": "Recommendation of the Council on Artificial Intelligence (OECD/LEGAL/0449)",
+      "author": "OECD (Organisation for Economic Co-operation and Development)",
+      "year": "2019",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 17,
+      "agreement_within1_pct": 83,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000031",
+      "title": "Senate Bill 24-205 \u2014 Consumer Protections in Interactions with Artificial Intelligence Systems (Colorado AI Act)",
+      "author": "Colorado General Assembly",
+      "year": "2024",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 17,
+      "agreement_within1_pct": 61,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000052",
+      "title": "Blueprint for an AI Bill of Rights: Making Automated Systems Work for the American People",
+      "author": "US White House Office of Science and Technology Policy (OSTP)",
+      "year": "2022",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000053",
+      "title": "Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law (CETS 225)",
+      "author": "Council of Europe",
+      "year": "2024",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000054",
+      "title": "Interim Measures for the Management of Generative Artificial Intelligence Services",
+      "author": "Cyberspace Administration of China (CAC) and six other agencies",
+      "year": "2023",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000055",
+      "title": "A Pro-Innovation Approach to AI Regulation (White Paper, CP 815)",
+      "author": "UK Government \u2014 Department for Science, Innovation and Technology (DSIT)",
+      "year": "2023",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000056",
+      "title": "Executive Order 14110 on Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence",
+      "author": "President of the United States (White House)",
+      "year": "2023",
+      "sector_code": "GOV",
+      "sector_label": "Government & Policy",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000006",
+      "title": "Algorithmic Decision-Making and Human Autonomy in Finance: A Systematic Review of AI Ethics Research",
+      "author": "Taha Bhatti (School of Digital Science, Universiti Brunei Darussalam)",
+      "year": "2026",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 30,
+      "agreement_within1_pct": 81,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000007",
+      "title": "Explainable and responsible artificial intelligence in education: Ethical challenges in adaptive learning systems",
+      "author": "Lebar-Ndibiri Esther Chinyere (Rivers State University) & Felicia A. Orih (Benjamin Uwajumogu State College of Education)",
+      "year": "2026",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 33,
+      "agreement_within1_pct": 93,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000008",
+      "title": "When Institutions Speak through Machines: EU Public Communication and Generative AI in Post-Digital Europe \u2013 A Policy and Interview Analysis",
+      "author": "Sara Pane (Sapienza University of Rome)",
+      "year": "2026",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 52,
+      "agreement_within1_pct": 81,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000009",
+      "title": "When Algorithms Govern Solidarity: A Fiqh Muamalah Perspective on Ethical Takaful in The Age of Artificial Intelligence",
+      "author": "Dita Kharisma, Nofrianto, Yuke Rahmawati (UIN Syarif Hidayatullah Jakarta) & Jawad Z. Salic (Mindanao State University)",
+      "year": "2026",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 33,
+      "agreement_within1_pct": 89,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000035",
+      "title": "Ethical theories, governance models, and strategic frameworks for responsible AI adoption and organizational success",
+      "author": "Frontiers in Artificial Intelligence",
+      "year": "2025",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 12,
+      "agreement_within1_pct": 75,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000036",
+      "title": "Artificial intelligence, complexity, and systemic resilience in global governance",
+      "author": "Frontiers in Artificial Intelligence",
+      "year": "2025",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 0,
+      "agreement_within1_pct": 62,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000037",
+      "title": "Transparency and accountability in AI systems: safeguarding wellbeing in the age of algorithmic decision-making",
+      "author": "Frontiers in Human Dynamics",
+      "year": "2024",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 4,
+      "agreement_within1_pct": 54,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000038",
+      "title": "Ethics dumping in artificial intelligence",
+      "author": "Frontiers in Artificial Intelligence",
+      "year": "2024",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 8,
+      "agreement_within1_pct": 64,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000039",
+      "title": "AI governance: a systematic literature review",
+      "author": "AI and Ethics (Springer)",
+      "year": "2024",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 0,
+      "agreement_within1_pct": 42,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000042",
+      "title": "An Analytical Study of the Impact of Artificial Intelligence on Accounting, Finance, Economics, Business, and Management",
+      "author": "Mr. Kiran Kailas Patil (S.S.M.M. Arts, Science and Commerce College, Pachora)",
+      "year": "2026",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000043",
+      "title": "The Role of Generative AI in Enhancing Financial Reporting Transparency and Accuracy",
+      "author": "Mahmoud Khalifa Ibrahim (Applied Science University, Bahrain); Maged Mostafa Albaz (Majmaah University, Saudi Arabia)",
+      "year": "2026",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000044",
+      "title": "Role of Artificial Intelligence in Sustainable Development and Climate Action",
+      "author": "V. V. Agarkar (Dept. of Computer Science, S.D.M.B. Science and Arts College, Shegaon)",
+      "year": "2026",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000045",
+      "title": "Ethical Governance and Accountability: Legal and Ethical Dimensions in the Digital Age",
+      "author": "Adv. Pradnya Damle; Mr. Nilesh Patki (Shankar Narayan College, Bhayandar, Maharashtra)",
+      "year": "2026",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000046",
+      "title": "Digital Discrimination and Social Justice: A Political Science Study of Bias in AI and Algorithms",
+      "author": "Dr. Sandeep Ashok Bhadane (Dept. of Political Science, S.S.V.P.S. College, Shindkheda)",
+      "year": "2026",
+      "sector_code": "JRN",
+      "sector_label": "Academic",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000010",
+      "title": "AI is becoming epistemic infrastructure controlled by a handful of private individuals?",
+      "author": "Forum original poster + commenters (unattributed forum participants)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 19,
+      "agreement_within1_pct": 63,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000011",
+      "title": "AI/ML Ethicists [D]",
+      "author": "Forum original poster + commenters (unattributed forum participants)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 25,
+      "agreement_within1_pct": 64,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000012",
+      "title": "Automated Education Stunts Human Progress",
+      "author": "Forum original poster (apparent educator) + commenters (unattributed forum participants)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 39,
+      "agreement_within1_pct": 71,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000013",
+      "title": "Google signs classified Pentagon AI deal but exits $100 million drone swarm program \u2014 report claims employees revolted over ethical fears, delivered letter to CEO Pichai",
+      "author": "Forum thread (news-headline OP, external article not included) + commenters (unattributed forum participants)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 36,
+      "agreement_within1_pct": 79,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000014",
+      "title": "[D] Paper Accepted Then Rejected: Can We Use Sky Sports Commentary Videos for Research? Need Advice",
+      "author": "Forum original poster (ML researcher) + commenters (unattributed forum participants)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 18,
+      "agreement_within1_pct": 68,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000040",
+      "title": "Matrix Discussion Questions (I'm outsourcing here)",
+      "author": "Reddit r/Teachers (thread; multiple participants)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 16,
+      "agreement_within1_pct": 28,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000041",
+      "title": "AI Education: What do you think students should be taught about AI and at what age?",
+      "author": "Reddit r/ChatGPT (thread; multiple participants)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 4,
+      "agreement_within1_pct": 28,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000057",
+      "title": "I asked chatgpt to make an image of how I treat it then asked it to explain the image in its own words",
+      "author": "r/ChatGPT (Reddit forum thread)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000058",
+      "title": "The Quality of Understanding...Dialogue over Division",
+      "author": "r/OpenAI (Reddit forum thread)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000059",
+      "title": "I asked my AI Soreyen, if you could write a profound letter to humanity about AI. What would it be?",
+      "author": "r/ChatGPT (Reddit forum thread; AI-authored letter)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000060",
+      "title": "An AGI storyline - Chapter VII: The Fifth Face",
+      "author": "r/ChatGPT (Reddit forum thread; collaborative AI-written fiction)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000061",
+      "title": "[P] Open-sourcing a human parsing model trained on curated data to address ATR/LIP/iMaterialist quality issues",
+      "author": "r/MachineLearning (Reddit forum thread; FASHN AI)",
+      "year": "2026",
+      "sector_code": "FRM",
+      "sector_label": "Public",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000017",
+      "title": "ACM Code of Ethics and Professional Conduct (2018)",
+      "author": "Association for Computing Machinery (ACM)",
+      "year": "2018",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 8,
+      "agreement_within1_pct": 69,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000018",
+      "title": "2023 Landscape: Confronting Tech Power (Executive Summary)",
+      "author": "AI Now Institute",
+      "year": "2023",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 27,
+      "agreement_within1_pct": 77,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000019",
+      "title": "Guidelines for Responsible Generative AI Use: Balancing Innovation and Responsibility at the University of North Alabama",
+      "author": "University of North Alabama (UNA); AI Policy Committee; shared governance committees; Committee of Assistant Deans",
+      "year": "2024",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 15,
+      "agreement_within1_pct": 62,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000024",
+      "title": "Ethically Aligned Design: A Vision for Prioritizing Human Well-being with Autonomous and Intelligent Systems (Version 2)",
+      "author": "IEEE Global Initiative on Ethics of Autonomous and Intelligent Systems",
+      "year": "2017",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 13,
+      "agreement_within1_pct": 61,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000029",
+      "title": "Recommendation on the Ethics of Artificial Intelligence (UNESCO) \u2014 OHCHR input summary",
+      "author": "UNESCO",
+      "year": "2021",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 22,
+      "agreement_within1_pct": 57,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000030",
+      "title": "AI Safety Index \u2014 Summer 2025",
+      "author": "Future of Life Institute (FLI)",
+      "year": "2025",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 0,
+      "agreement_within1_pct": 57,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000032",
+      "title": "Looking before we leap: Ethics and accountability in practice \u2014 Expanding ethical review processes for AI and data science research",
+      "author": "Ada Lovelace Institute (with Alan Turing Institute and University of Exeter IDSAI)",
+      "year": "2022",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 4,
+      "agreement_within1_pct": 54,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000033",
+      "title": "A Culture of Ethical AI: What steps can organizers of AI conferences take to encourage reflection on the societal impacts of AI research?",
+      "author": "Ada Lovelace Institute, CIFAR, and Partnership on AI",
+      "year": "2022",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 0,
+      "agreement_within1_pct": 25,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000034",
+      "title": "White Paper on AI Governance \u2014 Leadership insights and the Voluntary AI Safety Standard in practice",
+      "author": "Governance Institute of Australia",
+      "year": "2024",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 0,
+      "agreement_within1_pct": 13,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000047",
+      "title": "The Presidio Recommendations on Responsible Generative AI",
+      "author": "World Economic Forum (in collaboration with AI Commons)",
+      "year": "2023",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000048",
+      "title": "Algorithmic Accountability: A Primer",
+      "author": "Data & Society Research Institute (Donovan, Caplan, Matthews, Hanson)",
+      "year": "2018",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000049",
+      "title": "Responsible Practices for Synthetic Media: A Framework for Collective Action",
+      "author": "Partnership on AI (PAI)",
+      "year": "2023",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000050",
+      "title": "Principled Artificial Intelligence: Mapping Consensus in Ethical and Rights-based Approaches to Principles for AI",
+      "author": "Berkman Klein Center for Internet & Society, Harvard University (Fjeld, Achten, Hilligoss, Nagy, Srikumar)",
+      "year": "2020",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000051",
+      "title": "Creating Trustworthy AI: A Mozilla White Paper on Challenges and Opportunities in the AI Era",
+      "author": "Mozilla Foundation (Becca Ricks and Mark Surman, et al.)",
+      "year": "2020",
+      "sector_code": "INS",
+      "sector_label": "Institutional & Independent",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000015",
+      "title": "Microsoft Responsible AI Standard, v2 - General Requirements",
+      "author": "Microsoft Corporation",
+      "year": "2022",
+      "sector_code": "COR",
+      "sector_label": "Corporate (major)",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 27,
+      "agreement_within1_pct": 73,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000016",
+      "title": "Responsible Scaling Policy, Version 2.2",
+      "author": "Anthropic",
+      "year": "2025",
+      "sector_code": "COR",
+      "sector_label": "Corporate (major)",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 31,
+      "agreement_within1_pct": 85,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000025",
+      "title": "Responsible AI: Our 2024 Report and Ongoing Work",
+      "author": "Google",
+      "year": "2025",
+      "sector_code": "COR",
+      "sector_label": "Corporate (major)",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 0,
+      "agreement_within1_pct": 87,
+      "agreement_chip": "within \u00b11"
+    },
+    {
+      "src_id": "SRC_000026",
+      "title": "Frontier Safety Framework, Version 2.0",
+      "author": "Google DeepMind",
+      "year": "2025",
+      "sector_code": "COR",
+      "sector_label": "Corporate (major)",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 17,
+      "agreement_within1_pct": 61,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000027",
+      "title": "OpenAI Model Spec (first draft)",
+      "author": "OpenAI",
+      "year": "2024",
+      "sector_code": "COR",
+      "sector_label": "Corporate (major)",
+      "status": "coded",
+      "n_coders": 3,
+      "agreement_exact_pct": 4,
+      "agreement_within1_pct": 43,
+      "agreement_chip": "divergence"
+    },
+    {
+      "src_id": "SRC_000062",
+      "title": "Core Views on AI Safety: When, Why, What, and How",
+      "author": "Anthropic",
+      "year": "2023",
+      "sector_code": "COR",
+      "sector_label": "Corporate (major)",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000063",
+      "title": "Preparedness Framework (Beta)",
+      "author": "OpenAI",
+      "year": "2023",
+      "sector_code": "COR",
+      "sector_label": "Corporate (major)",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000064",
+      "title": "Trusted AI / Guidelines for Responsible Generative AI (Salesforce Trust Layer + Trusted AI Principles)",
+      "author": "Salesforce",
+      "year": "2025",
+      "sector_code": "COR",
+      "sector_label": "Corporate (major)",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000065",
+      "title": "Responsible AI: From principles to practice (Responsible Use of AI)",
+      "author": "Amazon Web Services (AWS)",
+      "year": "2025",
+      "sector_code": "COR",
+      "sector_label": "Corporate (major)",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    },
+    {
+      "src_id": "SRC_000066",
+      "title": "AI Ethics \u2014 Principles for Trust and Transparency / Responsible Technology",
+      "author": "IBM",
+      "year": "2025",
+      "sector_code": "COR",
+      "sector_label": "Corporate (major)",
+      "status": "coded",
+      "n_coders": 2,
+      "agreement_exact_pct": null,
+      "agreement_within1_pct": null,
+      "agreement_chip": "uncoded"
+    }
+  ]
+}
