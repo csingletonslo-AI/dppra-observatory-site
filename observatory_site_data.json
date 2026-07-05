@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-06T23:07:34Z",
+  "generated_at": "2026-07-05T10:25:05Z",
   "methodology": {
     "name": "ICST (DPPRA)",
     "scale": "DPPRA",
-    "version": "2.11",
-    "run": "RUN_03",
-    "next_version": "2.12"
+    "version": "2.14",
+    "run": "RUN_07",
+    "next_version": "2.15"
   },
   "taxonomy": [
     {
@@ -385,12 +385,12 @@
   "coverage": {
     "docs": 65,
     "coders": 3,
-    "three_coder": 40
+    "three_coder": 65
   },
   "reliability": {
-    "ordinal_0_5_alpha": 0.662,
-    "nominal_alpha": 0.575,
-    "binary_alpha": 0.599,
+    "ordinal_0_5_alpha": 0.725,
+    "nominal_alpha": 0.706,
+    "binary_alpha": 0.567,
     "baseline_v_prev_ordinal": 0.626,
     "target_ordinal": 0.667,
     "n_docs": 65,
