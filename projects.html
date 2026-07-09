@@ -13,6 +13,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":"DPPRA/ICST instrument suite",
+"itemListElement":[
+{"@type":"SoftwareSourceCode","position":1,"name":"AlphaGate","description":"Reliability gate for LLM judges: Krippendorff's alpha across independent model panels, remediation-first reports, instrument-determinacy interpretation.","programmingLanguage":"Python","author":{"@type":"Person","name":"Craig Singleton"},"url":"https://craigsingleton.org/projects.html"},
+{"@type":"SoftwareSourceCode","position":2,"name":"AdherenceBench","description":"Instruction-adherence benchmark for LLMs in structured workflows: schema discipline, fabrication detection, citation fidelity, injection resistance.","programmingLanguage":"Python","author":{"@type":"Person","name":"Craig Singleton"},"url":"https://craigsingleton.org/projects.html"},
+{"@type":"SoftwareSourceCode","position":3,"name":"ReviewRouter","description":"Disagreement-routed human oversight: act on multi-judge consensus, route contested AI judgments to a ranked review queue.","programmingLanguage":"Python","author":{"@type":"Person","name":"Craig Singleton"},"url":"https://craigsingleton.org/projects.html"},
+{"@type":"CreativeWork","position":4,"name":"RELIANCE","description":"CONSORT-style 12-item reporting checklist for LLM-coded data, with compliance tiers, required failure disclosures, and a methods-text generator.","author":{"@type":"Person","name":"Craig Singleton"},"url":"https://craigsingleton.org/projects.html"},
+{"@type":"SoftwareSourceCode","position":5,"name":"RealityCheck","description":"Criterion-validity harness: hash-locked preregistration, circularity guard, reversed-lag placebos, published validity ledger.","programmingLanguage":"Python","author":{"@type":"Person","name":"Craig Singleton"},"url":"https://craigsingleton.org/projects.html"}
+]}
+</script>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   :root{
@@ -99,7 +109,7 @@
   <section class="projects">
 
     <!-- ============================================= ALPHAGATE -->
-    <article class="proj">
+    <article class="proj" style="border-color:rgba(226,163,58,.5)">
       <svg class="art" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AlphaGate mark: a gate with a reliability meter passing through it">
         <rect x="38" y="28" width="12" height="134" rx="3" fill="none" stroke="#ECE5D6" stroke-opacity=".55" stroke-width="2.5"/>
         <rect x="140" y="28" width="12" height="134" rx="3" fill="none" stroke="#ECE5D6" stroke-opacity=".55" stroke-width="2.5"/>
@@ -110,7 +120,7 @@
         <text x="95" y="150" font-family="'JetBrains Mono',monospace" font-size="30" fill="#E2A33A" text-anchor="middle">α</text>
       </svg>
       <div>
-        <p class="p-kicker">Reliability · the first gate</p>
+        <p class="p-kicker" style="color:var(--gold)">The reference instrument — most mature of the five</p>
         <h2 class="p-name">AlphaGate <span class="wt">— working title</span></h2>
         <p class="p-q">Is your scoring rubric reliable enough to trust a machine on?</p>
         <p class="p-body">Organizations increasingly let language models grade, score, and screen —
@@ -118,9 +128,14 @@
         raters: independent raters must demonstrably agree, measured with chance-corrected
         statistics. AlphaGate applies that standard to machine judges: it runs any rubric across
         multiple independent models, computes <b>Krippendorff's alpha</b> per item, and returns a
-        pass / tentative / fail verdict against published cutoffs. Its central lesson: low
-        reliability usually localizes to specific rubric <b>wording</b> — you fix the sentence, not
-        the model.</p>
+        pass / tentative / fail verdict against published cutoffs — led by a <b>remediation
+        section</b>: the exact items to fix, the divergent readings observed, and the expected
+        alpha change. Its central lesson: low reliability usually localizes to specific rubric
+        <b>wording</b> — you fix the sentence, not the model. Interpretation is stated, not
+        assumed: with cross-family LLM panels, alpha measures <b>instrument determinacy</b>
+        (does the rubric constrain any competent reader to the same reading?), not rater
+        independence — model families share training distributions, and the report includes a
+        pairwise dependence diagnostic so a reader can check the panel rather than trust it.</p>
         <div class="chips"><span class="chip">keyless</span><span class="chip">zero dependencies</span>
         <span class="chip">math validated against reference implementation</span></div>
         <div class="p-links">
@@ -129,6 +144,14 @@
         </div>
       </div>
     </article>
+
+    <div style="padding:6px 4px 0">
+      <p class="p-kicker">What it makes possible — the roadmap</p>
+      <p class="p-body" style="font-size:14px">The four instruments below extend the same
+      discipline outward: from the rubric to the judge, from the judge to the oversight loop,
+      from the loop to the reporting standard, and finally to the question every index owes an
+      answer — does any of it predict reality?</p>
+    </div>
 
     <!-- ============================================= ADHERENCEBENCH -->
     <article class="proj">

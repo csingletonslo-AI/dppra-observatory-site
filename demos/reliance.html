@@ -46,11 +46,12 @@ table.rl tr:last-child td{border-bottom:none}
 <body style="margin:0"><div class="rl-root"><div class="rl-wrap">
 
 <div class="rl-card">
-  <p class="rl-kicker">RELIANCE v1.0 · reporting standard for LLM-coded data</p>
+  <p class="rl-kicker">RELIANCE v1.1 · reporting standard for LLM-coded data</p>
   <h1 class="rl-h1">Institutional AI-policy coding pilot (example declaration)</h1>
   <p class="rl-sub">Example Research Group</p>
   <div class="rl-tier" style="color:var(--good-text)">RELIANCE-Substantial</div>
   <p class="rl-sub">11 met · 1 partial · 0 not met · 0 n/a (justified) — of 12 items · 2026-07-09</p>
+  <p class="rl-sub">valid until <b>2026-12-31</b></p>
   
 </div>
 
@@ -61,9 +62,29 @@ table.rl tr:last-child td{border-bottom:none}
   </table></div>
 </div>
 
+
+<div class="rl-card" style="border-left:3px solid var(--warn)">
+  <h2 style="font-size:15px;font-weight:650;margin:0 0 6px">Required disclosures</h2>
+  <p class="rl-sub"><b>What did this instrument fail to detect?</b><br>The instrument reads documents, not conduct: it cannot detect commitments enacted but never documented, and tonal items remained below the reliability gate through two revisions before stabilizing</p>
+  <p class="rl-sub" style="margin-top:8px"><b>What null or negative results were produced?</b><br>Rhetorical-intensity items showed no reliable association with any verifiable-action item; one full instrument revision produced a reliability collapse on previously stable items and was rolled back — both are reported in the run record</p>
+</div>
+
 <div class="rl-card rl-foot">
   <p>A tier is a property of a <i>report</i>, not a team: it states what a reader can verify. Critical items (★): instrument versioning, panel composition, chance-corrected reliability, deviation register. Generate methods-section text from this declaration with <span class="rl-mono">reliance methods</span>.</p>
+  <p><b>The limit, stated plainly.</b> This standard makes discourse-practice gaps legible, costly to maintain, and awkward to explain. It cannot supply the will to close them: no instrument closes a gap an organization has an interest in keeping open.</p>
+  <p>A tier claim may only be published with this full declaration attached — there is no badge, and there never will be. Declarations expire and are revocable; re-verification against a newer model snapshot supersedes this document.</p>
   <p>RELIANCE — the reporting checklist for machine-coded data. Companion tools: AlphaGate (reliability gating), AdherenceBench (schema adherence), ReviewRouter (disagreement routing).</p>
 </div>
 
-</div></div></body></html>
+</div></div><script>
+(function(){
+  var vu = new Date("2026-12-31T23:59:59");
+  if (isNaN(vu) || new Date() <= vu) return;
+  var d = document.createElement("div");
+  d.style.cssText = "position:sticky;top:0;z-index:9;background:#d03b3b;color:#fff;" +
+    "font:600 14px/1.4 system-ui,sans-serif;padding:10px 16px;text-align:center";
+  d.textContent = "EXPIRED — this declaration was valid until 2026-12-31 " +
+    "and must be re-verified against the current model snapshot.";
+  document.body.insertBefore(d, document.body.firstChild);
+})();
+</script></body></html>
