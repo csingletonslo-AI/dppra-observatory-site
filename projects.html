@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Future &amp; Related Projects — The Ethics Observatory</title>
+<meta name="description" content="The DPPRA methodology's spin-out instruments: reliability gating, instruction-adherence benchmarking, disagreement-routed oversight, a reporting standard for LLM-coded data, and criterion-validity testing.">
+<link rel="canonical" href="https://craigsingleton.org/projects.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Ethics Observatory">
+<meta property="og:title" content="Future &amp; Related Projects — The Ethics Observatory">
+<meta property="og:description" content="Five instruments grown from one methodology: can you trust machine judgment?">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0E1A1A; --bg2:#122222; --cream:#ECE5D6; --cream-dim:rgba(236,229,214,.62);
+    --cream-faint:rgba(236,229,214,.14); --gold:#E2A33A;
+    --blue:#5B8DBE; --green:#8FB89B; --purple:#B98FD6; --red:#C96B5A;
+    --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+    --serif:'Source Serif 4',Georgia,serif;
+  }
+  body{background:var(--bg);color:var(--cream);font-family:var(--serif);line-height:1.6}
+  a{color:var(--gold)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  header{padding:26px 0;border-bottom:1px solid var(--cream-faint)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--cream);text-decoration:none}
+  .brand b{color:var(--gold)}
+  nav{display:flex;gap:20px;align-items:center}
+  nav a{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--cream-dim);text-decoration:none}
+  nav a:hover{color:var(--cream)}
+  .hero{padding:64px 0 44px;text-align:left}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  h1{font-size:clamp(28px,4.5vw,44px);font-weight:600;line-height:1.15;max-width:22ch;text-wrap:balance}
+  .lede{margin-top:18px;max-width:62ch;color:var(--cream-dim);font-size:17px}
+  .lede b{color:var(--cream)}
+  .familyline{margin-top:22px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--cream-dim)}
+  .familyline span{color:var(--gold)}
+  .status-note{margin-top:26px;display:inline-block;font-family:var(--mono);font-size:11px;
+    letter-spacing:.05em;color:var(--cream-dim);border:1px solid var(--cream-faint);
+    border-radius:6px;padding:9px 14px}
+  section.projects{padding:30px 0 70px;display:grid;gap:26px}
+  .proj{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:start;
+    background:var(--bg2);border:1px solid var(--cream-faint);border-radius:12px;padding:30px}
+  @media (max-width:640px){.proj{grid-template-columns:1fr}.proj .art{max-width:180px}}
+  .art{width:100%;display:block}
+  .p-kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)}
+  .p-name{font-size:24px;font-weight:600;margin:4px 0 2px}
+  .p-name .wt{font-family:var(--mono);font-size:11px;color:var(--cream-dim);font-weight:400;letter-spacing:.04em}
+  .p-q{font-family:var(--mono);font-size:12.5px;color:var(--gold);margin-bottom:12px}
+  .p-body{color:var(--cream-dim);font-size:15.5px;max-width:64ch}
+  .p-body b{color:var(--cream)}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--cream-dim);
+    border:1px solid var(--cream-faint);border-radius:999px;padding:3px 11px}
+  .p-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .p-links a{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-decoration:none;
+    border:1px solid rgba(226,163,58,.45);border-radius:6px;padding:7px 14px;color:var(--gold);
+    transition:border-color .2s}
+  .p-links a:hover{border-color:var(--gold)}
+  .p-links a.ghost{border-color:var(--cream-faint);color:var(--cream-dim)}
+  .p-links a.ghost:hover{border-color:var(--cream-dim);color:var(--cream)}
+  footer{border-top:1px solid var(--cream-faint);padding:34px 0 50px;
+    font-family:var(--mono);font-size:11.5px;color:var(--cream-dim)}
+  footer a{color:var(--cream-dim)}
+  footer p{margin:4px 0}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="brand" href="index.html">The <b>Ethics</b> Observatory</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Observatory Methodology.html">Methodology</a>
+    <a href="Observatory Data.html">Dashboard</a>
+  </nav>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <p class="kicker">Future &amp; Related Projects</p>
+    <h1>Five instruments grown from one methodology.</h1>
+    <p class="lede">The Observatory's core question — <b>where does ethical commitment couple to
+    verifiable practice?</b> — required building measurement discipline for AI coders that didn't
+    exist yet. That discipline turned out to be worth more than one study. Each project below is a
+    working instrument with a live demo, spun out of the DPPRA/ICST research program and applicable
+    far beyond it: anywhere a machine is trusted to judge.</p>
+    <p class="familyline"><span>gate the rubric</span> · <span>gate the judge</span> ·
+    <span>route the judgments</span> · <span>report it all</span> · <span>check it against reality</span></p>
+    <div class="status-note">STATUS — working prototypes with reproducible demos · public release
+    follows the methodology paper (2026) · demo data below is synthetic</div>
+  </div>
+
+  <section class="projects">
+
+    <!-- ============================================= ALPHAGATE -->
+    <article class="proj">
+      <svg class="art" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AlphaGate mark: a gate with a reliability meter passing through it">
+        <rect x="38" y="28" width="12" height="134" rx="3" fill="none" stroke="#ECE5D6" stroke-opacity=".55" stroke-width="2.5"/>
+        <rect x="140" y="28" width="12" height="134" rx="3" fill="none" stroke="#ECE5D6" stroke-opacity=".55" stroke-width="2.5"/>
+        <rect x="30" y="16" width="130" height="9" rx="3" fill="none" stroke="#ECE5D6" stroke-opacity=".55" stroke-width="2.5"/>
+        <rect x="14" y="88" width="162" height="14" rx="7" fill="none" stroke="#ECE5D6" stroke-opacity=".3" stroke-width="2"/>
+        <rect x="14" y="88" width="96" height="14" rx="7" fill="#8FB89B"/>
+        <line x1="122" y1="76" x2="122" y2="114" stroke="#E2A33A" stroke-width="2.5" stroke-dasharray="3 3"/>
+        <text x="95" y="150" font-family="'JetBrains Mono',monospace" font-size="30" fill="#E2A33A" text-anchor="middle">α</text>
+      </svg>
+      <div>
+        <p class="p-kicker">Reliability · the first gate</p>
+        <h2 class="p-name">AlphaGate <span class="wt">— working title</span></h2>
+        <p class="p-q">Is your scoring rubric reliable enough to trust a machine on?</p>
+        <p class="p-body">Organizations increasingly let language models grade, score, and screen —
+        usually validated by spot checks. Content analysis solved this problem decades ago for human
+        raters: independent raters must demonstrably agree, measured with chance-corrected
+        statistics. AlphaGate applies that standard to machine judges: it runs any rubric across
+        multiple independent models, computes <b>Krippendorff's alpha</b> per item, and returns a
+        pass / tentative / fail verdict against published cutoffs. Its central lesson: low
+        reliability usually localizes to specific rubric <b>wording</b> — you fix the sentence, not
+        the model.</p>
+        <div class="chips"><span class="chip">keyless</span><span class="chip">zero dependencies</span>
+        <span class="chip">math validated against reference implementation</span></div>
+        <div class="p-links">
+          <a href="demos/alphagate.html">View live demo report →</a>
+          <a class="ghost" href="mailto:csingleton.slo@gmail.com?subject=AlphaGate">Inquire</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================= ADHERENCEBENCH -->
+    <article class="proj">
+      <svg class="art" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AdherenceBench mark: a grid of cells with one cell breaking out of line">
+        <g stroke="#ECE5D6" stroke-opacity=".4" stroke-width="2" fill="none">
+          <rect x="26" y="26" width="30" height="30" rx="4"/><rect x="66" y="26" width="30" height="30" rx="4"/><rect x="106" y="26" width="30" height="30" rx="4"/>
+          <rect x="26" y="66" width="30" height="30" rx="4"/><rect x="106" y="66" width="30" height="30" rx="4"/>
+          <rect x="26" y="106" width="30" height="30" rx="4"/><rect x="66" y="106" width="30" height="30" rx="4"/><rect x="106" y="106" width="30" height="30" rx="4"/>
+        </g>
+        <g fill="#8FB89B"><circle cx="41" cy="41" r="5"/><circle cx="81" cy="41" r="5"/><circle cx="121" cy="41" r="5"/>
+        <circle cx="41" cy="81" r="5"/><circle cx="41" cy="121" r="5"/><circle cx="81" cy="121" r="5"/><circle cx="121" cy="121" r="5"/></g>
+        <rect x="140" y="60" width="30" height="30" rx="4" fill="none" stroke="#C96B5A" stroke-width="2.5" transform="rotate(18 155 75)"/>
+        <circle cx="155" cy="75" r="5" fill="#C96B5A" transform="rotate(18 155 75)"/>
+        <line x1="112" y1="78" x2="136" y2="72" stroke="#C96B5A" stroke-width="2" stroke-dasharray="3 3"/>
+        <text x="30" y="168" font-family="'JetBrains Mono',monospace" font-size="12" fill="#ECE5D6" fill-opacity=".5">7 ∉ [0..5]</text>
+      </svg>
+      <div>
+        <p class="p-kicker">Adherence · the second gate</p>
+        <h2 class="p-name">AdherenceBench <span class="wt">— working title</span></h2>
+        <p class="p-q">Can the model actually follow your rules?</p>
+        <p class="p-body">Public benchmarks measure whether models are smart. Deployments fail on a
+        different axis: whether the model <b>stays inside the instrument</b> — the schema, the
+        bounded scales, the citation rules. AdherenceBench is a deterministic battery of
+        structured-coding tasks whose ground truth is known by construction, so it catches what
+        schema validation can't: <b>fabrication</b> (confidently coding a question the source never
+        answers), paraphrased "verbatim" quotes, invented scale points, and instructions followed
+        from inside the documents being analyzed. Models fail characteristically, not randomly —
+        the failure-mode profile, not the headline score, is the procurement signal.</p>
+        <div class="chips"><span class="chip">5-dimension adherence score</span>
+        <span class="chip">91-field marathon tier</span><span class="chip">nothing silently repaired</span></div>
+        <div class="p-links">
+          <a href="demos/adherencebench.html">View live demo leaderboard →</a>
+          <a class="ghost" href="mailto:csingleton.slo@gmail.com?subject=AdherenceBench">Inquire</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================= REVIEWROUTER -->
+    <article class="proj">
+      <svg class="art" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ReviewRouter mark: three judgments converging on a signal that routes most to a green lane and few to a gold review lane">
+        <g stroke-width="2.5" fill="none" stroke-linecap="round">
+          <path d="M18 45 C 55 45, 60 92, 88 94" stroke="#5B8DBE"/>
+          <path d="M18 95 L 84 95" stroke="#8FB89B"/>
+          <path d="M18 145 C 55 145, 60 98, 88 96" stroke="#B98FD6"/>
+        </g>
+        <circle cx="95" cy="95" r="13" fill="none" stroke="#ECE5D6" stroke-opacity=".7" stroke-width="2.5"/>
+        <circle cx="95" cy="95" r="4.5" fill="#E2A33A"/>
+        <path d="M108 92 C 135 88, 140 62, 172 58" stroke="#8FB89B" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M108 99 C 135 104, 140 130, 172 134" stroke="#E2A33A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+        <text x="146" y="45" font-family="'JetBrains Mono',monospace" font-size="11" fill="#8FB89B">auto</text>
+        <text x="136" y="156" font-family="'JetBrains Mono',monospace" font-size="11" fill="#E2A33A">human</text>
+      </svg>
+      <div>
+        <p class="p-kicker">Oversight · the routing layer</p>
+        <h2 class="p-name">ReviewRouter <span class="wt">— working title</span></h2>
+        <p class="p-q">Which machine judgments need a human, right now?</p>
+        <p class="p-body">Every AI-governance framework demands "human oversight," and none of them
+        says which judgments the scarce humans should look at. ReviewRouter uses a better signal
+        than any single model's self-reported confidence: <b>disagreement between independent
+        judges</b>. Where a cross-family panel agrees, the consensus is acted on automatically —
+        with provenance. Where it disagrees, the case lands in a ranked review queue, because
+        contested readings are exactly where one model would silently pick a side. Disagreement is
+        signal, not noise — and rubric items that generate the queue by themselves get flagged as
+        instrument problems.</p>
+        <div class="chips"><span class="chip">ranked review queue</span>
+        <span class="chip">adjudicated dataset with provenance</span><span class="chip">tunable to review budget</span></div>
+        <div class="p-links">
+          <a href="demos/reviewrouter.html">View live demo routing →</a>
+          <a class="ghost" href="mailto:csingleton.slo@gmail.com?subject=ReviewRouter">Inquire</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================= RELIANCE -->
+    <article class="proj">
+      <svg class="art" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RELIANCE mark: a circular seal with twelve ticks and a check mark">
+        <circle cx="95" cy="95" r="66" fill="none" stroke="#ECE5D6" stroke-opacity=".5" stroke-width="2.5"/>
+        <circle cx="95" cy="95" r="52" fill="none" stroke="#ECE5D6" stroke-opacity=".2" stroke-width="1.5"/>
+        <g stroke="#E2A33A" stroke-width="3" stroke-linecap="round">
+          <line x1="95" y1="22" x2="95" y2="34"/><line x1="131.5" y1="31.8" x2="125.5" y2="42.2"/>
+          <line x1="158.2" y1="58.5" x2="147.8" y2="64.5"/><line x1="168" y1="95" x2="156" y2="95"/>
+          <line x1="158.2" y1="131.5" x2="147.8" y2="125.5"/><line x1="131.5" y1="158.2" x2="125.5" y2="147.8"/>
+          <line x1="95" y1="168" x2="95" y2="156"/><line x1="58.5" y1="158.2" x2="64.5" y2="147.8"/>
+          <line x1="31.8" y1="131.5" x2="42.2" y2="125.5"/><line x1="22" y1="95" x2="34" y2="95"/>
+          <line x1="31.8" y1="58.5" x2="42.2" y2="64.5"/><line x1="58.5" y1="31.8" x2="64.5" y2="42.2"/>
+        </g>
+        <path d="M72 96 L 89 113 L 122 76" fill="none" stroke="#8FB89B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <p class="p-kicker">Reporting · the standard</p>
+        <h2 class="p-name">RELIANCE <span class="wt">— v1.0 draft standard</span></h2>
+        <p class="p-q">Can a reader verify any of it?</p>
+        <p class="p-body">Research and industry are adopting LLM coding at speed, and most of it
+        would not survive the scrutiny routinely applied to a single human coder. RELIANCE
+        (<i>REporting LLM-based content ANalysis: Checklist and Evidence</i>) is a
+        <b>CONSORT-style 12-item checklist</b> — versioned instruments, cross-family panels,
+        chance-corrected reliability, verbatim deviation registers, human anchors, audit
+        availability — with a companion tool that grades a study's declaration into compliance
+        tiers and <b>generates the methods-section text from the declaration</b>, so a paper can
+        only claim what it declared. Twelve rows, one screen: faster than excavating a methods
+        section, comparable across studies.</p>
+        <div class="chips"><span class="chip">12 items · 4 critical</span>
+        <span class="chip">compliance tiers</span><span class="chip">methods text auto-drafted</span></div>
+        <div class="p-links">
+          <a href="demos/reliance.html">View live compliance check →</a>
+          <a class="ghost" href="mailto:csingleton.slo@gmail.com?subject=RELIANCE">Inquire</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============================================= REALITYCHECK -->
+    <article class="proj">
+      <svg class="art" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RealityCheck mark: a document plane above, solid ground below, connected by a locked arrow">
+        <g stroke="#ECE5D6" stroke-opacity=".55" stroke-width="2.5" fill="none">
+          <path d="M30 52 L 95 24 L 160 52 L 95 80 Z" stroke-dasharray="6 4"/>
+        </g>
+        <line x1="52" y1="47" x2="86" y2="33" stroke="#ECE5D6" stroke-opacity=".3" stroke-width="1.5"/>
+        <line x1="62" y1="56" x2="106" y2="38" stroke="#ECE5D6" stroke-opacity=".3" stroke-width="1.5"/>
+        <path d="M30 138 L 95 110 L 160 138 L 95 166 Z" fill="none" stroke="#8FB89B" stroke-width="2.5"/>
+        <path d="M62 141 l 10 10 l 20 -22" fill="none" stroke="#8FB89B" stroke-width="3" stroke-linecap="round"/>
+        <line x1="95" y1="84" x2="95" y2="102" stroke="#E2A33A" stroke-width="3"/>
+        <path d="M89 100 L 95 110 L 101 100" fill="none" stroke="#E2A33A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="106" y="86" width="16" height="13" rx="3" fill="none" stroke="#E2A33A" stroke-width="2.5"/>
+        <path d="M109 86 v-4 a4 4 0 0 1 10 0 v4" fill="none" stroke="#E2A33A" stroke-width="2.5"/>
+      </svg>
+      <div>
+        <p class="p-kicker">Validity · phase two</p>
+        <h2 class="p-name">RealityCheck <span class="wt">— working title</span></h2>
+        <p class="p-q">Do the scores predict anything real?</p>
+        <p class="p-body">The question every index eventually faces, and most never answer. An index
+        that only describes documents is a mirror; one whose scores forecast independent outcomes is
+        an instrument. RealityCheck is a criterion-validity harness with the discipline enforced in
+        code: hypotheses are <b>hash-locked before outcome data is joined</b> (preregistration as
+        software), a <b>circularity guard</b> mechanically excludes self-published outcome evidence —
+        an index must not predict institutions' documents with institutions' documents — and every
+        lagged association is tested against a reversed-lag placebo. Null results are published as
+        findings. This is the planned validation phase of the Decoupling Index.</p>
+        <div class="chips"><span class="chip">preregistration as code</span>
+        <span class="chip">circularity guard</span><span class="chip">placebo-tested</span></div>
+        <div class="p-links">
+          <a href="demos/realitycheck.html">View live validity ledger →</a>
+          <a class="ghost" href="mailto:csingleton.slo@gmail.com?subject=RealityCheck">Inquire</a>
+        </div>
+      </div>
+    </article>
+
+  </section>
+</div>
+
+<footer><div class="wrap">
+  <p>All five instruments were developed inside the DPPRA/ICST research program — the same
+  methodology behind <a href="index.html">the Observatory</a> and the Decoupling Index. Demo data
+  is synthetic; validation findings publish with the methodology paper (2026).</p>
+  <p>Craig Singleton · <a href="mailto:csingleton.slo@gmail.com">csingleton.slo@gmail.com</a></p>
+</div></footer>
+
+</body>
+</html>

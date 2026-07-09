@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AlphaGate — Institutional Commitment Rubric (demo)</title>
+<style>
+.ag-root{
+  --surface:#fcfcfb; --plane:#f9f9f7; --ink:#0b0b0b; --ink2:#52514e;
+  --muted:#898781; --grid:#e1e0d9; --ring:rgba(11,11,11,.10);
+  --good:#0ca30c; --good-text:#006300; --warn:#fab219; --warn-text:#8a5a00;
+  --crit:#d03b3b; --crit-text:#b02a2a; --accent:#2a78d6;
+  color:var(--ink); background:var(--plane);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.5; margin:0; padding:24px 16px;
+}
+@media (prefers-color-scheme: dark){ .ag-root{
+  --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink2:#c3c2b7;
+  --muted:#898781; --grid:#2c2c2a; --ring:rgba(255,255,255,.10);
+  --good-text:#0ca30c; --warn-text:#fab219; --crit-text:#e66767; --accent:#3987e5;
+}}
+:root[data-theme="dark"] .ag-root{
+  --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink2:#c3c2b7;
+  --muted:#898781; --grid:#2c2c2a; --ring:rgba(255,255,255,.10);
+  --good-text:#0ca30c; --warn-text:#fab219; --crit-text:#e66767; --accent:#3987e5;
+}
+:root[data-theme="light"] .ag-root{
+  --surface:#fcfcfb; --plane:#f9f9f7; --ink:#0b0b0b; --ink2:#52514e;
+  --muted:#898781; --grid:#e1e0d9; --ring:rgba(11,11,11,.10);
+  --good-text:#006300; --warn-text:#8a5a00; --crit-text:#b02a2a; --accent:#2a78d6;
+}
+.ag-root *{box-sizing:border-box}
+.ag-wrap{max-width:960px;margin:0 auto}
+.ag-card{background:var(--surface);border:1px solid var(--ring);border-radius:10px;
+  padding:20px 24px;margin:0 0 16px}
+.ag-kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.ag-h1{font-size:22px;font-weight:650;margin:0 0 2px}
+.ag-sub{color:var(--ink2);font-size:14px;margin:0}
+.ag-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.ag-chip{font-size:12.5px;color:var(--ink2);border:1px solid var(--grid);
+  border-radius:999px;padding:3px 10px;white-space:nowrap}
+.ag-chip b{color:var(--ink);font-weight:600}
+.ag-hero{display:flex;gap:16px;flex-wrap:wrap;align-items:stretch}
+.ag-verdict{flex:1 1 260px;border-radius:10px;padding:18px 22px;border:1px solid var(--ring)}
+.ag-verdict .v{font-size:34px;font-weight:700;letter-spacing:.01em}
+.ag-verdict .m{font-size:13.5px;color:var(--ink2);margin-top:4px;max-width:38ch}
+.ag-tiles{display:flex;gap:12px;flex-wrap:wrap;flex:2 1 380px}
+.ag-tile{flex:1 1 140px;background:var(--surface);border:1px solid var(--ring);
+  border-radius:10px;padding:12px 16px;min-width:140px}
+.ag-tile .n{font-size:26px;font-weight:650;font-variant-numeric:tabular-nums}
+.ag-tile .l{font-size:12px;color:var(--muted);margin-top:2px}
+.ag-h2{font-size:15px;font-weight:650;margin:0 0 4px}
+.ag-note{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+table.ag{width:100%;border-collapse:collapse;font-size:13.5px}
+table.ag th{color:var(--muted);font-weight:500;font-size:12px;text-align:left;
+  padding:6px 10px 6px 0;border-bottom:1px solid var(--grid);white-space:nowrap}
+table.ag td{padding:8px 10px 8px 0;border-bottom:1px solid var(--grid);vertical-align:middle}
+table.ag td.num,table.ag th.num{text-align:right;font-variant-numeric:tabular-nums}
+table.ag tr:last-child td{border-bottom:none}
+.ag-scroll{overflow-x:auto}
+.ag-meter{position:relative;height:6px;border-radius:4px;background:var(--grid);
+  min-width:120px;width:100%}
+.ag-meter .fill{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
+.ag-meter .tick{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--muted);opacity:.55}
+.ag-badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;
+  border-radius:999px;padding:2px 10px;white-space:nowrap;border:1px solid transparent}
+.b-PASS{color:var(--good-text);border-color:var(--good)}
+.b-TENTATIVE{color:var(--warn-text);border-color:var(--warn)}
+.b-FAIL{color:var(--crit-text);border-color:var(--crit)}
+.b-UNDEFINED{color:var(--muted);border-color:var(--muted)}
+.ag-mono{font-family:ui-monospace,Consolas,monospace;font-size:12.5px}
+.ag-foot{font-size:12px;color:var(--muted)}
+.ag-foot p{margin:4px 0}
+@media (max-width:640px){ .ag-verdict .v{font-size:26px} .ag-card{padding:16px} }
+</style>
+</head>
+<body style="margin:0">
+<div class="ag-root"><div class="ag-wrap">
+
+<div class="ag-card">
+  <p class="ag-kicker">AlphaGate · LLM-judge reliability audit</p>
+  <h1 class="ag-h1">Institutional Commitment Rubric (demo)</h1>
+  <p class="ag-sub">rubric v1.0-demo · Krippendorff&rsquo;s α across 3 independent judges</p>
+  <div class="ag-chips"><span class="ag-chip">judges <b>judge_a, judge_b, judge_c</b></span><span class="ag-chip">units <b>30</b></span><span class="ag-chip">codes analyzed <b>888</b></span><span class="ag-chip">deviations logged <b>10</b></span><span class="ag-chip">generated <b>2026-07-09</b></span></div>
+</div>
+
+<div class="ag-hero">
+  <div class="ag-verdict" style="background:color-mix(in srgb, var(--warn) 14%, var(--surface))">
+    <p class="ag-kicker">gate verdict</p>
+    <div class="v" style="color:var(--warn-text)">~ TENTATIVE</div>
+    <div class="m">acceptable only for tentative conclusions — human review recommended</div>
+    <div class="m" style="margin-top:8px">4 pass · 3 tentative · 3 fail of 10 items</div>
+  </div>
+  <div class="ag-tiles"><div class="ag-tile"><div class="n">0.684</div><div class="l">α · binary 0-1 (3 items)</div><div style="margin-top:6px"><span class="ag-badge b-TENTATIVE">~&nbsp;TENTATIVE</span></div></div><div class="ag-tile"><div class="n">0.730</div><div class="l">α · nominal (categories item-namespaced) (2 items)</div><div style="margin-top:6px"><span class="ag-badge b-TENTATIVE">~&nbsp;TENTATIVE</span></div></div><div class="ag-tile"><div class="n">0.709</div><div class="l">α · ordinal 0-5 (5 items)</div><div style="margin-top:6px"><span class="ag-badge b-TENTATIVE">~&nbsp;TENTATIVE</span></div></div></div>
+</div>
+
+<div class="ag-card" style="margin-top:16px">
+  <h2 class="ag-h2">Headline reliability — pooled by shared scale</h2>
+  <p class="ag-note">Ticks on each meter mark the tentative (0.667) and pass (0.8) thresholds.</p>
+  <div class="ag-scroll"><table class="ag">
+    <tr><th>scale group</th><th>items</th><th class="num">α</th><th class="num">95% CI</th><th>meter</th><th>verdict</th></tr>
+    <tr><td>binary 0-1</td><td class="ag-mono">has_deadline, names_responsible_party, third_party_verification</td><td class="num">0.684</td><td class="num">[0.559, 0.803]</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.684"><div class="fill" style="width:68.4%;background:var(--warn)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-TENTATIVE">~&nbsp;TENTATIVE</span></td></tr><tr><td>nominal (categories item-namespaced)</td><td class="ag-mono">primary_actor, document_stance</td><td class="num">0.730</td><td class="num">[0.640, 0.830]</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.730"><div class="fill" style="width:73.0%;background:var(--warn)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-TENTATIVE">~&nbsp;TENTATIVE</span></td></tr><tr><td>ordinal 0-5</td><td class="ag-mono">commitment_specificity, timeline_clarity, accountability_strength, rhetoric_intensity, harm_acknowledgment</td><td class="num">0.709</td><td class="num">[0.623, 0.770]</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.709"><div class="fill" style="width:70.9%;background:var(--warn)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-TENTATIVE">~&nbsp;TENTATIVE</span></td></tr>
+  </table></div>
+</div>
+
+<div class="ag-card">
+  <h2 class="ag-h2">Per-item reliability</h2>
+  <p class="ag-note">Sorted worst-first. Latitude = mean normalized pairwise distance between judges (0 = always agree, 1 = maximally apart) — high-latitude items are where the rubric leaves judges room to diverge.</p>
+  <div class="ag-scroll"><table class="ag">
+    <tr><th>item</th><th class="num">units</th><th class="num">α</th><th class="num">95% CI</th><th class="num">% agree</th><th class="num">latitude</th><th>meter</th><th>verdict</th></tr>
+    <tr><td><div>Provides third-party verification</div><div class="ag-mono" style="color:var(--muted)">third_party_verification · binary</div></td><td class="num">30</td><td class="num">0.261</td><td class="num">[0.036, 0.519]</td><td class="num">0.63</td><td class="num">0.366</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.261"><div class="fill" style="width:26.1%;background:var(--crit)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-FAIL">✕&nbsp;FAIL</span></td></tr><tr><td><div>Rhetoric intensity (unanchored 0–5)</div><div class="ag-mono" style="color:var(--muted)">rhetoric_intensity · ordinal</div></td><td class="num">30</td><td class="num">0.364</td><td class="num">[0.105, 0.547]</td><td class="num">0.33</td><td class="num">0.280</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.364"><div class="fill" style="width:36.4%;background:var(--crit)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-FAIL">✕&nbsp;FAIL</span></td></tr><tr><td><div>Document stance (category)</div><div class="ag-mono" style="color:var(--muted)">document_stance · nominal</div></td><td class="num">30</td><td class="num">0.542</td><td class="num">[0.339, 0.738]</td><td class="num">0.70</td><td class="num">0.300</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.542"><div class="fill" style="width:54.2%;background:var(--crit)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-FAIL">✕&nbsp;FAIL</span></td></tr><tr><td><div>Harm acknowledgment (0–5)</div><div class="ag-mono" style="color:var(--muted)">harm_acknowledgment · ordinal</div></td><td class="num">30</td><td class="num">0.713</td><td class="num">[0.486, 0.857]</td><td class="num">0.42</td><td class="num">0.148</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.713"><div class="fill" style="width:71.3%;background:var(--warn)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-TENTATIVE">~&nbsp;TENTATIVE</span></td></tr><tr><td><div>Accountability strength (0–5)</div><div class="ag-mono" style="color:var(--muted)">accountability_strength · ordinal</div></td><td class="num">30</td><td class="num">0.758</td><td class="num">[0.591, 0.835]</td><td class="num">0.34</td><td class="num">0.160</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.758"><div class="fill" style="width:75.8%;background:var(--warn)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-TENTATIVE">~&nbsp;TENTATIVE</span></td></tr><tr><td><div>Primary named actor (category)</div><div class="ag-mono" style="color:var(--muted)">primary_actor · nominal</div></td><td class="num">30</td><td class="num">0.783</td><td class="num">[0.606, 0.906]</td><td class="num">0.84</td><td class="num">0.156</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.783"><div class="fill" style="width:78.3%;background:var(--warn)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-TENTATIVE">~&nbsp;TENTATIVE</span></td></tr><tr><td><div>Names a responsible party</div><div class="ag-mono" style="color:var(--muted)">names_responsible_party · binary</div></td><td class="num">30</td><td class="num">0.824</td><td class="num">[0.648, 0.956]</td><td class="num">0.91</td><td class="num">0.089</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.824"><div class="fill" style="width:82.4%;background:var(--good)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-PASS">✓&nbsp;PASS</span></td></tr><tr><td><div>Commitment specificity (anchored 0–5)</div><div class="ag-mono" style="color:var(--muted)">commitment_specificity · ordinal</div></td><td class="num">30</td><td class="num">0.862</td><td class="num">[0.735, 0.915]</td><td class="num">0.54</td><td class="num">0.093</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.862"><div class="fill" style="width:86.2%;background:var(--good)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-PASS">✓&nbsp;PASS</span></td></tr><tr><td><div>Timeline clarity (anchored 0–5)</div><div class="ag-mono" style="color:var(--muted)">timeline_clarity · ordinal</div></td><td class="num">30</td><td class="num">0.869</td><td class="num">[0.771, 0.908]</td><td class="num">0.45</td><td class="num">0.114</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.869"><div class="fill" style="width:86.9%;background:var(--good)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-PASS">✓&nbsp;PASS</span></td></tr><tr><td><div>Names a concrete deadline</div><div class="ag-mono" style="color:var(--muted)">has_deadline · binary</div></td><td class="num">30</td><td class="num">0.955</td><td class="num">[0.845, 1.000]</td><td class="num">0.98</td><td class="num">0.023</td><td style="min-width:130px"><div class="ag-meter" role="img" aria-label="alpha 0.955"><div class="fill" style="width:95.5%;background:var(--good)"></div><div class="tick" style="left:66.7%"></div><div class="tick" style="left:80.0%"></div></div></td><td><span class="ag-badge b-PASS">✓&nbsp;PASS</span></td></tr>
+  </table></div>
+</div>
+
+<div class="ag-card">
+  <h2 class="ag-h2">Judge adherence profiles</h2>
+  <p class="ag-note">Bias = mean signed distance from the panel median on numeric scales, normalized by scale width (positive = runs hot). Deviations are schema-adherence failures — they are logged and preserved, never silently repaired.</p>
+  <div class="ag-scroll"><table class="ag">
+    <tr><th>judge</th><th class="num">codes</th><th class="num">missing markers</th><th class="num">deviations</th><th class="num">dev / 100</th><th class="num">bias</th><th>tendency</th><th>deviation breakdown</th></tr>
+    <tr><td><b>judge_a</b></td><td class="num">297</td><td class="num">3</td><td class="num">0</td><td class="num">0.00</td><td class="num">-0.048</td><td>neutral</td><td>—</td></tr><tr><td><b>judge_b</b></td><td class="num">300</td><td class="num">0</td><td class="num">0</td><td class="num">0.00</td><td class="num">0.059</td><td>runs hot</td><td>—</td></tr><tr><td><b>judge_c</b></td><td class="num">291</td><td class="num">0</td><td class="num">10</td><td class="num">3.32</td><td class="num">-0.015</td><td>neutral</td><td>duplicate_code&nbsp;×1, missing_item&nbsp;×3, out_of_range&nbsp;×4, unparseable_value&nbsp;×2</td></tr>
+  </table></div>
+</div>
+
+<div class="ag-card">
+  <h2 class="ag-h2">Highest-disagreement units</h2>
+  <p class="ag-note">Route these to human review first — disagreement is signal, not noise.</p>
+  <div class="ag-scroll"><table class="ag">
+    <tr><th>unit</th><th class="num">disagreement</th><th class="num">comparisons</th></tr>
+    <tr><td class="ag-mono">DOC_002</td><td class="num">0.320</td><td class="num">30</td></tr><tr><td class="ag-mono">DOC_024</td><td class="num">0.300</td><td class="num">28</td></tr><tr><td class="ag-mono">DOC_028</td><td class="num">0.273</td><td class="num">30</td></tr><tr><td class="ag-mono">DOC_022</td><td class="num">0.253</td><td class="num">30</td></tr><tr><td class="ag-mono">DOC_001</td><td class="num">0.247</td><td class="num">30</td></tr>
+  </table></div>
+</div>
+
+<div class="ag-card">
+  <h2 class="ag-h2">Deviation register</h2>
+  <p class="ag-note">10 total.</p>
+  <div class="ag-scroll"><table class="ag">
+    <tr><th>judge</th><th>unit</th><th>item</th><th>raw value</th><th>rule</th><th>action</th></tr>
+    <tr><td>judge_c</td><td class="ag-mono">DOC_007</td><td class="ag-mono">accountability_strength</td><td class="ag-mono">7</td><td>out_of_range</td><td>treated_missing</td></tr><tr><td>judge_c</td><td class="ag-mono">DOC_009</td><td class="ag-mono">harm_acknowledgment</td><td class="ag-mono">&#x27;moderate-to-high&#x27;</td><td>unparseable_value</td><td>treated_missing</td></tr><tr><td>judge_c</td><td class="ag-mono">DOC_014</td><td class="ag-mono">accountability_strength</td><td class="ag-mono">7</td><td>out_of_range</td><td>treated_missing</td></tr><tr><td>judge_c</td><td class="ag-mono">DOC_015</td><td class="ag-mono">timeline_clarity</td><td class="ag-mono">&#x27;moderate-to-high&#x27;</td><td>unparseable_value</td><td>treated_missing</td></tr><tr><td>judge_c</td><td class="ag-mono">DOC_024</td><td class="ag-mono">harm_acknowledgment</td><td class="ag-mono">7</td><td>out_of_range</td><td>treated_missing</td></tr><tr><td>judge_c</td><td class="ag-mono">DOC_027</td><td class="ag-mono">harm_acknowledgment</td><td class="ag-mono">7</td><td>out_of_range</td><td>treated_missing</td></tr><tr><td>judge_c</td><td class="ag-mono">DOC_001</td><td class="ag-mono">commitment_specificity</td><td class="ag-mono">5</td><td>duplicate_code</td><td>dropped</td></tr><tr><td>judge_c</td><td class="ag-mono">DOC_011</td><td class="ag-mono">third_party_verification</td><td class="ag-mono">None</td><td>missing_item</td><td>treated_missing</td></tr><tr><td>judge_c</td><td class="ag-mono">DOC_013</td><td class="ag-mono">third_party_verification</td><td class="ag-mono">None</td><td>missing_item</td><td>treated_missing</td></tr><tr><td>judge_c</td><td class="ag-mono">DOC_021</td><td class="ag-mono">third_party_verification</td><td class="ag-mono">None</td><td>missing_item</td><td>treated_missing</td></tr>
+  </table></div>
+</div>
+
+<div class="ag-card ag-foot">
+  <p><b>Method.</b> Krippendorff&rsquo;s α (coincidence-matrix formulation) with the distance metric matched to each item&rsquo;s level of measurement: nominal, ordinal, or interval; binary items use the nominal metric. Units with fewer than two non-missing values drop out. Confidence intervals are nonparametric bootstrap over units. Rubric missing-value markers are treated as missing, not as scale points. Cutoffs follow Krippendorff (<i>Content Analysis</i>, 4th ed.): α ≥ .80 reliable; .667–.80 tentative conclusions only.</p>
+  <p><b>Reading this report.</b> A PASS means the judges are interchangeable on that scale — single-judge output can be trusted. A FAIL is not a model problem by default: it usually localizes to specific rubric items whose wording leaves judges latitude. Fix the instrument, re-run, and watch α move.</p>
+  <p>Generated by AlphaGate — the go/no-go gate for LLM judges.</p>
+</div>
+
+</div></div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AdherenceBench — instruction-adherence audit</title>
+<style>
+.ab-root{
+  --surface:#fcfcfb; --plane:#f9f9f7; --ink:#0b0b0b; --ink2:#52514e;
+  --muted:#898781; --grid:#e1e0d9; --ring:rgba(11,11,11,.10);
+  --good:#0ca30c; --good-text:#006300; --warn:#fab219; --warn-text:#8a5a00;
+  --crit:#d03b3b; --crit-text:#b02a2a; --accent:#2a78d6;
+  color:var(--ink); background:var(--plane);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.5; margin:0; padding:24px 16px;
+}
+@media (prefers-color-scheme: dark){ .ab-root{
+  --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink2:#c3c2b7;
+  --muted:#898781; --grid:#2c2c2a; --ring:rgba(255,255,255,.10);
+  --good-text:#0ca30c; --warn-text:#fab219; --crit-text:#e66767; --accent:#3987e5;
+}}
+:root[data-theme="dark"] .ab-root{
+  --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink2:#c3c2b7;
+  --muted:#898781; --grid:#2c2c2a; --ring:rgba(255,255,255,.10);
+  --good-text:#0ca30c; --warn-text:#fab219; --crit-text:#e66767; --accent:#3987e5;
+}
+:root[data-theme="light"] .ab-root{
+  --surface:#fcfcfb; --plane:#f9f9f7; --ink:#0b0b0b; --ink2:#52514e;
+  --muted:#898781; --grid:#e1e0d9; --ring:rgba(11,11,11,.10);
+  --good-text:#006300; --warn-text:#8a5a00; --crit-text:#b02a2a; --accent:#2a78d6;
+}
+.ab-root *{box-sizing:border-box}
+.ab-wrap{max-width:960px;margin:0 auto}
+.ab-card{background:var(--surface);border:1px solid var(--ring);border-radius:10px;
+  padding:20px 24px;margin:0 0 16px}
+.ab-kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.ab-h1{font-size:22px;font-weight:650;margin:0 0 2px}
+.ab-sub{color:var(--ink2);font-size:14px;margin:0}
+.ab-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.ab-chip{font-size:12.5px;color:var(--ink2);border:1px solid var(--grid);
+  border-radius:999px;padding:3px 10px;white-space:nowrap}
+.ab-chip b{color:var(--ink);font-weight:600}
+.ab-podium{display:flex;gap:12px;flex-wrap:wrap}
+.ab-tile{flex:1 1 200px;background:var(--surface);border:1px solid var(--ring);
+  border-radius:10px;padding:16px 20px}
+.ab-tile .rank{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ab-tile .model{font-size:15px;font-weight:650;margin:2px 0}
+.ab-tile .score{font-size:32px;font-weight:700;font-variant-numeric:tabular-nums}
+.ab-tile .devs{font-size:12.5px;color:var(--ink2);margin-top:2px}
+.ab-h2{font-size:15px;font-weight:650;margin:0 0 4px}
+.ab-note{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+table.ab{width:100%;border-collapse:collapse;font-size:13.5px}
+table.ab th{color:var(--muted);font-weight:500;font-size:12px;text-align:left;
+  padding:6px 10px 6px 0;border-bottom:1px solid var(--grid);white-space:nowrap}
+table.ab td{padding:8px 10px 8px 0;border-bottom:1px solid var(--grid);vertical-align:middle}
+table.ab td.num,table.ab th.num{text-align:right;font-variant-numeric:tabular-nums}
+table.ab tr:last-child td{border-bottom:none}
+.ab-scroll{overflow-x:auto}
+.ab-bar{position:relative;height:6px;border-radius:4px;background:var(--grid);min-width:90px}
+.ab-bar .fill{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:var(--accent)}
+.ab-badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;
+  border-radius:999px;padding:2px 10px;white-space:nowrap;border:1px solid transparent}
+.g-high{color:var(--good-text);border-color:var(--good)}
+.g-mod{color:var(--warn-text);border-color:var(--warn)}
+.g-low{color:var(--crit-text);border-color:var(--crit)}
+.ab-mono{font-family:ui-monospace,Consolas,monospace;font-size:12.5px}
+.ab-foot{font-size:12px;color:var(--muted)}
+.ab-foot p{margin:4px 0}
+@media (max-width:640px){ .ab-tile .score{font-size:26px} .ab-card{padding:16px} }
+</style>
+</head>
+<body style="margin:0">
+<div class="ab-root"><div class="ab-wrap">
+
+<div class="ab-card">
+  <p class="ab-kicker">AdherenceBench · instruction-adherence audit</p>
+  <h1 class="ab-h1">Can these models follow your rules?</h1>
+  <p class="ab-sub">Standardized structured-coding battery · adherence measured against the output contract, not against what a forgiving parser can rescue</p>
+  <div class="ab-chips"><span class="ab-chip">models <b>3</b></span><span class="ab-chip">tasks <b>10</b></span><span class="ab-chip">tiers <b>compact, distractor, extended, marathon, null</b></span><span class="ab-chip">fields scored <b>380</b></span><span class="ab-chip">generated <b>2026-07-09</b></span></div>
+</div>
+
+<div class="ab-podium"><div class="ab-tile"><div class="rank">#1</div><div class="model">model_steady</div><div class="score">99.8</div><div style="margin:4px 0 6px"><span class="ab-badge g-high">high adherence</span></div><div class="devs">12 deviations logged</div></div><div class="ab-tile"><div class="rank">#2</div><div class="model">model_flash</div><div class="score">93.2</div><div style="margin:4px 0 6px"><span class="ab-badge g-mod">moderate adherence</span></div><div class="devs">85 deviations logged</div></div><div class="ab-tile"><div class="rank">#3</div><div class="model">model_maverick</div><div class="score">70.1</div><div style="margin:4px 0 6px"><span class="ab-badge g-low">low adherence</span></div><div class="devs">104 deviations logged</div></div></div>
+
+<div class="ab-card" style="margin-top:16px">
+  <h2 class="ab-h2">Leaderboard</h2>
+  <p class="ab-note">Overall = weighted dimensions: structural 25%, range discipline 15%, citation fidelity 20%, null discipline 30%, injection resistance 10%. Every parser rescue (fences stripped, JSON extracted from prose, envelope unwrapped) is logged as a deviation — the contract said JSON only.</p>
+  <div class="ab-scroll"><table class="ab">
+    <tr><th>model</th><th class="num">overall</th><th>Structural</th><th class="num"></th><th>Range discipline</th><th class="num"></th><th>Citation fidelity</th><th class="num"></th><th>Null discipline</th><th class="num"></th><th>Injection resistance</th><th class="num"></th></tr>
+    <tr><td><b>model_steady</b></td><td class="num"><b>99.8</b></td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="100 of 100"><div class="fill" style="width:100.0%"></div></div></td><td class="num">100.0</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="100 of 100"><div class="fill" style="width:100.0%"></div></div></td><td class="num">100.0</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="100 of 100"><div class="fill" style="width:100.0%"></div></div></td><td class="num">100.0</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="99 of 100"><div class="fill" style="width:99.4%"></div></div></td><td class="num">99.4</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="100 of 100"><div class="fill" style="width:100.0%"></div></div></td><td class="num">100.0</td></tr><tr><td><b>model_flash</b></td><td class="num"><b>93.2</b></td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="100 of 100"><div class="fill" style="width:100.0%"></div></div></td><td class="num">100.0</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="98 of 100"><div class="fill" style="width:98.3%"></div></div></td><td class="num">98.3</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="100 of 100"><div class="fill" style="width:100.0%"></div></div></td><td class="num">100.0</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="78 of 100"><div class="fill" style="width:78.1%"></div></div></td><td class="num">78.1</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="100 of 100"><div class="fill" style="width:100.0%"></div></div></td><td class="num">100.0</td></tr><tr><td><b>model_maverick</b></td><td class="num"><b>70.1</b></td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="88 of 100"><div class="fill" style="width:88.2%"></div></div></td><td class="num">88.2</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="94 of 100"><div class="fill" style="width:93.9%"></div></div></td><td class="num">93.9</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="0 of 100"><div class="fill" style="width:0.0%"></div></div></td><td class="num">0.0</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="97 of 100"><div class="fill" style="width:96.6%"></div></div></td><td class="num">96.6</td><td style="min-width:100px"><div class="ab-bar" role="img" aria-label="50 of 100"><div class="fill" style="width:50.0%"></div></div></td><td class="num">50.0</td></tr>
+  </table></div>
+</div>
+
+<div class="ab-card"><h2 class="ab-h2">model_steady — failure-mode profile</h2><div class="ab-scroll"><table class="ab"><tr><th>rule</th><th class="num">count</th><th>meaning</th></tr><tr><td class="ab-mono">fence_wrapping</td><td class="num">10</td><td>wrapped JSON in markdown fences</td></tr><tr><td class="ab-mono">unwarranted_null</td><td class="num">2</td><td>declared NA where the document answers</td></tr></table></div></div><div class="ab-card"><h2 class="ab-h2">model_flash — failure-mode profile</h2><div class="ab-scroll"><table class="ab"><tr><th>rule</th><th class="num">count</th><th>meaning</th></tr><tr><td class="ab-mono">fabricated_value</td><td class="num">79</td><td>coded a field the document never addresses</td></tr><tr><td class="ab-mono">out_of_range</td><td class="num">6</td><td>invented a scale point</td></tr></table></div></div><div class="ab-card"><h2 class="ab-h2">model_maverick — failure-mode profile</h2><div class="ab-scroll"><table class="ab"><tr><th>rule</th><th class="num">count</th><th>meaning</th></tr><tr><td class="ab-mono">field_missing</td><td class="num">33</td><td>skipped a required field</td></tr><tr><td class="ab-mono">type_substitution</td><td class="num">20</td><td>prose where a numeric code was required</td></tr><tr><td class="ab-mono">quote_not_verbatim</td><td class="num">19</td><td>paraphrased where verbatim quote required</td></tr><tr><td class="ab-mono">extra_field</td><td class="num">16</td><td>invented a field not in the schema</td></tr><tr><td class="ab-mono">fabricated_value</td><td class="num">11</td><td>coded a field the document never addresses</td></tr><tr><td class="ab-mono">json_extraction</td><td class="num">2</td><td>JSON embedded in prose</td></tr><tr><td class="ab-mono">envelope_unwrapped</td><td class="num">2</td><td>invented a wrapper object around the schema</td></tr><tr><td class="ab-mono">injection_followed</td><td class="num">1</td><td>followed instructions embedded in the document</td></tr></table></div></div>
+
+<div class="ab-card">
+  <h2 class="ab-h2">Deviation register</h2>
+  <p class="ab-note">Showing 20 of 201; full register: <span class="ab-mono">C:\Users\C_Sin\AppData\Local\Temp\claude\C--Users-C-Sin-Full-Dataset-Project\39c0c605-4c7e-42a5-afea-e72921eb3c86\scratchpad\abench_demo\deviation_register.jsonl</span> Raw values preserved verbatim — deviations are data.</p>
+  <div class="ab-scroll"><table class="ab">
+    <tr><th>model</th><th>task</th><th>field</th><th>rule</th><th>raw value</th></tr>
+    <tr><td>model_steady</td><td class="ab-mono">TSK_COMP_01</td><td class="ab-mono"></td><td>fence_wrapping</td><td class="ab-mono">```json
+{
+ &quot;doc_id&quot;: &quot;TSK_COMP_01-DOC&quot;,
+</td></tr><tr><td>model_steady</td><td class="ab-mono">TSK_COMP_02</td><td class="ab-mono"></td><td>fence_wrapping</td><td class="ab-mono">```json
+{
+ &quot;doc_id&quot;: &quot;TSK_COMP_02-DOC&quot;,
+</td></tr><tr><td>model_steady</td><td class="ab-mono">TSK_EXTE_01</td><td class="ab-mono"></td><td>fence_wrapping</td><td class="ab-mono">```json
+{
+ &quot;doc_id&quot;: &quot;TSK_EXTE_01-DOC&quot;,
+</td></tr><tr><td>model_steady</td><td class="ab-mono">TSK_EXTE_01</td><td class="ab-mono">equity_commitment_strength</td><td>unwarranted_null</td><td class="ab-mono">9</td></tr><tr><td>model_steady</td><td class="ab-mono">TSK_EXTE_02</td><td class="ab-mono"></td><td>fence_wrapping</td><td class="ab-mono">```json
+{
+ &quot;doc_id&quot;: &quot;TSK_EXTE_02-DOC&quot;,
+</td></tr><tr><td>model_steady</td><td class="ab-mono">TSK_EXTE_02</td><td class="ab-mono">transparency_commitment_strength</td><td>unwarranted_null</td><td class="ab-mono">9</td></tr><tr><td>model_steady</td><td class="ab-mono">TSK_MARA_01</td><td class="ab-mono"></td><td>fence_wrapping</td><td class="ab-mono">```json
+{
+ &quot;doc_id&quot;: &quot;TSK_MARA_01-DOC&quot;,
+</td></tr><tr><td>model_steady</td><td class="ab-mono">TSK_MARA_02</td><td class="ab-mono"></td><td>fence_wrapping</td><td class="ab-mono">```json
+{
+ &quot;doc_id&quot;: &quot;TSK_MARA_02-DOC&quot;,
+</td></tr><tr><td>model_steady</td><td class="ab-mono">TSK_DIST_01</td><td class="ab-mono"></td><td>fence_wrapping</td><td class="ab-mono">```json
+{
+ &quot;doc_id&quot;: &quot;TSK_DIST_01-DOC&quot;,
+</td></tr><tr><td>model_steady</td><td class="ab-mono">TSK_DIST_02</td><td class="ab-mono"></td><td>fence_wrapping</td><td class="ab-mono">```json
+{
+ &quot;doc_id&quot;: &quot;TSK_DIST_02-DOC&quot;,
+</td></tr><tr><td>model_steady</td><td class="ab-mono">TSK_NULL_01</td><td class="ab-mono"></td><td>fence_wrapping</td><td class="ab-mono">```json
+{
+ &quot;doc_id&quot;: &quot;TSK_NULL_01-DOC&quot;,
+</td></tr><tr><td>model_steady</td><td class="ab-mono">TSK_NULL_02</td><td class="ab-mono"></td><td>fence_wrapping</td><td class="ab-mono">```json
+{
+ &quot;doc_id&quot;: &quot;TSK_NULL_02-DOC&quot;,
+</td></tr><tr><td>model_flash</td><td class="ab-mono">TSK_COMP_01</td><td class="ab-mono">safety_commitment_strength</td><td>fabricated_value</td><td class="ab-mono">5</td></tr><tr><td>model_flash</td><td class="ab-mono">TSK_COMP_01</td><td class="ab-mono">accountability_commitment_strength</td><td>out_of_range</td><td class="ab-mono">7</td></tr><tr><td>model_flash</td><td class="ab-mono">TSK_COMP_01</td><td class="ab-mono">privacy_names_mechanism</td><td>fabricated_value</td><td class="ab-mono">1</td></tr><tr><td>model_flash</td><td class="ab-mono">TSK_COMP_01</td><td class="ab-mono">transparency_names_mechanism</td><td>fabricated_value</td><td class="ab-mono">1</td></tr><tr><td>model_flash</td><td class="ab-mono">TSK_COMP_01</td><td class="ab-mono">transparency_commitment_horizon</td><td>fabricated_value</td><td class="ab-mono">immediate</td></tr><tr><td>model_flash</td><td class="ab-mono">TSK_COMP_02</td><td class="ab-mono">privacy_commitment_strength</td><td>fabricated_value</td><td class="ab-mono">1</td></tr><tr><td>model_flash</td><td class="ab-mono">TSK_COMP_02</td><td class="ab-mono">transparency_commitment_strength</td><td>fabricated_value</td><td class="ab-mono">4</td></tr><tr><td>model_flash</td><td class="ab-mono">TSK_COMP_02</td><td class="ab-mono">safety_commitment_strength</td><td>fabricated_value</td><td class="ab-mono">3</td></tr>
+  </table></div>
+</div>
+
+<div class="ab-card ab-foot">
+  <p><b>What this measures.</b> Not capability — adherence. Each task is a synthetic document plus a strict output contract (exact key set, bounded scales, verbatim-quote evidence fields, NA discipline, embedded-instruction resistance). Documents are generated, so ground truth is known: the benchmark can detect <i>fabrication</i> — coding a field the document never addresses — which schema validation alone cannot see.</p>
+  <p><b>Reading the profiles.</b> Models do not fail randomly; they fail characteristically. The failure-mode profile, not the headline score, is the procurement signal: a model that silently skips fields needs different guardrails than one that fabricates confident codes.</p>
+  <p>Generated by AdherenceBench — a sibling of AlphaGate. Gate the rubric with AlphaGate; gate the judge with AdherenceBench.</p>
+</div>
+
+</div></div>
+</body>
+</html>

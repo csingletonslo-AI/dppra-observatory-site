@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReviewRouter — Compliance Screening Rubric (demo)</title>
+<style>
+.rr-root{
+  --surface:#fcfcfb; --plane:#f9f9f7; --ink:#0b0b0b; --ink2:#52514e;
+  --muted:#898781; --grid:#e1e0d9; --ring:rgba(11,11,11,.10);
+  --good:#0ca30c; --good-text:#006300; --warn:#fab219; --warn-text:#8a5a00;
+  --crit:#d03b3b; --crit-text:#b02a2a; --accent:#2a78d6;
+  color:var(--ink); background:var(--plane);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.5; margin:0; padding:24px 16px;
+}
+@media (prefers-color-scheme: dark){ .rr-root{
+  --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink2:#c3c2b7;
+  --muted:#898781; --grid:#2c2c2a; --ring:rgba(255,255,255,.10);
+  --good-text:#0ca30c; --warn-text:#fab219; --crit-text:#e66767; --accent:#3987e5;
+}}
+:root[data-theme="dark"] .rr-root{
+  --surface:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink2:#c3c2b7;
+  --muted:#898781; --grid:#2c2c2a; --ring:rgba(255,255,255,.10);
+  --good-text:#0ca30c; --warn-text:#fab219; --crit-text:#e66767; --accent:#3987e5;
+}
+:root[data-theme="light"] .rr-root{
+  --surface:#fcfcfb; --plane:#f9f9f7; --ink:#0b0b0b; --ink2:#52514e;
+  --muted:#898781; --grid:#e1e0d9; --ring:rgba(11,11,11,.10);
+  --good-text:#006300; --warn-text:#8a5a00; --crit-text:#b02a2a; --accent:#2a78d6;
+}
+.rr-root *{box-sizing:border-box}
+.rr-wrap{max-width:960px;margin:0 auto}
+.rr-card{background:var(--surface);border:1px solid var(--ring);border-radius:10px;
+  padding:20px 24px;margin:0 0 16px}
+.rr-kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.rr-h1{font-size:22px;font-weight:650;margin:0 0 2px}
+.rr-sub{color:var(--ink2);font-size:14px;margin:0}
+.rr-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.rr-chip{font-size:12.5px;color:var(--ink2);border:1px solid var(--grid);
+  border-radius:999px;padding:3px 10px;white-space:nowrap}
+.rr-chip b{color:var(--ink);font-weight:600}
+.rr-tiles{display:flex;gap:12px;flex-wrap:wrap}
+.rr-tile{flex:1 1 150px;background:var(--surface);border:1px solid var(--ring);
+  border-radius:10px;padding:14px 18px}
+.rr-tile .n{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums}
+.rr-tile .l{font-size:12px;color:var(--muted);margin-top:2px;max-width:20ch}
+.rr-h2{font-size:15px;font-weight:650;margin:0 0 4px}
+.rr-note{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+table.rr{width:100%;border-collapse:collapse;font-size:13.5px}
+table.rr th{color:var(--muted);font-weight:500;font-size:12px;text-align:left;
+  padding:6px 10px 6px 0;border-bottom:1px solid var(--grid);white-space:nowrap}
+table.rr td{padding:8px 10px 8px 0;border-bottom:1px solid var(--grid);vertical-align:top}
+table.rr td.num,table.rr th.num{text-align:right;font-variant-numeric:tabular-nums}
+table.rr tr:last-child td{border-bottom:none}
+.rr-scroll{overflow-x:auto}
+.rr-badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;
+  border-radius:999px;padding:2px 10px;white-space:nowrap;border:1px solid transparent}
+.d-AUTO{color:var(--good-text);border-color:var(--good)}
+.d-SPOT{color:var(--warn-text);border-color:var(--warn)}
+.d-REVIEW{color:var(--crit-text);border-color:var(--crit)}
+.rr-stack{position:relative;height:8px;border-radius:4px;overflow:hidden;
+  display:flex;min-width:130px;background:var(--grid)}
+.rr-stack .a{background:var(--good)} .rr-stack .s{background:var(--warn);margin-left:2px}
+.rr-stack .r{background:var(--crit);margin-left:2px}
+.rr-mono{font-family:ui-monospace,Consolas,monospace;font-size:12.5px}
+.rr-foot{font-size:12px;color:var(--muted)}
+.rr-foot p{margin:4px 0}
+@media (max-width:640px){ .rr-tile .n{font-size:22px} .rr-card{padding:16px} }
+</style>
+</head>
+<body style="margin:0">
+<div class="rr-root"><div class="rr-wrap">
+
+<div class="rr-card">
+  <p class="rr-kicker">ReviewRouter · disagreement-routed human oversight</p>
+  <h1 class="rr-h1">Compliance Screening Rubric (demo)</h1>
+  <p class="rr-sub">Panel consensus acted on automatically; contested judgments routed to humans. Disagreement is signal, not noise.</p>
+  <div class="rr-chips"><span class="rr-chip">judges <b>judge_a, judge_b, judge_c</b></span><span class="rr-chip">units <b>40</b></span><span class="rr-chip">decisions <b>320</b></span><span class="rr-chip">policy <b>auto ≤ 0.15 · review ≥ 0.35</b></span><span class="rr-chip">generated <b>2026-07-09</b></span></div>
+</div>
+
+<div class="rr-tiles"><div class="rr-tile"><div class="n">76.6%</div><div class="l">decisions auto-accepted on panel consensus</div></div><div class="rr-tile"><div class="n">18.1%</div><div class="l">spot-check band (sample these)</div></div><div class="rr-tile"><div class="n">5.3%</div><div class="l">routed to human review</div></div><div class="rr-tile"><div class="n">16</div><div class="l">units in the review queue</div></div></div>
+
+<div class="rr-card" style="margin-top:16px">
+  <h2 class="rr-h2">Review queue — work in this order</h2>
+  <p class="rr-note">Ranked by flagged items, then mean disagreement. Each row shows the most contested items with every judge's value and the panel consensus. Full ranked queue + adjudicated dataset: <span class="rr-mono">C:\Users\C_Sin\AppData\Local\Temp\claude\C--Users-C-Sin-Full-Dataset-Project\39c0c605-4c7e-42a5-afea-e72921eb3c86\scratchpad\rrouter_demo\review_queue.csv</span></p>
+  <div class="rr-scroll"><table class="rr">
+    <tr><th class="num">#</th><th>unit</th><th class="num">review items</th><th class="num">spot items</th><th class="num">mean disagr.</th><th>most contested</th></tr>
+    <tr><td class="num">1</td><td class="rr-mono">CASE_032</td><td class="num">2</td><td class="num">3</td><td class="num">0.267</td><td><span class="rr-mono">risk_tone</span> — judge_a: 5, judge_b: 3, judge_c: 0 → consensus 3<br><span class="rr-mono">remediation_clarity</span> — judge_a: 3, judge_b: 1, judge_c: 4 → consensus 3</td></tr><tr><td class="num">2</td><td class="rr-mono">CASE_028</td><td class="num">1</td><td class="num">5</td><td class="num">0.267</td><td><span class="rr-mono">risk_tone</span> — judge_a: 2, judge_b: 5, judge_c: 0 → consensus 2</td></tr><tr><td class="num">3</td><td class="rr-mono">CASE_003</td><td class="num">1</td><td class="num">3</td><td class="num">0.225</td><td><span class="rr-mono">remediation_clarity</span> — judge_a: 1, judge_b: 4, judge_c: 3 → consensus 3</td></tr><tr><td class="num">4</td><td class="rr-mono">CASE_004</td><td class="num">1</td><td class="num">3</td><td class="num">0.183</td><td><span class="rr-mono">risk_tone</span> — judge_a: 1, judge_b: 1, judge_c: 4 → consensus 1</td></tr><tr><td class="num">5</td><td class="rr-mono">CASE_017</td><td class="num">1</td><td class="num">2</td><td class="num">0.183</td><td><span class="rr-mono">risk_tone</span> — judge_a: 3, judge_b: 1, judge_c: 5 → consensus 3</td></tr><tr><td class="num">6</td><td class="rr-mono">CASE_027</td><td class="num">1</td><td class="num">2</td><td class="num">0.183</td><td><span class="rr-mono">risk_tone</span> — judge_a: 1, judge_b: 4, judge_c: 0 → consensus 1</td></tr><tr><td class="num">7</td><td class="rr-mono">CASE_008</td><td class="num">1</td><td class="num">2</td><td class="num">0.167</td><td><span class="rr-mono">risk_tone</span> — judge_a: 3, judge_b: 0, judge_c: 2 → consensus 2</td></tr><tr><td class="num">8</td><td class="rr-mono">CASE_029</td><td class="num">1</td><td class="num">2</td><td class="num">0.167</td><td><span class="rr-mono">risk_tone</span> — judge_a: 0, judge_b: 0, judge_c: 3 → consensus 0</td></tr><tr><td class="num">9</td><td class="rr-mono">CASE_030</td><td class="num">1</td><td class="num">2</td><td class="num">0.167</td><td><span class="rr-mono">risk_tone</span> — judge_a: 3, judge_b: 2, judge_c: 5 → consensus 3</td></tr><tr><td class="num">10</td><td class="rr-mono">CASE_001</td><td class="num">1</td><td class="num">1</td><td class="num">0.108</td><td><span class="rr-mono">risk_tone</span> — judge_a: 2, judge_b: 0, judge_c: 3 → consensus 2</td></tr><tr><td class="num">11</td><td class="rr-mono">CASE_005</td><td class="num">1</td><td class="num">0</td><td class="num">0.083</td><td><span class="rr-mono">risk_tone</span> — judge_a: 5, judge_b: 3, judge_c: 2 → consensus 3</td></tr><tr><td class="num">12</td><td class="rr-mono">CASE_011</td><td class="num">1</td><td class="num">0</td><td class="num">0.083</td><td><span class="rr-mono">risk_tone</span> — judge_a: 5, judge_b: 3, judge_c: 2 → consensus 3</td></tr>
+  </table></div>
+</div>
+
+<div class="rr-card">
+  <h2 class="rr-h2">Item routing profile</h2>
+  <p class="rr-note">Green = auto-accepted, amber = spot-check, red = review. An item routing ≥30% to review is generating your queue by itself — that is an instrument problem, not a unit problem. Fix the wording, verify with an AlphaGate reliability audit, and the queue shrinks.</p>
+  <div class="rr-scroll"><table class="rr">
+    <tr><th>item</th><th>level</th><th class="num">units</th><th>routing</th><th class="num">review %</th><th class="num">mean disagr.</th><th></th></tr>
+    <tr><td class="rr-mono">risk_tone</td><td>ordinal</td><td class="num">40</td><td style="min-width:140px"><div class="rr-stack" role="img" aria-label="auto 40%, spot 22%, review 38%"><div class="a" style="width:40.0%"></div><div class="s" style="width:22.5%"></div><div class="r" style="width:37.5%"></div></div></td><td class="num">37.5%</td><td class="num">0.277</td><td><span class="rr-badge d-REVIEW">✕ instrument-fix candidate</span></td></tr><tr><td class="rr-mono">remediation_clarity</td><td>ordinal</td><td class="num">40</td><td style="min-width:140px"><div class="rr-stack" role="img" aria-label="auto 82%, spot 12%, review 5%"><div class="a" style="width:82.5%"></div><div class="s" style="width:12.5%"></div><div class="r" style="width:5.0%"></div></div></td><td class="num">5.0%</td><td class="num">0.143</td><td></td></tr><tr><td class="rr-mono">control_specificity</td><td>ordinal</td><td class="num">40</td><td style="min-width:140px"><div class="rr-stack" role="img" aria-label="auto 95%, spot 5%, review 0%"><div class="a" style="width:95.0%"></div><div class="s" style="width:5.0%"></div><div class="r" style="width:0.0%"></div></div></td><td class="num">0.0%</td><td class="num">0.073</td><td></td></tr><tr><td class="rr-mono">has_escalation_path</td><td>binary</td><td class="num">40</td><td style="min-width:140px"><div class="rr-stack" role="img" aria-label="auto 95%, spot 5%, review 0%"><div class="a" style="width:95.0%"></div><div class="s" style="width:5.0%"></div><div class="r" style="width:0.0%"></div></div></td><td class="num">0.0%</td><td class="num">0.017</td><td></td></tr><tr><td class="rr-mono">owner_type</td><td>nominal</td><td class="num">40</td><td style="min-width:140px"><div class="rr-stack" role="img" aria-label="auto 82%, spot 18%, review 0%"><div class="a" style="width:82.5%"></div><div class="s" style="width:17.5%"></div><div class="r" style="width:0.0%"></div></div></td><td class="num">0.0%</td><td class="num">0.058</td><td></td></tr><tr><td class="rr-mono">policy_scope</td><td>ordinal</td><td class="num">40</td><td style="min-width:140px"><div class="rr-stack" role="img" aria-label="auto 98%, spot 2%, review 0%"><div class="a" style="width:97.5%"></div><div class="s" style="width:2.5%"></div><div class="r" style="width:0.0%"></div></div></td><td class="num">0.0%</td><td class="num">0.080</td><td></td></tr><tr><td class="rr-mono">review_cadence</td><td>nominal</td><td class="num">40</td><td style="min-width:140px"><div class="rr-stack" role="img" aria-label="auto 80%, spot 20%, review 0%"><div class="a" style="width:80.0%"></div><div class="s" style="width:20.0%"></div><div class="r" style="width:0.0%"></div></div></td><td class="num">0.0%</td><td class="num">0.067</td><td></td></tr><tr><td class="rr-mono">third_party_attested</td><td>binary</td><td class="num">40</td><td style="min-width:140px"><div class="rr-stack" role="img" aria-label="auto 40%, spot 60%, review 0%"><div class="a" style="width:40.0%"></div><div class="s" style="width:60.0%"></div><div class="r" style="width:0.0%"></div></div></td><td class="num">0.0%</td><td class="num">0.200</td><td></td></tr>
+  </table></div>
+</div>
+
+<div class="rr-card rr-foot">
+  <p><b>Method.</b> Per (unit, item): consensus = median (numeric scales, snapped to a real scale point) or majority vote (categorical); disagreement = mean pairwise distance between judges normalized by scale span, or 1 − majority share for categories. On a three-judge 0–5 panel: one adjacent-point dissent auto-accepts (0.13), a 2–1 categorical split spot-checks (0.33), a far outlier reviews (0.40+). Decisions: AUTO_ACCEPT ≤ 0.15, REVIEW ≥ 0.35 (ties and short panels always route to review), SPOT_CHECK between. Thresholds are policy, not truth — tune them to your review budget.</p>
+  <p><b>Why panels beat confidence scores.</b> A single model's self-reported confidence is notoriously miscalibrated and vendor-specific. Cross-family disagreement is vendor-neutral by construction and localizes contested judgment. Sibling tools: <b>AlphaGate</b> (is the rubric reliable enough to trust consensus?) and <b>AdherenceBench</b> (can each judge follow the schema at all?).</p>
+  <p>Generated by ReviewRouter.</p>
+</div>
+
+</div></div>
+</body>
+</html>

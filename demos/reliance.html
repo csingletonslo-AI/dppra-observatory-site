@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RELIANCE check — Institutional AI-policy coding pilot (example declaration)</title><style>
+.rl-root{--surface:#fcfcfb;--plane:#f9f9f7;--ink:#0b0b0b;--ink2:#52514e;
+ --muted:#898781;--grid:#e1e0d9;--ring:rgba(11,11,11,.10);
+ --good:#0ca30c;--good-text:#006300;--warn:#fab219;--warn-text:#8a5a00;
+ --crit:#d03b3b;--crit-text:#b02a2a;
+ color:var(--ink);background:var(--plane);
+ font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;
+ margin:0;padding:24px 16px}
+@media (prefers-color-scheme: dark){.rl-root{--surface:#1a1a19;--plane:#0d0d0d;
+ --ink:#fff;--ink2:#c3c2b7;--muted:#898781;--grid:#2c2c2a;
+ --ring:rgba(255,255,255,.10);--good-text:#0ca30c;--warn-text:#fab219;--crit-text:#e66767}}
+:root[data-theme="dark"] .rl-root{--surface:#1a1a19;--plane:#0d0d0d;--ink:#fff;
+ --ink2:#c3c2b7;--muted:#898781;--grid:#2c2c2a;--ring:rgba(255,255,255,.10);
+ --good-text:#0ca30c;--warn-text:#fab219;--crit-text:#e66767}
+:root[data-theme="light"] .rl-root{--surface:#fcfcfb;--plane:#f9f9f7;--ink:#0b0b0b;
+ --ink2:#52514e;--muted:#898781;--grid:#e1e0d9;--ring:rgba(11,11,11,.10);
+ --good-text:#006300;--warn-text:#8a5a00;--crit-text:#b02a2a}
+.rl-root *{box-sizing:border-box}
+.rl-wrap{max-width:900px;margin:0 auto}
+.rl-card{background:var(--surface);border:1px solid var(--ring);border-radius:10px;
+ padding:20px 24px;margin:0 0 16px}
+.rl-kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.rl-h1{font-size:22px;font-weight:650;margin:0 0 2px}
+.rl-sub{color:var(--ink2);font-size:14px;margin:0}
+.rl-tier{font-size:30px;font-weight:700;margin:6px 0 2px}
+.rl-badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;
+ border-radius:999px;padding:2px 10px;white-space:nowrap;border:1px solid transparent}
+.s-met{color:var(--good-text);border-color:var(--good)}
+.s-partial{color:var(--warn-text);border-color:var(--warn)}
+.s-not_met{color:var(--crit-text);border-color:var(--crit)}
+.s-not_applicable{color:var(--muted);border-color:var(--muted)}
+table.rl{width:100%;border-collapse:collapse;font-size:13.5px}
+table.rl th{color:var(--muted);font-weight:500;font-size:12px;text-align:left;
+ padding:6px 10px 6px 0;border-bottom:1px solid var(--grid)}
+table.rl td{padding:9px 10px 9px 0;border-bottom:1px solid var(--grid);vertical-align:top}
+table.rl tr:last-child td{border-bottom:none}
+.rl-scroll{overflow-x:auto}
+.rl-crit{font-size:11px;color:var(--crit-text);font-weight:700;letter-spacing:.04em}
+.rl-mono{font-family:ui-monospace,Consolas,monospace;font-size:12.5px}
+.rl-ev{color:var(--ink2);font-size:12.5px;margin-top:2px}
+.rl-foot{font-size:12px;color:var(--muted)}
+</style></head>
+<body style="margin:0"><div class="rl-root"><div class="rl-wrap">
+
+<div class="rl-card">
+  <p class="rl-kicker">RELIANCE v1.0 · reporting standard for LLM-coded data</p>
+  <h1 class="rl-h1">Institutional AI-policy coding pilot (example declaration)</h1>
+  <p class="rl-sub">Example Research Group</p>
+  <div class="rl-tier" style="color:var(--good-text)">RELIANCE-Substantial</div>
+  <p class="rl-sub">11 met · 1 partial · 0 not met · 0 n/a (justified) — of 12 items · 2026-07-09</p>
+  
+</div>
+
+<div class="rl-card">
+  <div class="rl-scroll"><table class="rl">
+    <tr><th>item</th><th>requirement &amp; evidence</th><th>status</th></tr>
+    <tr><td colspan="3" style="padding-top:14px"><span class="rl-kicker">Instrument</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R1</span> <span class="rl-crit">★ CRITICAL</span></td><td><b>Instrument versioning</b><div class="rl-ev">Instrument (codebook + prompt text) is version-identified and frozen per run; any change is a new, reported version.</div><div class="rl-ev"><i>Evidence: instrument v2.3, SHA-256 hash-locked; every prompt or field change bumps the version and triggers a re-code</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-met">✓ met</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R2</span></td><td><b>Level of measurement</b><div class="rl-ev">Every field declares binary/nominal/ordinal/interval, and statistics match the level.</div><div class="rl-ev"><i>Evidence: per-field level declared in the codebook (binary/nominal/ordinal); reliability statistics matched per level</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-met">✓ met</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R3</span></td><td><b>Missing-data convention</b><div class="rl-ev">&#x27;Unclear&#x27;/&#x27;N/A&#x27; codes are declared, distinct from scale points, and treated as missing in reliability.</div><div class="rl-ev"><i>Evidence: codes 8 (unclear) and 9 (not applicable) declared as missing markers, excluded from reliability computation</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-met">✓ met</span></td></tr><tr><td colspan="3" style="padding-top:14px"><span class="rl-kicker">Panel</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R4</span> <span class="rl-crit">★ CRITICAL</span></td><td><b>Panel composition</b><div class="rl-ev">&gt;=2 independent automated coders per unit (&gt;=3 recommended), independence declared; single-model designs justified and labeled.</div><div class="rl-ev"><i>Evidence: three independent coders from three model families (Anthropic, OpenAI, Google), selected for training independence</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-met">✓ met</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R5</span></td><td><b>Model identity pinning</b><div class="rl-ev">Exact model IDs, versions/dates, settings, and access route reported per coder.</div><div class="rl-ev"><i>Evidence: exact model IDs, versions, run dates, and access routes logged per coder in the run manifest</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-met">✓ met</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R6</span></td><td><b>Packet archival</b><div class="rl-ev">The exact material each coder received is archived and available.</div><div class="rl-ev"><i>Evidence: full packets (instrument + document) archived per coder per unit in the project repository</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-met">✓ met</span></td></tr><tr><td colspan="3" style="padding-top:14px"><span class="rl-kicker">Reliability</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R7</span> <span class="rl-crit">★ CRITICAL</span></td><td><b>Chance-corrected reliability</b><div class="rl-ev">Chance-corrected statistic matched to measurement level, with uncertainty, per item/family — not pooled-only.</div><div class="rl-ev"><i>Evidence: Krippendorff&#x27;s alpha per item family (ordinal/nominal/binary) with bootstrap CIs; per-item table in the appendix</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-met">✓ met</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R8</span></td><td><b>A-priori reliability gate</b><div class="rl-ev">Acceptance threshold and failure consequence declared before the run.</div><div class="rl-ev"><i>Evidence: alpha &gt;= .667 gate declared before the run; failing families trigger instrument revision and re-code, not post-hoc exclusion</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-met">✓ met</span></td></tr><tr><td colspan="3" style="padding-top:14px"><span class="rl-kicker">Transparency</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R9</span> <span class="rl-crit">★ CRITICAL</span></td><td><b>Deviation register</b><div class="rl-ev">Every off-schema output logged verbatim with disposition; register available; nothing silently repaired.</div><div class="rl-ev"><i>Evidence: public deviation register (JSONL): every off-schema output preserved verbatim with disposition; no silent repair</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-met">✓ met</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R10</span></td><td><b>Disagreement handling</b><div class="rl-ev">Final-code rule (consensus/adjudication/majority) declared; extent and location of disagreement reported.</div><div class="rl-ev"><i>Evidence: final codes by panel median/majority; disagreement reported per item and per document, contested units listed</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-met">✓ met</span></td></tr><tr><td colspan="3" style="padding-top:14px"><span class="rl-kicker">Validity</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R11</span></td><td><b>Human anchor</b><div class="rl-ev">Human-coded subsample anchors machine coding (or absence justified and claims bounded).</div><div class="rl-ev"><i>Evidence: human anchor limited to author adjudication of contested units; stratified human-coded subsample planned for the scale-up</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-partial">~ partial</span></td></tr><tr><td style="white-space:nowrap"><span class="rl-mono">R12</span></td><td><b>Audit availability</b><div class="rl-ev">Coded outputs, register, reliability computation, and instrument available to readers.</div><div class="rl-ev"><i>Evidence: coded outputs, register, reliability code, and instrument available in the project repository</i></div></td><td style="white-space:nowrap"><span class="rl-badge s-met">✓ met</span></td></tr>
+  </table></div>
+</div>
+
+<div class="rl-card rl-foot">
+  <p>A tier is a property of a <i>report</i>, not a team: it states what a reader can verify. Critical items (★): instrument versioning, panel composition, chance-corrected reliability, deviation register. Generate methods-section text from this declaration with <span class="rl-mono">reliance methods</span>.</p>
+  <p>RELIANCE — the reporting checklist for machine-coded data. Companion tools: AlphaGate (reliability gating), AdherenceBench (schema adherence), ReviewRouter (disagreement routing).</p>
+</div>
+
+</div></div></body></html>
