@@ -1,0 +1,1088 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>AI Rollout Review</title>
+<style>body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#F2F3F4; --surface:#FFFFFF; --surface-2:#E7EAEC; --field:#FBFCFC;
+    --ink:#1B222B; --muted:#5A6673; --line:#CCD3D9;
+    --accent:#2F5D7C; --accent-soft:#DEE8EF;
+    --signal:#9A5B2B; --signal-soft:#F3E7DB;
+    --ok:#2C6E52; --ok-soft:#DCEBE3;
+    --warn:#8A6D1F;
+    --serif:"Newsreader",Georgia,serif;
+    --sans:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#12161A; --surface:#1A2027; --surface-2:#222A32; --field:#151B21;
+      --ink:#E8ECF0; --muted:#9AA6B2; --line:#333D47;
+      --accent:#7FB4D4; --accent-soft:#1C2C38;
+      --signal:#D89A6A; --signal-soft:#33241A;
+      --ok:#6FBF98; --ok-soft:#172B22; --warn:#C7A84C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#12161A; --surface:#1A2027; --surface-2:#222A32; --field:#151B21;
+    --ink:#E8ECF0; --muted:#9AA6B2; --line:#333D47;
+    --accent:#7FB4D4; --accent-soft:#1C2C38;
+    --signal:#D89A6A; --signal-soft:#33241A;
+    --ok:#6FBF98; --ok-soft:#172B22; --warn:#C7A84C;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+  .wrap{max-width:770px;margin:0 auto;padding:36px 20px 120px}
+
+  .eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,6vw,44px);line-height:1.12;margin:0 0 16px;text-wrap:balance}
+  .standfirst{font-size:17.5px;color:var(--muted);margin:0}
+  .standfirst strong{color:var(--ink);font-weight:500}
+
+  .guard{background:var(--signal-soft);border:1px solid var(--signal);border-radius:5px;padding:18px 20px;margin:26px 0}
+  .guard h2{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--signal);margin:0 0 8px}
+  .guard p{margin:0;font-size:14.5px;color:var(--ink);line-height:1.55}
+  .guard p + p{margin-top:8px}
+
+  .why{background:var(--surface);border-left:3px solid var(--accent);padding:14px 18px;margin:22px 0;border-radius:0 4px 4px 0}
+  .why p{margin:0;font-size:15px;color:var(--muted)}
+  .why strong{color:var(--ink)}
+
+  h2.step{font-family:var(--serif);font-weight:400;font-size:27px;margin:44px 0 4px;line-height:1.2}
+  h2.step .tag{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+  .stepnote{color:var(--muted);font-size:15px;margin:0 0 18px;max-width:62ch}
+
+  .picks{display:grid;gap:10px;margin:0 0 8px}
+  .pick{display:block;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:15px 18px;cursor:pointer;font-family:var(--sans);color:var(--ink)}
+  .pick:hover{border-color:var(--accent)}
+  .pick[aria-pressed="true"]{border-color:var(--accent);border-width:2px;background:var(--accent-soft);padding:14px 17px}
+  .pick:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .pick b{display:block;font-size:16px;font-weight:600;margin-bottom:3px}
+  .pick span{display:block;font-size:14px;color:var(--muted);line-height:1.5}
+
+  .lane{display:none}
+  .lane.on{display:block}
+
+  .bar{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 0 9px;margin:30px 0 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .prog{flex:1;min-width:130px;height:5px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+  .prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s ease}
+  .count{font-family:var(--mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .save{font-family:var(--mono);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px}
+  .save::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--line)}
+  .save.dirty::before{background:var(--signal)}
+  .save.ok::before{background:var(--ok)}
+
+  h3.sec{font-family:var(--serif);font-weight:400;font-size:24px;margin:38px 0 3px;line-height:1.2}
+  h3.sec .tag{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+  .secnote{color:var(--muted);font-size:14.5px;margin:0 0 16px}
+
+  .q{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:18px 20px;margin:0 0 13px}
+  .q.done{border-color:var(--ok)}
+  .qhead{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+  .qnum{font-family:var(--mono);font-size:11px;color:var(--accent);flex:none;padding-top:3px;min-width:22px}
+  .qtext{flex:1;font-size:15.5px;line-height:1.5;color:var(--ink)}
+  .qtext .sub{display:block;font-size:13.5px;color:var(--muted);margin-top:5px;line-height:1.5}
+  .star{flex:none;background:none;border:1px solid var(--line);border-radius:4px;width:30px;height:30px;cursor:pointer;color:var(--muted);font-size:14px;line-height:1;padding:0}
+  .star[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+  .star:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  textarea{width:100%;min-height:72px;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:11px 13px;font-family:var(--sans);font-size:15px;line-height:1.55;resize:vertical}
+  textarea:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent)}
+  input[type=text]{width:100%;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:10px 13px;font-family:var(--sans);font-size:15px}
+  input[type=text]:focus{outline:2px solid var(--accent);outline-offset:-1px}
+
+  .marks{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap}
+  .mark{font-family:var(--mono);font-size:11px;background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:3px;padding:5px 10px;cursor:pointer}
+  .mark[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+  .mark:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .mark.s0[aria-pressed="true"]{background:var(--signal-soft);border-color:var(--signal);color:var(--signal)}
+  .mark.s3[aria-pressed="true"]{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+
+  .ctx{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:20px;margin:22px 0}
+  .ctx label{display:block;font-size:14px;font-weight:500;margin:0 0 6px}
+  .ctx .f + .f{margin-top:16px}
+  .ctx .hint{font-size:13px;color:var(--muted);margin:0 0 7px}
+
+  .wants{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+  .wants label{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px}
+
+  .profile{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:20px;margin:20px 0}
+  .profile h4{font-family:var(--sans);font-size:13px;font-weight:600;margin:0 0 14px;letter-spacing:.02em}
+  .prow{display:flex;align-items:center;gap:12px;margin-bottom:9px;font-size:14px}
+  .prow .nm{flex:none;width:132px;color:var(--muted)}
+  .prow .track{flex:1;height:9px;background:var(--surface-2);border-radius:2px;overflow:hidden;display:flex}
+  .prow .track i{display:block;height:100%}
+  .prow .vl{flex:none;font-family:var(--mono);font-size:11px;color:var(--muted);width:112px;text-align:right}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .legend span{display:flex;align-items:center;gap:5px}
+  .legend i{width:9px;height:9px;border-radius:2px;display:block}
+
+  .say{background:var(--accent-soft);border-radius:5px;padding:20px 22px;margin:0 0 20px}
+  .say .lab{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  .say .line{font-family:var(--serif);font-size:20px;line-height:1.45;color:var(--ink);margin:0 0 12px}
+  .say .after{font-size:14px;color:var(--muted);margin:0}
+  .say .after b{color:var(--ink);font-weight:500}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 0}
+  button.btn{font-family:var(--sans);font-size:14.5px;font-weight:500;padding:11px 18px;border-radius:4px;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:#fff}
+  button.btn.ghost{background:transparent;color:var(--accent)}
+  button.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .toast{font-size:14px;color:var(--ok);margin:12px 0 0;min-height:20px}
+
+  .foot{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted);line-height:1.7}
+</style>
+
+<div class="wrap">
+
+  <p class="eyebrow">AI rollout &middot; structured review</p>
+  <h1>Start with where this actually is</h1>
+  <p class="standfirst">The useful questions are different depending on whether a policy exists yet, whether
+  you&rsquo;re being asked to write one, or whether the thing is already running. <strong>Answer the two
+  questions below and the rest of the form changes to match.</strong></p>
+
+  <div class="guard">
+    <h2>Before you start</h2>
+    <p>Keep everything at the level of <strong>process</strong>. No case details, no personal data, no text
+    copied out of internal documents. Describe how the workflow works, not what happened in any particular file.</p>
+    <p>A good test: if you wouldn&rsquo;t put it in an email to the program owner, don&rsquo;t put it here.</p>
+    <p><strong>Nothing you type leaves this device.</strong> Your answers are stored by your own browser so you
+    can close the page and come back. They are sent nowhere until you press Download or Copy and choose to send
+    them yourself.</p>
+  </div>
+
+  <h2 class="step"><span class="tag">Step 1</span>Where is this right now?</h2>
+  <p class="stepnote">Your leverage is completely different at each stage, and so is the question worth asking.</p>
+  <div class="picks" id="stage">
+    <button class="pick" type="button" data-v="idea" aria-pressed="false">
+      <b>An idea, or early talk</b><span>Nothing procured, nothing written down yet.</span></button>
+    <button class="pick" type="button" data-v="drafting" aria-pressed="false">
+      <b>A policy or plan is being written</b><span>Decisions are still open. This is the highest-leverage moment.</span></button>
+    <button class="pick" type="button" data-v="chosen" aria-pressed="false">
+      <b>A system has been chosen, not yet deployed</b><span>Procurement done; go-live ahead.</span></button>
+    <button class="pick" type="button" data-v="pilot" aria-pressed="false">
+      <b>A pilot is running</b><span>Live on some work, with a chance to change course.</span></button>
+    <button class="pick" type="button" data-v="live" aria-pressed="false">
+      <b>Already in use</b><span>It&rsquo;s handling real work now.</span></button>
+  </div>
+
+  <h2 class="step"><span class="tag">Step 2</span>What have you been asked to contribute?</h2>
+  <p class="stepnote">This one decides which set of questions you get. You can change it later without losing
+  anything you&rsquo;ve typed.</p>
+  <div class="picks" id="route">
+    <button class="pick" type="button" data-v="draft" aria-pressed="false">
+      <b>Say what the policy should contain</b>
+      <span>No policy exists yet, or it&rsquo;s being written and you&rsquo;ve been asked what goes in it.
+      You&rsquo;ll get a checklist of what a policy has to specify to be operational rather than decorative.</span></button>
+    <button class="pick" type="button" data-v="assess" aria-pressed="false">
+      <b>Assess a policy or plan that already exists</b>
+      <span>There&rsquo;s a document and you&rsquo;ve been asked what you think. You&rsquo;ll read it against
+      each principle and get back a picture of where it stops at words.</span></button>
+    <button class="pick" type="button" data-v="implement" aria-pressed="false">
+      <b>Give implementation input on a rollout underway</b>
+      <span>The decision is made and you&rsquo;re being asked how to operationalise it. You&rsquo;ll get the
+      full due-diligence question set to put to the program owner.</span></button>
+    <button class="pick" type="button" data-v="unsure" aria-pressed="false">
+      <b>More than one of these, or not sure</b>
+      <span>You&rsquo;ll get all three, in order. Work through whichever fits.</span></button>
+  </div>
+
+  <div id="body" style="display:none">
+
+    <div class="why">
+      <p><strong>Why write it down.</strong> A written answer turns a concern into a commitment, and creates a
+      record that the question was raised before go-live. That protects you as much as it improves the rollout.</p>
+    </div>
+
+    <div class="bar">
+      <span class="count" id="count">0 addressed</span>
+      <span class="prog"><i id="progbar"></i></span>
+      <span class="save" id="savestate">saved in this browser</span>
+    </div>
+
+    <div class="ctx">
+      <div class="f">
+        <label for="c1">What process is being automated?</label>
+        <p class="hint">The form or workflow in plain terms &mdash; no case or applicant details.</p>
+        <input type="text" id="c1" data-ctx="process" placeholder="e.g. a permit renewal form submitted by the public">
+      </div>
+      <div class="f">
+        <label for="c2">What does the system do, or what is it meant to do?</label>
+        <p class="hint">Extract, classify, route, pre-fill, draft, score, recommend &mdash; or decide.</p>
+        <input type="text" id="c2" data-ctx="does" placeholder="one sentence">
+      </div>
+      <div class="f">
+        <label for="c3">What exactly were you asked for, and by when?</label>
+        <input type="text" id="c3" data-ctx="ask" placeholder="e.g. implementation ideas, a memo, end of month">
+      </div>
+    </div>
+
+    <div class="lane" id="lane_draft"></div>
+    <div class="lane" id="lane_assess"></div>
+    <div class="lane" id="lane_implement"></div>
+
+    <div id="vuln"></div>
+
+    <div id="upstream"></div>
+
+    <h3 class="sec"><span class="tag">Last step</span>What to send up</h3>
+    <p class="secnote">Anything you starred collects here. For each, say what a good answer would look like
+    &mdash; that turns a question into a recommendation, which is much harder to leave unanswered.</p>
+    <div id="starred"></div>
+
+    <div class="actions">
+      <button class="btn" id="export" type="button">Download my answers</button>
+      <button class="btn ghost" id="copy" type="button">Copy everything</button>
+    </div>
+    <p class="toast" id="toast"></p>
+  </div>
+
+  <p class="foot">
+    Structured with the DPPRA framework &mdash; <em>Discourse, Policy, Practice, Resources,
+    Accountability</em> &mdash; which looks at the distance between what an organisation says about ethics and
+    what it actually operates. Citing an external framework in internal planning is ordinary practice, the same
+    way people cite the NIST AI Risk Management Framework.<br>
+    Answers save automatically. You can close this and come back.
+  </p>
+</div>
+
+<script>
+(function(){
+  // ---------------- content ----------------
+  var PRINCIPLES = [
+    ["privacy", "Privacy", "Control over personal data and exposure.",
+     "Where the scan lives and for how long; whether the extraction vendor may retain or train on the data; whether sensitive fields are masked; who can pull a form back up, and whether that access is logged."],
+    ["accountability", "Accountability", "Who answers for outcomes.",
+     "A named role answerable to the affected person — not to the model. An audit trail of what the system touched. An error log somebody actually reads."],
+    ["nonmal", "Non-maleficence", "Avoid harm; the safety floor.",
+     "A written list of uses this is not approved for. A condition that takes it offline and a person who can pull it. A rollback plan with a trigger."],
+    ["autonomy", "Autonomy", "The human stays the decision-maker.",
+     "Real review time per item. Override that is easy and counted. What happens to review when staff are behind."],
+    ["transparency", "Transparency", "Disclosure and explainability.",
+     "Whether the public can learn an automated system was involved, and whether staff can give a real answer when asked why."],
+    ["justice", "Justice", "Rights, remedy, due process.",
+     "A published route to contest an automated outcome and reach a human. Whether appeal outcomes are tracked."],
+    ["equity", "Equity", "Fair performance across groups.",
+     "Accuracy measured separately on handwritten forms, non-English names, poor scans — not just the clean test set."],
+    ["integrity", "Integrity", "Say–do consistency.",
+     "Whether the description given at rollout matches what the system actually does today."],
+    ["benefit", "Benefit and who gets it", "The good it does, and for whom.",
+     "The concrete benefit, whether it is measured, and whether it lands with the public or only with the office's numbers."]
+  ];
+
+  var DD = [
+    { tag: "A · Integrity", title: "Scope and description", note: "What the system is, versus what it was announced as.",
+      qs: ["In one paragraph, what does the system do, and what does it explicitly not do?",
+           "Is the system assistive — a human makes every decision — or decisive, where some outcomes take effect without a human step? Where exactly is that line?",
+           "Was the description given to staff at rollout an accurate account of the current function, or of the intended future function?",
+           "What specific benefit was this expected to produce — turnaround time, error rate, staff hours — and who is measuring whether it materialised?"] },
+    { tag: "B · Privacy", title: "Data handling", note: "Where the scan goes, who can reach it, whether anything leaves the network.",
+      qs: ["Once a form is scanned, where does the image file reside, for how long, and under which records-retention schedule — for the digital copy, not the paper.",
+           "What happens to the physical paper after scanning, and who is responsible for that step?",
+           "Who performs text extraction — an in-house tool or a named vendor? If a vendor: are they contractually prohibited from retaining agency data or using it to train their models?",
+           "Does any part of this data flow leave the agency network? If so, which fields, and is that covered by an existing authorisation or a new one?",
+           "Are sensitive fields — SSN, EIN, financial figures — masked within the automated pipeline, or do they pass through in the clear?",
+           "Is there a Privacy Impact Assessment, and where applicable a System of Records Notice, covering this new data flow — or is it running on one written for a different process?",
+           "Who can retrieve a scanned form after processing, and is that access logged and reviewable?"] },
+    { tag: "C · Accountability", title: "Error ownership", note: "Who answers to the person affected — not who fixes the model.",
+      qs: ["When the system mis-reads, mis-classifies or mis-routes an item, who is the named role accountable for the outcome to the affected member of the public?",
+           "Is there an audit trail recording which items the system touched and what it did to them?",
+           "Is there an error log, and does a supervisor review it on a set schedule?",
+           "How does a staff member report a bad automated result, and is doing so treated as routine feedback rather than as their error?"] },
+    { tag: "D · Non-maleficence", title: "The off switch", note: "What happens when it goes wrong, and who can stop it.",
+      qs: ["Is there a written list of uses this system is not approved for?",
+           "Under what conditions is the system taken offline, and who has the authority to do that?",
+           "Is there a rollback plan if error rates rise after go-live, and what threshold triggers it?",
+           "Was there a measured pilot with recorded error rates before full deployment, or did it move straight to production?"] },
+    { tag: "E · Autonomy", title: "The human in the loop", note: "Whether review is a real decision or a rubber stamp under time pressure.",
+      qs: ["At the human review step, how much time does a reviewer realistically have per item?",
+           "Does the reviewer see the AI output as a suggestion, or as a pre-filled default that must be actively changed?",
+           "How easy is it to override the system, and is the override rate tracked?",
+           "If review staff fall behind, does the review step get compressed or skipped, or does the queue simply lengthen?"] },
+    { tag: "F · Transparency and justice", title: "The affected person", note: "What someone on the outside can find out, and how they push back.",
+      qs: ["Can a member of the public learn that an automated system was involved in handling their submission? Is there a notice, and where?",
+           "If someone asks why their application was delayed or flagged, can staff give a substantive answer?",
+           "If an automated step contributes to an adverse decision, what is the published route for the person to contest it and reach a human?",
+           "Are appeal or correction outcomes tracked, to see whether automated items are reversed at a higher rate?"] },
+    { tag: "G · Equity", title: "Uneven performance", note: "Whether it works as well for everyone, or only on the clean test set.",
+      qs: ["Has accuracy been measured separately for handwritten versus typed forms, non-English names and addresses, and low-quality scans?",
+           "Have error rates been broken out by form type, office or applicant population, or is performance based on a clean test set?",
+           "What is the plan if a subgroup turns out to be systematically disadvantaged by the automation?"] },
+    { tag: "H · Displacement", title: "Which way cost and benefit flow", note: "The four that matter most. If cost lands down and benefit goes up, say so plainly.",
+      qs: ["When an automated error occurs, who bears the cost — the applicant, the field staffer, the reviewer, the agency, or the vendor?",
+           "Who captures the benefit of the efficiency gain — the applicant, the office's performance metrics, leadership, or the vendor?",
+           "If those are different actors, has anyone named that trade-off in the implementation plan?",
+           "Is accountability concentrated in a specific role, or distributed across “the system”, “the process” and “the vendor”?"] }
+  ];
+
+  var STATUS = [
+    { v: "0", label: "Not mentioned", cls: "s0" },
+    { v: "1", label: "Stated only", cls: "" },
+    { v: "2", label: "Mechanism named", cls: "" },
+    { v: "3", label: "Mechanism + owner + check", cls: "s3" }
+  ];
+  var STATUS_COLOR = ["var(--signal)", "var(--warn)", "var(--accent)", "var(--ok)"];
+
+  // ---------------- state ----------------
+  var state = { stage: "", route: "", context: {}, a: {}, wants: {}, nConcerns: 1, updatedAt: null };
+  var db = null, saveTimer = null, loaded = false;
+  var $ = function(s){ return document.querySelector(s); };
+  var $$ = function(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); };
+
+  function rec(id){
+    if(!state.a[id]) state.a[id] = { text: "", mark: "", star: false };
+    return state.a[id];
+  }
+  function addressed(r){ return !!(r && (String(r.text || "").trim() || r.mark)); }
+
+  // ---------------- builders ----------------
+  function elQ(id, numLabel, text, sub, marks){
+    var box = document.createElement("div");
+    box.className = "q"; box.id = "box_" + id;
+    var head = document.createElement("div"); head.className = "qhead";
+    var num = document.createElement("span"); num.className = "qnum"; num.textContent = numLabel;
+    var t = document.createElement("span"); t.className = "qtext"; t.textContent = text;
+    if(sub){ var s = document.createElement("span"); s.className = "sub"; s.textContent = sub; t.appendChild(s); }
+    var star = document.createElement("button");
+    star.className = "star"; star.type = "button"; star.textContent = "★";
+    star.dataset.star = id; star.setAttribute("aria-pressed", "false");
+    star.setAttribute("aria-label", "Star this to send up");
+    head.appendChild(num); head.appendChild(t); head.appendChild(star);
+    var ta = document.createElement("textarea");
+    ta.dataset.q = id; ta.setAttribute("aria-label", text.slice(0, 60));
+    ta.placeholder = "Your answer — or leave blank and mark it below";
+    box.appendChild(head); box.appendChild(ta);
+    if(marks && marks.length){
+      var m = document.createElement("div"); m.className = "marks";
+      marks.forEach(function(mk){
+        var b = document.createElement("button");
+        b.className = "mark " + (mk.cls || ""); b.type = "button";
+        b.dataset.mq = id; b.dataset.mark = mk.v;
+        b.setAttribute("aria-pressed", "false");
+        b.textContent = mk.label;
+        m.appendChild(b);
+      });
+      box.appendChild(m);
+    }
+    return box;
+  }
+
+  var DEFAULT_MARKS = [
+    { v: "unknown", label: "Don’t know" },
+    { v: "na", label: "Not applicable" },
+    { v: "ask", label: "No answer exists yet" }
+  ];
+
+  var CONCERN_WHO = [
+    { v: "staff", label: "Staff" },
+    { v: "public", label: "Applicants" },
+    { v: "both", label: "Both" }
+  ];
+
+  function concernBlock(b){
+    var frag = document.createDocumentFragment();
+    var lab = document.createElement("h3");
+    lab.className = "sec";
+    lab.style.fontSize = "20px";
+    lab.style.marginTop = b === 1 ? "20px" : "34px";
+    lab.textContent = "Concern " + b;
+    frag.appendChild(lab);
+    frag.appendChild(elQ("m" + b + "_what", "•", "The concern, in one line", "", null));
+    frag.appendChild(elQ("m" + b + "_who", "•", "Who is exposed?", "", CONCERN_WHO));
+    frag.appendChild(elQ("m" + b + "_prevent", "•",
+      "What would have to be true to prevent it?",
+      "Concrete enough to check. “Scans are deleted after 90 days under schedule X”, not “we protect privacy”.", null));
+    frag.appendChild(elQ("m" + b + "_owner", "•", "Whose job is that?",
+      "A named role. “The team” or “the system” means nobody.", null));
+    frag.appendChild(elQ("m" + b + "_check", "•", "How would anyone know it is working?",
+      "A log, an audit, a number someone looks at on a schedule.", null));
+    return frag;
+  }
+
+  function renderConcerns(){
+    var host = document.getElementById("concerns");
+    if(!host) return;
+    host.innerHTML = "";
+    for(var b = 1; b <= state.nConcerns; b++) host.appendChild(concernBlock(b));
+    // restore any values this render just recreated
+    for(var i = 1; i <= state.nConcerns; i++){
+      ["what", "who", "prevent", "owner", "check"].forEach(function(k){
+        var id = "m" + i + "_" + k, r = state.a[id];
+        if(!r) return;
+        var ta = document.querySelector('textarea[data-q="' + id + '"]');
+        if(ta) ta.value = r.text || "";
+        var st = document.querySelector('[data-star="' + id + '"]');
+        if(st) st.setAttribute("aria-pressed", r.star ? "true" : "false");
+        document.querySelectorAll('[data-mq="' + id + '"]').forEach(function(m){
+          m.setAttribute("aria-pressed", m.dataset.mark === r.mark ? "true" : "false");
+        });
+      });
+    }
+  }
+
+  // lane: no policy yet — start from her concerns, then convert them
+  (function(){
+    var host = $("#lane_draft");
+
+    var h = document.createElement("h3"); h.className = "sec";
+    h.innerHTML = '<span class="tag">Route A &middot; part 1</span>';
+    h.appendChild(document.createTextNode("Start with what worries you"));
+    host.appendChild(h);
+    var p = document.createElement("p"); p.className = "secnote";
+    p.textContent = "Before any framework. You are closest to this workflow, so your concerns are the best "
+      + "evidence available about where it can go wrong. Plain words are fine — nothing here has to sound official.";
+    host.appendChild(p);
+
+    var OPEN = [
+      ["c_top", "What worries you most about this, in your own words?",
+       "The thing you would say if someone asked you over coffee."],
+      ["c_staff", "Where do you see staff exposed?",
+       "Who carries the risk when it goes wrong — the person at the counter, the reviewer, the person who signed off?"],
+      ["c_public", "Where do you see applicants or the public exposed?",
+       "The person on the other end who does not know an automated step is involved."],
+      ["c_worst", "If one thing went badly wrong here, what would it be?",
+       "Not the most likely — the one that would be hardest to undo."]
+    ];
+    OPEN.forEach(function(o, i){
+      host.appendChild(elQ(o[0], String(i + 1).padStart(2, "0"), o[1], o[2], null));
+    });
+
+    var h2 = document.createElement("h3"); h2.className = "sec";
+    h2.innerHTML = '<span class="tag">Route A &middot; part 2</span>';
+    h2.appendChild(document.createTextNode("Turn each worry into something checkable"));
+    host.appendChild(h2);
+    var p2 = document.createElement("p"); p2.className = "secnote";
+    p2.textContent = "Take your top concerns one at a time. A concern becomes a policy requirement when you can "
+      + "say what would have to be true to prevent it, who owns that, and how anyone would know it is working. "
+      + "Fill one block per concern — two or three is plenty.";
+    host.appendChild(p2);
+
+    var cwrap = document.createElement("div");
+    cwrap.id = "concerns";
+    host.appendChild(cwrap);
+
+    var add = document.createElement("button");
+    add.type = "button";
+    add.className = "btn ghost";
+    add.id = "addconcern";
+    add.style.marginTop = "6px";
+    add.textContent = "Add another concern";
+    add.addEventListener("click", function(){
+      state.nConcerns += 1;
+      renderConcerns();
+      refresh(); queueSave();
+      var blocks = cwrap.querySelectorAll("h3.sec");
+      if(blocks.length) blocks[blocks.length - 1].scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    host.appendChild(add);
+
+    var addnote = document.createElement("p");
+    addnote.className = "secnote";
+    addnote.style.marginTop = "10px";
+    addnote.textContent = "As many as you have. One done properly is worth more than five half-filled.";
+    host.appendChild(addnote);
+
+  })();
+
+  // lane: assess an existing policy
+  (function(){
+    var host = $("#lane_assess");
+    var h = document.createElement("h3"); h.className = "sec";
+    h.innerHTML = '<span class="tag">Route B</span>';
+    h.appendChild(document.createTextNode("Read the document against each principle"));
+    host.appendChild(h);
+    var p = document.createElement("p"); p.className = "secnote";
+    p.textContent = "Go by what the document actually says, not by what everyone knows is intended. Pick how far "
+      + "each principle gets, and note what is missing. The picture builds itself at the bottom.";
+    host.appendChild(p);
+    PRINCIPLES.forEach(function(pr, i){
+      host.appendChild(elQ("a_" + pr[0], String(i + 1).padStart(2, "0"),
+        pr[1] + " — how far does the document get?", pr[3], STATUS));
+    });
+    var prof = document.createElement("div");
+    prof.className = "profile"; prof.id = "profile";
+    prof.innerHTML = '<h4>Where this policy stops</h4><div id="prows"></div>'
+      + '<div class="legend">'
+      + '<span><i style="background:var(--signal)"></i>Not mentioned</span>'
+      + '<span><i style="background:var(--warn)"></i>Stated only</span>'
+      + '<span><i style="background:var(--accent)"></i>Mechanism named</span>'
+      + '<span><i style="background:var(--ok)"></i>Mechanism + owner + check</span>'
+      + '</div>';
+    host.appendChild(prof);
+  })();
+
+  // lane: implementation due diligence
+  (function(){
+    var host = $("#lane_implement");
+    var h = document.createElement("h3"); h.className = "sec";
+    h.innerHTML = '<span class="tag">Route C</span>';
+    h.appendChild(document.createTextNode("Due-diligence questions for the program owner"));
+    host.appendChild(h);
+    var p = document.createElement("p"); p.className = "secnote";
+    p.textContent = "Thirty-four questions. You do not need to answer them all — fill what you know, mark what "
+      + "you don’t, and star the ones worth putting in writing. A blank you can’t fill is a finding in itself.";
+    host.appendChild(p);
+    var n = 0;
+    DD.forEach(function(sec){
+      var sh = document.createElement("h3"); sh.className = "sec";
+      sh.innerHTML = '<span class="tag"></span>';
+      sh.querySelector(".tag").textContent = sec.tag;
+      sh.appendChild(document.createTextNode(sec.title));
+      host.appendChild(sh);
+      var sn = document.createElement("p"); sn.className = "secnote"; sn.textContent = sec.note;
+      host.appendChild(sn);
+      sec.qs.forEach(function(q){
+        n += 1;
+        host.appendChild(elQ("i_" + n, String(n).padStart(2, "0"), q, "", DEFAULT_MARKS));
+      });
+    });
+  })();
+
+  // ---------------- vulnerability catalogue ----------------
+  // Failure modes that recur in document-automation rollouts. She marks each one;
+  // the ones she marks "hadn't considered" are the point of the exercise.
+  var VULN = [
+    ["v_paper", "The paper stops being anyone's job",
+     "Retention schedules usually cover the record, not the loose original sitting in a tray after it was scanned."],
+    ["v_schedule", "The digital copy rides on an old authorisation",
+     "A retention schedule or privacy assessment written before automation existed, quietly inherited by a process it never described."],
+    ["v_training", "The vendor may keep and learn from the data",
+     "Absent an explicit no-retention, no-training clause, agency documents can improve a commercial model."],
+    ["v_drift", "The suggestion becomes the answer",
+     "It is described as a recommendation a person approves. But approving takes one click and correcting takes ten minutes, so the recommendation goes through almost every time. In effect the system is deciding — and nobody ever decided to let it."],
+    ["v_anchor", "Pre-grading turns review into verification",
+     "A reviewer handed an already-classified item checks whether the label looks right, rather than deciding what the label should be. The two feel identical and produce different answers."],
+    ["v_time", "Review time collapses under load",
+     "The human checkpoint is real in month one and nominal in month six, and nothing in the system records the change."],
+    ["v_override", "Override is possible but slow",
+     "So the override rate falls, and a friction problem reads as accuracy."],
+    ["v_owner", "Nobody owns the wrong answer",
+     "The vendor owns the model, IT owns the system, the office owns the queue — and the member of the public owns the error."],
+    ["v_log", "Errors are invisible because nothing counts them",
+     "An error rate you cannot measure can never cross the threshold that would trigger a rollback."],
+    ["v_off", "No one actually holds the off switch",
+     "Everyone assumes someone can stop it. Often no named role can."],
+    ["v_notice", "The public is never told",
+     "No notice means no questions, which means no appeals, which looks exactly like everything working."],
+    ["v_appeal", "The appeal route predates the automation",
+     "The contest path was written for human decisions and never mentions an automated step."],
+    ["v_hand", "Handwriting and non-English names fail first",
+     "Accuracy is measured on clean typed forms, so the failure concentrates on the applicants with the least recourse."],
+    ["v_scan", "Counter scans are not test scans",
+     "The vendor benchmark used clean documents; the real input is a phone photo of a coffee-stained form."],
+    ["v_measure", "Benefit is measured, harm is not",
+     "Turnaround time is easy to count, so it gets counted. The cost of a wrong extraction does not."],
+    ["v_displace", "Cost lands down, benefit lands up",
+     "The applicant absorbs the error and the office books the efficiency. Both can be true at once and usually are."],
+    ["v_blame", "Staff absorb the machine's mistakes",
+     "A bad automated output becomes the staffer's error in the record, which also stops anyone reporting them."],
+    ["v_creep", "The same tool quietly picks up a second job",
+     "It was approved to read the text off a form. Later someone turns on the setting that also sorts the queue — same vendor, same screen, no new purchase, so it never feels like a new system. But reading a form reports a fact, while sorting the queue decides whose application waits. The approval, the privacy assessment and the contract all describe the first job."],
+    ["v_baseline", "No pre-deployment error rate exists",
+     "Without a baseline, nobody can say whether accuracy got worse, so nobody can argue it should stop."],
+    ["v_queue", "What it deprioritises is never reviewed",
+     "Items pushed to the bottom of a queue do not generate complaints — they generate silence."],
+    ["v_access", "Access afterwards is unbounded",
+     "Who can pull up a scanned form six months later, and does anything record that they did."]
+  ];
+  var VULN_MARKS = [
+    { v: "known", label: "Already on my list" },
+    { v: "new", label: "Hadn’t considered this" },
+    { v: "na", label: "Doesn’t apply here" }
+  ];
+
+  (function(){
+    var host = document.getElementById("vuln");
+    var h = document.createElement("h3"); h.className = "sec";
+    h.innerHTML = '<span class="tag">Second pass</span>';
+    h.appendChild(document.createTextNode("Things that commonly bite"));
+    host.appendChild(h);
+    var p = document.createElement("p"); p.className = "secnote";
+    p.textContent = "These are failure modes that turn up again and again in document-automation rollouts. "
+      + "Most are invisible from inside the project. Mark the ones you had already thought of, and — more "
+      + "usefully — the ones you had not. Add a line about how it would show up in your workflow.";
+    host.appendChild(p);
+    VULN.forEach(function(v, i){
+      host.appendChild(elQ(v[0], String(i + 1).padStart(2, "0"), v[1], v[2], VULN_MARKS));
+    });
+  })();
+
+  // ---------------- is the AI in the right place? ----------------
+  var UPSTREAM = [
+    ["u_guided", "Would it help if every applicant had a trained staff member sitting beside them?",
+     "Not a chatbot bolted onto the website. An assistant that knows this workflow and walks a person through the form as they fill it in — what goes in which box, what a question is actually asking for, what to attach, what happens next. In effect, what a good counter staffer does, available to everyone, without the wait."],
+    ["u_explain", "What do staff end up explaining over and over?",
+     "The same three or four things every week. That list is the most valuable thing you have here — it is both the evidence that the form is hard to complete, and the content any assistant would have to know."],
+    ["u_language", "Could it hold the conversation in the applicant’s own language?",
+     "This may be the strongest single argument in the proposal. A counter staffer speaks the languages they happen to speak; a phone interpreter is slow, scheduled, and often unavailable. An assistant can work in the language the person actually thinks in — at the counter, or at home at eleven at night. Worth naming which languages actually come through this office. The one caution: translation quality varies a lot by language, so it has to be able to hand off to a person rather than guess."],
+        ["u_voice", "Could it ask the questions out loud and fill in the answers?",
+     "The loop is simple: it asks one question at a time, the person answers out loud — in whatever language they speak — and it puts the answer in the right box. That reaches people a printed form never will: someone who is blind, someone who does not read well, someone whose eyes or hands make a small screen hard work. It is not a screen reader; a screen reader reads the form to you and still leaves you to fill it in. The constraint to design for is privacy — saying your details aloud at a public counter is its own exposure, so it needs a handset, a private spot, or an easy switch to typing."],
+    ["u_origin", "Does the form start as a PDF the public prints?",
+     "If it does, the whole paper path exists because there is no digital front door. That may be the real finding, rather than anything about classification speed."],
+    ["u_where", "Where do the errors actually come from?",
+     "From how the form gets filled in, or from how it gets read afterwards? The answer decides whether help belongs before submission or after it."],
+    ["u_dontknow", "Could it say “I don’t know, let me get someone”?",
+     "A good staff member does that constantly, and it is the single most important thing to build in. Once the agency offers guidance, people rely on it, and a wrong steer becomes the agency’s error rather than the applicant’s mistake. It must never say anything that reads as a decision on their case."],
+        ["u_access", "Who would still be worse off with a digital route?",
+     "No smartphone, poor or metered bandwidth, no private place to use it, a disability the interface does not accommodate, low confidence with computers, or a plain unwillingness to type personal details into one. The paper and counter routes have to stay genuinely open rather than quietly becoming the slow lane."],
+    ["u_record", "Would a conversation with an applicant be a record?",
+     "A transcript raises harder records and privacy questions than a scanned form, not easier ones. Worth naming before anyone builds it."]
+  ];
+
+  (function(){
+    var host = document.getElementById("upstream");
+    var h = document.createElement("h3"); h.className = "sec";
+    h.innerHTML = '<span class="tag">Optional &middot; the bigger question</span>';
+    h.appendChild(document.createTextNode("Is the AI in the right place?"));
+    host.appendChild(h);
+    var p = document.createElement("p"); p.className = "secnote";
+    p.textContent = "One way to put this to the program owner: the system on the table speeds up what happens "
+      + "after a form arrives. The bigger prize may be helping the form arrive right — an assistant that "
+      + "knows this workflow, sitting with the applicant as they fill it in, the way a good staff member would if "
+      + "there were enough of them. Skip this section if it is outside what you were asked for.";
+    host.appendChild(p);
+
+    var say = document.createElement("div");
+    say.className = "say";
+    var lab = document.createElement("span"); lab.className = "lab";
+    lab.textContent = "A line worth opening with";
+    var line = document.createElement("p"); line.className = "line";
+    line.textContent = "“We could make this form as usable for a blind applicant who speaks only "
+      + "Vietnamese as it is for a sighted native English speaker.”";
+    var after = document.createElement("p"); after.className = "after";
+    after.innerHTML = "Swap in whichever language actually comes through this office — the sentence lands "
+      + "harder when it names a real applicant rather than a hypothetical one. <b>Be aware it is a promise.</b> "
+      + "Leading with it means the proposal has to be able to deliver it, which is exactly why it is worth saying: "
+      + "it is checkable, and most accessibility language is not.";
+    say.appendChild(lab); say.appendChild(line); say.appendChild(after);
+    host.appendChild(say);
+
+    UPSTREAM.forEach(function(u, i){
+      host.appendChild(elQ(u[0], String(i + 1).padStart(2, "0"), u[1], u[2], DEFAULT_MARKS));
+    });
+  })();
+
+  // ---------------- labels for export ----------------
+  var LABEL = {
+    c_top: "What worries you most", c_staff: "Where staff are exposed",
+    c_public: "Where applicants are exposed", c_worst: "The worst case"
+  };
+  VULN.forEach(function(v){ LABEL[v[0]] = v[1]; });
+  UPSTREAM.forEach(function(u){ LABEL[u[0]] = u[1]; });
+  PRINCIPLES.forEach(function(pr){
+    LABEL["d_" + pr[0]] = pr[1] + " — what the policy must require";
+    LABEL["a_" + pr[0]] = pr[1] + " — how far the document gets";
+  });
+  (function(){
+    var n = 0;
+    DD.forEach(function(s){ s.qs.forEach(function(q){ n += 1; LABEL["i_" + n] = q; }); });
+  })();
+  var CONCERN_PART = { what: "", who: " — who is exposed", prevent: " — what would prevent it",
+                       owner: " — whose job", check: " — how anyone would know" };
+  function labelFor(id){
+    if(LABEL[id]) return LABEL[id];
+    var m = /^m(\d+)_(\w+)$/.exec(id);
+    if(m) return "Concern " + m[1] + (CONCERN_PART[m[2]] || "");
+    return id;
+  }
+
+  var MARKLABEL = { unknown: "Don’t know", na: "Not applicable", ask: "No answer exists yet",
+                    staff: "Staff", "public": "Applicants", both: "Both",
+                    known: "Already on my list", "new": "Had not considered", 
+                    "0": "Not mentioned", "1": "Stated only", "2": "Mechanism named",
+                    "3": "Mechanism + owner + check" };
+
+  // ---------------- routing ----------------
+  function activeLanes(){
+    if(state.route === "unsure") return ["draft", "assess", "implement"];
+    return state.route ? [state.route] : [];
+  }
+  function applyRoute(){
+    var on = activeLanes();
+    ["draft", "assess", "implement"].forEach(function(k){
+      $("#lane_" + k).classList.toggle("on", on.indexOf(k) >= 0);
+    });
+    $("#body").style.display = on.length ? "block" : "none";
+    refresh();
+  }
+
+  function visibleIds(){
+    var ids = [];
+    activeLanes().forEach(function(lane){
+      $$("#lane_" + lane + " textarea[data-q]").forEach(function(t){ ids.push(t.dataset.q); });
+    });
+    $$("#vuln textarea[data-q]").forEach(function(t){ ids.push(t.dataset.q); });
+    $$("#upstream textarea[data-q]").forEach(function(t){ ids.push(t.dataset.q); });
+    return ids;
+  }
+
+  function refresh(){
+    var ids = visibleIds(), done = 0;
+    ids.forEach(function(id){
+      if(addressed(state.a[id])) done++;
+      var b = document.getElementById("box_" + id);
+      if(b) b.classList.toggle("done", addressed(state.a[id]));
+    });
+    $("#count").textContent = ids.length ? (done + " of " + ids.length + " addressed") : "0 addressed";
+    $("#progbar").style.width = ids.length ? (done / ids.length * 100).toFixed(1) + "%" : "0%";
+    renderProfile();
+    renderStarred();
+  }
+
+  function renderProfile(){
+    var host = document.getElementById("prows");
+    if(!host) return;
+    host.innerHTML = "";
+    PRINCIPLES.forEach(function(pr){
+      var r = state.a["a_" + pr[0]] || {};
+      var lvl = r.mark === "" || r.mark === undefined ? -1 : parseInt(r.mark, 10);
+      var row = document.createElement("div"); row.className = "prow";
+      var nm = document.createElement("span"); nm.className = "nm"; nm.textContent = pr[1];
+      var tr = document.createElement("span"); tr.className = "track";
+      var fill = document.createElement("i");
+      if(lvl >= 0){
+        fill.style.width = ((lvl + 1) / 4 * 100) + "%";
+        fill.style.background = STATUS_COLOR[lvl];
+      } else { fill.style.width = "0%"; }
+      tr.appendChild(fill);
+      var vl = document.createElement("span"); vl.className = "vl";
+      vl.textContent = lvl >= 0 ? STATUS[lvl].label : "—";
+      row.appendChild(nm); row.appendChild(tr); row.appendChild(vl);
+      host.appendChild(row);
+    });
+  }
+
+  function renderStarred(){
+    var host = $("#starred");
+    var vis = visibleIds();
+    var ids = vis.filter(function(id){ return state.a[id] && state.a[id].star; });
+    if(!ids.length){
+      host.innerHTML = '<div class="q"><div class="qtext" style="color:var(--muted)">'
+        + 'Nothing starred yet. Use the ★ on anything above to pull it down here.</div></div>';
+      return;
+    }
+    host.innerHTML = "";
+    ids.forEach(function(id){
+      var box = document.createElement("div"); box.className = "q";
+      var head = document.createElement("div"); head.className = "qhead";
+      var t = document.createElement("span"); t.className = "qtext"; t.textContent = labelFor(id);
+      head.appendChild(t);
+      var w = document.createElement("div"); w.className = "wants";
+      var lab = document.createElement("label");
+      lab.textContent = "What a good answer would look like";
+      lab.setAttribute("for", "want_" + id);
+      var ta = document.createElement("textarea");
+      ta.id = "want_" + id; ta.style.minHeight = "58px";
+      ta.placeholder = "e.g. the vendor contract includes an explicit no-retention, no-training clause";
+      ta.value = state.wants[id] || "";
+      ta.addEventListener("input", function(){ state.wants[id] = ta.value; queueSave(); });
+      w.appendChild(lab); w.appendChild(ta);
+      box.appendChild(head); box.appendChild(w);
+      host.appendChild(box);
+    });
+  }
+
+  // ---------------- events ----------------
+  $$("#stage .pick").forEach(function(b){
+    b.addEventListener("click", function(){
+      state.stage = b.dataset.v;
+      $$("#stage .pick").forEach(function(o){
+        o.setAttribute("aria-pressed", o === b ? "true" : "false");
+      });
+      queueSave();
+    });
+  });
+  $$("#route .pick").forEach(function(b){
+    b.addEventListener("click", function(){
+      state.route = b.dataset.v;
+      $$("#route .pick").forEach(function(o){
+        o.setAttribute("aria-pressed", o === b ? "true" : "false");
+      });
+      applyRoute(); queueSave();
+      var body = $("#body");
+      if(body) body.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  document.addEventListener("input", function(e){
+    var t = e.target;
+    if(t.dataset && t.dataset.q && t.tagName === "TEXTAREA"){
+      rec(t.dataset.q).text = t.value; refresh(); queueSave();
+    } else if(t.dataset && t.dataset.ctx){
+      state.context[t.dataset.ctx] = t.value; queueSave();
+    }
+  });
+
+  document.addEventListener("click", function(e){
+    var t = e.target.closest("button");
+    if(!t) return;
+    if(t.dataset.star){
+      var r = rec(t.dataset.star);
+      r.star = !r.star;
+      t.setAttribute("aria-pressed", r.star ? "true" : "false");
+      refresh(); queueSave();
+    } else if(t.dataset.mq){
+      var m = rec(t.dataset.mq);
+      m.mark = (m.mark === t.dataset.mark) ? "" : t.dataset.mark;
+      t.parentNode.querySelectorAll(".mark").forEach(function(x){
+        x.setAttribute("aria-pressed", x.dataset.mark === m.mark ? "true" : "false");
+      });
+      refresh(); queueSave();
+    }
+  });
+
+  // ---------------- persistence ----------------
+  function setSaveState(cls, text){
+    var el = $("#savestate");
+    if(!el) return;
+    el.className = "save" + (cls ? " " + cls : "");
+    el.textContent = text;
+  }
+  function localSave(){ try { localStorage.setItem("air_v2", JSON.stringify(state)); } catch(e){} }
+  function localLoad(){
+    try { var r = localStorage.getItem("air_v2"); return r ? JSON.parse(r) : null; } catch(e){ return null; }
+  }
+  function queueSave(){
+    if(!loaded) return;
+    setSaveState("dirty", "saving…");
+    localSave();
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){
+      state.updatedAt = new Date().toISOString();
+      if(db){
+        db.doc("responses/main").set(state)
+          .then(function(){ setSaveState("ok", "saved"); })
+          .catch(function(){ setSaveState("", "saved on this device only"); });
+      } else { setSaveState("ok", "saved on this device"); }
+    }, 700);
+  }
+
+  function apply(data){
+    if(!data) return;
+    state.stage = data.stage || "";
+    state.route = data.route || "";
+    state.context = data.context || {};
+    state.a = data.a || {};
+    state.wants = data.wants || {};
+    var maxC = 1;
+    Object.keys(state.a).forEach(function(k){
+      var m = /^m(\d+)_/.exec(k);
+      if(m) maxC = Math.max(maxC, parseInt(m[1], 10));
+    });
+    state.nConcerns = Math.max(data.nConcerns || 1, maxC);
+    renderConcerns();
+    $$("#stage .pick").forEach(function(o){
+      o.setAttribute("aria-pressed", o.dataset.v === state.stage ? "true" : "false");
+    });
+    $$("#route .pick").forEach(function(o){
+      o.setAttribute("aria-pressed", o.dataset.v === state.route ? "true" : "false");
+    });
+    Object.keys(state.context).forEach(function(k){
+      var el = document.querySelector('[data-ctx="' + k + '"]');
+      if(el) el.value = state.context[k] || "";
+    });
+    Object.keys(state.a).forEach(function(id){
+      var r = state.a[id];
+      var ta = document.querySelector('textarea[data-q="' + id + '"]');
+      if(ta) ta.value = r.text || "";
+      var st = document.querySelector('[data-star="' + id + '"]');
+      if(st) st.setAttribute("aria-pressed", r.star ? "true" : "false");
+      document.querySelectorAll('[data-mq="' + id + '"]').forEach(function(m){
+        m.setAttribute("aria-pressed", m.dataset.mark === r.mark ? "true" : "false");
+      });
+    });
+    applyRoute();
+  }
+
+  renderConcerns();
+  apply(localLoad());
+  loaded = true;
+  applyRoute();
+
+  if(window.claude && window.claude.use){
+    window.claude.use("db").then(function(d){
+      if(!d){ setSaveState("", "saved on this device"); return; }
+      db = d;
+      return db.doc("responses/main").get().then(function(snap){
+        if(snap && snap.exists){
+          var remote = snap.data() || {};
+          if(Object.keys(remote.a || {}).length >= Object.keys(state.a).length) apply(remote);
+        }
+        setSaveState("ok", "saved");
+      });
+    }).catch(function(){ setSaveState("", "saved on this device"); });
+  } else { setSaveState("", "saved on this device"); }
+
+  // ---------------- export ----------------
+  var STAGE_LABEL = { idea: "An idea, or early talk", drafting: "A policy or plan is being written",
+    chosen: "A system chosen, not yet deployed", pilot: "A pilot is running", live: "Already in use" };
+  var ROUTE_LABEL = { draft: "Say what the policy should contain",
+    assess: "Assess an existing policy or plan", implement: "Implementation input on a rollout underway",
+    unsure: "More than one / not sure" };
+
+  function buildText(){
+    var L = [];
+    L.push("AI ROLLOUT — STRUCTURED REVIEW");
+    L.push("Prepared " + new Date().toLocaleDateString());
+    L.push("");
+    L.push("Stage: " + (STAGE_LABEL[state.stage] || "—"));
+    L.push("Asked to contribute: " + (ROUTE_LABEL[state.route] || "—"));
+    L.push("");
+    L.push("Process being automated: " + (state.context.process || "—"));
+    L.push("What the system does: " + (state.context.does || "—"));
+    L.push("What I was asked for: " + (state.context.ask || "—"));
+
+    var lanes = activeLanes();
+    if(lanes.indexOf("assess") >= 0){
+      L.push(""); L.push(""); L.push("WHERE THE POLICY STOPS");
+      PRINCIPLES.forEach(function(pr){
+        var r = state.a["a_" + pr[0]] || {};
+        if(!addressed(r)) return;
+        L.push("");
+        L.push("  " + pr[1] + " — " + (MARKLABEL[r.mark] || "not marked"));
+        if(String(r.text || "").trim()) L.push("      " + r.text.trim().replace(/\n/g, "\n      "));
+      });
+    }
+    if(lanes.indexOf("draft") >= 0){
+      L.push(""); L.push(""); L.push("CONCERNS");
+      ["c_top", "c_staff", "c_public", "c_worst"].forEach(function(id){
+        var r = state.a[id] || {};
+        if(!addressed(r)) return;
+        L.push("");
+        L.push("  " + LABEL[id]);
+        if(String(r.text || "").trim()) L.push("      " + r.text.trim().replace(/\n/g, "\n      "));
+      });
+      for(var bi = 1; bi <= state.nConcerns; bi++){
+        var w = state.a["m" + bi + "_what"] || {};
+        if(!addressed(w)) continue;
+        L.push(""); L.push("  CONCERN " + bi + ": " + (w.text || "").trim());
+        [["m" + bi + "_who", "Exposed"], ["m" + bi + "_prevent", "Prevented by"],
+         ["m" + bi + "_owner", "Owner"], ["m" + bi + "_check", "Verified by"]].forEach(function(pair){
+          var rr = state.a[pair[0]] || {};
+          var val = String(rr.text || "").trim() || (rr.mark ? MARKLABEL[rr.mark] : "");
+          if(val) L.push("      " + pair[1] + ": " + val.replace(/\n/g, " "));
+        });
+      }
+      L.push(""); L.push(""); L.push("COMPLETENESS CHECK");
+      PRINCIPLES.forEach(function(pr){
+        var r = state.a["d_" + pr[0]] || {};
+        if(!addressed(r)) return;
+        L.push("");
+        L.push("  " + pr[1]);
+        if(String(r.text || "").trim()) L.push("      " + r.text.trim().replace(/\n/g, "\n      "));
+        if(r.mark) L.push("      [" + MARKLABEL[r.mark] + "]");
+      });
+    }
+    if(lanes.indexOf("implement") >= 0){
+      L.push(""); L.push(""); L.push("DUE-DILIGENCE REVIEW");
+      var n = 0;
+      DD.forEach(function(sec){
+        var head = false;
+        sec.qs.forEach(function(q){
+          n += 1;
+          var r = state.a["i_" + n] || {};
+          if(!addressed(r) && !r.star) return;
+          if(!head){ L.push(""); L.push(sec.tag.toUpperCase() + " — " + sec.title.toUpperCase()); head = true; }
+          L.push("");
+          L.push((r.star ? "* " : "  ") + String(n).padStart(2, "0") + ". " + q);
+          if(String(r.text || "").trim()) L.push("      " + r.text.trim().replace(/\n/g, "\n      "));
+          if(r.mark) L.push("      [" + MARKLABEL[r.mark] + "]");
+        });
+      });
+    }
+
+    var newly = VULN.filter(function(v){ var r = state.a[v[0]]; return r && r.mark === "new"; });
+    var known = VULN.filter(function(v){ var r = state.a[v[0]]; return r && r.mark === "known"; });
+    if(newly.length){
+      L.push(""); L.push(""); L.push("VULNERABILITIES NOT YET CONSIDERED");
+      L.push("(surfaced in review; these are the additions to the internal input)");
+      newly.forEach(function(v){
+        var r = state.a[v[0]] || {};
+        L.push("");
+        L.push("  " + v[1]);
+        L.push("      " + v[2]);
+        if(String(r.text || "").trim())
+          L.push("      In this workflow: " + r.text.trim().replace(/\n/g, " "));
+      });
+    }
+    if(known.length){
+      L.push(""); L.push(""); L.push("ALREADY IDENTIFIED");
+      known.forEach(function(v){
+        var r = state.a[v[0]] || {};
+        L.push("");
+        L.push("  " + v[1]);
+        if(String(r.text || "").trim())
+          L.push("      " + r.text.trim().replace(/\n/g, " "));
+      });
+    }
+
+    var up = UPSTREAM.filter(function(u){ var r = state.a[u[0]]; return r && String(r.text || "").trim(); });
+    if(up.length){
+      L.push(""); L.push(""); L.push("IS THE AI IN THE RIGHT PLACE?");
+      L.push("(the current system speeds up what happens after a form arrives;");
+      L.push(" this asks whether the bigger prize is helping the form arrive right)");
+      up.forEach(function(u){
+        var r = state.a[u[0]] || {};
+        L.push("");
+        L.push("  " + u[1]);
+        L.push("      " + r.text.trim().replace(/\n/g, " "));
+      });
+    }
+
+    var starred = visibleIds().filter(function(id){ return state.a[id] && state.a[id].star; });
+    if(starred.length){
+      L.push(""); L.push(""); L.push("TO PUT TO THE PROGRAM OWNER");
+      starred.forEach(function(id){
+        L.push("");
+        L.push("  " + labelFor(id));
+        if(String(state.wants[id] || "").trim())
+          L.push("      Wanted: " + state.wants[id].trim().replace(/\n/g, "\n      "));
+      });
+    }
+    L.push(""); L.push("");
+    L.push("Structured with the DPPRA framework (Discourse, Policy, Practice, Resources, Accountability).");
+    return L.join("\n");
+  }
+
+  function toast(m){
+    var t = $("#toast"); t.textContent = m;
+    setTimeout(function(){ if(t.textContent === m) t.textContent = ""; }, 4000);
+  }
+  function fallbackCopy(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text)
+        .then(function(){ toast("Copied — paste it into an email or a document."); })
+        .catch(function(){ toast("Select the page text and copy manually."); });
+    } else { toast("Select the page text and copy manually."); }
+  }
+
+  $("#export").addEventListener("click", function(){
+    var body = buildText();
+    try {
+      var blob = new Blob([body], { type: "text/plain;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "AI_Rollout_Review.txt";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+      toast("Downloaded.");
+    } catch(err){ fallbackCopy(body); }
+  });
+  $("#copy").addEventListener("click", function(){ fallbackCopy(buildText()); });
+})();
+</script>
+
+</body>
+</html>
