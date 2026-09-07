@@ -1,0 +1,233 @@
+{
+ "generated": "2026-09-07",
+ "scope": "Coder configuration for the three version-locked runs behind the paper. RUN 07 (v2.14) is the source of every figure in this addendum.",
+ "evidentiary_basis": {
+  "artifact_backed": [
+   "instrument version",
+   "packet texts (SHA-256)",
+   "coding dates",
+   "coder identity stamped in every output",
+   "output schema",
+   "Codex model label and client version, from the session logs"
+  ],
+  "testimony_backed": [
+   "Claude tier, corroborated by dated build records",
+   "Gemini tier",
+   "interface for all three coders"
+  ],
+  "unrecoverable": [
+   "dated model snapshot id for any coder",
+   "API version",
+   "temperature",
+   "top-p",
+   "model-side system prompt"
+  ]
+ },
+ "temporal_bound": "All three runs fall inside a seven-day window, 24-30 June 2026. RUN 07 was coded in a single day, 30 June 2026. This bounds exposure to an unannounced point release; it is not proof of model constancy.",
+ "rows": [
+  {
+   "run": "RUN 04",
+   "instrument": "v2.12",
+   "coder": "Claude",
+   "family": "Anthropic Claude",
+   "tier_testimony": "Claude Opus 4.8, the highest tier then available",
+   "interface": "chat, packet-delivered via a local dashboard",
+   "outputs": 65,
+   "coding_dates": "2026-06-24",
+   "packets_hashed": 65,
+   "combined_sha256": "f6d4a5780d471ba7c165b3e1c3cb302298bd8b7e7ac89d0f0682073617bd33f8",
+   "model_snapshot_id": "tier identified; no dated snapshot id exposed",
+   "api_version": "not recoverable",
+   "temperature": "not settable",
+   "top_p": "not settable",
+   "session_memory": "not recorded",
+   "run_label": "RUN 04 · v2.12",
+   "model_as_run": "Anthropic Claude — Opus 4.8, highest tier then available (investigator testimony, corroborated by dated build records across the window)"
+  },
+  {
+   "run": "RUN 04",
+   "instrument": "v2.12",
+   "coder": "Codex",
+   "family": "OpenAI Codex",
+   "tier_testimony": "model label gpt-5.5 recorded in the client session log; Codex Desktop CLI 0.142.0",
+   "interface": "ChatGPT-subscription Codex CLI, not the API",
+   "outputs": 65,
+   "coding_dates": "2026-06-24",
+   "packets_hashed": 65,
+   "combined_sha256": "50f1d6964f694f73085867cb4802d1f053df7ecfd947ba2db4447b9d6a4e4207",
+   "model_snapshot_id": "model label gpt-5.5; no dated snapshot id exposed",
+   "api_version": "not recoverable",
+   "temperature": "not settable",
+   "top_p": "not settable",
+   "session_memory": "not recorded",
+   "run_label": "RUN 04 · v2.12",
+   "model_as_run": "OpenAI Codex — model label gpt-5.5, Codex Desktop CLI 0.142.0 (recorded, not testimony)"
+  },
+  {
+   "run": "RUN 04",
+   "instrument": "v2.12",
+   "coder": "Gemini",
+   "family": "Google Gemini",
+   "tier_testimony": "Gemini 3.5 Flash, investigator testimony",
+   "interface": "Gemini consumer app, hand-run by the investigator",
+   "outputs": 65,
+   "coding_dates": "2026-06-24, 2026-06-25, 2026-06-26, 2026-06-27",
+   "packets_hashed": "not recoverable",
+   "combined_sha256": "—",
+   "model_snapshot_id": "not recoverable",
+   "api_version": "not recoverable",
+   "temperature": "not settable",
+   "top_p": "not settable",
+   "session_memory": "not recorded",
+   "run_label": "RUN 04 · v2.12",
+   "model_as_run": "Google Gemini — Gemini 3.5 Flash (investigator testimony)"
+  },
+  {
+   "run": "RUN 06",
+   "instrument": "v2.13",
+   "coder": "Claude",
+   "family": "Anthropic Claude",
+   "tier_testimony": "Claude Opus 4.8, the highest tier then available",
+   "interface": "chat, packet-delivered via a local dashboard",
+   "outputs": 65,
+   "coding_dates": "2026-06-28, 2026-06-29",
+   "packets_hashed": 55,
+   "combined_sha256": "490726fa38cc45c1140658b1b69a90f34b1437b8d96ffec4f2ef4d601f64f2cc",
+   "model_snapshot_id": "tier identified; no dated snapshot id exposed",
+   "api_version": "not recoverable",
+   "temperature": "not settable",
+   "top_p": "not settable",
+   "session_memory": "not recorded",
+   "run_label": "RUN 06 · v2.13",
+   "model_as_run": "Anthropic Claude — Opus 4.8, highest tier then available (investigator testimony, corroborated by dated build records across the window)"
+  },
+  {
+   "run": "RUN 06",
+   "instrument": "v2.13",
+   "coder": "Codex",
+   "family": "OpenAI Codex",
+   "tier_testimony": "model label gpt-5.5 recorded in the client session log; Codex Desktop CLI 0.142.3",
+   "interface": "ChatGPT-subscription Codex CLI, not the API",
+   "outputs": 65,
+   "coding_dates": "2026-06-28, 2026-06-29",
+   "packets_hashed": 55,
+   "combined_sha256": "410c379331c43224b19cc7b10a90ee332272f0d66d46696f3013862d165ab9ed",
+   "model_snapshot_id": "model label gpt-5.5; no dated snapshot id exposed",
+   "api_version": "not recoverable",
+   "temperature": "not settable",
+   "top_p": "not settable",
+   "session_memory": "not recorded",
+   "run_label": "RUN 06 · v2.13",
+   "model_as_run": "OpenAI Codex — model label gpt-5.5, Codex Desktop CLI 0.142.3 (recorded, not testimony)"
+  },
+  {
+   "run": "RUN 06",
+   "instrument": "v2.13",
+   "coder": "Gemini",
+   "family": "Google Gemini",
+   "tier_testimony": "Gemini 3.5 Flash, investigator testimony",
+   "interface": "Gemini consumer app, hand-run by the investigator",
+   "outputs": 65,
+   "coding_dates": "2026-06-28, 2026-06-29",
+   "packets_hashed": "not recoverable",
+   "combined_sha256": "—",
+   "model_snapshot_id": "not recoverable",
+   "api_version": "not recoverable",
+   "temperature": "not settable",
+   "top_p": "not settable",
+   "session_memory": "not recorded",
+   "run_label": "RUN 06 · v2.13",
+   "model_as_run": "Google Gemini — Gemini 3.5 Flash (investigator testimony)"
+  },
+  {
+   "run": "RUN 07",
+   "instrument": "v2.14",
+   "coder": "Claude",
+   "family": "Anthropic Claude",
+   "tier_testimony": "Claude Opus 4.8, the highest tier then available",
+   "interface": "chat, packet-delivered via a local dashboard",
+   "outputs": 65,
+   "coding_dates": "2026-06-30",
+   "packets_hashed": 65,
+   "combined_sha256": "7d0f7d86d66a3786d2d88659086a747e33c626fd35ac8155bfc3104f824eec1b",
+   "model_snapshot_id": "tier identified; no dated snapshot id exposed",
+   "api_version": "not recoverable",
+   "temperature": "not settable",
+   "top_p": "not settable",
+   "session_memory": "not recorded",
+   "run_label": "RUN 07 · v2.14",
+   "model_as_run": "Anthropic Claude — Opus 4.8, highest tier then available (investigator testimony, corroborated by dated build records across the window)"
+  },
+  {
+   "run": "RUN 07",
+   "instrument": "v2.14",
+   "coder": "Codex",
+   "family": "OpenAI Codex",
+   "tier_testimony": "model label gpt-5.5 recorded in the client session log; Codex Desktop CLI 0.142.3",
+   "interface": "ChatGPT-subscription Codex CLI, not the API",
+   "outputs": 65,
+   "coding_dates": "2026-06-30",
+   "packets_hashed": 65,
+   "combined_sha256": "7d0f7d86d66a3786d2d88659086a747e33c626fd35ac8155bfc3104f824eec1b",
+   "model_snapshot_id": "model label gpt-5.5; no dated snapshot id exposed",
+   "api_version": "not recoverable",
+   "temperature": "not settable",
+   "top_p": "not settable",
+   "session_memory": "not recorded",
+   "run_label": "RUN 07 · v2.14",
+   "model_as_run": "OpenAI Codex — model label gpt-5.5, Codex Desktop CLI 0.142.3 (recorded, not testimony)"
+  },
+  {
+   "run": "RUN 07",
+   "instrument": "v2.14",
+   "coder": "Gemini",
+   "family": "Google Gemini",
+   "tier_testimony": "Gemini 3.5 Flash, investigator testimony",
+   "interface": "Gemini consumer app, hand-run by the investigator",
+   "outputs": 65,
+   "coding_dates": "2026-06-30",
+   "packets_hashed": 65,
+   "combined_sha256": "22a27b1f363fe17267ae093686d0225fa79ccd6abf03de7a5a5eae93aff9a332",
+   "model_snapshot_id": "not recoverable",
+   "api_version": "not recoverable",
+   "temperature": "not settable",
+   "top_p": "not settable",
+   "session_memory": "not recorded",
+   "run_label": "RUN 07 · v2.14",
+   "model_as_run": "Google Gemini — Gemini 3.5 Flash (investigator testimony)"
+  }
+ ],
+ "gemini_packet_coverage": {
+  "unique_sources": 65,
+  "by_layer": {
+   "COR": 10,
+   "FRM": 12,
+   "GOV": 15,
+   "INS": 14,
+   "JRN": 14
+  },
+  "note": "Gemini packets are staged in place and overwritten between runs, so only the most recent staging survives. All 65 carry a 30 June 2026 modification time and are artifact-backed for RUN 07 only; the RUN 04 and RUN 06 Gemini packets are gone."
+ },
+ "anomalies": [
+  {
+   "title": "Stale version string in the watch-out block",
+   "text": "Every v2.14 packet declares prompt_version v2.14 in the body and v2.13 inside the coder watch-out block, because v2.14 was additive and did not touch that block. It did not propagate: all 195 RUN 07 outputs stamped v2.14."
+  },
+  {
+   "title": "RUN 07 Codex packets are byte-identical copies of the Claude packets",
+   "text": "In RUN 06 the two packet sets differ in exactly three lines - the addressing line, the block header and the coder instruction. In RUN 07 the Codex folder holds byte-identical copies of the Claude files, still addressed to Claude. Coder identity for that run was carried by the run sheet instead, and Codex stamped its own coder name on 65 of 65 outputs. The watch-out block is coder-neutral by design from v2.13 onward, so the substance Codex received matches a Codex-addressed packet. The residual risk is an addressing line reading as though the block applied to another coder. Reported here rather than left for a reader to find."
+  }
+ ],
+ "codex_session_evidence": {
+  "what": "The Codex coder ran through a desktop client that writes a session log for every run. Those logs record the model label and client version.",
+  "run_07": "188 sessions on 30 June 2026; 187 name documents, together covering all 65; every one records model label gpt-5.5 and client version 0.142.3.",
+  "run_06": "Session of 28 June 2026: model label gpt-5.5, client version 0.142.3.",
+  "run_04": "Session of 24 June 2026: model label gpt-5.5, client version 0.142.0.",
+  "limit": "gpt-5.5 is the label the client recorded, not a dated build identifier. It fixes which model line was addressed, not which build answered. The session logs themselves are not published: they contain full document text."
+ },
+ "claude_tier_evidence": {
+  "what": "The Claude coder's outputs carry no model field, so the tier rests on investigator testimony that the highest available build was used throughout.",
+  "corroboration": "Dated build records from the same workstation name Claude Opus 4.8 on 25, 27, 28 and 29 June and on 1 and 3 July 2026 — spanning the whole coding window — with the next Anthropic build first appearing on 5 July, after all three runs.",
+  "limit": "This establishes which Anthropic build was in use on those dates. It does not stamp the chat session that performed the coding, which is a different surface. Reported as corroborated testimony, not as identification."
+ }
+}
