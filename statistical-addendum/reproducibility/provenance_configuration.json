@@ -234,7 +234,7 @@
  "gemini_tier_evidence": {
   "what": "The Gemini app reports, per response, which model answered. On the retained coding threads that panel reads 3.5 Flash, with the composer's model selector also on Flash.",
   "scope": "Checked on a RUN 04 thread and on a RUN 07 thread. RUN 06 has not been checked, so its tier remains investigator testimony.",
-  "corroboration": "The RUN 07 thread is tied to this run by content, not by assertion. Its visible output — two emergent codes, the tag line and both reconciliation flags — matches, string for string, the archived RUN 07 Gemini output for a named corporate framework document, which stamps coder gemini, prompt version v2.14 and coding date 30 June 2026. Those emergent-code strings appear in no other output in the archive.",
+  "corroboration": "The RUN 07 thread is tied to this run by content, not by assertion. The record header in the thread names the same source id, document id and title as the archived RUN 07 Gemini output, and stamps coder gemini, prompt version v2.14 and coding date 30 June 2026. Its narrative content — two emergent codes, the tag line and both reconciliation flags — matches the archived output string for string, and those emergent-code strings appear in no other output in the archive.",
   "resolves": "One RUN 04 output self-stamped a coder id containing 'pro', which conflicted with the Flash testimony. That string was written by the model, and model self-identification is unreliable. The app's own panel reports Flash. The self-stamp is reported as an adherence deviation, not as an attribution.",
   "limit": "Like the Codex label, this is a product-surface label rather than a dated build identifier."
  }
