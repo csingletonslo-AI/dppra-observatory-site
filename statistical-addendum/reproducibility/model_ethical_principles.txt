@@ -1,0 +1,35 @@
+                           OrdinalGEE Regression Results                           
+===================================================================================
+Dep. Variable:                      rating   No. Observations:                 9750
+Model:                          OrdinalGEE   No. clusters:                       65
+Method:                        Generalized   Min. cluster size:                 150
+                      Estimating Equations   Max. cluster size:                 150
+Family:                           Binomial   Mean cluster size:               150.0
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Mon, 07 Sep 2026   Scale:                           1.000
+Covariance type:                    robust   Time:                         05:45:08
+===================================================================================================
+                                      coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+I(y>0.0)                            3.8657      0.454      8.517      0.000       2.976       4.755
+I(y>1.0)                            2.6961      0.370      7.287      0.000       1.971       3.421
+I(y>2.0)                            1.3913      0.296      4.700      0.000       0.811       1.971
+I(y>3.0)                           -0.0941      0.247     -0.381      0.703      -0.578       0.390
+I(y>4.0)                           -3.1850      0.221    -14.403      0.000      -3.618      -2.752
+Codex                               1.4272      0.112     12.784      0.000       1.208       1.646
+Gemini                              0.6212      0.090      6.917      0.000       0.445       0.797
+field_eth_autonomy_code            -1.3421      0.294     -4.564      0.000      -1.918      -0.766
+field_eth_beneficence_eth_code     -0.5689      0.318     -1.788      0.074      -1.193       0.055
+field_eth_beneficence_mech_code    -1.2278      0.334     -3.678      0.000      -1.882      -0.573
+field_eth_equity_code              -1.5987      0.266     -6.014      0.000      -2.120      -1.078
+field_eth_integrity_code           -0.1688      0.226     -0.748      0.455      -0.612       0.274
+field_eth_justice_code             -1.2455      0.253     -4.926      0.000      -1.741      -0.750
+field_eth_nonmaleficence_code      -0.5386      0.221     -2.434      0.015      -0.972      -0.105
+field_eth_privacy_code             -1.8227      0.275     -6.620      0.000      -2.362      -1.283
+field_eth_transparency_code        -0.3312      0.192     -1.721      0.085      -0.708       0.046
+==============================================================================
+Skew:                         -0.5337   Kurtosis:                       1.5030
+Centered skew:                -0.2363   Centered kurtosis:              1.1091
+==============================================================================
+
+Reported pairwise contrasts use robust covariance multiplied by G/(G-1) and t(G-1) reference, with Holm adjustment.

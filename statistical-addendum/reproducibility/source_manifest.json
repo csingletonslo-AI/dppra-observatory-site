@@ -1,0 +1,1562 @@
+[
+  {
+    "path": "COR/Claude/SRC_000015/SRC_000015__coding_output.json",
+    "sha256": "66248ef583f775e2410ac39f64eb9695368cadbb6fed731104327f5b11279040",
+    "bytes": 15628,
+    "sector": "COR",
+    "coder": "Claude",
+    "source_id": "SRC_000015"
+  },
+  {
+    "path": "COR/Claude/SRC_000016/SRC_000016__coding_output.json",
+    "sha256": "24f3d06a91449e34d82a13e153663c5c11489339f81c61876e39b968d297edc9",
+    "bytes": 15972,
+    "sector": "COR",
+    "coder": "Claude",
+    "source_id": "SRC_000016"
+  },
+  {
+    "path": "COR/Claude/SRC_000025/SRC_000025__coding_output.json",
+    "sha256": "f466f34ec3d0c15e62c75b7c6757eec5af4f1d74b81ad3ca8402e9c528f18ab8",
+    "bytes": 13399,
+    "sector": "COR",
+    "coder": "Claude",
+    "source_id": "SRC_000025"
+  },
+  {
+    "path": "COR/Claude/SRC_000026/SRC_000026__coding_output.json",
+    "sha256": "3e4f65577aa581c933aa867cf58512fed496d0cae8a89556d92a758f7aa23d7a",
+    "bytes": 13882,
+    "sector": "COR",
+    "coder": "Claude",
+    "source_id": "SRC_000026"
+  },
+  {
+    "path": "COR/Claude/SRC_000027/SRC_000027__coding_output.json",
+    "sha256": "7410054655e498682b6a80af17c0abb2601a3591095d3f8c552f4d705a8d6912",
+    "bytes": 13883,
+    "sector": "COR",
+    "coder": "Claude",
+    "source_id": "SRC_000027"
+  },
+  {
+    "path": "COR/Claude/SRC_000062/SRC_000062__coding_output.json",
+    "sha256": "addf1ad24814e3aa32fec914d682dee1bfc81b9ed0459151c8294f568d921bbd",
+    "bytes": 13861,
+    "sector": "COR",
+    "coder": "Claude",
+    "source_id": "SRC_000062"
+  },
+  {
+    "path": "COR/Claude/SRC_000063/SRC_000063__coding_output.json",
+    "sha256": "f29466e089ff3965c7810553099cf6dd9e83df4076542eeaf07507df43ad511f",
+    "bytes": 15037,
+    "sector": "COR",
+    "coder": "Claude",
+    "source_id": "SRC_000063"
+  },
+  {
+    "path": "COR/Claude/SRC_000064/SRC_000064__coding_output.json",
+    "sha256": "9e9ff0c9b692938cbfa1018c7e5b6231ec622220a361cdb57b30f02297b06267",
+    "bytes": 13044,
+    "sector": "COR",
+    "coder": "Claude",
+    "source_id": "SRC_000064"
+  },
+  {
+    "path": "COR/Claude/SRC_000065/SRC_000065__coding_output.json",
+    "sha256": "66e7e04caf170eb806121e38532613595e258886732044caf295ac3956184350",
+    "bytes": 13903,
+    "sector": "COR",
+    "coder": "Claude",
+    "source_id": "SRC_000065"
+  },
+  {
+    "path": "COR/Claude/SRC_000066/SRC_000066__coding_output.json",
+    "sha256": "fad0846cf58e2220d27ace2ce7a0ed147c78fdc307be8153229f680739c27055",
+    "bytes": 13131,
+    "sector": "COR",
+    "coder": "Claude",
+    "source_id": "SRC_000066"
+  },
+  {
+    "path": "COR/Codex/SRC_000015/SRC_000015__coding_output.json",
+    "sha256": "332ed9267ccc74ecbd0dc3458b955b78983a6456795a202fef7dfac40acedf79",
+    "bytes": 17315,
+    "sector": "COR",
+    "coder": "Codex",
+    "source_id": "SRC_000015"
+  },
+  {
+    "path": "COR/Codex/SRC_000016/SRC_000016__coding_output.json",
+    "sha256": "91700fa529b462c11b1fbbd41993f736156ed16312f6a4513c45d9a01d572556",
+    "bytes": 17183,
+    "sector": "COR",
+    "coder": "Codex",
+    "source_id": "SRC_000016"
+  },
+  {
+    "path": "COR/Codex/SRC_000025/SRC_000025__coding_output.json",
+    "sha256": "15b1d251ec87cc31fba2fc1468932489d2b9f4868143d31305288c41ba7eadf4",
+    "bytes": 12972,
+    "sector": "COR",
+    "coder": "Codex",
+    "source_id": "SRC_000025"
+  },
+  {
+    "path": "COR/Codex/SRC_000026/SRC_000026__coding_output.json",
+    "sha256": "8db3a351757f2b44a9cbd45a38b7b238172982e317a5e88b776909d1f1340a0a",
+    "bytes": 17367,
+    "sector": "COR",
+    "coder": "Codex",
+    "source_id": "SRC_000026"
+  },
+  {
+    "path": "COR/Codex/SRC_000027/SRC_000027__coding_output.json",
+    "sha256": "5386bd081d2f7768ad4b06aefe0692d35579841aac534e247c6793617d2288e8",
+    "bytes": 12648,
+    "sector": "COR",
+    "coder": "Codex",
+    "source_id": "SRC_000027"
+  },
+  {
+    "path": "COR/Codex/SRC_000062/SRC_000062__coding_output.json",
+    "sha256": "50db064cd2fbda89165c3b36a15094945cddd3b2e1cca45e0a6356c3f360905e",
+    "bytes": 13830,
+    "sector": "COR",
+    "coder": "Codex",
+    "source_id": "SRC_000062"
+  },
+  {
+    "path": "COR/Codex/SRC_000063/SRC_000063__coding_output.json",
+    "sha256": "bcff6bdb1a3f525bce71a265dee96e278f0cd39b3946cb481f5c05b3f5023f1b",
+    "bytes": 16056,
+    "sector": "COR",
+    "coder": "Codex",
+    "source_id": "SRC_000063"
+  },
+  {
+    "path": "COR/Codex/SRC_000064/SRC_000064__coding_output.json",
+    "sha256": "1f86684c3aa0b4e472269cfc562cd418c55d391b32cb03738112ee0cdb3dae66",
+    "bytes": 17680,
+    "sector": "COR",
+    "coder": "Codex",
+    "source_id": "SRC_000064"
+  },
+  {
+    "path": "COR/Codex/SRC_000065/SRC_000065__coding_output.json",
+    "sha256": "ba4a2f8929fd094e84902d64649be265e4d5a1cc08233c70a93a8e813ad28bc4",
+    "bytes": 12848,
+    "sector": "COR",
+    "coder": "Codex",
+    "source_id": "SRC_000065"
+  },
+  {
+    "path": "COR/Codex/SRC_000066/SRC_000066__coding_output.json",
+    "sha256": "b2845dc209e560846c72d9a4a210cea9850a14355ec4a1455395fdfe1235163d",
+    "bytes": 16476,
+    "sector": "COR",
+    "coder": "Codex",
+    "source_id": "SRC_000066"
+  },
+  {
+    "path": "COR/Gemini/SRC_000015/SRC_000015__coding_output.json",
+    "sha256": "0bfef67a08ddc81c05fadab3c3305bf0699335f3b5cd92fe0952abcb31368df6",
+    "bytes": 11148,
+    "sector": "COR",
+    "coder": "Gemini",
+    "source_id": "SRC_000015"
+  },
+  {
+    "path": "COR/Gemini/SRC_000016/SRC_000016__coding_output.json",
+    "sha256": "5cee6ff38fc3783a37d1cc09a6106a882e4e130f29208ef520a5ccba80e55586",
+    "bytes": 9826,
+    "sector": "COR",
+    "coder": "Gemini",
+    "source_id": "SRC_000016"
+  },
+  {
+    "path": "COR/Gemini/SRC_000025/SRC_000025__coding_output.json",
+    "sha256": "dcce35b4acd9a1592da911e3a21e28f14ad10cec08cddab18f13c58b163280b6",
+    "bytes": 9911,
+    "sector": "COR",
+    "coder": "Gemini",
+    "source_id": "SRC_000025"
+  },
+  {
+    "path": "COR/Gemini/SRC_000026/SRC_000026__coding_output.json",
+    "sha256": "316a09917456744f7272b9b85973a410d762d822904026c618ad7a00b959849f",
+    "bytes": 13303,
+    "sector": "COR",
+    "coder": "Gemini",
+    "source_id": "SRC_000026"
+  },
+  {
+    "path": "COR/Gemini/SRC_000027/SRC_000027__coding_output.json",
+    "sha256": "9491c29fe1d7481f2faf6a61d2f13f99fffa888c5718ce372782d361cead4fea",
+    "bytes": 9480,
+    "sector": "COR",
+    "coder": "Gemini",
+    "source_id": "SRC_000027"
+  },
+  {
+    "path": "COR/Gemini/SRC_000062/SRC_000062__coding_output.json",
+    "sha256": "12159c33dbfdd5a08dc2f3f0fd1a3bcf313e53096cbb19598d61c87ab455ed36",
+    "bytes": 10404,
+    "sector": "COR",
+    "coder": "Gemini",
+    "source_id": "SRC_000062"
+  },
+  {
+    "path": "COR/Gemini/SRC_000063/SRC_000063__coding_output.json",
+    "sha256": "e6007c474b57de707ebe4ec6e4d19b745cdc2f58e7bae8f042c73be87ba3d1c4",
+    "bytes": 9326,
+    "sector": "COR",
+    "coder": "Gemini",
+    "source_id": "SRC_000063"
+  },
+  {
+    "path": "COR/Gemini/SRC_000064/SRC_000064__coding_output.json",
+    "sha256": "b6d353db9249a76a6c3b43ed22fcb7866bddfe4997274197afaceac6f2f4bddb",
+    "bytes": 8372,
+    "sector": "COR",
+    "coder": "Gemini",
+    "source_id": "SRC_000064"
+  },
+  {
+    "path": "COR/Gemini/SRC_000065/SRC_000065__coding_output.json",
+    "sha256": "ecaf30218f85de00db49b9f35ad617fd119069cdb23a1c91c938fe607adb5e85",
+    "bytes": 9662,
+    "sector": "COR",
+    "coder": "Gemini",
+    "source_id": "SRC_000065"
+  },
+  {
+    "path": "COR/Gemini/SRC_000066/SRC_000066__coding_output.json",
+    "sha256": "1768184d469f7e5d1a97f3aa4be971c30e35b26ae8dfbaea958aca8a28c2385a",
+    "bytes": 9437,
+    "sector": "COR",
+    "coder": "Gemini",
+    "source_id": "SRC_000066"
+  },
+  {
+    "path": "FRM/Claude/SRC_000010/SRC_000010__coding_output.json",
+    "sha256": "75b5d6f5fcbd94ac6500543caaad3a164529818549f587554ff0547ca3ae5f59",
+    "bytes": 15691,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000010"
+  },
+  {
+    "path": "FRM/Claude/SRC_000011/SRC_000011__coding_output.json",
+    "sha256": "a08489e086d0f907d36f28bddee72024dce6e8e4b0a16eb057711d857ba5ec95",
+    "bytes": 14206,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000011"
+  },
+  {
+    "path": "FRM/Claude/SRC_000012/SRC_000012__coding_output.json",
+    "sha256": "044c816703d3268c62dcf0de12db9c45ef6ad2efe95ca6a174e6c1b911cf36d6",
+    "bytes": 15154,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000012"
+  },
+  {
+    "path": "FRM/Claude/SRC_000013/SRC_000013__coding_output.json",
+    "sha256": "7c3d9f636f6ef74d21e55d04ac166898cb0446fcda792c1470eb4c377eadf2a6",
+    "bytes": 13536,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000013"
+  },
+  {
+    "path": "FRM/Claude/SRC_000014/SRC_000014__coding_output.json",
+    "sha256": "d94da97fb89ce8abcf6efd1ce9d3a95508ac14ed202a0d224ae5c5e9702bd896",
+    "bytes": 14707,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000014"
+  },
+  {
+    "path": "FRM/Claude/SRC_000040/SRC_000040__coding_output.json",
+    "sha256": "07f00203e50536363f07c8f7502f549e407c742bd2f35304637794fa3a6db870",
+    "bytes": 13232,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000040"
+  },
+  {
+    "path": "FRM/Claude/SRC_000041/SRC_000041__coding_output.json",
+    "sha256": "c40c32a35815b0fca67f871c51ed19b3142d73d17b5c23ad53fc932ca152fd7b",
+    "bytes": 12484,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000041"
+  },
+  {
+    "path": "FRM/Claude/SRC_000057/SRC_000057__coding_output.json",
+    "sha256": "ef64ecac14ed0bc3a0880b27637ea3e6846d6e6484b545882ec994be170f73a1",
+    "bytes": 14465,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000057"
+  },
+  {
+    "path": "FRM/Claude/SRC_000058/SRC_000058__coding_output.json",
+    "sha256": "38cb6c4b132c3a000a318969b4e0ecb41357457046e82f6316ea0f01da474dc2",
+    "bytes": 14043,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000058"
+  },
+  {
+    "path": "FRM/Claude/SRC_000059/SRC_000059__coding_output.json",
+    "sha256": "ebf941a0b3707d2e10adf55c455830ccd92309bff3e7dc26d5518d7ec01896d4",
+    "bytes": 14327,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000059"
+  },
+  {
+    "path": "FRM/Claude/SRC_000060/SRC_000060__coding_output.json",
+    "sha256": "d6c68b16d6229d2c5fd540e990ea59b50863fe47f614f6ae5d7af4680c68ba35",
+    "bytes": 14625,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000060"
+  },
+  {
+    "path": "FRM/Claude/SRC_000061/SRC_000061__coding_output.json",
+    "sha256": "2ed5630982ea4e27108a06757961ec5c622030b91ec680c3c91c4b5a26c21dcf",
+    "bytes": 13294,
+    "sector": "FRM",
+    "coder": "Claude",
+    "source_id": "SRC_000061"
+  },
+  {
+    "path": "FRM/Codex/SRC_000010/SRC_000010__coding_output.json",
+    "sha256": "6f934c80c31f7354d4ef439d9c8cacf33ebc0f873e585ee4417fb9bd54ee85f2",
+    "bytes": 17139,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000010"
+  },
+  {
+    "path": "FRM/Codex/SRC_000011/SRC_000011__coding_output.json",
+    "sha256": "b75f90b56cc6fb66f958ce3fe2d0775f2fe172c4bcfe381a3d3ffc2cbf46163a",
+    "bytes": 15213,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000011"
+  },
+  {
+    "path": "FRM/Codex/SRC_000012/SRC_000012__coding_output.json",
+    "sha256": "71fb780df528a53b40ea89623ce8c2a17e0c834324d252ab6ec7dbe5f52fd2d0",
+    "bytes": 14076,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000012"
+  },
+  {
+    "path": "FRM/Codex/SRC_000013/SRC_000013__coding_output.json",
+    "sha256": "5296eb9c2ebba8d8f25a5a2efc319fd5d9f0fd68bd5b84c2bfbd6db359b1237a",
+    "bytes": 15979,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000013"
+  },
+  {
+    "path": "FRM/Codex/SRC_000014/SRC_000014__coding_output.json",
+    "sha256": "728d01af24a7c5b256621dcec3d05617b03245a6d06eaaea9170750534226ff2",
+    "bytes": 19013,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000014"
+  },
+  {
+    "path": "FRM/Codex/SRC_000040/SRC_000040__coding_output.json",
+    "sha256": "9f1a1b63b35f1c5f4427352693bc92e83186307856ee56e3b42aa495a3718a00",
+    "bytes": 17176,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000040"
+  },
+  {
+    "path": "FRM/Codex/SRC_000041/SRC_000041__coding_output.json",
+    "sha256": "c06e1f0b73a04b9c53011d9bf66c6d74d1e18c25a466ad69a5721f763fd63fa9",
+    "bytes": 17585,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000041"
+  },
+  {
+    "path": "FRM/Codex/SRC_000057/SRC_000057__coding_output.json",
+    "sha256": "b9d1a4ffdf2d4bce1a81f8bb33a5a82b16e9a0ae6f522c7bf706c6063310a99f",
+    "bytes": 16614,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000057"
+  },
+  {
+    "path": "FRM/Codex/SRC_000058/SRC_000058__coding_output.json",
+    "sha256": "5488f5f23638b577205e06f5ed7599da04939a9576b7eee2dbc01d9accba719c",
+    "bytes": 17055,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000058"
+  },
+  {
+    "path": "FRM/Codex/SRC_000059/SRC_000059__coding_output.json",
+    "sha256": "7566f1a30afd654e5552dc121901d474bf6698c13bc11b877041e53af166b738",
+    "bytes": 17333,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000059"
+  },
+  {
+    "path": "FRM/Codex/SRC_000060/SRC_000060__coding_output.json",
+    "sha256": "94ed34c282d3de5dca82ab5ca0d62b07ab614084bf619a947855f7e587101a17",
+    "bytes": 18295,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000060"
+  },
+  {
+    "path": "FRM/Codex/SRC_000061/SRC_000061__coding_output.json",
+    "sha256": "06abf2714f24702c1d3f892a575c77a963614b405170b4a185e7262bfdd22a4d",
+    "bytes": 12551,
+    "sector": "FRM",
+    "coder": "Codex",
+    "source_id": "SRC_000061"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000010/SRC_000010__coding_output.json",
+    "sha256": "511300670d8b708b3b84a07a8cc8db43a3ba2b2044581fb7875db564bfaa570e",
+    "bytes": 9550,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000010"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000011/SRC_000011__coding_output.json",
+    "sha256": "13c3ba0c97144958a43f2aa3ff55c78841834256ef4db13aaf5b5c0ad0368940",
+    "bytes": 13041,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000011"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000012/SRC_000012__coding_output.json",
+    "sha256": "a54a319c337a5f19df6df4593edbac6263422495eeb008f441f47993533c3a63",
+    "bytes": 8930,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000012"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000013/SRC_000013__coding_output.json",
+    "sha256": "5c89fe32997984c852ffe041c5b19222e67fb0f6c1d3121eab8081d1c67abd2a",
+    "bytes": 10419,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000013"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000014/SRC_000014__coding_output.json",
+    "sha256": "7e2f057009b9fd42917cc88ee33c8f7a09dad5f1d61c3b5a3fc266e2f22a77bb",
+    "bytes": 11045,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000014"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000040/SRC_000040__coding_output.json",
+    "sha256": "71128c5af0d2443253610f5aaeb44b468ae6be5fce3be9e0bc6e5b598f36b3b3",
+    "bytes": 8698,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000040"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000041/SRC_000041__coding_output.json",
+    "sha256": "fff314ea768ea3b2a316d959d960abc68fdb87b64e67f2f1f81c24e4a22b50b4",
+    "bytes": 10613,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000041"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000057/SRC_000057__coding_output.json",
+    "sha256": "cae114cc81e39e7922de129120a96c0324ffe1560e47510c1c19e7171cfc3825",
+    "bytes": 8027,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000057"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000058/SRC_000058__coding_output.json",
+    "sha256": "b0aac15f8de2779bc5ae8584e426c33b5ceaa4758cdede4f63c3ccd5fceb49d9",
+    "bytes": 8769,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000058"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000059/SRC_000059__coding_output.json",
+    "sha256": "ff3edc21f87204feb18f9b0ab9bae590cffb883f87a4f39bb0f3333b3d0f27a3",
+    "bytes": 10883,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000059"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000060/SRC_000060__coding_output.json",
+    "sha256": "cef64c255f72b76db9d98a8f7aa4f72927b709b9d94f05f2c2c6aa3e42c44c22",
+    "bytes": 8263,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000060"
+  },
+  {
+    "path": "FRM/Gemini/SRC_000061/SRC_000061__coding_output.json",
+    "sha256": "e7ff8af5c6b8c767ad8ecd3183a5c36e1dc5aec77780a168d1ce04729fb24622",
+    "bytes": 9042,
+    "sector": "FRM",
+    "coder": "Gemini",
+    "source_id": "SRC_000061"
+  },
+  {
+    "path": "GOV/Claude/SRC_000002/SRC_000002__coding_output.json",
+    "sha256": "535f647a98a0c80153160c8b47b1459cf8c980db4285c65d6fdf5ec5253e4417",
+    "bytes": 15938,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000002"
+  },
+  {
+    "path": "GOV/Claude/SRC_000003/SRC_000003__coding_output.json",
+    "sha256": "1b35a4db0dbf1d6c4de7f83ea64ecf5023fdb231afac8d3955283549d622a01c",
+    "bytes": 15488,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000003"
+  },
+  {
+    "path": "GOV/Claude/SRC_000004/SRC_000004__coding_output.json",
+    "sha256": "2cb08c595e378eb360814a4e502b93c7c3fa61a336d0ac19c03d0869026cf199",
+    "bytes": 17832,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000004"
+  },
+  {
+    "path": "GOV/Claude/SRC_000005/SRC_000005__coding_output.json",
+    "sha256": "16461313e06eecf4c64923c1e2b34f6994b0a754e6903cb0824370c0c1240a40",
+    "bytes": 15076,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000005"
+  },
+  {
+    "path": "GOV/Claude/SRC_000020/SRC_000020__coding_output.json",
+    "sha256": "da2105dcd59184bcdc97a4220634c0e85d60b8f4191216bffff01dc135f33a0a",
+    "bytes": 15910,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000020"
+  },
+  {
+    "path": "GOV/Claude/SRC_000021/SRC_000021__coding_output.json",
+    "sha256": "a6d14f3f407fd07c5007a9c8e3d1435d8e429880106e129e7349e0d0b89f6b49",
+    "bytes": 16724,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000021"
+  },
+  {
+    "path": "GOV/Claude/SRC_000022/SRC_000022__coding_output.json",
+    "sha256": "f581e08c0a38fd0a8bdedb6dfc344cf8117d7a948442b072a3d7b9bcf962680a",
+    "bytes": 15879,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000022"
+  },
+  {
+    "path": "GOV/Claude/SRC_000023/SRC_000023__coding_output.json",
+    "sha256": "aa77a50d0ae592e4ca7a343067bf21761437132016a7d17ca3ad913922bbb48c",
+    "bytes": 16024,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000023"
+  },
+  {
+    "path": "GOV/Claude/SRC_000028/SRC_000028__coding_output.json",
+    "sha256": "9b846c542509c4edeb1fca609f1610a5d0d8cb749d7931faecedf7776075ea02",
+    "bytes": 15467,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000028"
+  },
+  {
+    "path": "GOV/Claude/SRC_000031/SRC_000031__coding_output.json",
+    "sha256": "5486e1a3c70b4f087405bdc82c5a16861535ac3a723735d3ff960e291d59b6cd",
+    "bytes": 16222,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000031"
+  },
+  {
+    "path": "GOV/Claude/SRC_000052/SRC_000052__coding_output.json",
+    "sha256": "2dcab575cac873a988f3b294f07364ff18e61bda59e2d625298a8292356bf69d",
+    "bytes": 16182,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000052"
+  },
+  {
+    "path": "GOV/Claude/SRC_000053/SRC_000053__coding_output.json",
+    "sha256": "bc0d32418468e662d47a9ecd22efdba0f4f09f0b982a3b36c977f9c50182a083",
+    "bytes": 16239,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000053"
+  },
+  {
+    "path": "GOV/Claude/SRC_000054/SRC_000054__coding_output.json",
+    "sha256": "366876d6b1bd0bbcc86b72c3664ecd803334d2aba7b816bdc8f012a1213fea62",
+    "bytes": 15458,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000054"
+  },
+  {
+    "path": "GOV/Claude/SRC_000055/SRC_000055__coding_output.json",
+    "sha256": "62e1b3f93f58aeefeb50dadf4a43e2452a3a210e56405052b6a02e7a5cd540ad",
+    "bytes": 17108,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000055"
+  },
+  {
+    "path": "GOV/Claude/SRC_000056/SRC_000056__coding_output.json",
+    "sha256": "11ca6b1311fd57508c6a394f4f42439de96e539d96eb0487ad16acfa31e281ea",
+    "bytes": 17509,
+    "sector": "GOV",
+    "coder": "Claude",
+    "source_id": "SRC_000056"
+  },
+  {
+    "path": "GOV/Codex/SRC_000002/SRC_000002__coding_output.json",
+    "sha256": "530048adb4d26b2b7e7f7f05acb52b0d5a11df22c2a24a3b651617d13a9ba6e3",
+    "bytes": 16520,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000002"
+  },
+  {
+    "path": "GOV/Codex/SRC_000003/SRC_000003__coding_output.json",
+    "sha256": "b1ce4587864ff45b51d8dc5e9bd3ed86325a9f1f7df9dd0ac40b6d9147b83f29",
+    "bytes": 13732,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000003"
+  },
+  {
+    "path": "GOV/Codex/SRC_000004/SRC_000004__coding_output.json",
+    "sha256": "8f3cdbebd8666b1c6d85add5ad6419cef712c9ee4a3977e622402481d979ae68",
+    "bytes": 13680,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000004"
+  },
+  {
+    "path": "GOV/Codex/SRC_000005/SRC_000005__coding_output.json",
+    "sha256": "385394f8bbfcd4b5ba07a269692b83b26551c1ba7a07a8e1afdf9d3ea9c360a1",
+    "bytes": 18922,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000005"
+  },
+  {
+    "path": "GOV/Codex/SRC_000020/SRC_000020__coding_output.json",
+    "sha256": "91ef1d0ef7c86b2d668afed8678f5ac7dcc50528049945d4c952d27123d88d08",
+    "bytes": 15176,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000020"
+  },
+  {
+    "path": "GOV/Codex/SRC_000021/SRC_000021__coding_output.json",
+    "sha256": "7e859fb81706abbb8afb8c6e1e3db16cb39a749c20b2de442c2880aca45a18a9",
+    "bytes": 12943,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000021"
+  },
+  {
+    "path": "GOV/Codex/SRC_000022/SRC_000022__coding_output.json",
+    "sha256": "76e499a4473d0b62bbedc060db705cac3f2f584b0fd2f041bfa0750af11cf670",
+    "bytes": 19317,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000022"
+  },
+  {
+    "path": "GOV/Codex/SRC_000023/SRC_000023__coding_output.json",
+    "sha256": "cc47c21fbad8d359b1df974f9a4b51740354b4abe38b8ce30cd9521902cacef9",
+    "bytes": 15180,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000023"
+  },
+  {
+    "path": "GOV/Codex/SRC_000028/SRC_000028__coding_output.json",
+    "sha256": "a013ecc8a06b0a98c1e2313ab09ac356142f9a25de964ae153427f0c05dea3b9",
+    "bytes": 16901,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000028"
+  },
+  {
+    "path": "GOV/Codex/SRC_000031/SRC_000031__coding_output.json",
+    "sha256": "301d3062d00ade32548043a97b743ffb35d7d36bb127c9d91066a213631859da",
+    "bytes": 14327,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000031"
+  },
+  {
+    "path": "GOV/Codex/SRC_000052/SRC_000052__coding_output.json",
+    "sha256": "1719a71763726f955495380e5f67164ccfd2c36a367ecb6e90482a767d169c8c",
+    "bytes": 14530,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000052"
+  },
+  {
+    "path": "GOV/Codex/SRC_000053/SRC_000053__coding_output.json",
+    "sha256": "bcc380d79a5bcfa936fed8ae509ccadbce670a4af88f39021e640d02b6916515",
+    "bytes": 17840,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000053"
+  },
+  {
+    "path": "GOV/Codex/SRC_000054/SRC_000054__coding_output.json",
+    "sha256": "b378d57856a6cdfe555da20fa6a1bfdc5031c7f02633ef89bf1be30a273f9163",
+    "bytes": 14498,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000054"
+  },
+  {
+    "path": "GOV/Codex/SRC_000055/SRC_000055__coding_output.json",
+    "sha256": "76e39324ecbccb237b4030a0c2c095cc37d7b37dfe2b47c32ee8d73a5a988146",
+    "bytes": 14403,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000055"
+  },
+  {
+    "path": "GOV/Codex/SRC_000056/SRC_000056__coding_output.json",
+    "sha256": "ceefa85215b3eeada463b4b070449f42ffc7e62717bb964abdf1f777904aa2f4",
+    "bytes": 15240,
+    "sector": "GOV",
+    "coder": "Codex",
+    "source_id": "SRC_000056"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000002/SRC_000002__coding_output.json",
+    "sha256": "1b80b6debb595b2b680d884c6c0f31c67aefd405614d5707c903f925be8ae7a9",
+    "bytes": 11074,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000002"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000003/SRC_000003__coding_output.json",
+    "sha256": "ea693d48bd22ed9ee7f029b0d8c88f24fa0a9aaaed916c591315e7260483cf0a",
+    "bytes": 11624,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000003"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000004/SRC_000004__coding_output.json",
+    "sha256": "7f27c3b48499cd2198f24f793769f7058ddd686afb6f059bd800ac119c2e7b3f",
+    "bytes": 11128,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000004"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000005/SRC_000005__coding_output.json",
+    "sha256": "a928bb507ecac250288b630869b9bfc65334e5d5774d0ddc4dbc9624e4b3a4bd",
+    "bytes": 10977,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000005"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000020/SRC_000020__coding_output.json",
+    "sha256": "0f97322ecfd5ae434cb92dfcbf19bcda9924dac3cc28c1ee4a94498d57b5453f",
+    "bytes": 13002,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000020"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000021/SRC_000021__coding_output.json",
+    "sha256": "83eae6e80c00c5e35ecb1619140bb90aa84ff383612884985d71af576d617e51",
+    "bytes": 10725,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000021"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000022/SRC_000022__coding_output.json",
+    "sha256": "575f8ac278d1eab413da90dab206c2e01dbec845b52cc653a407e4ae7c1c6cc2",
+    "bytes": 11935,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000022"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000023/SRC_000023__coding_output.json",
+    "sha256": "162b0887948ee5b434c65dde3c9a9ac192e849d08b3727cb90e4af1a3fadaadf",
+    "bytes": 10332,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000023"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000028/SRC_000028__coding_output.json",
+    "sha256": "92b0b0d8f8686d51cb64dbd1c90f6dcedf02c040d8c0eb34819e8b51f4d5f0cf",
+    "bytes": 10729,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000028"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000031/SRC_000031__coding_output.json",
+    "sha256": "caa4970e0b74f10d22a7c13bcff9a3cfce24ae3de9d87aaf29e4f57cc9aded5a",
+    "bytes": 10540,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000031"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000052/SRC_000052__coding_output.json",
+    "sha256": "e8ffef20bcbf099edfd0542f47f0a6688472bb44323098547e4e1c918d17c042",
+    "bytes": 11617,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000052"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000053/SRC_000053__coding_output.json",
+    "sha256": "b4a4a0f62987d58237279599cd8b5337eacdf6eee47bd364ea0f85516c23e173",
+    "bytes": 10338,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000053"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000054/SRC_000054__coding_output.json",
+    "sha256": "4d6e4c0abf20fc04cb488ab4476d47da874dd8729d6ffcede0311b44e9730750",
+    "bytes": 12722,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000054"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000055/SRC_000055__coding_output.json",
+    "sha256": "92023ead51a7bfc8a73e7d70907f15318b17c7ec27ad76dfa13776893f6618f5",
+    "bytes": 11980,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000055"
+  },
+  {
+    "path": "GOV/Gemini/SRC_000056/SRC_000056__coding_output.json",
+    "sha256": "af903a14a9a1c2ef910ebb9d66254744e2c507e216041ec222c27225f0b2c81f",
+    "bytes": 10087,
+    "sector": "GOV",
+    "coder": "Gemini",
+    "source_id": "SRC_000056"
+  },
+  {
+    "path": "INS/Claude/SRC_000017/SRC_000017__coding_output.json",
+    "sha256": "4a51f36ce42fe280342df9ea596a186c04f6668ac6f7d5a13e365d52b98173ac",
+    "bytes": 13925,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000017"
+  },
+  {
+    "path": "INS/Claude/SRC_000018/SRC_000018__coding_output.json",
+    "sha256": "c1fcc092cc911e83310dcae4352afc3a26f070b4a8bd14e21e893e7ac491cc9a",
+    "bytes": 14042,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000018"
+  },
+  {
+    "path": "INS/Claude/SRC_000019/SRC_000019__coding_output.json",
+    "sha256": "db474b58d5eb083a67eb843550d737760b4e1a829832b0a833c7bfb07ab4b3dc",
+    "bytes": 13963,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000019"
+  },
+  {
+    "path": "INS/Claude/SRC_000024/SRC_000024__coding_output.json",
+    "sha256": "6579306e16850aed6e15373d8cd15bee31c4435839f865b9bb62d4b2cf0f3f5b",
+    "bytes": 13758,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000024"
+  },
+  {
+    "path": "INS/Claude/SRC_000029/SRC_000029__coding_output.json",
+    "sha256": "1e180d9371a1636d4225b23ef4deb71db7331a1e6315c875faf5ea210eddac4e",
+    "bytes": 13896,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000029"
+  },
+  {
+    "path": "INS/Claude/SRC_000030/SRC_000030__coding_output.json",
+    "sha256": "e0f780260f52147c77ac45960e1fa043f1cf2a986e917038d525cb3747c12fee",
+    "bytes": 14735,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000030"
+  },
+  {
+    "path": "INS/Claude/SRC_000032/SRC_000032__coding_output.json",
+    "sha256": "9170ea4511893bc8b6df9794cc780d304ae0f87d047b355ee09e4ee9975eea62",
+    "bytes": 14770,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000032"
+  },
+  {
+    "path": "INS/Claude/SRC_000033/SRC_000033__coding_output.json",
+    "sha256": "628fa4fb532d8091aae0bab42f141dfdff470d8359e0ebfbde389e86d508d0bf",
+    "bytes": 14656,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000033"
+  },
+  {
+    "path": "INS/Claude/SRC_000034/SRC_000034__coding_output.json",
+    "sha256": "f2cf1ca9ef6d9ca36f54cd297e5cc245dae6df414d5b5c3614a876ddc951e439",
+    "bytes": 14861,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000034"
+  },
+  {
+    "path": "INS/Claude/SRC_000047/SRC_000047__coding_output.json",
+    "sha256": "7812e8f5586c6373dbde1c38d21a8ff147ea8fb9eadcd0ce412d647bd4fcc090",
+    "bytes": 13343,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000047"
+  },
+  {
+    "path": "INS/Claude/SRC_000048/SRC_000048__coding_output.json",
+    "sha256": "3ca26e6dadd2fc59bc37a31e9af5977d4827adb03f4d2eadf92cc33a970e960a",
+    "bytes": 14053,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000048"
+  },
+  {
+    "path": "INS/Claude/SRC_000049/SRC_000049__coding_output.json",
+    "sha256": "f90c115fea797e660f46df60b2e0a8cc4473c82b6d9a8d7500fc96f5a12deb60",
+    "bytes": 14180,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000049"
+  },
+  {
+    "path": "INS/Claude/SRC_000050/SRC_000050__coding_output.json",
+    "sha256": "20db8c7971dd1bd752608949987cf7d3781a8fae1d354fd4011aa8f68658ed78",
+    "bytes": 13520,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000050"
+  },
+  {
+    "path": "INS/Claude/SRC_000051/SRC_000051__coding_output.json",
+    "sha256": "0d4cfbcd74e7323ae9f5a982404c21d4c247d3b2929c57e004e42ffe14e13e03",
+    "bytes": 14820,
+    "sector": "INS",
+    "coder": "Claude",
+    "source_id": "SRC_000051"
+  },
+  {
+    "path": "INS/Codex/SRC_000017/SRC_000017__coding_output.json",
+    "sha256": "2711000fc6925b22d49810c4eed20e56452372d47b58aea284c1fecc5481a08c",
+    "bytes": 13052,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000017"
+  },
+  {
+    "path": "INS/Codex/SRC_000018/SRC_000018__coding_output.json",
+    "sha256": "fe899414af26bc155d25f9762e1680375ec5d67d2eef5cb3dc88d8207e93514f",
+    "bytes": 12734,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000018"
+  },
+  {
+    "path": "INS/Codex/SRC_000019/SRC_000019__coding_output.json",
+    "sha256": "b264c8eaec2da080cb78a4253d8f6b86d9ebaf39ef2f153bcd3ed3fb719f58c5",
+    "bytes": 12386,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000019"
+  },
+  {
+    "path": "INS/Codex/SRC_000024/SRC_000024__coding_output.json",
+    "sha256": "514a94698707a8679f195500520191522c3b0a96015cfa6d35b69fd515976888",
+    "bytes": 12995,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000024"
+  },
+  {
+    "path": "INS/Codex/SRC_000029/SRC_000029__coding_output.json",
+    "sha256": "78b429f6798206e5097b697d16f7f344547e72bdaa7674e27567601cef6610f8",
+    "bytes": 17468,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000029"
+  },
+  {
+    "path": "INS/Codex/SRC_000030/SRC_000030__coding_output.json",
+    "sha256": "747b786db22ded80badcab513df4ef98e51ee60e398aaf4cd024592af5d66205",
+    "bytes": 12479,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000030"
+  },
+  {
+    "path": "INS/Codex/SRC_000032/SRC_000032__coding_output.json",
+    "sha256": "93d3dc72438a10fc6db2878f838c90e155a949bcde3d44f7525f8358377e01f1",
+    "bytes": 12631,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000032"
+  },
+  {
+    "path": "INS/Codex/SRC_000033/SRC_000033__coding_output.json",
+    "sha256": "7a07adaadc7f987f22eb3e90612cfdd693986b0a5f9e29f4ab928920a614d138",
+    "bytes": 12333,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000033"
+  },
+  {
+    "path": "INS/Codex/SRC_000034/SRC_000034__coding_output.json",
+    "sha256": "434a069c43ab2647ad7e94b0257e20d3f6160cb6ba69edfb039972874ee4ade6",
+    "bytes": 13087,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000034"
+  },
+  {
+    "path": "INS/Codex/SRC_000047/SRC_000047__coding_output.json",
+    "sha256": "01fc734c630806475a1415113f828e564df20b4b6f83ad05427506d3e047fb4b",
+    "bytes": 16153,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000047"
+  },
+  {
+    "path": "INS/Codex/SRC_000048/SRC_000048__coding_output.json",
+    "sha256": "f76d85238f61fcdf58d43348f9a93e75610b1405de7ffcaee7a615f89a7fdcf3",
+    "bytes": 13712,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000048"
+  },
+  {
+    "path": "INS/Codex/SRC_000049/SRC_000049__coding_output.json",
+    "sha256": "064587fff8c5d9f5fb6378b8249ab046fc130cd4184530ae85cfc00441fdf853",
+    "bytes": 17335,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000049"
+  },
+  {
+    "path": "INS/Codex/SRC_000050/SRC_000050__coding_output.json",
+    "sha256": "12a4cccaa68080e6e639d958e1c0c846599de7a6a1cb2c424b66bb5f69804669",
+    "bytes": 13619,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000050"
+  },
+  {
+    "path": "INS/Codex/SRC_000051/SRC_000051__coding_output.json",
+    "sha256": "6bb6f4fcb16c1d0789408f9e04f68aa97cb5e8be55c2ff3cfd51a39a097a8a10",
+    "bytes": 12831,
+    "sector": "INS",
+    "coder": "Codex",
+    "source_id": "SRC_000051"
+  },
+  {
+    "path": "INS/Gemini/SRC_000017/SRC_000017__coding_output.json",
+    "sha256": "1f9fee0ab0c3d20373412657915f7b078521b43e4906b3106f1d904a9a23ddfe",
+    "bytes": 10040,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000017"
+  },
+  {
+    "path": "INS/Gemini/SRC_000018/SRC_000018__coding_output.json",
+    "sha256": "9971ea1b0c9cc19730c959a29b40b64c9c0e8944a72331807c2990867bf905b6",
+    "bytes": 13048,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000018"
+  },
+  {
+    "path": "INS/Gemini/SRC_000019/SRC_000019__coding_output.json",
+    "sha256": "1fb328724580cdb94ef7ee2408ad97317525ddf1ab4cd89a8a8b6867b63d3cf9",
+    "bytes": 8873,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000019"
+  },
+  {
+    "path": "INS/Gemini/SRC_000024/SRC_000024__coding_output.json",
+    "sha256": "423fa4b4922a65fa7f967767c93751bda9997d16861fabd98c9446fdaba027d3",
+    "bytes": 10368,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000024"
+  },
+  {
+    "path": "INS/Gemini/SRC_000029/SRC_000029__coding_output.json",
+    "sha256": "c753a177b5c5f3ed2bf3063d1c61b28c1db0168d4beb09664da320860b1084ef",
+    "bytes": 11913,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000029"
+  },
+  {
+    "path": "INS/Gemini/SRC_000030/SRC_000030__coding_output.json",
+    "sha256": "4f455bbf49edc6563feae31292da0149333e37c81daa671ab5135b2e143e52f4",
+    "bytes": 10539,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000030"
+  },
+  {
+    "path": "INS/Gemini/SRC_000032/SRC_000032__coding_output.json",
+    "sha256": "8d23dadf9a9cfa33b3ca049e76bea279cdbc0c6335c7e5188b0adde8dec86a69",
+    "bytes": 10994,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000032"
+  },
+  {
+    "path": "INS/Gemini/SRC_000033/SRC_000033__coding_output.json",
+    "sha256": "66d423c2ee90438d3452e9f57bbabebd69202d081a21917ca5bd7b2b0c3c7892",
+    "bytes": 11536,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000033"
+  },
+  {
+    "path": "INS/Gemini/SRC_000034/SRC_000034__coding_output.json",
+    "sha256": "37f64593233f96a443bbda27474c84bd618fee355a10e3697f759b3045fd7b34",
+    "bytes": 9872,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000034"
+  },
+  {
+    "path": "INS/Gemini/SRC_000047/SRC_000047__coding_output.json",
+    "sha256": "fce03484e4350fa049c4a2fcda9ea4201e50ae518f129d4429b92447c21d6080",
+    "bytes": 10363,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000047"
+  },
+  {
+    "path": "INS/Gemini/SRC_000048/SRC_000048__coding_output.json",
+    "sha256": "9752f3094416765750f5db14f2b213fdd693c8d61a7686ae0a991ba380470d19",
+    "bytes": 11617,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000048"
+  },
+  {
+    "path": "INS/Gemini/SRC_000049/SRC_000049__coding_output.json",
+    "sha256": "e1756eb6a312924a56e743d2e429156a75cc3a629954d49f5edacaf813c54475",
+    "bytes": 10055,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000049"
+  },
+  {
+    "path": "INS/Gemini/SRC_000050/SRC_000050__coding_output.json",
+    "sha256": "70b32b438ce560bdf52ebeb2d67bd1d6cc2f2bb5791c01ffb33ae66713de9f27",
+    "bytes": 11593,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000050"
+  },
+  {
+    "path": "INS/Gemini/SRC_000051/SRC_000051__coding_output.json",
+    "sha256": "2323f2974805edf7dbb801a3e493c1400737c9e8a65b26bd9d750152001f2cf8",
+    "bytes": 10569,
+    "sector": "INS",
+    "coder": "Gemini",
+    "source_id": "SRC_000051"
+  },
+  {
+    "path": "JRN/Claude/SRC_000006/SRC_000006__coding_output.json",
+    "sha256": "ae72eb2587838ee17fdbd001c11753645cda1a520d56eb329aeddc1f8e5ccba4",
+    "bytes": 15041,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000006"
+  },
+  {
+    "path": "JRN/Claude/SRC_000007/SRC_000007__coding_output.json",
+    "sha256": "f683b88a29bff4809ba89f3a750b94aa5c08eb76ba3856fb6416c1a092890b6a",
+    "bytes": 18274,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000007"
+  },
+  {
+    "path": "JRN/Claude/SRC_000008/SRC_000008__coding_output.json",
+    "sha256": "d8c98d40206620cfcd75c4a7c76e21c01d4f020d8882c157fa8daa7b406026b5",
+    "bytes": 16681,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000008"
+  },
+  {
+    "path": "JRN/Claude/SRC_000009/SRC_000009__coding_output.json",
+    "sha256": "6e5fc78bbd55b21c4236706c64dd27b79aa22b6601b3bbc0e3dd0608e2ed4e26",
+    "bytes": 14669,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000009"
+  },
+  {
+    "path": "JRN/Claude/SRC_000035/SRC_000035__coding_output.json",
+    "sha256": "2a4eed287c72e9f301e74beb99255debc0e76558a59b62ca3f5d24a3c83fb777",
+    "bytes": 16266,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000035"
+  },
+  {
+    "path": "JRN/Claude/SRC_000036/SRC_000036__coding_output.json",
+    "sha256": "fbc31f638d8c3694ef758ca686651bc0f7b71cdf0f8b12a9c694f4ec91f88271",
+    "bytes": 16655,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000036"
+  },
+  {
+    "path": "JRN/Claude/SRC_000037/SRC_000037__coding_output.json",
+    "sha256": "fb9b769a73936317191bb3f6a0608b35d414be9e7ef818b935a47fe717c42af4",
+    "bytes": 16159,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000037"
+  },
+  {
+    "path": "JRN/Claude/SRC_000038/SRC_000038__coding_output.json",
+    "sha256": "e31852d893cc428a525fac281b8e986e8bb9beb428cad367029303770e5291cb",
+    "bytes": 16625,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000038"
+  },
+  {
+    "path": "JRN/Claude/SRC_000039/SRC_000039__coding_output.json",
+    "sha256": "ff64a16c148259bbbc981e415b660a3ddc79ca7ee74f1da9f8f8f0e27f8603a9",
+    "bytes": 15627,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000039"
+  },
+  {
+    "path": "JRN/Claude/SRC_000042/SRC_000042__coding_output.json",
+    "sha256": "2fdc8903f078ac50d61cba06ac53b99366bddaebf9bf935583b7bf7a6b5ec89a",
+    "bytes": 14638,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000042"
+  },
+  {
+    "path": "JRN/Claude/SRC_000043/SRC_000043__coding_output.json",
+    "sha256": "5e570443a542b2431ea9e85d8bda69f690d73fd2abf5fe6e82ab511a7de496a9",
+    "bytes": 15004,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000043"
+  },
+  {
+    "path": "JRN/Claude/SRC_000044/SRC_000044__coding_output.json",
+    "sha256": "153871e7f5fa231c5521ae33f212ef4c055c8460c13118fca0346db46fe60dc6",
+    "bytes": 15177,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000044"
+  },
+  {
+    "path": "JRN/Claude/SRC_000045/SRC_000045__coding_output.json",
+    "sha256": "15eaa86d9906f1243d3c45d0e8a38a2d7cc9f147fd709736a580f481937e6550",
+    "bytes": 14291,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000045"
+  },
+  {
+    "path": "JRN/Claude/SRC_000046/SRC_000046__coding_output.json",
+    "sha256": "670a7194f804d5447f9e3ac54626ff5778597c05626aa3a9e30ff19e5980d1fa",
+    "bytes": 15571,
+    "sector": "JRN",
+    "coder": "Claude",
+    "source_id": "SRC_000046"
+  },
+  {
+    "path": "JRN/Codex/SRC_000006/SRC_000006__coding_output.json",
+    "sha256": "843dadba0655e11750b7666854ede6065c7a454a316eb2edc351b59125e0805c",
+    "bytes": 15090,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000006"
+  },
+  {
+    "path": "JRN/Codex/SRC_000007/SRC_000007__coding_output.json",
+    "sha256": "7c26ae2b626d81ddfee42cb58f777631342dba836e106e3d6c7aea7af91aacf4",
+    "bytes": 19740,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000007"
+  },
+  {
+    "path": "JRN/Codex/SRC_000008/SRC_000008__coding_output.json",
+    "sha256": "71337306d81ccee1b6754023ce4cd75c23cd106ddde80b9efb1cbe76088cf7c6",
+    "bytes": 18788,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000008"
+  },
+  {
+    "path": "JRN/Codex/SRC_000009/SRC_000009__coding_output.json",
+    "sha256": "e39a1e88ed938224cd56ace532df85c7c083925ed386a51e383e12c72cd68bd3",
+    "bytes": 13588,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000009"
+  },
+  {
+    "path": "JRN/Codex/SRC_000035/SRC_000035__coding_output.json",
+    "sha256": "8143e3934fcbd8e5e2b12a7eae08e3dffbe94bd125fea4eb7c8e3cad7595256a",
+    "bytes": 13651,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000035"
+  },
+  {
+    "path": "JRN/Codex/SRC_000036/SRC_000036__coding_output.json",
+    "sha256": "66df5142d5b8ca86581f15eb8db7641b5ff4b28c1ea3bfc379761b8112f5e6c1",
+    "bytes": 19567,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000036"
+  },
+  {
+    "path": "JRN/Codex/SRC_000037/SRC_000037__coding_output.json",
+    "sha256": "3b7f9afdb943f0dc7cbbbb976eebf2838d7cbcc440274a27116d4e75721776ce",
+    "bytes": 18313,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000037"
+  },
+  {
+    "path": "JRN/Codex/SRC_000038/SRC_000038__coding_output.json",
+    "sha256": "3cca5ce0d4306cbdfde96c01358e62c959bfa64b152b91ceced57a4f35f7b7e9",
+    "bytes": 14271,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000038"
+  },
+  {
+    "path": "JRN/Codex/SRC_000039/SRC_000039__coding_output.json",
+    "sha256": "9601618375a502cf9abd7693282b82270e1909cd5c1a2b8298890bef71f4e8a6",
+    "bytes": 13410,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000039"
+  },
+  {
+    "path": "JRN/Codex/SRC_000042/SRC_000042__coding_output.json",
+    "sha256": "16b4d713c94f0368b4aeba6a8cf8d07c9c8591433384effd3ef0d41ed4834e35",
+    "bytes": 18034,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000042"
+  },
+  {
+    "path": "JRN/Codex/SRC_000043/SRC_000043__coding_output.json",
+    "sha256": "1d3bdaf33d0a9ea98ee944704df858fa065326a60e519ba447679c1925c4eb94",
+    "bytes": 17672,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000043"
+  },
+  {
+    "path": "JRN/Codex/SRC_000044/SRC_000044__coding_output.json",
+    "sha256": "3b68fcc6fd9eb83e974370cd1aede30214196ded5cbeefff12a5c8923242b177",
+    "bytes": 15036,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000044"
+  },
+  {
+    "path": "JRN/Codex/SRC_000045/SRC_000045__coding_output.json",
+    "sha256": "57f079ae7fa8489531ca0917588f6b259556bf9407d511d5d602627d008e0763",
+    "bytes": 13930,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000045"
+  },
+  {
+    "path": "JRN/Codex/SRC_000046/SRC_000046__coding_output.json",
+    "sha256": "31bf553e95d629b1a25f147e2b35118b89f36eb182a084d44b10672541c10f5f",
+    "bytes": 14485,
+    "sector": "JRN",
+    "coder": "Codex",
+    "source_id": "SRC_000046"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000006/SRC_000006__coding_output.json",
+    "sha256": "fc7d1762eb6b1406a36abe8b57cc5c5d916c9979c8807e904d716b5bb3ccf9dc",
+    "bytes": 10446,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000006"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000007/SRC_000007__coding_output.json",
+    "sha256": "66718fb81c01e2bc412d7fcb028d821ab8762f88b10390376350d83af5680352",
+    "bytes": 10637,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000007"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000008/SRC_000008__coding_output.json",
+    "sha256": "2fb60ffd5c245fa4c9357a658432c9b9dfd773b57c650ee1204b73dc06084451",
+    "bytes": 12489,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000008"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000009/SRC_000009__coding_output.json",
+    "sha256": "52bdf8cb1f8e719f4a361606f7c03bbb4db44d7454bcec6f4314d843261892f3",
+    "bytes": 13149,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000009"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000035/SRC_000035__coding_output.json",
+    "sha256": "caf7251fcaaa2927f3ba4bdcde52eac4eadb15d5ddf86d8be5730b3c52895685",
+    "bytes": 12986,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000035"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000036/SRC_000036__coding_output.json",
+    "sha256": "d77f7d36f648d08ced82f4a4e27aa29fb46eaf630fc50d0e3ba457bad3c970de",
+    "bytes": 10589,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000036"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000037/SRC_000037__coding_output.json",
+    "sha256": "58509a4bd4902433cb829dea7c08ddddb07d2591b3cbcfb7752ed848a38455b7",
+    "bytes": 12060,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000037"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000038/SRC_000038__coding_output.json",
+    "sha256": "45eef39b4a84bc017daa8edbb574838be979d16a47ed9abca2bc90694d171889",
+    "bytes": 10432,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000038"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000039/SRC_000039__coding_output.json",
+    "sha256": "6f2a2db824d878c47a374bb038ff92e06fc303b27e4c0eb9a8e14673ca723ad1",
+    "bytes": 10218,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000039"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000042/SRC_000042__coding_output.json",
+    "sha256": "886f1004d98649e9f91ab8ca28d50237fe8e23cb1f266542a33483c504f35ae9",
+    "bytes": 10863,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000042"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000043/SRC_000043__coding_output.json",
+    "sha256": "c227bc18cb4acbfddca5c66e817f060fec5b322ab7f15ffabcdf6892808a46a8",
+    "bytes": 11037,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000043"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000044/SRC_000044__coding_output.json",
+    "sha256": "ec15c8481dea2df21ad19dd74462b557dd6c4833f367f86bba1844f1decf0570",
+    "bytes": 9765,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000044"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000045/SRC_000045__coding_output.json",
+    "sha256": "7286acf76be74af6b468644def3947c7bb2773afebc68545c0ae9a5b62969527",
+    "bytes": 10419,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000045"
+  },
+  {
+    "path": "JRN/Gemini/SRC_000046/SRC_000046__coding_output.json",
+    "sha256": "7a4f0568cee8f04f7b3660a2cdfc46fcab58a902dfc0bde3baff5b28f8f8818e",
+    "bytes": 11094,
+    "sector": "JRN",
+    "coder": "Gemini",
+    "source_id": "SRC_000046"
+  }
+]

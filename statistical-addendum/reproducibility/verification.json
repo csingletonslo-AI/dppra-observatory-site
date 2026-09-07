@@ -1,0 +1,9 @@
+{
+  "greenhouse_geisser_epsilon": 0.9209261870463681,
+  "corrected_df1": 1.8418523740927362,
+  "corrected_df2": 117.87855194193511,
+  "corrected_p": 6.497361392673652e-37,
+  "source_hashes_unchanged": 195,
+  "max_sandwich_discrepancy": 1.5306644840507033e-12,
+  "max_average_score": 4.3896075743644865e-17
+}

@@ -1,0 +1,27 @@
+{
+  "files": 195,
+  "documents": 65,
+  "sector_counts": {
+    "GOV": 15,
+    "JRN": 14,
+    "INS": 14,
+    "FRM": 12,
+    "COR": 10
+  },
+  "ordinal_fields": 29,
+  "common_document_field_units": 1727,
+  "common_ratings": 5181,
+  "missing_by_coder": {
+    "Claude": 158,
+    "Codex": 157,
+    "Gemini": 157
+  },
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "pandas": "3.0.5",
+    "statsmodels": "0.15.0"
+  },
+  "original_reliability_sha256": "3c0f3f0e4ef348d25eab477a5dc0dddcf90cd867992f83ba6b3cbe63a06fb970"
+}

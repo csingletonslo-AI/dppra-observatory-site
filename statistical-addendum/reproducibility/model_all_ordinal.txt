@@ -1,0 +1,54 @@
+                           OrdinalGEE Regression Results                           
+===================================================================================
+Dep. Variable:                      rating   No. Observations:                25905
+Model:                          OrdinalGEE   No. clusters:                       65
+Method:                        Generalized   Min. cluster size:                 390
+                      Estimating Equations   Max. cluster size:                 420
+Family:                           Binomial   Mean cluster size:               398.5
+Dependence structure:         Independence   Num. iterations:                     2
+Date:                     Mon, 07 Sep 2026   Scale:                           1.000
+Covariance type:                    robust   Time:                         05:45:07
+========================================================================================================================
+                                                           coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------------------------
+I(y>0.0)                                                 2.8860      0.197     14.648      0.000       2.500       3.272
+I(y>1.0)                                                 2.1584      0.184     11.704      0.000       1.797       2.520
+I(y>2.0)                                                 0.5459      0.136      4.027      0.000       0.280       0.812
+I(y>3.0)                                                -1.0258      0.140     -7.322      0.000      -1.300      -0.751
+I(y>4.0)                                                -4.1852      0.205    -20.444      0.000      -4.586      -3.784
+Codex                                                    1.3794      0.094     14.695      0.000       1.195       1.563
+Gemini                                                   0.6595      0.081      8.146      0.000       0.501       0.818
+field_cb_benefit_presence_strength_code                  0.3152      0.059      5.374      0.000       0.200       0.430
+field_cb_cost_intensity_code                             0.2942      0.216      1.360      0.174      -0.130       0.718
+field_cb_cost_presence_strength_code                     0.5520      0.229      2.411      0.016       0.103       1.001
+field_detection_verification_presence_strength_code     -4.9739      0.556     -8.942      0.000      -6.064      -3.884
+field_dppra_a_strength_code                             -1.5012      0.220     -6.822      0.000      -1.932      -1.070
+field_dppra_alignment_score_code                        -1.8558      0.196     -9.468      0.000      -2.240      -1.472
+field_dppra_d_strength_code                              2.6520      0.296      8.949      0.000       2.071       3.233
+field_dppra_p1_strength_code                            -0.5459      0.214     -2.552      0.011      -0.965      -0.127
+field_dppra_p2_strength_code                            -1.7762      0.211     -8.427      0.000      -2.189      -1.363
+field_dppra_r_strength_code                             -2.7500      0.246    -11.166      0.000      -3.233      -2.267
+field_eth_accountability_code                            0.8967      0.311      2.882      0.004       0.287       1.507
+field_eth_autonomy_code                                 -0.5006      0.216     -2.320      0.020      -0.923      -0.078
+field_eth_beneficence_eth_code                           0.3047      0.234      1.300      0.194      -0.155       0.764
+field_eth_beneficence_mech_code                         -0.3815      0.103     -3.709      0.000      -0.583      -0.180
+field_eth_equity_code                                   -0.7681      0.258     -2.972      0.003      -1.275      -0.261
+field_eth_integrity_code                                 0.7210      0.212      3.399      0.001       0.305       1.137
+field_eth_justice_code                                  -0.4000      0.269     -1.486      0.137      -0.927       0.128
+field_eth_nonmaleficence_code                            0.3362      0.265      1.266      0.205      -0.184       0.857
+field_eth_privacy_code                                  -1.0014      0.209     -4.782      0.000      -1.412      -0.591
+field_eth_transparency_code                              0.5520      0.262      2.111      0.035       0.039       1.065
+field_int_academic_intensity_code                       -5.3861      0.419    -12.865      0.000      -6.207      -4.566
+field_int_assessment_intensity_code                     -4.3880      0.342    -12.846      0.000      -5.057      -3.718
+field_int_data_prov_intensity_code                      -1.3783      0.198     -6.962      0.000      -1.766      -0.990
+field_int_epistemic_intensity_code                      -1.1117      0.175     -6.366      0.000      -1.454      -0.769
+field_int_research_intensity_code                       -4.1478      0.288    -14.422      0.000      -4.711      -3.584
+field_int_system_tevv_intensity_code                    -0.7768      0.229     -3.392      0.001      -1.226      -0.328
+field_journal_evidence_quality_strength_code            -0.6483      0.470     -1.379      0.168      -1.570       0.273
+field_surveillance_monitoring_presence_strength_code    -4.0868      0.578     -7.076      0.000      -5.219      -2.955
+==============================================================================
+Skew:                         -0.2025   Kurtosis:                       1.6538
+Centered skew:                -0.0425   Centered kurtosis:              1.3716
+==============================================================================
+
+Reported pairwise contrasts use robust covariance multiplied by G/(G-1) and t(G-1) reference, with Holm adjustment.

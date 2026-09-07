@@ -1,0 +1,17 @@
+,0
+I(y>0.0),3.8656625982654456
+I(y>1.0),2.696082303117821
+I(y>2.0),1.3912927575720646
+I(y>3.0),-0.09408885287579409
+I(y>4.0),-3.184980419927952
+Codex,1.4272419378787309
+Gemini,0.6211790896514675
+field_eth_autonomy_code,-1.3420508184815605
+field_eth_beneficence_eth_code,-0.5689301273563895
+field_eth_beneficence_mech_code,-1.2278002662566894
+field_eth_equity_code,-1.5986531129832917
+field_eth_integrity_code,-0.168849977638442
+field_eth_justice_code,-1.2455119275586515
+field_eth_nonmaleficence_code,-0.5386317446048302
+field_eth_privacy_code,-1.8227202015993553
+field_eth_transparency_code,-0.3312068168119352
