@@ -8,11 +8,12 @@
    "coding dates",
    "coder identity stamped in every output",
    "output schema",
-   "Codex model label and client version, from the session logs"
+   "Codex model label and client version, from the session logs",
+   "Gemini tier for RUN 04, from the app's response-details panel"
   ],
   "testimony_backed": [
    "Claude tier, corroborated by dated build records",
-   "Gemini tier",
+   "Gemini tier for RUN 06 and RUN 07",
    "interface for all three coders"
   ],
   "unrecoverable": [
@@ -68,7 +69,7 @@
    "instrument": "v2.12",
    "coder": "Gemini",
    "family": "Google Gemini",
-   "tier_testimony": "Gemini 3.5 Flash, investigator testimony",
+   "tier_testimony": "Gemini 3.5 Flash, reported by the app's own response-details panel",
    "interface": "Gemini consumer app, hand-run by the investigator",
    "outputs": 65,
    "coding_dates": "2026-06-24, 2026-06-25, 2026-06-26, 2026-06-27",
@@ -80,7 +81,7 @@
    "top_p": "not settable",
    "session_memory": "not recorded",
    "run_label": "RUN 04 · v2.12",
-   "model_as_run": "Google Gemini — Gemini 3.5 Flash (investigator testimony)"
+   "model_as_run": "Google Gemini — 3.5 Flash, reported by the app's response-details panel on a v2.12 coding thread"
   },
   {
    "run": "RUN 06",
@@ -125,7 +126,7 @@
    "instrument": "v2.13",
    "coder": "Gemini",
    "family": "Google Gemini",
-   "tier_testimony": "Gemini 3.5 Flash, investigator testimony",
+   "tier_testimony": "Gemini 3.5 Flash, investigator testimony; app panel not yet checked for this run",
    "interface": "Gemini consumer app, hand-run by the investigator",
    "outputs": 65,
    "coding_dates": "2026-06-28, 2026-06-29",
@@ -137,7 +138,7 @@
    "top_p": "not settable",
    "session_memory": "not recorded",
    "run_label": "RUN 06 · v2.13",
-   "model_as_run": "Google Gemini — Gemini 3.5 Flash (investigator testimony)"
+   "model_as_run": "Google Gemini — 3.5 Flash (investigator testimony; in-app panel confirmed for RUN 04 only)"
   },
   {
    "run": "RUN 07",
@@ -182,7 +183,7 @@
    "instrument": "v2.14",
    "coder": "Gemini",
    "family": "Google Gemini",
-   "tier_testimony": "Gemini 3.5 Flash, investigator testimony",
+   "tier_testimony": "Gemini 3.5 Flash, investigator testimony; app panel not yet checked for this run",
    "interface": "Gemini consumer app, hand-run by the investigator",
    "outputs": 65,
    "coding_dates": "2026-06-30",
@@ -194,7 +195,7 @@
    "top_p": "not settable",
    "session_memory": "not recorded",
    "run_label": "RUN 07 · v2.14",
-   "model_as_run": "Google Gemini — Gemini 3.5 Flash (investigator testimony)"
+   "model_as_run": "Google Gemini — 3.5 Flash (investigator testimony; in-app panel confirmed for RUN 04 only)"
   }
  ],
  "gemini_packet_coverage": {
@@ -229,5 +230,11 @@
   "what": "The Claude coder's outputs carry no model field, so the tier rests on investigator testimony that the highest available build was used throughout.",
   "corroboration": "Dated build records from the same workstation name Claude Opus 4.8 on 25, 27, 28 and 29 June and on 1 and 3 July 2026 — spanning the whole coding window — with the next Anthropic build first appearing on 5 July, after all three runs.",
   "limit": "This establishes which Anthropic build was in use on those dates. It does not stamp the chat session that performed the coding, which is a different surface. Reported as corroborated testimony, not as identification."
+ },
+ "gemini_tier_evidence": {
+  "what": "The Gemini app reports, per response, which model answered. On a retained v2.12 coding thread that panel reads 3.5 Flash, and the composer's model selector reads Flash.",
+  "scope": "Observed on a RUN 04 thread. The equivalent panel has not been checked on the v2.13 and v2.14 threads, so for those two runs the tier remains investigator testimony.",
+  "resolves": "One RUN 04 output self-stamped a coder id containing 'pro', which conflicted with the Flash testimony. That string was written by the model, and model self-identification is unreliable. The app's own panel reports Flash. The self-stamp is reported as an adherence deviation, not as an attribution.",
+  "limit": "Like the Codex label, this is a product-surface label rather than a dated build identifier."
  }
 }
