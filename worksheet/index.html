@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>DPPRA Operationalization Worksheet</title>
+<style>body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#F2F3F4; --surface:#FFFFFF; --surface-2:#E7EAEC; --field:#FBFCFC;
+    --ink:#1B222B; --muted:#5A6673; --line:#CCD3D9;
+    --accent:#2F5D7C; --accent-soft:#DEE8EF;
+    --signal:#9A5B2B; --signal-soft:#F3E7DB;
+    --ok:#2C6E52; --ok-soft:#DCEBE3;
+    --warn:#8A6D1F;
+    --serif:"Newsreader",Georgia,serif;
+    --sans:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#12161A; --surface:#1A2027; --surface-2:#222A32; --field:#151B21;
+      --ink:#E8ECF0; --muted:#9AA6B2; --line:#333D47;
+      --accent:#7FB4D4; --accent-soft:#1C2C38;
+      --signal:#D89A6A; --signal-soft:#33241A;
+      --ok:#6FBF98; --ok-soft:#172B22; --warn:#C7A84C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#12161A; --surface:#1A2027; --surface-2:#222A32; --field:#151B21;
+    --ink:#E8ECF0; --muted:#9AA6B2; --line:#333D47;
+    --accent:#7FB4D4; --accent-soft:#1C2C38;
+    --signal:#D89A6A; --signal-soft:#33241A;
+    --ok:#6FBF98; --ok-soft:#172B22; --warn:#C7A84C;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+  .wrap{max-width:780px;margin:0 auto;padding:36px 20px 120px}
+
+  .eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,6vw,44px);line-height:1.12;margin:0 0 16px;text-wrap:balance}
+  .standfirst{font-size:17.5px;color:var(--muted);margin:0}
+  .standfirst strong{color:var(--ink);font-weight:500}
+
+  .guard{background:var(--signal-soft);border:1px solid var(--signal);border-radius:5px;padding:18px 20px;margin:26px 0}
+  .guard h2{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--signal);margin:0 0 8px}
+  .guard p{margin:0;font-size:14.5px;color:var(--ink);line-height:1.55}
+  .guard p + p{margin-top:8px}
+
+  .why{background:var(--surface);border-left:3px solid var(--accent);padding:14px 18px;margin:22px 0;border-radius:0 4px 4px 0}
+  .why p{margin:0;font-size:15px;color:var(--muted)}
+  .why strong{color:var(--ink)}
+
+  .bar{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 0 9px;margin:28px 0 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .prog{flex:1;min-width:130px;height:5px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+  .prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s ease}
+  .count{font-family:var(--mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .save{font-family:var(--mono);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px}
+  .save::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--line)}
+  .save.dirty::before{background:var(--signal)}
+  .save.ok::before{background:var(--ok)}
+
+  h2.sec{font-family:var(--serif);font-weight:400;font-size:27px;margin:46px 0 4px;line-height:1.2}
+  h2.sec .tag{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+  .secnote{color:var(--muted);font-size:15px;margin:0 0 18px;max-width:64ch}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:20px 22px;margin:0 0 14px}
+  .card.done{border-color:var(--ok)}
+  .card h3{font-family:var(--sans);font-size:17px;font-weight:600;margin:0 0 3px}
+  .card .gloss{font-size:14px;color:var(--muted);margin:0 0 10px}
+  .card .prompts{font-size:13.5px;color:var(--muted);background:var(--surface-2);border-radius:4px;padding:11px 13px;margin:0 0 16px;line-height:1.55}
+
+  .col{margin-bottom:13px}
+  .col label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+  .col .cue{font-size:13px;color:var(--muted);margin:0 0 6px}
+  textarea{width:100%;min-height:56px;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:10px 12px;font-family:var(--sans);font-size:15px;line-height:1.5;resize:vertical}
+  textarea:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent)}
+  input[type=text]{width:100%;background:var(--field);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:10px 12px;font-family:var(--sans);font-size:15px}
+  input[type=text]:focus{outline:2px solid var(--accent);outline-offset:-1px}
+
+  .flag{font-size:13px;color:var(--signal);margin:6px 0 0;display:none}
+  .flag.on{display:block}
+
+  .marks{display:flex;gap:7px;margin-top:12px;flex-wrap:wrap}
+  .mark{font-family:var(--mono);font-size:11px;background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:3px;padding:5px 10px;cursor:pointer}
+  .mark[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+  .mark:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .mark.s0[aria-pressed="true"]{background:var(--signal-soft);border-color:var(--signal);color:var(--signal)}
+  .mark.s3[aria-pressed="true"]{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+
+  .ctx{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:20px 22px;margin:20px 0}
+  .ctx .f + .f{margin-top:15px}
+  .ctx label{display:block;font-size:14px;font-weight:500;margin:0 0 4px}
+  .ctx .hint{font-size:13px;color:var(--muted);margin:0 0 6px}
+
+  .profile{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:22px;margin:20px 0}
+  .profile h4{font-family:var(--sans);font-size:13px;font-weight:600;margin:0 0 4px}
+  .profile .ph{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+  .prow{display:flex;align-items:center;gap:12px;margin-bottom:9px;font-size:14px}
+  .prow .nm{flex:none;width:150px;color:var(--muted)}
+  .prow .track{flex:1;height:9px;background:var(--surface-2);border-radius:2px;overflow:hidden}
+  .prow .track i{display:block;height:100%;width:0}
+  .prow .vl{flex:none;font-family:var(--mono);font-size:11px;color:var(--muted);width:122px;text-align:right}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .legend span{display:flex;align-items:center;gap:5px}
+  .legend i{width:9px;height:9px;border-radius:2px;display:block}
+
+  .drafted{background:var(--accent-soft);border-radius:5px;padding:20px 22px;margin:18px 0}
+  .drafted h4{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 12px;font-weight:500}
+  .drafted ol{margin:0;padding-left:20px;display:grid;gap:11px}
+  .drafted li{font-size:15px;line-height:1.5;color:var(--ink)}
+  .drafted .none{font-size:14.5px;color:var(--muted);margin:0}
+
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 0}
+  button.btn{font-family:var(--sans);font-size:14.5px;font-weight:500;padding:11px 18px;border-radius:4px;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:#fff}
+  button.btn.ghost{background:transparent;color:var(--accent)}
+  button.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .toast{font-size:14px;color:var(--ok);margin:12px 0 0;min-height:20px}
+
+  .foot{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted);line-height:1.7}
+</style>
+
+<div class="wrap">
+
+  <p class="eyebrow">Session 2 &middot; working document</p>
+  <h1>Turning &ldquo;we should be ethical about this&rdquo; into things that either exist or don&rsquo;t</h1>
+  <p class="standfirst">Organisations articulate ethical principles far more than they operationalise them. The
+  distance between the two is called <strong>decoupling</strong>, and it stays invisible until someone writes
+  both columns side by side. That is all this does, for one rollout.</p>
+
+  <div class="guard">
+    <h2>Keep it generic</h2>
+    <p>No case numbers, no personal data, no internal document text pasted in. Describe <strong>mechanisms, not
+    incidents</strong>. Everything here should be things you could say out loud in a meeting.</p>
+    <p><strong>Nothing you type leaves this device.</strong> Your answers stay in your own browser so you can
+    close the page and come back. They are sent nowhere until you press Download or Copy.</p>
+  </div>
+
+  <div class="why">
+    <p><strong>Fill it from what you know about the workflow</strong> &mdash; not from the rollout announcement.
+    The announcement goes in the first column, where it belongs, and gets compared with everything else.</p>
+  </div>
+
+  <div class="bar">
+    <span class="count" id="count">0 of 10 principles worked</span>
+    <span class="prog"><i id="progbar"></i></span>
+    <span class="save" id="savestate">saved in this browser</span>
+  </div>
+
+  <h2 class="sec"><span class="tag">First</span>The workflow map</h2>
+  <p class="secnote">You cannot score a process you have not written down. If something is genuinely unknown,
+  write &ldquo;unknown&rdquo; &mdash; that is a finding, not a gap in the form.</p>
+  <div class="ctx" id="ctx"></div>
+
+  <h2 class="sec"><span class="tag">The work</span>Principle by principle</h2>
+  <p class="secnote">Four columns each. The first is what they <em>say</em>; the rest is what would have to be
+  true for it to hold. A principle with an articulation and nothing else is exactly what decoupling looks
+  like.</p>
+  <div id="principles"></div>
+
+  <div class="profile" id="profile">
+    <h4>Where this rollout stops</h4>
+    <p class="ph">Each bar shows how far that principle gets before it runs out of mechanism.</p>
+    <div id="prows"></div>
+    <div class="legend">
+      <span><i style="background:var(--signal)"></i>Absent</span>
+      <span><i style="background:var(--warn)"></i>Articulated only</span>
+      <span><i style="background:var(--accent)"></i>Partially operational</span>
+      <span><i style="background:var(--ok)"></i>Operational</span>
+    </div>
+  </div>
+
+  <h2 class="sec"><span class="tag">The derived read</span>Displacement check</h2>
+  <p class="secnote">Does responsibility flow away from the people making the decision and toward the people
+  carrying the cost, while the organisation signals compliance symbolically? Four questions answer it.</p>
+  <div id="displacement"></div>
+
+  <h2 class="sec"><span class="tag">The output</span>Questions for the program owner</h2>
+  <p class="secnote">The most useful thing you can produce. Every blank cell above is a question somebody has to
+  answer &mdash; these are drafted from what you left empty, so edit them into your own words and add your own.</p>
+  <div class="drafted" id="drafted"></div>
+  <div id="ownq"></div>
+
+  <div class="actions">
+    <button class="btn" id="export" type="button">Download my worksheet</button>
+    <button class="btn ghost" id="copy" type="button">Copy everything</button>
+  </div>
+  <p class="toast" id="toast"></p>
+
+  <p class="foot">
+    DPPRA &mdash; <em>Discourse, Policy, Practice, Resources, Accountability</em>. Citing an external framework
+    in internal planning is ordinary practice, the same way people cite the NIST AI Risk Management Framework.
+    If asked, name it plainly.<br>
+    Saves automatically. You can close this and come back.
+  </p>
+</div>
+
+<script>
+(function(){
+  var CTX = [
+    ["w_process", "What form or process is being automated?", "text", ""],
+    ["w_data", "What data is on the form?", "area", "Name, address, date of birth, SSN or EIN, permit or lease number, financial figures, location or parcel, signature, free text."],
+    ["w_does", "What does the AI actually do?", "area", "Extract text, classify, route, pre-fill, draft a response, score, recommend — or decide."],
+    ["w_paper", "The paper path", "area", "Printed by whom, filled by whom, scanned by whom, and where the physical paper goes afterwards."],
+    ["w_digital", "The digital path", "area", "Where the scan lands, who does extraction (in-house or a named vendor), where the output is stored, who can reach it."],
+    ["w_review", "The human review point", "area", "Who looks at the output before it takes effect, and how long they realistically have per item."],
+    ["w_staff", "What staff were told at rollout", "area", ""],
+    ["w_public", "What the public or applicants were told, if anything", "area", ""],
+    ["w_asked", "What you were asked to weigh in on, and by when", "area", ""]
+  ];
+
+  var P = [
+    ["privacy", "Privacy", "Control over personal data and exposure.",
+     "Where does the scanned image live, and for how long? Is there a retention schedule covering the digital copy, not just the paper? Is the extraction vendor contractually barred from retaining or training on agency data? Who inside the agency can pull up a scanned form, and is that access logged? Are SSNs and financial fields masked in the pipeline or passed in the clear? Is there a Privacy Impact Assessment for the new data flow, or is it riding on an old one?"],
+    ["accountability", "Accountability", "Who answers for outcomes.",
+     "When the system mis-reads or mis-routes a form, who is the named person responsible for the outcome — not for fixing the model, for the outcome to the affected party? Is there an error log a supervisor reviews on a schedule? Is there an audit trail showing which items the system touched? Can a staffer flag a bad result without it being treated as their mistake?"],
+    ["nonmal", "Non-maleficence", "Avoid harm; the safety floor.",
+     "Is there a written list of things this is not used for? Is there a condition under which it gets switched off, and who can pull it? Is there a rollback plan if error rates spike? Was there a pilot with measured error rates before full rollout, or did it go straight to production?"],
+    ["autonomy", "Autonomy", "The human stays the decision-maker.",
+     "Is the human review a real decision or a rubber stamp under time pressure? How long does a reviewer actually get per item? Can they override easily, and is overriding treated as normal or as friction? Does the output arrive as a recommendation, or as a pre-filled default that is tedious to change?"],
+    ["transparency", "Transparency", "Disclosure, explainability, legibility.",
+     "Can a member of the public find out that AI was involved in handling their submission? Is there a notice on the form or the website? If someone asks why their application was delayed or flagged, can staff give a real answer? Is there internal documentation a new employee could actually read?"],
+    ["justice", "Justice", "Rights, remedy, due process.",
+     "If the system contributes to an adverse decision, is there a defined way for the affected person to contest it and reach a human? Is that route published? Are appeal outcomes tracked to see whether automated items get reversed more often?"],
+    ["equity", "Equity", "Fair performance across groups.",
+     "Does extraction work as well on handwritten forms as typed? On non-English names and addresses? On older or poorer-quality scans? Has anyone checked error rates by form type, office or applicant population — or is “it works” based on the clean demo set?"],
+    ["integrity", "Integrity", "Say–do consistency.",
+     "Does the rollout announcement's description match what the system actually does? Was it described as assistive but functioning as decisive? Were staff time savings promised and measured, or just asserted?"],
+    ["benmech", "Beneficence — mechanism", "The operational good it does.",
+     "What is the concrete benefit and who gets it — faster processing for the public, or throughput credit for the office? Is the benefit measured, turnaround time before and after, or assumed?"],
+    ["beneth", "Beneficence — ethical", "The normative good intended.",
+     "Is there a stated public-interest rationale beyond efficiency? Does the rollout plan mention the people the process serves, or only the process?"]
+  ];
+
+  var COLS = [
+    ["art", "Articulation", "The policy or announcement language, if any. “We protect privacy.”"],
+    ["mech", "Operational mechanism", "What concretely has to be true for that to hold."],
+    ["ver", "Verification", "How someone would check it is working — a log, an audit, a metric, a form field."],
+    ["own", "Owner", "The named role accountable."]
+  ];
+
+  var STATUS = [
+    { v: "0", label: "Absent", cls: "s0" },
+    { v: "1", label: "Articulated only", cls: "" },
+    { v: "2", label: "Partially operational", cls: "" },
+    { v: "3", label: "Operational", cls: "s3" }
+  ];
+  var SCOLOR = ["var(--signal)", "var(--warn)", "var(--accent)", "var(--ok)"];
+
+  var DISP = [
+    ["d_cost", "Who bears the cost of an error?",
+     "The public applicant, the field staffer, the reviewer, the agency, or the vendor."],
+    ["d_benefit", "Who captures the benefit of the automation?",
+     "The applicant, the office's metrics, leadership, or the vendor."],
+    ["d_same", "Are those the same actor?",
+     "If cost lands down and benefit goes up, that is a displacement flag — name it explicitly in your input."],
+    ["d_conc", "Is responsibility concentrated in a named role, or diffused?",
+     "Diffused across “the system”, “the vendor”, “the process” is a flag in itself."]
+  ];
+
+  var VAGUE = /\b(the team|the system|the vendor|the process|everyone|management|IT|staff)\b\s*$/i;
+
+  var state = { ctx: {}, p: {}, disp: {}, own: "", updatedAt: null };
+  var db = null, saveTimer = null, loaded = false;
+  var $ = function(s){ return document.querySelector(s); };
+  var $$ = function(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); };
+
+  function pr(k){
+    if(!state.p[k]) state.p[k] = { art: "", mech: "", ver: "", own: "", status: "" };
+    return state.p[k];
+  }
+
+  // ---------- build: workflow map ----------
+  (function(){
+    var host = $("#ctx");
+    CTX.forEach(function(c){
+      var f = document.createElement("div"); f.className = "f";
+      var lab = document.createElement("label"); lab.textContent = c[1]; lab.setAttribute("for", c[0]);
+      f.appendChild(lab);
+      if(c[3]){ var h = document.createElement("p"); h.className = "hint"; h.textContent = c[3]; f.appendChild(h); }
+      var el;
+      if(c[2] === "text"){ el = document.createElement("input"); el.type = "text"; }
+      else { el = document.createElement("textarea"); el.style.minHeight = "52px"; }
+      el.id = c[0]; el.dataset.ctx = c[0];
+      f.appendChild(el);
+      host.appendChild(f);
+    });
+  })();
+
+  // ---------- build: principles ----------
+  (function(){
+    var host = $("#principles");
+    P.forEach(function(p){
+      var card = document.createElement("div");
+      card.className = "card"; card.id = "card_" + p[0];
+      var h = document.createElement("h3"); h.textContent = p[1];
+      var g = document.createElement("p"); g.className = "gloss"; g.textContent = p[2];
+      var pr2 = document.createElement("p"); pr2.className = "prompts"; pr2.textContent = p[3];
+      card.appendChild(h); card.appendChild(g); card.appendChild(pr2);
+
+      COLS.forEach(function(c){
+        var col = document.createElement("div"); col.className = "col";
+        var lab = document.createElement("label");
+        lab.textContent = c[1]; lab.setAttribute("for", p[0] + "_" + c[0]);
+        var cue = document.createElement("p"); cue.className = "cue"; cue.textContent = c[2];
+        var ta = document.createElement("textarea");
+        ta.id = p[0] + "_" + c[0];
+        ta.dataset.p = p[0]; ta.dataset.col = c[0];
+        if(c[0] === "own"){ ta.style.minHeight = "44px"; }
+        col.appendChild(lab); col.appendChild(cue); col.appendChild(ta);
+        if(c[0] === "own"){
+          var fl = document.createElement("p");
+          fl.className = "flag"; fl.id = "flag_" + p[0];
+          fl.textContent = "That names a group, not a person. If nobody can be named, that is the finding.";
+          col.appendChild(fl);
+        }
+        card.appendChild(col);
+      });
+
+      var marks = document.createElement("div"); marks.className = "marks";
+      STATUS.forEach(function(st){
+        var b = document.createElement("button");
+        b.className = "mark " + st.cls; b.type = "button";
+        b.dataset.sp = p[0]; b.dataset.status = st.v;
+        b.setAttribute("aria-pressed", "false");
+        b.textContent = st.label;
+        marks.appendChild(b);
+      });
+      card.appendChild(marks);
+      host.appendChild(card);
+    });
+  })();
+
+  // ---------- build: displacement ----------
+  (function(){
+    var host = $("#displacement");
+    DISP.forEach(function(d){
+      var card = document.createElement("div"); card.className = "card";
+      var h = document.createElement("h3"); h.textContent = d[1];
+      var g = document.createElement("p"); g.className = "gloss"; g.textContent = d[2];
+      var ta = document.createElement("textarea");
+      ta.id = d[0]; ta.dataset.disp = d[0]; ta.style.minHeight = "52px";
+      card.appendChild(h); card.appendChild(g); card.appendChild(ta);
+      host.appendChild(card);
+    });
+    var own = document.createElement("div"); own.className = "card";
+    var h = document.createElement("h3"); h.textContent = "Your own questions";
+    var g = document.createElement("p"); g.className = "gloss";
+    g.textContent = "Anything the drafted list above misses. One per line.";
+    var ta = document.createElement("textarea");
+    ta.id = "ownq_ta"; ta.dataset.own = "1"; ta.style.minHeight = "110px";
+    own.appendChild(h); own.appendChild(g); own.appendChild(ta);
+    $("#ownq").appendChild(own);
+  })();
+
+  // ---------- drafted questions ----------
+  function draftQuestions(){
+    var out = [];
+    P.forEach(function(p){
+      var r = state.p[p[0]];
+      if(!r) return;
+      var hasMech = String(r.mech || "").trim();
+      var hasVer = String(r.ver || "").trim();
+      var hasOwn = String(r.own || "").trim();
+      var hasArt = String(r.art || "").trim();
+      if(r.status === "0"){
+        out.push(p[1] + " is not addressed anywhere in the rollout. What mechanism will cover it before go-live, and which role owns it?");
+        return;
+      }
+      if(r.status === "1" || (hasArt && !hasMech)){
+        out.push(p[1] + " is stated but no mechanism is named. What concretely has to be true for it to hold, and who is accountable for it?");
+        return;
+      }
+      if(hasMech && !hasOwn){
+        out.push("For " + p[1].toLowerCase() + ", the mechanism is described but no role is named as accountable. Which position owns it?");
+      }
+      if(hasMech && !hasVer){
+        out.push("For " + p[1].toLowerCase() + ", how would anyone check the mechanism is actually working — what log, audit or metric?");
+      }
+    });
+    var cost = String((state.disp.d_cost || "")).trim();
+    var ben = String((state.disp.d_benefit || "")).trim();
+    if(cost && ben && cost.toLowerCase() !== ben.toLowerCase()){
+      out.push("The cost of an error and the benefit of the automation land on different parties. Has that trade-off been named anywhere in the implementation plan?");
+    }
+    return out;
+  }
+
+  function renderDrafted(){
+    var host = $("#drafted");
+    var qs = draftQuestions();
+    host.innerHTML = "";
+    var h = document.createElement("h4");
+    h.textContent = "Drafted from your blanks";
+    host.appendChild(h);
+    if(!qs.length){
+      var n = document.createElement("p"); n.className = "none";
+      n.textContent = "Nothing drafted yet. Questions appear here as you mark a principle absent or leave a mechanism, owner or verification empty.";
+      host.appendChild(n);
+      return;
+    }
+    var ol = document.createElement("ol");
+    qs.forEach(function(q){
+      var li = document.createElement("li"); li.textContent = q; ol.appendChild(li);
+    });
+    host.appendChild(ol);
+  }
+
+  // ---------- profile + progress ----------
+  function worked(r){
+    if(!r) return false;
+    return !!(String(r.art||"").trim() || String(r.mech||"").trim() ||
+              String(r.ver||"").trim() || String(r.own||"").trim() || r.status);
+  }
+
+  function refresh(){
+    var done = 0;
+    P.forEach(function(p){
+      var r = state.p[p[0]];
+      if(worked(r)) done++;
+      var c = document.getElementById("card_" + p[0]);
+      if(c) c.classList.toggle("done", worked(r));
+      var fl = document.getElementById("flag_" + p[0]);
+      if(fl) fl.classList.toggle("on", !!(r && VAGUE.test(String(r.own || "").trim())));
+    });
+    $("#count").textContent = done + " of " + P.length + " principles worked";
+    $("#progbar").style.width = (done / P.length * 100).toFixed(1) + "%";
+
+    var host = $("#prows"); host.innerHTML = "";
+    P.forEach(function(p){
+      var r = state.p[p[0]] || {};
+      var lvl = (r.status === "" || r.status === undefined) ? -1 : parseInt(r.status, 10);
+      var row = document.createElement("div"); row.className = "prow";
+      var nm = document.createElement("span"); nm.className = "nm"; nm.textContent = p[1];
+      var tr = document.createElement("span"); tr.className = "track";
+      var fill = document.createElement("i");
+      if(lvl >= 0){ fill.style.width = ((lvl + 1) / 4 * 100) + "%"; fill.style.background = SCOLOR[lvl]; }
+      tr.appendChild(fill);
+      var vl = document.createElement("span"); vl.className = "vl";
+      vl.textContent = lvl >= 0 ? STATUS[lvl].label : "—";
+      row.appendChild(nm); row.appendChild(tr); row.appendChild(vl);
+      host.appendChild(row);
+    });
+    renderDrafted();
+  }
+
+  // ---------- events ----------
+  document.addEventListener("input", function(e){
+    var t = e.target;
+    if(t.dataset.p){ pr(t.dataset.p)[t.dataset.col] = t.value; refresh(); queueSave(); }
+    else if(t.dataset.ctx){ state.ctx[t.dataset.ctx] = t.value; queueSave(); }
+    else if(t.dataset.disp){ state.disp[t.dataset.disp] = t.value; refresh(); queueSave(); }
+    else if(t.dataset.own){ state.own = t.value; queueSave(); }
+  });
+
+  document.addEventListener("click", function(e){
+    var b = e.target.closest("button.mark");
+    if(!b) return;
+    var r = pr(b.dataset.sp);
+    r.status = (r.status === b.dataset.status) ? "" : b.dataset.status;
+    b.parentNode.querySelectorAll(".mark").forEach(function(m){
+      m.setAttribute("aria-pressed", m.dataset.status === r.status ? "true" : "false");
+    });
+    refresh(); queueSave();
+  });
+
+  // ---------- persistence ----------
+  function setSaveState(cls, text){
+    var el = $("#savestate");
+    el.className = "save" + (cls ? " " + cls : "");
+    el.textContent = text;
+  }
+  function localSave(){ try { localStorage.setItem("dppra_ws_v1", JSON.stringify(state)); } catch(e){} }
+  function localLoad(){
+    try { var r = localStorage.getItem("dppra_ws_v1"); return r ? JSON.parse(r) : null; } catch(e){ return null; }
+  }
+  function queueSave(){
+    if(!loaded) return;
+    setSaveState("dirty", "saving…");
+    localSave();
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function(){
+      state.updatedAt = new Date().toISOString();
+      if(db){
+        db.doc("worksheet/main").set(state)
+          .then(function(){ setSaveState("ok", "saved"); })
+          .catch(function(){ setSaveState("", "saved on this device only"); });
+      } else { setSaveState("ok", "saved on this device"); }
+    }, 700);
+  }
+
+  function apply(data){
+    if(!data) return;
+    state.ctx = data.ctx || {};
+    state.p = data.p || {};
+    state.disp = data.disp || {};
+    state.own = data.own || "";
+    Object.keys(state.ctx).forEach(function(k){
+      var el = document.querySelector('[data-ctx="' + k + '"]');
+      if(el) el.value = state.ctx[k] || "";
+    });
+    Object.keys(state.p).forEach(function(k){
+      var r = state.p[k];
+      ["art", "mech", "ver", "own"].forEach(function(c){
+        var el = document.querySelector('[data-p="' + k + '"][data-col="' + c + '"]');
+        if(el) el.value = r[c] || "";
+      });
+      document.querySelectorAll('[data-sp="' + k + '"]').forEach(function(m){
+        m.setAttribute("aria-pressed", m.dataset.status === r.status ? "true" : "false");
+      });
+    });
+    Object.keys(state.disp).forEach(function(k){
+      var el = document.querySelector('[data-disp="' + k + '"]');
+      if(el) el.value = state.disp[k] || "";
+    });
+    var ow = document.getElementById("ownq_ta");
+    if(ow) ow.value = state.own || "";
+    refresh();
+  }
+
+  apply(localLoad());
+  loaded = true;
+  refresh();
+
+  if(window.claude && window.claude.use){
+    window.claude.use("db").then(function(d){
+      if(!d){ setSaveState("", "saved on this device"); return; }
+      db = d;
+      return db.doc("worksheet/main").get().then(function(snap){
+        if(snap && snap.exists){
+          var remote = snap.data() || {};
+          if(Object.keys(remote.p || {}).length >= Object.keys(state.p).length) apply(remote);
+        }
+        setSaveState("ok", "saved");
+      });
+    }).catch(function(){ setSaveState("", "saved on this device"); });
+  } else { setSaveState("", "saved on this device"); }
+
+  // ---------- export ----------
+  function wrap(t){ return String(t || "").trim().replace(/\n/g, "\n        "); }
+
+  function buildText(){
+    var L = [];
+    L.push("DPPRA OPERATIONALIZATION WORKSHEET");
+    L.push("Prepared " + new Date().toLocaleDateString());
+    L.push("");
+    L.push("WORKFLOW MAP");
+    CTX.forEach(function(c){
+      var v = String(state.ctx[c[0]] || "").trim();
+      if(!v) return;
+      L.push("");
+      L.push("  " + c[1]);
+      L.push("        " + wrap(v));
+    });
+
+    L.push(""); L.push(""); L.push("PRINCIPLE BY PRINCIPLE");
+    P.forEach(function(p){
+      var r = state.p[p[0]];
+      if(!worked(r)) return;
+      L.push("");
+      var st = (r.status === "" || r.status === undefined) ? "not marked" : STATUS[parseInt(r.status, 10)].label;
+      L.push("  " + p[1].toUpperCase() + "  [" + st + "]");
+      COLS.forEach(function(c){
+        var v = String(r[c[0]] || "").trim();
+        if(v) L.push("        " + c[1] + ": " + wrap(v));
+      });
+    });
+
+    L.push(""); L.push(""); L.push("DISPLACEMENT CHECK");
+    DISP.forEach(function(d){
+      var v = String(state.disp[d[0]] || "").trim();
+      if(!v) return;
+      L.push("");
+      L.push("  " + d[1]);
+      L.push("        " + wrap(v));
+    });
+
+    var qs = draftQuestions();
+    var own = String(state.own || "").split("\n").map(function(x){ return x.trim(); }).filter(Boolean);
+    if(qs.length || own.length){
+      L.push(""); L.push(""); L.push("QUESTIONS FOR THE PROGRAM OWNER");
+      var n = 0;
+      qs.forEach(function(q){ n += 1; L.push(""); L.push("  " + n + ". " + q); });
+      own.forEach(function(q){ n += 1; L.push(""); L.push("  " + n + ". " + q); });
+    }
+
+    L.push(""); L.push("");
+    L.push("A written question does two things: it turns a vague concern into something the program");
+    L.push("has to answer, and it creates a record that the concern was raised on the way in.");
+    L.push("");
+    L.push("Structured with DPPRA — Discourse, Policy, Practice, Resources, Accountability.");
+    return L.join("\n");
+  }
+
+  function toast(m){
+    var t = $("#toast"); t.textContent = m;
+    setTimeout(function(){ if(t.textContent === m) t.textContent = ""; }, 4000);
+  }
+  function fallbackCopy(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text)
+        .then(function(){ toast("Copied — paste it into an email or a document."); })
+        .catch(function(){ toast("Select the page text and copy manually."); });
+    } else { toast("Select the page text and copy manually."); }
+  }
+
+  $("#export").addEventListener("click", function(){
+    var body = buildText();
+    try {
+      var blob = new Blob([body], { type: "text/plain;charset=utf-8" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url; a.download = "DPPRA_Worksheet.txt";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+      toast("Downloaded.");
+    } catch(err){ fallbackCopy(body); }
+  });
+  $("#copy").addEventListener("click", function(){ fallbackCopy(buildText()); });
+})();
+</script>
+
+</body>
+</html>

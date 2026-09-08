@@ -317,6 +317,11 @@
       qs: ["Has accuracy been measured separately for handwritten versus typed forms, non-English names and addresses, and low-quality scans?",
            "Have error rates been broken out by form type, office or applicant population, or is performance based on a clean test set?",
            "What is the plan if a subgroup turns out to be systematically disadvantaged by the automation?"] },
+    { tag: "I · Federal AI policy", title: "What is already required", note: "These are not good-practice questions. They land on obligations the agency already carries under current OMB direction.",
+      qs: ["Is this system listed on the Department's published AI use-case inventory, and has it been classified high-impact under OMB M-25-21? (High-impact means the output is a principal basis for decisions with a legal, material, binding or significant effect on rights or safety.)",
+           "If it is high-impact: has an AI Impact Assessment been completed before deployment, and is there a documented route for a member of the public to appeal a decision the system contributed to?",
+           "If a waiver from the high-impact minimum practices has been filed instead, where is it published and what does the justification say? Waivers are required to be public.",
+           "Does the vendor contract comply with M-25-22's bar on processing government data to train, fine-tune or develop AI systems without explicit agency consent?"] },
     { tag: "H · Displacement", title: "Which way cost and benefit flow", note: "The four that matter most. If cost lands down and benefit goes up, say so plainly.",
       qs: ["When an automated error occurs, who bears the cost — the applicant, the field staffer, the reviewer, the agency, or the vendor?",
            "Who captures the benefit of the efficiency gain — the applicant, the office's performance metrics, leadership, or the vendor?",
@@ -1071,11 +1076,8 @@
       var blob = new Blob([body], { type: "text/plain;charset=utf-8" });
       var url = URL.createObjectURL(blob);
       var a = document.createElement("a");
-      a.href = url;
-      a.download = "AI_Rollout_Review.txt";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      a.href = url; a.download = "AI_Rollout_Review.txt";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
       setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
       toast("Downloaded.");
     } catch(err){ fallbackCopy(body); }
