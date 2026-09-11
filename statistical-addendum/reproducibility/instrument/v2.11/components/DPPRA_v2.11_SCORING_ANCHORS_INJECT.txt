@@ -1,0 +1,260 @@
+══════════════════════════════════════════════════════════════════
+v2.11 SCORING ANCHORS — GOVERNS ALL *_code SCORING (READ AND OBEY)
+══════════════════════════════════════════════════════════════════
+This block is the v2.11 scoring authority. It SUPERSEDES any "0-5 ordinal
+anchors" or bare-range text in the layer prompt's embedded crosswalk above, and
+supersedes v2.10. Where they conflict on HOW to score, THIS governs. The injected
+CANONICAL OUTPUT SCHEMA defines the exact key SET; this block defines the SCALES
+and presence gates. Emit exactly one integer per *_code field.
+
+CHANGES FROM v2.10 (driven by the Run-2 three-coder reliability + adversarial pass
+RUN_02, 2026-06-04):
+  1. eth_integrity REDEFINED (Part B) — restored to its full construct: principled
+     CONSISTENCY + FOLLOW-THROUGH, not knowledge-honesty only. The int_* and
+     decoupling fields are now EVIDENCE STREAMS that feed/undercut the headline,
+     not content "routed away from" integrity. (Root cause of α=0.11: the v2.10
+     narrow rule was theoretically too thin; Codex would not apply it because it
+     felt wrong, and it was.)
+  2. The "5" is OPERATIONALIZED with a proportion gate + two-sided anchors
+     (Part A) — to kill the three-way CAP divergence (Claude coded 0 fives on
+     16/22 docs; Codex coded exactly one on 21/22; PXY ranged 0-4).
+  3. PRESENCE BINARIES DROPPED (Part F) — the dppra_*_presence and cb_*_presence
+     binaries were ~100% constant (no variance, undefined α). Signal lives in the
+     *_strength field; presence is now read off strength (0 = absent).
+  4. MIRROR CALIBRATION — each coder's watchout now medicates its own pole
+     (Claude/PXY = under-commit; Codex = over-commit). Anchors below are two-sided
+     on purpose: a HIGH exemplar (earn the 5) AND a TRAP exemplar (looks like 5,
+     is not). Pull the cold coder up and the hot coder down to the SAME standard.
+
+──────────────────────────────────────────────────────────────────
+PART A — THE 0-5 INTENSITY LADDER (every bare 0-5 field)
+Applies to: all eth_*_code, all dppra_*_strength_code, all int_*_intensity_code,
+all cb_*_presence_strength_code, cb_cost_intensity_code, cb_benefit_intensity_code.
+──────────────────────────────────────────────────────────────────
+Score on where the anchor's LITERAL criterion is met — distribution across the
+document — not on how important the topic feels. Apply the discriminators
+mechanically.
+
+  0  ABSENT      — the dimension is not raised in the text at all.
+  1  INCIDENTAL  — appears once, in passing; no elaboration, example, or stake.
+  2  MENTIONED   — named/described in >=1 passage but UNDEVELOPED; no mechanism,
+                   consequence, or example attached.
+  3  DEVELOPED (LOCALIZED) — substantively treated WITH a concrete example,
+                   mechanism, or stake, BUT confined to one section or a few
+                   adjacent passages; the argument does not keep returning to it.
+  4  CENTRAL (DISTRIBUTED) — recurs across MOST major sections and the argument
+                   repeatedly returns to it, tied to a mechanism/consequence/
+                   recommendation. Removing it would leave several passages
+                   unintelligible, BUT the document could be rebuilt around a
+                   different spine.
+  5  DEFINING (SPINE) — pervasive AND load-bearing: the single organizing logic
+                   of the text. Remove it and there is no document, only
+                   disconnected fragments; it survives no reframing.
+  8  applicable but unclear   ·   9  definitionally not applicable
+
+  THE THREE DISCRIMINATORS (apply in order, mechanically):
+   • 2 vs 3 — Is a concrete mechanism / example / stake attached? NO -> 2.
+              YES -> at least 3.
+   • 3 vs 4 — COUNT the major sections the dimension appears in. One section,
+              or a few adjacent passages -> 3. Most major sections, the argument
+              keeps returning -> 4.
+   • 4 vs 5 — Removal test + PROPORTION GATE (both required for a 5; see below).
+
+  ►► THE 5 IS OPERATIONALIZED (new in v2.11 — apply BOTH tests, not a gut call):
+     A dimension may be coded 5 ONLY IF:
+       (i)  PROPORTION GATE — it is the dominant subject of the BODY by section
+            share: it is the leading theme in a PLURALITY of the document's major
+            sections (count them), AND no other dimension occupies more. Read the
+            BODY distribution, NOT the title, abstract, or a single loud passage.
+       (ii) REMOVAL TEST — remove it and the document collapses into disconnected
+            fragments; it survives no reframing.
+     If (i) fails -> the ceiling is 4, full stop. If a rival dimension ties on
+     section share, neither is 5 unless co-equal (see CAP).
+
+  TWO-SIDED ANCHORS — calibrate BOTH ends to the same bar:
+   • HIGH (earn the 5): a paper whose entire thesis is that privacy law is broken;
+     every major section is about privacy; remove it and nothing remains -> 5.
+   • TRAP (looks like 5, is not — TITLE-ANCHORING): a statute titled
+     "...Transparency... Act" mentions transparency in the title and intro, but its
+     BODY is mostly enforcement duties, impact assessments, and remedies. Section
+     share for transparency is one of several, not the plurality -> transparency
+     is 4 (distributed), NOT 5. Score the body, never the headline word.
+   • COLD MISS (a real 4-or-5 under-coded to 0): "this dimension recurs across the
+     intro, methods, risk analysis AND recommendations, each tied to a mechanism"
+     is AT LEAST a 4 — do not leave a distributed, load-bearing dimension at 0/1
+     because no single passage shouted. Distribution earns the score.
+
+  TIE-BREAKER (center-pull): torn between two adjacent anchors -> code the LOWER
+  unless the higher anchor's FULL criterion is explicitly met. (NB: this is a
+  symmetric brake — it pulls a HOT read down toward 4 AND tells a COLD read that
+  once the full 4-criterion IS met, you must commit to the 4, not retreat to 2.)
+  CAP: at most ONE dimension per document may be coded 5, unless two are
+  genuinely co-equal on section share — name both in narrative.cap_rule_notes.
+
+──────────────────────────────────────────────────────────────────
+PART B — eth_integrity: PRINCIPLED CONSISTENCY + FOLLOW-THROUGH (REDEFINED v2.11)
+──────────────────────────────────────────────────────────────────
+eth_integrity_code — the HEADLINE integrity principle. Integrity is NOT the mere
+  knowledge of what is right; it is the ALIGNMENT between an actor's professed
+  moral principles/values and its actual or required CONDUCT. Two faces, both count:
+    (a) EPISTEMIC HONESTY — truthfulness / accuracy / authenticity / verification
+        of knowledge and outputs (the actor is honest about what is true); AND
+    (b) PRACTICAL FOLLOW-THROUGH — beliefs, methods, and actions are derived from
+        and consistent with a stated moral framework; the actor DOES what its
+        principles commit it to. The opposite of integrity is HYPOCRISY /
+        decoupling (saying one thing, doing another), not ignorance.
+
+  Code the DEGREE to which the document EMBODIES, DEMANDS, VERIFIES, or EXPOSES
+  this principle->action consistency.
+
+  ►► int_* AND decoupling ARE THE EVIDENCE STREAMS (changed from v2.10 routing) —
+     they no longer "route content away from" integrity; they FEED and UNDERCUT it:
+       • int_system_tevv  — testing/eval/audit = verifying conduct matches claims
+                            (follow-through evidence -> SUPPORTS integrity).
+       • int_data_prov    — honesty about data sourcing/consent/lineage
+                            (honesty-of-inputs evidence -> SUPPORTS integrity).
+       • int_epistemic    — truthfulness/reliability of outputs
+                            (epistemic-honesty evidence -> SUPPORTS integrity).
+       • int_academic     — learner honesty (supports integrity in education docs).
+       • decoupling_signal — a documented say-do gap is the INVERSE: it LOWERS the
+                            actor's integrity. (If the document is EXPOSING or
+                            CONDEMNING the gap, then integrity-as-DEMAND is high
+                            while the actor's integrity is shown FAILING — code the
+                            document's stance, and say which in cap_rule_notes.)
+     Still score each int_* / decoupling field at its OWN grain (Part A intensity).
+     eth_integrity is the holistic headline judgment those streams inform; it is
+     NOT a sum of them and NOT capped below its strongest supporting stream.
+
+  GUARDRAIL (keeps integrity from re-becoming a catch-all — the old failure mode):
+     • Code eth_integrity >=2 ONLY if the text raises consistency-of-principle-and-
+       conduct OR honesty/accuracy of knowledge — not merely because ethics,
+       values, or "responsible AI" are discussed. "Serious" / "about AI ethics" is
+       NOT integrity.
+     • A document that merely STATES values (a values list, a principles preamble)
+       with no binding to conduct = LOW integrity signal (1-2).
+     • A document that BINDS values to conduct — enforcement, verification,
+       audit-with-teeth, follow-through obligations — OR that DOCUMENTS/EXPOSES the
+       breach between stated values and practice = HIGH (4-5 if it is the spine).
+     • Reserve 5 for documents whose ORGANIZING AXIS is principle<->action
+       consistency itself (its honoring, its demand, its verification, or its
+       exposure), per the Part A proportion gate + removal test.
+
+──────────────────────────────────────────────────────────────────
+PART B2 — PRESENCE TRIGGERS for the other gated principles (unchanged from v2.10)
+──────────────────────────────────────────────────────────────────
+eth_autonomy_code — human self-determination and control.
+  Code >=2 ONLY if the text raises human control over decisions, manipulation/
+  nudging, dependency/over-reliance/deskilling, OR informed consent. Not present
+  merely because humans are discussed.
+eth_nonmaleficence_code — direct harm and harm-prevention.
+  Code >=2 ONLY if a concrete harm or harm-risk to identifiable parties is named
+  (violence, injury, surveillance harm, psychological damage). Generic "risk"
+  with no named harm = 1. This is DIRECT harm (vs justice = distributional,
+  privacy = data).
+eth_justice_code — distributive/procedural fairness, rights, remedy, due process.
+  Code >=2 ONLY if the text raises unequal distribution of benefits/burdens across
+  groups, rights/remedy/due-process, OR structural fairness.
+  DISAMBIGUATION: equity = who gets ACCESS/INCLUSION; justice = fairness of
+  DISTRIBUTION + rights/remedy. Access gap -> equity. Unfair outcome / no remedy
+  -> justice.
+(The other six principles keep v2.7 behavior + Part A for intensity. Privacy's
+ implicit trigger: is identifiable data at stake?)
+
+──────────────────────────────────────────────────────────────────
+PART C — int_* INTEGRITY SUB-DIMENSIONS: scope (each takes Part A for intensity)
+CANONICAL SIX (int_institutional DROPPED in v2.8 — do NOT code it).
+──────────────────────────────────────────────────────────────────
+  int_academic_*    — academic integrity: honesty OF THE LEARNER (student
+                      cheating, plagiarism, contract cheating in education).
+  int_research_*    — research integrity: fabrication, falsification, misconduct,
+                      reproducibility, p-hacking.
+  int_assessment_*  — assessment integrity: whether a FORM OF ASSESSMENT is still
+                      productive or definitive; fires when an assessment's validity/
+                      usefulness collapses (e.g. an essay AI can write no longer
+                      measures learning). The instrument's integrity, not the
+                      person's honesty (that is int_academic).
+  int_system_tevv_* — system TEVV integrity: whether AI systems are tested,
+                      evaluated, validated, verified, audited, benchmarked.
+  int_data_prov_*   — data provenance integrity: sourcing, consent, licensing,
+                      lineage of data used/trained on (vs privacy = identifiable-
+                      person exposure).
+  int_epistemic_*   — epistemic integrity: truthfulness/reliability of knowledge,
+                      hallucination, misinformation, source verification.
+  RELATION TO eth_integrity (v2.11): these six are the EVIDENCE STREAMS for the
+  eth_integrity headline (Part B). Score each at its own grain; eth_integrity is
+  the holistic consistency+follow-through judgment they inform, NOT a routing
+  destination that empties the headline.
+
+──────────────────────────────────────────────────────────────────
+PART D — cb_*_evidence_label_code DECISION TREE (unchanged from v2.10)
+──────────────────────────────────────────────────────────────────
+  Is a cost/benefit claim made?                                  no  -> 0 absent
+  Backed by data, study, or a cited concrete instance?           yes -> 1 evidence-based
+  A future/hypothetical/hoped-for outcome?                       yes -> 2 speculative/aspirational
+  Asserted as value/branding with no support or mechanism?       yes -> 3 rhetorical/symbolic
+  Between 1 and 2: PAST/PRESENT fact -> 1 ; FUTURE outcome -> 2.
+  Between 2 and 3: a mechanism/pathway is described -> 2 ; pure assertion -> 3.
+
+──────────────────────────────────────────────────────────────────
+PART E — COST/BENEFIT INDICATOR SET (§3E collapse; 19 indicators, from v2.10)
+Code ONLY these indicators (0 absent · 1 present · 8 · 9). The cut ones are gone.
+──────────────────────────────────────────────────────────────────
+BENEFIT (10): cb_benefit_access_equity_code, cb_benefit_accessibility_assistive_code,
+  cb_benefit_efficiency_labor_saving_code, cb_benefit_financial_cost_saving_code,
+  cb_benefit_learning_pedagogical_code, cb_benefit_market_profit_code,
+  cb_benefit_public_good_code, cb_benefit_quality_accuracy_code (ALSO covers
+  AI-assisted integrity/cheating detection), cb_benefit_rights_protection_code,
+  cb_benefit_consistency_standardization_code.
+  CUT: cb_benefit_institutional_performance_code, cb_benefit_integrity_detection_code.
+COST (9): cb_cost_access_inequality_code, cb_cost_compliance_burden_code,
+  cb_cost_credential_opportunity_code, cb_cost_financial_code (ALSO covers
+  labor/time cost), cb_cost_privacy_data_code, cb_cost_surveillance_control_code,
+  cb_cost_environmental_infrastructure_code,
+  cb_cost_cognitive_psychological_code (cognitive/learning/psychological harm to
+  individuals — absorbs the old cognitive_pedagogical + psychological_social),
+  cb_cost_rights_remedy_gap_code — code present ONLY when a SPECIFIC rights/remedy/
+  due-process gap is named, NOT on generic fairness language.
+  CUT: cb_cost_legitimacy_trust_code, cb_cost_labor_time_code,
+  cb_cost_cognitive_pedagogical_code (merged), cb_cost_psychological_social_code
+  (renamed -> cb_cost_cognitive_psychological_code).
+
+──────────────────────────────────────────────────────────────────
+PART F — DEPRECATED PRESENCE BINARIES (new in v2.11)
+──────────────────────────────────────────────────────────────────
+The following presence binaries were ~100% constant across Run-1+Run-2 (no
+variance, undefined reliability) and are DROPPED. Presence is now read off the
+paired *_strength field: strength 0 = absent, 1-5 = present at that intensity.
+  • dppra_d_presence_code, dppra_p1_presence_code, dppra_p2_presence_code,
+    dppra_r_presence_code, dppra_a_presence_code
+  • cb_cost_presence_binary_code, cb_benefit_presence_binary_code
+DO emit the *_strength fields as before. The DPPRA D/P1/P2/R/A structure and the
+cost/benefit constructs are UNCHANGED — only the redundant presence flags are gone.
+(Schema-compat note: if the injected schema still lists these keys, emit 9 = N/A;
+ the compiler treats v2.11 strength as authoritative for presence.)
+
+──────────────────────────────────────────────────────────────────
+PART G — OUTPUT FORMAT (ALL CODERS — the compiler rejects violations)
+──────────────────────────────────────────────────────────────────
+These are hard requirements for every coder, not style preferences. An output that
+breaks them is rejected and must be re-run.
+  1. PRESERVE UNDERSCORES in every key exactly as in the schema: emit
+     `eth_equity_code`, NOT `ethequitycode` / `ethEquityCode` / `eth equity code`.
+     Do not strip, camelCase, or collapse separators.
+  2. EMIT EVERY KEY in the injected v2.11 schema, including N/A fields. Cross-layer
+     fields that do not apply get 9 (or 99 for assessment_object_code) — never
+     silently omit a key.
+  3. USE THE v2.11 KEY SET ONLY. Do not resurrect cut keys (cb_cost_labor_time_code,
+     cb_benefit_integrity_detection_code, cb_cost_legitimacy_trust_code, the old
+     cognitive_pedagogical / psychological_social splits, etc.) and do not emit the
+     dropped *_presence binaries (Part F). Emit the *_strength fields.
+  4. VALID JSON. Escape every double-quote inside a string value as \". Never leave a
+     raw quote inside an array-of-string element (e.g. evidence excerpts) — one
+     unescaped quote breaks the whole record.
+  5. FLAT BLOCKS: meta / codes / narrative, no grouped sub-objects, no invented
+     fields. Exactly one integer per *_code field. Set meta.coder and
+     meta.prompt_version = "v2.11".
+  6. DO NOT return a metadata-only exclusion when a full source text is attached. If
+     the document is present, code it; reserve exclusion for empty/unreadable input.
+══════════════════════════════════════════════════════════════════
+END v2.11 SCORING ANCHORS
+══════════════════════════════════════════════════════════════════

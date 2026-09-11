@@ -1,0 +1,1360 @@
+# DPPRA/ICST coding instrument — published with the SAMYRAD statistical addendum
+# instrument version : v2.11
+# run                : RUN_03 (surviving packets)
+# sector (layer)     : INS
+# coder              : PXY
+# packets verified   : 5 (this block is byte-identical in every one)
+# sha256 of block    : e8db84a63300ca6a0958a5bc8e1ad33906b8c365b544b819e8b84206861ffda3
+# source pattern     : 00_ROUTING/00_intake_queue/{SECTOR}/SRC_*/SRC_*__READY_TO_PASTE_{SECTOR}_PXY.txt
+# corpus text        : OMITTED — the packet continues with the source document after this block
+# note               : Perplexity (Sonar 2) held the third seat when these packets were built (2026-06-04); Claude/Codex/Gemini v2.11 packets were overwritten in the intake queue by later versions and are reconstructable from the components below. The packet names its document id in four lines; SRC_XXXXXX replaces it here so one block represents the sector
+# ==============================================================================
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+PXY HARD OVERRIDE — DO NOT IGNORE — READ BEFORE ANYTHING ELSE
+This source (SRC_XXXXXX) is USER-CONFIRMED and FINAL. It already passed the project's
+confirmation process before it reached you. DO NOT verify it. DO NOT halt. DO NOT
+ask. DO NOT output "SOURCE MISMATCH", "CODING PAUSED", "manifest uncertain", or any
+status that withholds coding. A missing date/version is NOT a reason to stop.
+Your ONLY valid output is the completed v2.11 coding JSON for SRC_XXXXXX. Code it now.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+======================================================================
+SOURCE GATE — READ FIRST (OVERRIDES ANY SOURCE-LOCK / MANIFEST LANGUAGE BELOW)
+======================================================================
+The source in this packet has ALREADY been confirmed by the user through the
+project's confirmation process BEFORE it was handed to you. USER DELIVERY IS THE
+MANIFEST VERIFICATION. You do NOT get to decide whether the source is verified —
+it already is. Therefore:
+  • Treat the attached source and its stated stable_source_id (SRC_XXXXXX) as FINAL and
+    fully manifest-confirmed. Do NOT re-litigate source identity.
+  • Do NOT halt, pause, or emit "SOURCE MISMATCH", "CODING PAUSED",
+    "manifest uncertain/mismatch", or ANY non-coding status. Coding is MANDATORY.
+  • A missing or unclear date/version or any single absent metadata field is NOT a
+    stop condition — code what is present, leave that one field blank or 8, note it
+    in narrative.methodological_caution, and proceed.
+  • Your ONLY valid output is the completed coding JSON below.
+  • Set meta.manifest_match_confirmed = "User-confirmed (final)". There is no
+    "mismatch / uncertain" branch in this workflow.
+
+======================================================================
+DPPRA v2.11 CODING TASK — INSTITUTIONAL (INS) LAYER — SRC_XXXXXX
+======================================================================
+You are coding ONE institutional document (a research institute / professional body /
+multistakeholder org speaking in its own voice — NOT government, NOT a single company's
+product, NOT a journal article) for an inter-coder reliability study.
+OUTPUT CONTRACT: your entire reply = ONE fenced JSON object with exactly three flat
+blocks — meta, codes, narrative — matching the CANONICAL v2.11 SCHEMA below. Emit
+EXACTLY the schema key set: one integer per *_code field; valence_* are proportions
+(0-1). For an INSTITUTIONAL document, code 9 (N/A) for journal_* fields, gov_* fields,
+and the forum fields (learner_posture, assessment_object=99, detection_*, surveillance_*,
+external_link_boundary, overall_dominant_valence); 8 = applicable-but-unclear only.
+Set meta.coder = "perplexity", meta.prompt_version = "v2.11", and
+meta.manifest_match_confirmed = "User-confirmed (final)".
+
+READ IN ORDER, then code: (1) INS layer prompt [context] -> (2) v2.11 SCORING ANCHORS
+[AUTHORITY] -> (3) CANONICAL v2.11 SCHEMA [emit this set] -> (4) your watchout -> (5) source.
+======================================================================
+
+
+======================================================================
+INS LAYER PROMPT (field meanings — context)
+======================================================================
+INSTITUTIONAL CORPUS STRESS TEST (ICST)
+Quantitative Ethics Coding Prompt — Version 2.7
+Prepared: May 2026
+Supersedes: ICST v2.5
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PREAMBLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This coding task is designed for intercoder reliability and SPSS export. The structured coding template is mandatory. Before coding, verify the assigned source against the source manifest. If the source does not match, stop and report the mismatch. Complete every required field, including all ten ethical principles, all integrity subcodes, all DPPRA variables, all responsibility holders, and all structural/discourse fields. Missing evidence must be coded as 0 / Absent or NC / Not Codable; required fields may not be silently omitted. Interpretive memo prose may be included only after the full quantitative template is complete. Use the revised ordinal anchors strictly. Do not infer implementation, funding, enforcement, or outcomes from advisory, voluntary, or self-authored standards language unless the source provides direct evidence.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 0 — SOURCE MANIFEST LOCK (REQUIRED BEFORE CODING)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Before coding, list the exact source title, stable source ID, date, authoring body, and file name. Compare this against the assigned source manifest.
+
+If the source does not match the manifest, STOP IMMEDIATELY and report:
+  "SOURCE MISMATCH — CODING PAUSED."
+
+Do not substitute another source. Do not proceed with partial coding. Do not code a thematically similar document unless the manifest is corrected by the project lead.
+
+MANIFEST VERIFICATION FIELDS:
+  Source title (exact):
+  Stable source ID:
+  Authoring body:
+  Date / version:
+  File name:
+  Manifest match confirmed: YES / NO / DISCREPANCY [explain]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 1 — FULL-TEMPLATE COMPLETION GATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Every required variable must be completed. Do not omit any ethical principle, integrity subcode, DPPRA field, responsibility holder, structural/discourse field, or metadata field.
+
+  — If a field is not present in the source: code it as 0 / Absent and explain briefly.
+  — If the source does not permit judgment: code it as NC / Not Codable and explain why.
+  — Silent omission is not allowed under any circumstances.
+
+CODING BEFORE MEMO RULE:
+Complete all structured tables first. Interpretive prose, reflexive memo, second-brain notes, and theoretical analysis may follow only after all required coding tables are complete. Do not substitute theory language for numeric coding. Do not compress the coding record into a memo. Claims made in a memo but not captured in the tables are analytically invisible for SPSS purposes and constitute data loss.
+
+SPSS-READY EXPORT RULE:
+Every coded variable must include a numeric value in a consistent format. Narrative explanation is required, but prose alone is not sufficient. Use the exact field labels and allowed values provided in the codebook. Do not invent replacement scales. Do not collapse variables into prose categories such as "high" unless the numeric value is also provided.
+
+Required format for all coded variables:
+
+  Variable | Numeric Code | Label | Evidence | Interpretation Status
+
+Interpretation status options: Explicit / Inferred / NC
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 2 — METADATA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2.1 BIBLIOGRAPHIC FIELDS
+  Source ID (stable):
+  Source title:
+  Authoring body / organization:
+  Publication / release date:
+  Document type (policy / framework / report / standard / guidelines / product standard / other):
+  URL / DOI / archive path:
+  Geographic scope:
+  Primary language:
+
+2.2 SECTOR CLASSIFICATION
+Code the authoring body using the decision tree below.
+
+  Sector codes:
+    1 = Government / Public Agency
+    2 = Intergovernmental / Multilateral Body
+    3 = Private For-Profit (Adopter / Vendor)
+    4 = Private For-Profit (Platform Builder)
+    5 = University / Academic Institution (Hybrid Default)
+    6 = Non-Profit / Civil Society
+    7 = Professional Association / Standards Body
+    8 = Hybrid / Multi-Sector
+
+DECISION TREE:
+
+Step 1. Is the authoring body an elected or appointed government entity or public agency?
+  YES → Code 1. STOP.
+  NO → Continue.
+
+Step 2. Is it a body formed by treaty or formal agreement between two or more governments?
+  YES → Code 2. STOP.
+  NO → Continue.
+
+Step 3. Is it a university or degree-granting academic institution?
+  YES → Code 5 (Hybrid Default) unless all of ownership, governance, operational priorities, HR, and funding support a different classification. Market-pressure language alone does not override the hybrid default. STOP.
+  NO → Continue.
+
+Step 4. Is it a private for-profit company?
+  YES → Go to Step 4a.
+  NO → Continue.
+
+Step 4a. Does this company shape AI infrastructure, model ecosystems, APIs, cloud architecture, or operating conditions at scale for downstream developers and deployers?
+  YES → Code 4 (Platform Builder). STOP.
+  NO → Code 3 (Private Adopter / Vendor). STOP.
+  NOTE: A company that uses AI within a large proprietary product — including a large global EdTech product — remains Code 3 unless it governs the broader AI ecosystem for third parties. Scale of user base alone does not establish platform-builder status.
+
+Step 5. Is it a registered non-profit, civil society organization, or advocacy body?
+  YES → Code 6. STOP.
+  NO → Continue.
+
+Step 6. Is it a recognized professional association or formal standards-setting body (e.g., IEEE, ISO, ACM)?
+  YES → Code 7. STOP.
+  NO → Code 8.
+
+  Sector code assigned:
+  Rationale:
+  Special rule applied (Hybrid / Platform Builder): YES / NO [specify]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 3 — STRUCTURAL / DISCOURSE FUNCTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PRESENCE CODING RULE: Code a structural/discourse function as Present (1) only when it is directly stated or strongly supported by the source's function. If the function is only theoretically possible, code 0 or mark as Possible Inference in the explanation but do not score it as Present.
+
+For each function, provide: Presence (0/1) | Evidence (quote or paraphrase) | Interpretation Status
+
+  3.1  Principles articulation (stating ethical commitments or values)
+  3.2  Norm setting (establishing standards, rules, guidelines)
+  3.3  Governance architecture (defining accountability structures, roles, oversight mechanisms)
+  3.4  Risk management (identifying, assessing, or mitigating AI risks)
+  3.5  Legitimacy work (building public trust, managing reputation)
+  3.6  Advocacy or agenda setting (promoting a position or pushing for policy change)
+  3.7  Education / awareness raising (informing stakeholders about AI ethics)
+  3.8  Compliance framing (describing what is required under law, regulation, or external mandate)
+  3.9  Aspirational positioning (describing a desired future state without implementation mechanism)
+  3.10 Implementation description (describing actual deployed practices, tools, workflows, or processes)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 4 — ETHICAL PRINCIPLES (TEN REQUIRED)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ALL TEN PRINCIPLES MUST BE CODED. No principle may be omitted. Code 0 / Absent if not present.
+
+For each principle, provide:
+  — Presence: 0 / 1
+  — Intensity: 0–5 (use anchors in Section 4.1 strictly)
+  — Valence: Positive / Negative / Mixed / Neutral
+  — Substance type: Aspirational / Procedural / Operational / Verified
+  — Evidence: direct quote or close paraphrase
+  — Explanation: why this intensity score, what overlaps were adjudicated
+
+PRINCIPLES:
+  4.01  Equity
+  4.02  Accountability
+  4.03  Transparency
+  4.04  Privacy
+  4.05  Autonomy
+  4.06  Integrity
+  4.07  Non-Maleficence
+  4.08  Beneficence — Mechanical
+  4.09  Beneficence — Ethical
+  4.10  Justice
+
+4.1 ORDINAL INTENSITY ANCHORS (APPLY STRICTLY TO ALL TEN PRINCIPLES)
+
+  0 — Absent
+      The principle is not mentioned, not operationalized, and not reasonably inferable.
+
+  1 — Trace / weakly implied
+      The principle appears only indirectly, in generic language, or through a single weak phrase.
+      It is not named as a principle and has no meaningful operational mechanism.
+      Use 1 when: the principle is implied by adjacent language only; the evidence is one sentence
+      or one passing phrase; the source gestures toward the value but does not develop it.
+
+  2 — Limited but clear
+      The principle is clearly present but limited to a narrow use case, brief discussion,
+      or one operational mechanism.
+      Use 2 when: the principle is named but not central; one concrete mechanism exists but is narrow;
+      the source treats the principle as secondary or compliance-adjacent.
+
+  3 — Moderate / recurring
+      The principle appears multiple times or across more than one section.
+      It has some operationalization, but it is not central to the document's main purpose.
+      Use 3 when: the principle recurs; more than one mechanism or stakeholder is involved;
+      it is meaningful but not dominant.
+
+  4 — Strong / well-supported
+      The principle is central to a major section or repeatedly operationalized through
+      procedures, roles, tools, review processes, or explicit standards.
+      Use 4 when: the principle is one of the document's major organizing concerns;
+      evidence appears across multiple sections; mechanisms are concrete but not the
+      entire logic of the document.
+
+  5 — Dominant / organizing logic
+      The principle is the core rationale, organizing framework, or repeated operational
+      center of the document.
+      Use 5 ONLY when: the document would be structurally different without this principle;
+      the principle organizes multiple sections and mechanisms; the source repeatedly
+      returns to it as a central justification.
+
+  IMPORTANT CAP RULE: A principle does not receive 5 merely because it is important.
+  It receives 5 only if it is structurally dominant.
+
+4.2 PRINCIPLE-OVERLAP ADJUDICATION RULES
+
+These rules govern scoring when the same evidence could support multiple principles.
+Coders must explicitly state which rule applied whenever overlap is adjudicated.
+
+RULE 4.2.1 — Equity vs. Justice
+  Equity: fairness, bias, access, demographic representation, inclusion, accommodations,
+          disparate impact, unequal distribution of benefits/harms.
+  Justice: goes beyond fairness/access to invoke rights, lawful/unlawful discrimination,
+           civil liberties, social justice, due process, systemic harm, structural inequality,
+           public accountability, remedy/redress.
+
+  Justice scoring caps:
+    — Source discusses only fairness, access, accommodations, or bias mitigation within a
+      product or service: Justice capped at 2 unless justice language or structural remedy
+      is explicit.
+    — Source says "social justice" but only operationalizes access to a private product:
+      Justice 1–2, not 4–5.
+    — Justice may reach 3–4 when fairness/access is tied to rights, discrimination, due
+      process, appeals, public accountability, or systemic inequality.
+    — Justice reaches 5 only when justice is the dominant organizing framework.
+
+RULE 4.2.2 — Equity vs. Ethical Beneficence
+  Equity: fair distribution, reduction of unequal outcomes.
+  Ethical Beneficence: AI promotes human flourishing, access to opportunity, dignity,
+                       social good, public welfare, improvement of the human condition.
+
+  Rule: Access to a product or service can support both, but coders must explain the distinction.
+  — If access is commercially conditional and no redistribution mechanism exists:
+    Ethical Beneficence capped at 3.
+  — Ethical Beneficence reaches 4–5 only when the source provides concrete, non-trivial
+    mechanisms for public good beyond product adoption or organizational legitimacy.
+
+RULE 4.2.3 — Privacy vs. Autonomy
+  Privacy: data protection, confidentiality, consent, data minimization, surveillance limits,
+           personal information, biometric data, student data, medical data, data governance.
+  Autonomy: human agency, meaningful choice, consent as empowerment, ability to contest
+            decisions, opt-out, appeal, human oversight, freedom from coercive monitoring,
+            preservation of individual decision-making capacity.
+
+  Autonomy scoring caps:
+    — Privacy language alone does not automatically produce Autonomy above 1.
+    — Appeals, opt-out, contestability, meaningful consent, or human override: Autonomy 2–3.
+    — Autonomy reaches 4 only when user agency or human control is repeatedly operationalized.
+    — Autonomy reaches 5 only when preserving human agency is the document's dominant purpose.
+
+RULE 4.2.4 — Integrity vs. Technical Reliability
+  Integrity includes: academic integrity, research integrity, assessment integrity, system
+                      integrity, data/provenance integrity, epistemic trust, reliability
+                      of knowledge-producing systems.
+
+  For technical frameworks (e.g., NIST):
+    — TEVV, validation, verification, robustness, explainability, transparency, and
+      documentation count toward Integrity when they support trustworthiness, reliability,
+      auditability, or epistemic confidence.
+    — If technical reliability is purely functional and not connected to trust, governance,
+      validity, accountability, or knowledge reliability: Integrity capped at 2.
+
+  Integrity scoring anchors:
+    2: technical reliability appears but is narrow.
+    3: reliability and documentation recur.
+    4: validation, evidence quality, system robustness, and epistemic trust are major mechanisms.
+    5: integrity/validity/reliability is the dominant organizing concern (assessment, credentialing,
+       research integrity, or system assurance documents).
+
+  Always explain which kind of integrity is being coded (academic / assessment / technical /
+  research / epistemic).
+
+RULE 4.2.5 — Mechanical vs. Ethical Beneficence
+  Mechanical Beneficence: efficiency, productivity, automation, speed, scale, cost reduction,
+                           accuracy, usability, operational improvement, technical capability.
+  Ethical Beneficence:    human flourishing, access to opportunity, fairness as social good,
+                           dignity, public benefit, educational opportunity, rights-protective
+                           or socially beneficial outcomes.
+
+  Rule:
+    — Do not let broad "AI for good" rhetoric inflate Ethical Beneficence unless mechanisms exist.
+    — Do not let efficiency claims count as Ethical Beneficence unless the source explicitly links
+      efficiency to human welfare and provides a mechanism.
+    — Commercial access claims may support Ethical Beneficence but are usually capped at 3 unless
+      non-market public benefit or redistribution is operationalized.
+
+CAP RULE OVERRIDE PROCEDURE:
+Cap rules may be overridden only when direct documentary evidence of the higher category is quoted
+in the evidence field. The coder must state: "CAP OVERRIDE — [rule number] — evidence: [quote]."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 5 — INTEGRITY SUBCODES (ALL REQUIRED)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Code all integrity subcodes. If absent, code 0 and note briefly. Use 0–5 intensity anchors from Section 4.1.
+
+For each subcode: Presence (0/1) | Intensity (0–5) | Evidence | Explanation
+
+  5.01  Academic integrity (cheating, plagiarism, authorship, academic honesty)
+  5.02  Research integrity (data integrity, methodology, replication, research misconduct)
+  5.03  Assessment integrity (validity, reliability, scoring fairness, credential legitimacy, test security)
+  5.04  System integrity / TEVV (testing, evaluation, verification, validation, robustness)
+  5.05  Data / provenance integrity (data quality, chain of custody, documentation, lineage)
+  5.06  Epistemic integrity (accuracy of knowledge claims, epistemic trust, information reliability)
+  5.07  Institutional / organizational integrity (governance consistency, policy adherence)
+
+Note: Integrity is domain-specific. Always explain which kind of integrity is being coded.
+In academic sources: may mean cheating, authorship, research misconduct, plagiarism.
+In assessment sources: may mean validity, reliability, scoring fairness, credential legitimacy, test security.
+In technical governance: may mean TEVV, robustness, provenance, documentation, epistemic trust.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 6 — DPPRA ASSESSMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DPPRA = Discourse, Policy, Practice, Resource, Accountability
+
+6.1 DPPRA COMPONENT TABLE (ALL REQUIRED)
+
+For each component: Presence (0/1) | Strength (0–5) | Evidence | Interpretation Status
+
+  D  Discourse        (ethical language, principles, framing)
+  P1 Policy           (formal policies, guidelines, standards, governance rules)
+  P2 Practice         (described operational processes, deployed tools, workflows)
+  R  Resource         (budget, staffing, infrastructure, technology investment)
+  A  Accountability   (enforcement, audit, monitoring, consequence, external review)
+
+6.2 DPPRA ALIGNMENT SCALE (0–5)
+
+Use the following definitions strictly. Apply cap rules before assigning scores above 3.
+
+  0 — No alignment / contradiction
+      Ethical discourse contradicts visible practice, or no policy/practice/resource
+      connection is visible.
+
+  1 — Symbolic alignment
+      Ethical language, principles, or aspirations are present, but implementation
+      mechanisms, responsible bodies, resources, enforcement, or outcome evidence are
+      absent or vague.
+      Use for: principles pages; advisory reports with no clear implementation path;
+               non-binding statements without mechanisms; broad public-good claims
+               without resource signals.
+
+  2 — Procedural alignment
+      The source provides concrete procedures, roles, committees, standards, guidelines,
+      review processes, or documentation requirements, but does not show funding,
+      enforcement, implementation evidence, or outcome verification.
+      Use for: NIST-style frameworks; university advisory reports with named bodies;
+               standards documents without evidence of actual practice; governance
+               architecture without budget or audit evidence.
+
+  3 — Operational alignment
+      The source shows that policies are connected to actual practices, tools, staffing,
+      product workflows, review systems, or implementation mechanisms. Some resource
+      signal is visible, but independent audit, enforcement outcomes, or redistributive
+      effect may still be absent.
+      Use for: product standards with human-in-the-loop workflows; internal tools or
+               deployed review processes; compliance systems embedded in organizational
+               operations.
+
+  4 — Material / funded alignment
+      The source shows concrete allocation of resources, staffing, budgets, infrastructure,
+      enforcement, monitoring, or independently verifiable implementation. Benefits are not
+      merely claimed; they are materially supported.
+      Use ONLY when: funding/resource commitments are visible; implementation responsibility
+      is assigned; monitoring or enforcement is described; evidence beyond aspirations and
+      procedures is provided.
+
+  5 — Substantive / independently verified alignment
+      The source shows independently verified outcomes, audits, enforcement results,
+      measurable impact, or material redistribution of benefits/harms consistent with
+      ethical claims.
+      Use rarely. Do not use for self-authored claims alone.
+
+DPPRA CAP RULES (mandatory — state which rule applies):
+  — Advisory reports: capped at 2 unless implementation evidence is visible in the source.
+  — Voluntary frameworks: capped at 2 unless evidence of adoption or implementation is in the source.
+  — Self-authored corporate standards: capped at 3 unless funding, enforcement, audit,
+    or independent outcome evidence is visible in the source.
+  — Non-binding disclaimers create a decoupling signal and generally prevent scores above 3
+    unless independent verification is provided.
+  — Detailed procedural language does not equal material implementation.
+  — Cap override: state "DPPRA CAP OVERRIDE — [rule] — evidence: [quote]."
+
+  DPPRA alignment score assigned:
+  Cap rule applied:
+  Rationale:
+
+6.3 DECOUPLING SIGNAL TABLE (ALL THREE SUBTYPES REQUIRED)
+
+For each subtype: Present (0/1) | Evidence | Interpretation Status
+
+  A  Author-acknowledged decoupling
+     The source itself admits that standards may not be binding, may not match internal
+     practice, may lack implementation, or may require future work.
+
+  B  Structural decoupling risk
+     The document type creates a likely gap between discourse and practice: advisory
+     report, voluntary framework, aspirational strategy, non-binding principles, or
+     delegated future implementation.
+
+  C  Externally inferred symbolic compliance
+     The coder infers symbolic compliance based on genre, institutional incentives, or
+     lack of evidence, but the source does not directly acknowledge the gap.
+     NOTE: Type C is always Interpretation Status = Inferred only.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 7 — RESPONSIBILITY ALLOCATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ALL RESPONSIBILITY HOLDER FIELDS MUST BE CODED. Code 0 if absent.
+
+For each holder: Presence (0/1) | Responsibility assigned (describe) | Evidence | Interpretation Status
+
+  7.01  Developing organization (the authoring body itself)
+  7.02  AI system developers (engineers, researchers, product teams)
+  7.03  Deploying organization (entity implementing AI)
+  7.04  Government / regulatory body
+  7.05  Third-party auditors / evaluators
+  7.06  End users (individuals interacting with AI)
+  7.07  Affected communities / third parties
+  7.08  Multi-stakeholder / shared responsibility
+
+7.1 RESPONSIBILITY DISTRIBUTION VS. SHIFTING
+
+Distinguish responsibility distribution from responsibility shifting.
+Distributed responsibility is not automatically problematic. Code responsibility shifting
+only when burden is moved downward or outward to lower-power actors without corresponding
+authority, resources, or recourse.
+
+Responsibility shifting present: YES / NO / UNCERTAIN
+Direction of shift (if present): [specify: upward / downward / lateral / outward]
+Evidence:
+Interpretation status:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 8 — CLAIMED BENEFIT vs. FUNDED / MATERIAL BENEFIT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+For each benefit claim in the source, distinguish:
+
+  Claimed benefit: what the source asserts AI will or does produce.
+  Funded / material benefit: what is materially supported by resources, staffing, or infrastructure
+                             visible in the source.
+  Cost bearer: who bears the implementation cost, risk, or negative externality.
+   Value capturer: who captures the primary economic or reputational benefit.
+
+Complete the following:
+
+  8.01  Primary claimed benefits (list):
+  8.02  Funded / material benefits (list — distinguish from claims):
+  8.03  Claimed benefit not materially supported: YES / NO / PARTIAL [explain]
+  8.04  Cost bearer identified: YES / NO / PARTIAL [explain]
+  8.05  Value capturer identified: YES / NO / PARTIAL [explain]
+  8.06  Gap between claim and material support: NONE / MINOR / SIGNIFICANT / MAJOR [explain]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 9 — EMERGENT CODES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Emergent codes may be listed only if all three criteria are met:
+
+  1. The theme, concept, or frame is substantively present in the source (not merely implied).
+  2. It is not already captured by a required field in Sections 3–8.
+  3. It appears with sufficient frequency or prominence to warrant independent tracking.
+
+For each emergent code: Label | Description | Evidence | Frequency signal
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 10 — CODER CONFIDENCE AND METHODOLOGICAL NOTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  10.01  Overall coder confidence (0.0–1.0):
+  10.02  Lowest-confidence field(s):
+  10.03  Fields where cap rules or overlap adjudication rules were applied:
+  10.04  Fields coded NC / Not Codable (list with reason):
+  10.05  Any source-access limitation (truncation, translation, version uncertainty):
+  10.06  Recommended for human review: YES / NO
+  10.07  Reason for human review flag (if YES):
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 11 — INTERPRETIVE MEMO (OPTIONAL — FOLLOWS TABLES ONLY)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This section is optional. It may contain extended analytical commentary, cross-document
+comparisons, theoretical observations, or second-brain notes. It may not replace, contradict,
+or substitute for any field in Sections 0–10. If a claim in this memo is not reflected in
+the quantitative tables, it is not part of the coding record.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 12 — FINAL COMPLETION CHECKLIST (REQUIRED)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Complete this checklist at the end of every coding output. Do not submit output without it.
+
+SOURCE MANIFEST
+  [ ] Source title verified against manifest.
+  [ ] Stable source ID verified against manifest.
+  [ ] Authoring body verified against manifest.
+  [ ] Date/version verified or discrepancy explicitly flagged.
+  [ ] No unassigned source was coded.
+
+METADATA AND SECTOR
+  [ ] All metadata fields completed.
+  [ ] Sector classification completed using decision tree.
+  [ ] Hybrid / Third Sector / Platform Builder special rules applied where relevant and documented.
+
+ETHICAL PRINCIPLES
+  [ ] All ten ethical principles coded: Equity, Accountability, Transparency, Privacy,
+      Autonomy, Integrity, Non-Maleficence, Beneficence–Mechanical, Beneficence–Ethical, Justice.
+  [ ] Every ethical principle includes presence, intensity, valence, substance type,
+      evidence, and explanation.
+  [ ] Overlap adjudication rules applied and documented where relevant.
+  [ ] Cap rule overrides documented where applied.
+
+INTEGRITY SUBCODES
+  [ ] All seven integrity subcodes coded, including absent fields.
+  [ ] Domain-specific integrity type identified for each coded subcode.
+
+STRUCTURAL / DISCOURSE
+  [ ] All ten structural/discourse function fields coded.
+  [ ] Presence coding conservative (only directly stated or strongly supported functions coded as 1).
+
+DPPRA
+  [ ] All five DPPRA component fields coded.
+  [ ] DPPRA alignment score assigned using revised 0–5 scale.
+  [ ] Cap rule applied and documented.
+  [ ] Decoupling subtype table completed (all three subtypes).
+  [ ] No implementation outcome inferred from advisory, voluntary, or self-authored language
+      without direct source evidence.
+
+RESPONSIBILITY ALLOCATION
+  [ ] All eight responsibility holder fields coded.
+  [ ] Responsibility shifting/distribution distinction applied and documented.
+
+CLAIMED VS. MATERIAL BENEFIT
+  [ ] Claimed benefit and funded/material benefit distinguished.
+  [ ] Cost bearer and value capturer identified where source permits.
+
+EMERGENT CODES
+  [ ] Emergent codes listed only if all three criteria are met.
+
+FORMAT AND EXPORT
+  [ ] All ordinal variables include numeric values AND labels.
+  [ ] All fields use numeric codes from the codebook.
+  [ ] No required field is silently omitted.
+  [ ] Output is SPSS-exportable.
+  [ ] Interpretive memo follows — and does not replace — structured coding tables.
+  [ ] Coder confidence score and human review flag completed.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+APPENDIX A — V2.5 CHANGE LOG (relative to v2.4)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+A01  NEW: Section 0 — Source Manifest Lock (hard gate; stops coding on mismatch).
+A02  NEW: Full-Template Completion Gate with SPSS-Ready Export Rule.
+A03  NEW: Coding Before Memo Rule (explicit prohibition on memo replacing tables; memo
+          claims not in tables constitute data loss, not minor formatting preference).
+A04  REVISED: Ordinal intensity anchors (0–5) sharpened with explicit use cases and cap rule.
+A05  NEW: Five principle-overlap adjudication rules (4.2.1–4.2.5) with scoring caps.
+A06  NEW: Cap Rule Override Procedure (documentary evidence required; explicit notation required).
+A07  REVISED: DPPRA alignment scale (0–5) — now distinguishes symbolic (1), procedural (2),
+              operational (3), material/funded (4), independently verified (5).
+A08  NEW: DPPRA cap rules for advisory reports (≤2), voluntary frameworks (≤2),
+          and self-authored corporate standards (≤3).
+A09  REVISED: Decoupling signal now coded as three distinct subtypes (A/B/C) with table.
+A10  REVISED: Sector classification — Platform Builder vs. Private Adopter/Vendor rule
+              tightened; scale of user base explicitly excluded as platform-builder criterion.
+A11  REVISED: University Hybrid Default Rule retained; market-language clarification added.
+A12  REVISED: Structural/discourse presence coding — conservative rule added.
+A13  REVISED: Responsibility allocation — distribution vs. shifting distinction operationalized.
+A14  REVISED: Integrity subcodes — domain-specificity requirement added; explanation required
+              for which kind of integrity is coded.
+A15  NEW: Section 8 — Claimed Benefit vs. Funded/Material Benefit (standalone section).
+A16  REVISED: Final completion checklist expanded and reorganized by section.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+APPENDIX B — TEMPLATE-COMPLIANCE EXCLUSION PROTOCOL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Any coder output that fails the Section 0 Source Manifest Lock or the Section 1 Full-Template
+Completion Gate must be excluded from the intercoder reliability analysis. Exclusion is a
+protocol decision, not a judgment about a coder's substantive analytical quality.
+
+EXCLUSION CRITERIA (any one is sufficient):
+  — Source does not match the assigned manifest.
+  — Required quantitative fields are omitted without an Absent or NC designation.
+  — Output is presented as interpretive memo prose without completing the required tables.
+  — Fewer than ten ethical principles are coded.
+  — DPPRA or decoupling table is absent or incomplete.
+
+SUGGESTED METHODS WRITE-UP LANGUAGE (adapt as needed):
+
+"[Coder ID] was excluded from the final intercoder reliability analysis because its output did
+not conform to the required quantitative coding template [and/or introduced a source mismatch].
+Since the purpose of this stress test was to evaluate prompt stability rather than coder
+performance, only outputs that followed the full prompt structure were retained. This is
+documented as a template-compliance exclusion and does not constitute a judgment about the
+coder's substantive analytical capacity. The excluded output may be retained for qualitative
+comparison purposes outside the reliability statistics."
+
+NOTE ON RE-INCLUSION: A coder that failed a prior round on template-compliance grounds may be
+re-included in a subsequent round if its output fully satisfies the Section 0 and Section 1
+gates. Prior exclusion does not carry forward across rounds.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF ICST v2.5
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+---
+
+# Phase One Integration Patch - 2026-05-03
+
+Status: Pre-lock implementation patch. This section supersedes any conflicting earlier instruction in this prompt for shared SPSS export, DPPRA scale, missing values, coder labels, and cross-domain integrity export.
+
+## Active Phase One Coder Labels
+
+Use only these active coder labels for Phase One reliability work:
+
+- GPT
+- Claude
+- PXY
+
+DeepSeek, Gemini, unlabeled outputs, or legacy coder labels are not part of active Phase One reliability scoring unless the project lead explicitly reinstates them later. Legacy references in earlier packet language are historical only.
+
+## Unified Missing-Value And Numeric Code Rule
+
+Every required shared-core field must produce a value. Do not leave blank shared-core cells.
+
+Use this convention across every shared field:
+
+| Code | Meaning |
+|---:|---|
+| 0 | Applicable but absent / unsupported |
+| 8 | Applicable but unclear / insufficient evidence |
+| 9 | Definitionally not applicable |
+
+Every field ending in `_code` must contain exactly one integer and nothing else. Do not put labels, explanations, ranges, slashes, or alternative candidate codes inside `_code` fields. Do not invent local numeric mappings. If no approved code fits, use 8 and explain in the memo.
+
+## Required Universal DPPRA Component Table
+
+Complete this table for every coded source, even when the domain-specific narrative sections differ:
+
+| DPPRA Component | Presence Code | Strength Code | Evidence | Interpretation Status | Memo |
+|---|---:|---:|---|---|---|
+| D - Discourse |  |  |  |  |  |
+| P1 - Policy |  |  |  |  |  |
+| P2 - Practice |  |  |  |  |  |
+| R - Resources |  |  |  |  |  |
+| A - Accountability |  |  |  |  |  |
+
+Presence codes: 0 absent/no visible evidence; 1 present; 8 unclear; 9 not applicable.
+
+Strength codes: 0 absent; 1 weak/trace; 2 limited but clear; 3 moderate/recurring; 4 strong/well-supported; 5 dominant/organizing logic; 8 unclear; 9 not applicable.
+
+D - Discourse means ethical language, public justification, stated purpose, values, framing, legitimacy claims, narratives, and problem definitions.
+
+P1 - Policy means rules, principles, guidelines, laws, formal commitments, acceptable-use policies, procedures, institutional expectations, and governance requirements.
+
+P2 - Practice means observable or described implementation, workflows, tools, enforcement routines, review processes, case examples, behavioral patterns, and actual use.
+
+R - Resources means funding, staff time, infrastructure, training, technical systems, subscriptions, compute, contracts, administrative burden, labor allocation, and material support.
+
+A - Accountability means responsibility assignment, enforcement, reporting, monitoring, audit, appeal, remedy, review, consequence, oversight, and contestability.
+
+## Required DPPRA Alignment Scale
+
+Use this 0-5 scale for `dppra_alignment_score_code`. This supersedes any earlier 0-4 DPPRA scale.
+
+| Code | Label | Meaning |
+|---:|---|---|
+| 0 | No visible alignment | No visible connection between discourse, policy, practice, resources, and accountability |
+| 1 | Symbolic alignment | Ethical language or public-good claim exists, but little mechanism or material support is visible |
+| 2 | Procedural alignment | Procedures, policies, rules, committees, guidance, or process mechanisms are visible, but material implementation is limited or unclear |
+| 3 | Operational alignment | Practices, implementation pathways, workflows, or recurring mechanisms are visible, but resources/accountability or outcome evidence remain incomplete |
+| 4 | Material / substantive alignment | Discourse, policy, practice, resources, and accountability are substantially connected through visible mechanisms, authority, resource planning, contracts, infrastructure, or implementation evidence |
+| 5 | Verified substantive alignment | Strong material alignment plus independent verification, audit evidence, measured outcomes, external evaluation, or demonstrated implementation effects |
+| 8 | Unclear | Evidence is insufficient or contradictory |
+| 9 | Not applicable | DPPRA cannot reasonably be applied to the source |
+
+Domain-aware anchors: forum sources may show DPPRA through participant claims, lived experience, perceived rules, actual practices, resource burdens, and accountability demands. Journal sources may show DPPRA through theoretical framing, policy analysis, empirical implementation evidence, resource assumptions, and accountability critique. Government/legal/regulatory sources may show DPPRA through formal authority, mandates, statutory or regulatory policy, implementation duties, resources, oversight, remedy, enforcement, and compliance mechanisms. Institutional/corporate sources may show DPPRA through values, formal policies, product/workflow implementation, resources, governance offices, audit/review systems, and accountability mechanisms.
+
+## Canonical Seven Integrity Export Table
+
+After completing any domain-specific integrity analysis, complete this shared export table. Preserve domain-specific integrity details as extensions or memos, but do not replace the canonical seven.
+
+| Canonical Integrity Subcode | Presence Code | Intensity Code | Evidence | Mapping Memo |
+|---|---:|---:|---|---|
+| Academic Integrity |  |  |  |  |
+| Research Integrity |  |  |  |  |
+| Assessment Integrity |  |  |  |  |
+| System Integrity / TEVV |  |  |  |  |
+| Data / Provenance Integrity |  |  |  |  |
+| Epistemic Integrity |  |  |  |  |
+| Institutional / Organizational Integrity |  |  |  |  |
+
+Presence codes: 0 absent/unsupported; 1 present; 8 unclear; 9 not applicable.
+
+Intensity codes: 0 absent; 1 minimal; 2 low; 3 moderate; 4 high; 5 dominant/central; 8 unclear; 9 not applicable.
+
+Assessment Integrity is mainly for grading, educational assessment, credentialing, test validity, scoring fairness, or legitimacy of formal assessment judgments. Do not code general model testing, benchmarking, red teaming, or TEVV as Assessment Integrity. Model testing belongs under System Integrity / TEVV. Truthfulness, hallucinations, and citations belong under Epistemic Integrity. Source grounding, data lineage, and provenance belong under Data / Provenance Integrity.
+
+## Shared Cost-Benefit / Resource Distribution Export Module
+
+Every coded output must provide enough structured information for the compiler to populate these fields. Code 0, 8, or 9 rather than leaving fields blank.
+
+Core cost-benefit fields:
+
+- cb_cost_presence_binary_code
+- cb_cost_presence_strength_code
+- cb_benefit_presence_binary_code
+- cb_benefit_presence_strength_code
+- cb_cost_intensity_code
+- cb_benefit_intensity_code
+- cb_cost_evidence_label_code
+- cb_benefit_evidence_label_code
+- cb_primary_cost_bearer_code
+- cb_primary_material_beneficiary_code
+- cb_primary_value_capturer_code
+- cb_balance_code
+- cb_distribution_direction_code
+
+Actor crosswalk for cost bearer, material beneficiary, and value capturer:
+
+| Code | Label |
+|---:|---|
+| 0 | None / absent |
+| 1 | Student / learner / applicant |
+| 2 | Teacher / evaluator / worker |
+| 3 | Institution / school / employer |
+| 4 | Platform / vendor / company |
+| 5 | Government / policymaker |
+| 6 | Public / community / society |
+| 7 | Environment / infrastructure |
+| 8 | Unclear |
+| 9 | Not applicable |
+
+Required cost binary fields:
+
+- cb_cost_financial_code
+- cb_cost_labor_time_code
+- cb_cost_cognitive_pedagogical_code
+- cb_cost_credential_opportunity_code
+- cb_cost_psychological_social_code
+- cb_cost_privacy_data_code
+- cb_cost_surveillance_control_code
+- cb_cost_access_inequality_code
+- cb_cost_environmental_infrastructure_code
+- cb_cost_legitimacy_trust_code
+- cb_cost_compliance_burden_code
+- cb_cost_rights_remedy_gap_code
+
+Required benefit binary fields:
+
+- cb_benefit_learning_pedagogical_code
+- cb_benefit_efficiency_labor_saving_code
+- cb_benefit_financial_cost_saving_code
+- cb_benefit_access_equity_code
+- cb_benefit_quality_accuracy_code
+- cb_benefit_consistency_standardization_code
+- cb_benefit_integrity_detection_code
+- cb_benefit_institutional_performance_code
+- cb_benefit_market_profit_code
+- cb_benefit_public_good_code
+- cb_benefit_accessibility_assistive_code
+- cb_benefit_rights_protection_code
+
+Balance code: 0 no visible cost/benefit signal; 1 benefits outweigh costs; 2 costs outweigh benefits; 3 mixed/roughly balanced; 4 asymmetric distribution; 8 unclear; 9 not applicable.
+
+Distribution direction code: 0 no visible distribution signal; 1 redistributive/public benefit; 2 institutional efficiency; 3 market/platform capture; 4 cost shift to learners/workers/public; 5 mixed/contested; 8 unclear; 9 not applicable.
+
+## Shared SPSS Core Summary Requirement
+
+Every output must include a final SPSS-compatible numeric summary that includes, at minimum, metadata, all ten ethical principles, DPPRA component fields, DPPRA alignment score, decoupling fields, responsibility fields, canonical seven integrity fields, cost-benefit/resource fields, confidence fields, and human-review fields. Domain-specific extension fields remain separate from the shared core and use 9 when definitionally not applicable.
+## Institutional / Corporate ICST Addendum To The Phase One Patch
+
+The existing ICST D / P1 / P2 / R / A table remains authoritative. This patch confirms that it must also export the shared DPPRA component fields listed above.
+
+Confidence scoring must use the shared 0-5 convention. Do not use 0.0-1.0 confidence scores in Phase One gate outputs.
+
+If earlier ICST language uses `NC / Not Codable`, convert it explicitly: use 8 when the construct is applicable but evidence is insufficient or unclear; use 9 when the construct is definitionally not applicable. Do not leave NC as a nonnumeric final SPSS value.
+
+Section 8 claimed-versus-funded/material-benefit analysis remains useful for second-brain interpretation, but it must also populate the shared cost-benefit/resource distribution module. Do not use YES/NO/PARTIAL/MAJOR as the primary numeric record for shared cost-benefit fields. Use the shared binary cost/benefit fields, actor crosswalk, balance code, and distribution direction code.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+v2.6 — LOCKED INTEGER CROSSWALK (REQUIRED FOR ALL *_code FIELDS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Output exactly ONE integer for every *_code field, from the locked values below.
+Do not invent local mappings or put labels in _code fields. If none fits, use 8
+and explain in the memo. (8 = unclear/insufficient; 9 = definitionally N/A.)
+Emit the full coder record per the v2.6 schema (meta / codes / narrative);
+inter-coder reliability is computed on the integer 'codes' block.
+
+SHARED CORE (all layers):
+- domain_code: 1 gov/legal/regulatory; 2 journal; 3 forum; 4 institutional/corporate
+- text_access_code: 1 Full; 2 Partial; 3 Metadata-only; 4 Navigation-only; 5 Extraction-failed
+- eth_*_code (ten principles): 0-5 ordinal anchors; 8; 9
+- dppra_*_presence_code: 0 absent; 1 present; 8; 9
+- dppra_*_strength_code: 0-5; 8; 9
+- dppra_alignment_score_code: 0 none; 1 symbolic; 2 procedural; 3 operational; 4 material/substantive; 5 verified substantive; 8; 9
+- decoupling_signal_code: 0 none; 1 low; 2 low-moderate; 3 moderate; 4 high; 8; 9
+- market_capture_signal_code: 0 none; 1 low; 2 moderate; 3 high; 8; 9
+- dominant_value_type_code: 1 mechanical; 2 institutional; 3 market; 4 pedagogical; 5 redistributive; 6 humanistic; 8; 9
+- responsibility_concentration_code: 0 none; 1 concentrated/non-delegable; 2 distributed; 3 diffuse/unclear; 8; 9
+- int_*_presence_code: 0/1/8/9; int_*_intensity_code: 0-5/8/9 (canonical seven integrity)
+- cb_cost_evidence_label_code / cb_benefit_evidence_label_code: 0 absent; 1 evidence-based; 2 speculative/aspirational; 3 rhetorical/symbolic; 8; 9
+- cb actor crosswalk (cost_bearer / material_beneficiary / value_capturer): 0 none; 1 student/learner/applicant; 2 teacher/evaluator/worker; 3 institution/school/employer; 4 platform/vendor/company; 5 government/policymaker; 6 public/community/society; 7 environment/infrastructure; 8; 9
+- cb_balance_code: 0 none; 1 benefits>costs; 2 costs>benefits; 3 mixed/balanced; 4 asymmetric; 8; 9
+- cb_distribution_direction_code: 0 none; 1 redistributive/public; 2 institutional efficiency; 3 market/platform capture; 4 cost-shift to learners/workers/public; 5 mixed/contested; 8; 9
+- cb_*_presence_binary_code and all cb cost/benefit indicator codes: 0 absent; 1 present; 8; 9
+- cb_*_presence_strength_code / cb_cost_intensity_code / cb_benefit_intensity_code: 0-5; 8; 9
+- coding_confidence_code / final_confidence_code: 0-5; human_review_flag_code: 0 no; 1 review recommended
+- valence_positive / valence_neutral_mixed / valence_negative: proportions 0.00-1.00 (NOT integers)
+
+NOTE: this layer's domain-specific *_code fields are NOT yet integer-locked
+(v2.6 crosswalk section C). Lock them at this layer's first calibration run, as
+GOV did. The shared core above already applies to this layer.
+
+
+
+======================================================================
+v2.11 SCORING ANCHORS (AUTHORITY — HOW to score)
+======================================================================
+══════════════════════════════════════════════════════════════════
+v2.11 SCORING ANCHORS — GOVERNS ALL *_code SCORING (READ AND OBEY)
+══════════════════════════════════════════════════════════════════
+This block is the v2.11 scoring authority. It SUPERSEDES any "0-5 ordinal
+anchors" or bare-range text in the layer prompt's embedded crosswalk above, and
+supersedes v2.10. Where they conflict on HOW to score, THIS governs. The injected
+CANONICAL OUTPUT SCHEMA defines the exact key SET; this block defines the SCALES
+and presence gates. Emit exactly one integer per *_code field.
+
+CHANGES FROM v2.10 (driven by the Run-2 three-coder reliability + adversarial pass
+RUN_02, 2026-06-04):
+  1. eth_integrity REDEFINED (Part B) — restored to its full construct: principled
+     CONSISTENCY + FOLLOW-THROUGH, not knowledge-honesty only. The int_* and
+     decoupling fields are now EVIDENCE STREAMS that feed/undercut the headline,
+     not content "routed away from" integrity. (Root cause of α=0.11: the v2.10
+     narrow rule was theoretically too thin; Codex would not apply it because it
+     felt wrong, and it was.)
+  2. The "5" is OPERATIONALIZED with a proportion gate + two-sided anchors
+     (Part A) — to kill the three-way CAP divergence (Claude coded 0 fives on
+     16/22 docs; Codex coded exactly one on 21/22; PXY ranged 0-4).
+  3. PRESENCE BINARIES DROPPED (Part F) — the dppra_*_presence and cb_*_presence
+     binaries were ~100% constant (no variance, undefined α). Signal lives in the
+     *_strength field; presence is now read off strength (0 = absent).
+  4. MIRROR CALIBRATION — each coder's watchout now medicates its own pole
+     (Claude/PXY = under-commit; Codex = over-commit). Anchors below are two-sided
+     on purpose: a HIGH exemplar (earn the 5) AND a TRAP exemplar (looks like 5,
+     is not). Pull the cold coder up and the hot coder down to the SAME standard.
+
+──────────────────────────────────────────────────────────────────
+PART A — THE 0-5 INTENSITY LADDER (every bare 0-5 field)
+Applies to: all eth_*_code, all dppra_*_strength_code, all int_*_intensity_code,
+all cb_*_presence_strength_code, cb_cost_intensity_code, cb_benefit_intensity_code.
+──────────────────────────────────────────────────────────────────
+Score on where the anchor's LITERAL criterion is met — distribution across the
+document — not on how important the topic feels. Apply the discriminators
+mechanically.
+
+  0  ABSENT      — the dimension is not raised in the text at all.
+  1  INCIDENTAL  — appears once, in passing; no elaboration, example, or stake.
+  2  MENTIONED   — named/described in >=1 passage but UNDEVELOPED; no mechanism,
+                   consequence, or example attached.
+  3  DEVELOPED (LOCALIZED) — substantively treated WITH a concrete example,
+                   mechanism, or stake, BUT confined to one section or a few
+                   adjacent passages; the argument does not keep returning to it.
+  4  CENTRAL (DISTRIBUTED) — recurs across MOST major sections and the argument
+                   repeatedly returns to it, tied to a mechanism/consequence/
+                   recommendation. Removing it would leave several passages
+                   unintelligible, BUT the document could be rebuilt around a
+                   different spine.
+  5  DEFINING (SPINE) — pervasive AND load-bearing: the single organizing logic
+                   of the text. Remove it and there is no document, only
+                   disconnected fragments; it survives no reframing.
+  8  applicable but unclear   ·   9  definitionally not applicable
+
+  THE THREE DISCRIMINATORS (apply in order, mechanically):
+   • 2 vs 3 — Is a concrete mechanism / example / stake attached? NO -> 2.
+              YES -> at least 3.
+   • 3 vs 4 — COUNT the major sections the dimension appears in. One section,
+              or a few adjacent passages -> 3. Most major sections, the argument
+              keeps returning -> 4.
+   • 4 vs 5 — Removal test + PROPORTION GATE (both required for a 5; see below).
+
+  ►► THE 5 IS OPERATIONALIZED (new in v2.11 — apply BOTH tests, not a gut call):
+     A dimension may be coded 5 ONLY IF:
+       (i)  PROPORTION GATE — it is the dominant subject of the BODY by section
+            share: it is the leading theme in a PLURALITY of the document's major
+            sections (count them), AND no other dimension occupies more. Read the
+            BODY distribution, NOT the title, abstract, or a single loud passage.
+       (ii) REMOVAL TEST — remove it and the document collapses into disconnected
+            fragments; it survives no reframing.
+     If (i) fails -> the ceiling is 4, full stop. If a rival dimension ties on
+     section share, neither is 5 unless co-equal (see CAP).
+
+  TWO-SIDED ANCHORS — calibrate BOTH ends to the same bar:
+   • HIGH (earn the 5): a paper whose entire thesis is that privacy law is broken;
+     every major section is about privacy; remove it and nothing remains -> 5.
+   • TRAP (looks like 5, is not — TITLE-ANCHORING): a statute titled
+     "...Transparency... Act" mentions transparency in the title and intro, but its
+     BODY is mostly enforcement duties, impact assessments, and remedies. Section
+     share for transparency is one of several, not the plurality -> transparency
+     is 4 (distributed), NOT 5. Score the body, never the headline word.
+   • COLD MISS (a real 4-or-5 under-coded to 0): "this dimension recurs across the
+     intro, methods, risk analysis AND recommendations, each tied to a mechanism"
+     is AT LEAST a 4 — do not leave a distributed, load-bearing dimension at 0/1
+     because no single passage shouted. Distribution earns the score.
+
+  TIE-BREAKER (center-pull): torn between two adjacent anchors -> code the LOWER
+  unless the higher anchor's FULL criterion is explicitly met. (NB: this is a
+  symmetric brake — it pulls a HOT read down toward 4 AND tells a COLD read that
+  once the full 4-criterion IS met, you must commit to the 4, not retreat to 2.)
+  CAP: at most ONE dimension per document may be coded 5, unless two are
+  genuinely co-equal on section share — name both in narrative.cap_rule_notes.
+
+──────────────────────────────────────────────────────────────────
+PART B — eth_integrity: PRINCIPLED CONSISTENCY + FOLLOW-THROUGH (REDEFINED v2.11)
+──────────────────────────────────────────────────────────────────
+eth_integrity_code — the HEADLINE integrity principle. Integrity is NOT the mere
+  knowledge of what is right; it is the ALIGNMENT between an actor's professed
+  moral principles/values and its actual or required CONDUCT. Two faces, both count:
+    (a) EPISTEMIC HONESTY — truthfulness / accuracy / authenticity / verification
+        of knowledge and outputs (the actor is honest about what is true); AND
+    (b) PRACTICAL FOLLOW-THROUGH — beliefs, methods, and actions are derived from
+        and consistent with a stated moral framework; the actor DOES what its
+        principles commit it to. The opposite of integrity is HYPOCRISY /
+        decoupling (saying one thing, doing another), not ignorance.
+
+  Code the DEGREE to which the document EMBODIES, DEMANDS, VERIFIES, or EXPOSES
+  this principle->action consistency.
+
+  ►► int_* AND decoupling ARE THE EVIDENCE STREAMS (changed from v2.10 routing) —
+     they no longer "route content away from" integrity; they FEED and UNDERCUT it:
+       • int_system_tevv  — testing/eval/audit = verifying conduct matches claims
+                            (follow-through evidence -> SUPPORTS integrity).
+       • int_data_prov    — honesty about data sourcing/consent/lineage
+                            (honesty-of-inputs evidence -> SUPPORTS integrity).
+       • int_epistemic    — truthfulness/reliability of outputs
+                            (epistemic-honesty evidence -> SUPPORTS integrity).
+       • int_academic     — learner honesty (supports integrity in education docs).
+       • decoupling_signal — a documented say-do gap is the INVERSE: it LOWERS the
+                            actor's integrity. (If the document is EXPOSING or
+                            CONDEMNING the gap, then integrity-as-DEMAND is high
+                            while the actor's integrity is shown FAILING — code the
+                            document's stance, and say which in cap_rule_notes.)
+     Still score each int_* / decoupling field at its OWN grain (Part A intensity).
+     eth_integrity is the holistic headline judgment those streams inform; it is
+     NOT a sum of them and NOT capped below its strongest supporting stream.
+
+  GUARDRAIL (keeps integrity from re-becoming a catch-all — the old failure mode):
+     • Code eth_integrity >=2 ONLY if the text raises consistency-of-principle-and-
+       conduct OR honesty/accuracy of knowledge — not merely because ethics,
+       values, or "responsible AI" are discussed. "Serious" / "about AI ethics" is
+       NOT integrity.
+     • A document that merely STATES values (a values list, a principles preamble)
+       with no binding to conduct = LOW integrity signal (1-2).
+     • A document that BINDS values to conduct — enforcement, verification,
+       audit-with-teeth, follow-through obligations — OR that DOCUMENTS/EXPOSES the
+       breach between stated values and practice = HIGH (4-5 if it is the spine).
+     • Reserve 5 for documents whose ORGANIZING AXIS is principle<->action
+       consistency itself (its honoring, its demand, its verification, or its
+       exposure), per the Part A proportion gate + removal test.
+
+──────────────────────────────────────────────────────────────────
+PART B2 — PRESENCE TRIGGERS for the other gated principles (unchanged from v2.10)
+──────────────────────────────────────────────────────────────────
+eth_autonomy_code — human self-determination and control.
+  Code >=2 ONLY if the text raises human control over decisions, manipulation/
+  nudging, dependency/over-reliance/deskilling, OR informed consent. Not present
+  merely because humans are discussed.
+eth_nonmaleficence_code — direct harm and harm-prevention.
+  Code >=2 ONLY if a concrete harm or harm-risk to identifiable parties is named
+  (violence, injury, surveillance harm, psychological damage). Generic "risk"
+  with no named harm = 1. This is DIRECT harm (vs justice = distributional,
+  privacy = data).
+eth_justice_code — distributive/procedural fairness, rights, remedy, due process.
+  Code >=2 ONLY if the text raises unequal distribution of benefits/burdens across
+  groups, rights/remedy/due-process, OR structural fairness.
+  DISAMBIGUATION: equity = who gets ACCESS/INCLUSION; justice = fairness of
+  DISTRIBUTION + rights/remedy. Access gap -> equity. Unfair outcome / no remedy
+  -> justice.
+(The other six principles keep v2.7 behavior + Part A for intensity. Privacy's
+ implicit trigger: is identifiable data at stake?)
+
+──────────────────────────────────────────────────────────────────
+PART C — int_* INTEGRITY SUB-DIMENSIONS: scope (each takes Part A for intensity)
+CANONICAL SIX (int_institutional DROPPED in v2.8 — do NOT code it).
+──────────────────────────────────────────────────────────────────
+  int_academic_*    — academic integrity: honesty OF THE LEARNER (student
+                      cheating, plagiarism, contract cheating in education).
+  int_research_*    — research integrity: fabrication, falsification, misconduct,
+                      reproducibility, p-hacking.
+  int_assessment_*  — assessment integrity: whether a FORM OF ASSESSMENT is still
+                      productive or definitive; fires when an assessment's validity/
+                      usefulness collapses (e.g. an essay AI can write no longer
+                      measures learning). The instrument's integrity, not the
+                      person's honesty (that is int_academic).
+  int_system_tevv_* — system TEVV integrity: whether AI systems are tested,
+                      evaluated, validated, verified, audited, benchmarked.
+  int_data_prov_*   — data provenance integrity: sourcing, consent, licensing,
+                      lineage of data used/trained on (vs privacy = identifiable-
+                      person exposure).
+  int_epistemic_*   — epistemic integrity: truthfulness/reliability of knowledge,
+                      hallucination, misinformation, source verification.
+  RELATION TO eth_integrity (v2.11): these six are the EVIDENCE STREAMS for the
+  eth_integrity headline (Part B). Score each at its own grain; eth_integrity is
+  the holistic consistency+follow-through judgment they inform, NOT a routing
+  destination that empties the headline.
+
+──────────────────────────────────────────────────────────────────
+PART D — cb_*_evidence_label_code DECISION TREE (unchanged from v2.10)
+──────────────────────────────────────────────────────────────────
+  Is a cost/benefit claim made?                                  no  -> 0 absent
+  Backed by data, study, or a cited concrete instance?           yes -> 1 evidence-based
+  A future/hypothetical/hoped-for outcome?                       yes -> 2 speculative/aspirational
+  Asserted as value/branding with no support or mechanism?       yes -> 3 rhetorical/symbolic
+  Between 1 and 2: PAST/PRESENT fact -> 1 ; FUTURE outcome -> 2.
+  Between 2 and 3: a mechanism/pathway is described -> 2 ; pure assertion -> 3.
+
+──────────────────────────────────────────────────────────────────
+PART E — COST/BENEFIT INDICATOR SET (§3E collapse; 19 indicators, from v2.10)
+Code ONLY these indicators (0 absent · 1 present · 8 · 9). The cut ones are gone.
+──────────────────────────────────────────────────────────────────
+BENEFIT (10): cb_benefit_access_equity_code, cb_benefit_accessibility_assistive_code,
+  cb_benefit_efficiency_labor_saving_code, cb_benefit_financial_cost_saving_code,
+  cb_benefit_learning_pedagogical_code, cb_benefit_market_profit_code,
+  cb_benefit_public_good_code, cb_benefit_quality_accuracy_code (ALSO covers
+  AI-assisted integrity/cheating detection), cb_benefit_rights_protection_code,
+  cb_benefit_consistency_standardization_code.
+  CUT: cb_benefit_institutional_performance_code, cb_benefit_integrity_detection_code.
+COST (9): cb_cost_access_inequality_code, cb_cost_compliance_burden_code,
+  cb_cost_credential_opportunity_code, cb_cost_financial_code (ALSO covers
+  labor/time cost), cb_cost_privacy_data_code, cb_cost_surveillance_control_code,
+  cb_cost_environmental_infrastructure_code,
+  cb_cost_cognitive_psychological_code (cognitive/learning/psychological harm to
+  individuals — absorbs the old cognitive_pedagogical + psychological_social),
+  cb_cost_rights_remedy_gap_code — code present ONLY when a SPECIFIC rights/remedy/
+  due-process gap is named, NOT on generic fairness language.
+  CUT: cb_cost_legitimacy_trust_code, cb_cost_labor_time_code,
+  cb_cost_cognitive_pedagogical_code (merged), cb_cost_psychological_social_code
+  (renamed -> cb_cost_cognitive_psychological_code).
+
+──────────────────────────────────────────────────────────────────
+PART F — DEPRECATED PRESENCE BINARIES (new in v2.11)
+──────────────────────────────────────────────────────────────────
+The following presence binaries were ~100% constant across Run-1+Run-2 (no
+variance, undefined reliability) and are DROPPED. Presence is now read off the
+paired *_strength field: strength 0 = absent, 1-5 = present at that intensity.
+  • dppra_d_presence_code, dppra_p1_presence_code, dppra_p2_presence_code,
+    dppra_r_presence_code, dppra_a_presence_code
+  • cb_cost_presence_binary_code, cb_benefit_presence_binary_code
+DO emit the *_strength fields as before. The DPPRA D/P1/P2/R/A structure and the
+cost/benefit constructs are UNCHANGED — only the redundant presence flags are gone.
+(Schema-compat note: if the injected schema still lists these keys, emit 9 = N/A;
+ the compiler treats v2.11 strength as authoritative for presence.)
+
+──────────────────────────────────────────────────────────────────
+PART G — OUTPUT FORMAT (ALL CODERS — the compiler rejects violations)
+──────────────────────────────────────────────────────────────────
+These are hard requirements for every coder, not style preferences. An output that
+breaks them is rejected and must be re-run.
+  1. PRESERVE UNDERSCORES in every key exactly as in the schema: emit
+     `eth_equity_code`, NOT `ethequitycode` / `ethEquityCode` / `eth equity code`.
+     Do not strip, camelCase, or collapse separators.
+  2. EMIT EVERY KEY in the injected v2.11 schema, including N/A fields. Cross-layer
+     fields that do not apply get 9 (or 99 for assessment_object_code) — never
+     silently omit a key.
+  3. USE THE v2.11 KEY SET ONLY. Do not resurrect cut keys (cb_cost_labor_time_code,
+     cb_benefit_integrity_detection_code, cb_cost_legitimacy_trust_code, the old
+     cognitive_pedagogical / psychological_social splits, etc.) and do not emit the
+     dropped *_presence binaries (Part F). Emit the *_strength fields.
+  4. VALID JSON. Escape every double-quote inside a string value as \". Never leave a
+     raw quote inside an array-of-string element (e.g. evidence excerpts) — one
+     unescaped quote breaks the whole record.
+  5. FLAT BLOCKS: meta / codes / narrative, no grouped sub-objects, no invented
+     fields. Exactly one integer per *_code field. Set meta.coder and
+     meta.prompt_version = "v2.11".
+  6. DO NOT return a metadata-only exclusion when a full source text is attached. If
+     the document is present, code it; reserve exclusion for empty/unreadable input.
+══════════════════════════════════════════════════════════════════
+END v2.11 SCORING ANCHORS
+══════════════════════════════════════════════════════════════════
+
+
+
+======================================================================
+CANONICAL v2.11 SCHEMA (emit EXACTLY this key set)
+======================================================================
+{
+  "_schema_version": "v2.11",
+  "_schema_note": "v2.11 = v2.10 key set MINUS the 7 degenerate presence binaries (dropped per adversarial RUN_02 Finding D). Presence is read off the paired *_strength field (0=absent). int_*/decoupling are evidence streams for eth_integrity (see v2.11 inject Part B).",
+  "_schema_info": {
+    "schema_name": "DPPRA_coder_record (all layers)",
+    "schema_version": "2.8",
+    "defined_by": "claude (canonical reference, per project lead)",
+    "purpose": "All coders (claude, gpt, pxy) MUST emit this exact key set so inter-coder reliability can be computed mechanically on the 'codes' block. Do not add, rename, or omit keys. Leave value types as specified. Populate every field; never leave a shared-core code blank.",
+    "reliability_layer": "Inter-coder reliability (kappa/alpha) is computed ONLY on the integer fields in 'codes'. valence_* are proportions (0.00-1.00) and are handled separately. The 'narrative' and 'meta' blocks are for human/adversarial validation, not numeric reliability.",
+    "missing_value_convention": "0 = applicable but absent/unsupported; 8 = applicable but unclear/insufficient evidence; 9 = definitionally not applicable. Every *_code field contains exactly one integer and nothing else.",
+    "v2.8_scoring_authority": "All bare 0-5 fields are now anchored by the v2.8 SCORING ANCHORS block (Part A 0-5 ladder + tie-breaker + CAP; Part B presence triggers for integrity/autonomy/nonmaleficence/justice; Part C int_* scopes; Part D evidence-label tree), injected into every coder paste and embedded in the operational profile. The anchors define the SCALE; this schema defines the KEY SET. Where a bare '0-5 ordinal anchors' line in any embedded crosswalk conflicts, the v2.8 anchors govern.",
+    "v2.8_field_set_changes": "v2.8 changes the field SET in two sanctioned places only (the documented exception to the keys-must-not-change guard). (A) §3C int_institutional DROPPED: int_institutional_presence_code + int_institutional_intensity_code REMOVED; org-level stated-values-vs-practice is captured by decoupling_signal_code. Canonical SEVEN integrity sub-dimensions -> SIX (academic, research, assessment, system_tevv, data_prov, epistemic). int_assessment re-scoped to 'a form of assessment no longer productive/definitive' (instrument validity, not learner honesty). (B) §3E cost/benefit indicators 24 -> 19: CUT cb_benefit_institutional_performance_code, cb_cost_legitimacy_trust_code, cb_cost_labor_time_code (degenerate constants, fire on ~90-100% of docs, alpha~0); MERGE cb_cost_cognitive_pedagogical_code -> cb_cost_cognitive_psychological_code (renamed from cb_cost_psychological_social_code, now absorbs cognitive/learning harm); MERGE cb_benefit_integrity_detection_code -> cb_benefit_quality_accuracy_code (now also covers AI-assisted integrity/cheating detection); cb_cost_financial_code now also covers labor/time cost; TIGHTEN cb_cost_rights_remedy_gap_code (present ONLY when a SPECIFIC rights/remedy/due-process gap is named). All OTHER keys hold.",
+    "v2.8_leave_alone_fields": "Do NOT re-anchor these reliable v2.7 fields: eth_privacy_code, dppra_p1_strength_code, eth_equity_code, cb_primary_value_capturer_code, dppra_alignment_score_code, cb_benefit_consistency_standardization_code, journal_method_type_code.",
+    "RESOLVED_v2.6_crosswalk_lock": "The previously open crosswalks (decoupling_signal_code, market_capture_signal_code, dominant_value_type_code, responsibility_concentration_code, cb_*_evidence_label_code, the cb actor crosswalk, cb_balance_code, cb_distribution_direction_code, and all gov_*_code mappings) are integer-locked in the v2.8 crosswalk lock (carried from DPPRA_v2.6_INTEGER_CROSSWALK_LOCK.md, approved 2026-05-25). All coders MUST use those integers.",
+    "RESOLVED_2026-05-27_JRN_domain_lock": "The six journal_*_code fields are integer-locked in DPPRA_JRN_INTEGER_CROSSWALK_LOCK_v2.7.md (approved 2026-05-27). JRN coders code them per that lock; GOV/FRM/INS code them 9 (definitionally N/A), exactly as journal coders code the gov_* fields 9.",
+    "RESOLVED_2026-05-27_FRM_domain_lock": "The eight forum domain fields (learner_posture, assessment_object, external_link_boundary, detection_verification presence+strength, surveillance_monitoring presence+strength, overall_dominant_valence) are integer-locked in DPPRA_FRM_INTEGER_CROSSWALK_LOCK_v2.7.md (approved 2026-05-27). FRM coders code them per that lock; non-forum layers code 9 (assessment_object: 99). NOTE assessment_object_code uses 88=unclear/99=N/A (8 and 9 are real categories). INS domain-specific fields remain to be locked at that layer's first run."
+  },
+  "meta": {
+    "stable_source_id": "string (assigned by manifest)",
+    "document_id": "string",
+    "title": "string (exact)",
+    "authoring_body": "string",
+    "date": "string YYYY-MM-DD",
+    "domain": "string",
+    "domain_code": "int (1=gov/legal/regulatory, 2=journal, 3=forum, 4=institutional/corporate) [LOCK]",
+    "subdomain": "string",
+    "time_segment": "string",
+    "corpus_batch": "string",
+    "source_type": "string",
+    "jurisdiction": "string",
+    "intended_audience": "string",
+    "regulated_actors": "string",
+    "coder": "string: one of [claude, gpt, pxy]",
+    "prompt_version": "string",
+    "coding_date": "string YYYY-MM-DD",
+    "text_access": "string: Full|Partial|Metadata-only|Navigation-only|Extraction-failed",
+    "text_access_code": "int (1=Full, 2=Partial, 3=Metadata-only, 4=Navigation-only, 5=Extraction-failed) [LOCK]",
+    "manifest_match_confirmed": "string: YES|NO|DISCREPANCY[explain]"
+  },
+  "codes": {
+    "_principle_intensity_range": "0-5 per v2.8 SCORING ANCHORS Part A ladder (0 absent,1 incidental,2 mentioned,3 developed,4 central,5 defining); 8 unclear; 9 N/A. CAP: at most one 5 per document unless co-equal (name both in cap_rule_notes).",
+    "coding_confidence_code": "int 0-5",
+    "final_confidence_code": "int 0-5",
+    "human_review_flag_code": "int 0=no review needed, 1=review recommended",
+    "eth_equity_code": "int 0-5|8|9 [LEAVE-ALONE: reliable v2.7 field; Part A ladder]",
+    "eth_accountability_code": "int 0-5|8|9",
+    "eth_transparency_code": "int 0-5|8|9",
+    "eth_privacy_code": "int 0-5|8|9 [LEAVE-ALONE: reliable v2.7 field; implicit trigger: is identifiable data at stake?]",
+    "eth_autonomy_code": "int 0-5|8|9 [Part B trigger: human control/manipulation/dependency/consent]",
+    "eth_integrity_code": "int 0-5|8|9 [Part B trigger: accuracy/authenticity/verification of knowledge]",
+    "eth_nonmaleficence_code": "int 0-5|8|9 [Part B trigger: named concrete harm to identifiable parties]",
+    "eth_beneficence_mech_code": "int 0-5|8|9",
+    "eth_beneficence_eth_code": "int 0-5|8|9",
+    "eth_justice_code": "int 0-5|8|9 [Part B trigger: distribution/rights/remedy; access gap->equity, unfair outcome/no remedy->justice]",
+    "valence_positive": "float 0.00-1.00 (positive+neutral+negative should sum to 1.00 when codable)",
+    "valence_neutral_mixed": "float 0.00-1.00",
+    "valence_negative": "float 0.00-1.00",
+    "dppra_d_strength_code": "int 0-5|8|9 [Part A ladder]",
+    "dppra_p1_strength_code": "int 0-5|8|9 [LEAVE-ALONE: reliable v2.7 field; Part A ladder]",
+    "dppra_p2_strength_code": "int 0-5|8|9 [Part A ladder]",
+    "dppra_r_strength_code": "int 0-5|8|9 [Part A ladder]",
+    "dppra_a_strength_code": "int 0-5|8|9 [Part A ladder]",
+    "dppra_alignment_score_code": "int 0-5|8|9 (0 none,1 symbolic,2 procedural,3 operational,4 material/substantive,5 verified substantive) [LEAVE-ALONE: reliable v2.7 field, keeps its own anchors]",
+    "decoupling_signal_code": "int [LOCK crosswalk] 0=none,1=low,2=low-moderate,3=moderate,4=high,8=unclear,9=N/A (now also carries org-level stated-values-vs-practice, the dropped int_institutional concept)",
+    "market_capture_signal_code": "int [LOCK crosswalk] 0=none,1=low,2=moderate,3=high,8=unclear,9=N/A",
+    "dominant_value_type_code": "int [LOCK crosswalk] 1=mechanical,2=institutional,3=market,4=pedagogical,5=redistributive,6=humanistic,8=unclear,9=N/A",
+    "responsibility_concentration_code": "int [LOCK crosswalk] 0=none,1=concentrated/non-delegable,2=distributed,3=diffuse/unclear,8=unclear,9=N/A",
+    "int_academic_presence_code": "int 0|1|8|9 [scope: honesty OF THE LEARNER - student cheating/plagiarism/contract cheating]",
+    "int_academic_intensity_code": "int 0-5|8|9 [Part A ladder]",
+    "int_research_presence_code": "int 0|1|8|9 [scope: fabrication/falsification/misconduct/reproducibility/p-hacking]",
+    "int_research_intensity_code": "int 0-5|8|9 [Part A ladder]",
+    "int_assessment_presence_code": "int 0|1|8|9 [scope: a FORM OF ASSESSMENT no longer productive/definitive - instrument validity, not learner honesty]",
+    "int_assessment_intensity_code": "int 0-5|8|9 [Part A ladder]",
+    "int_system_tevv_presence_code": "int 0|1|8|9 [scope: AI tested/evaluated/validated/verified/audited/benchmarked]",
+    "int_system_tevv_intensity_code": "int 0-5|8|9 [Part A ladder]",
+    "int_data_prov_presence_code": "int 0|1|8|9 [scope: sourcing/consent/licensing/lineage of data used/trained on]",
+    "int_data_prov_intensity_code": "int 0-5|8|9 [Part A ladder]",
+    "int_epistemic_presence_code": "int 0|1|8|9 [scope: truthfulness/reliability of knowledge, hallucination, misinformation, source verification]",
+    "int_epistemic_intensity_code": "int 0-5|8|9 [Part A ladder]",
+    "cb_cost_presence_strength_code": "int 0-5|8|9 [Part A ladder]",
+    "cb_benefit_presence_strength_code": "int 0-5|8|9 [Part A ladder]",
+    "cb_cost_intensity_code": "int 0-5|8|9 [Part A ladder]",
+    "cb_benefit_intensity_code": "int 0-5|8|9 [Part A ladder]",
+    "cb_cost_evidence_label_code": "int [Part D tree] 0=absent,1=evidence-based,2=speculative/aspirational,3=rhetorical/symbolic,8=unclear,9=N/A",
+    "cb_benefit_evidence_label_code": "int [Part D tree] same as cb_cost_evidence_label_code",
+    "cb_primary_cost_bearer_code": "int actor crosswalk 0-9 (0 none,1 student/learner/applicant,2 teacher/evaluator/worker,3 institution/school/employer,4 platform/vendor/company,5 government/policymaker,6 public/community/society,7 environment/infrastructure,8 unclear,9 N/A)",
+    "cb_primary_material_beneficiary_code": "int actor crosswalk 0-9",
+    "cb_primary_value_capturer_code": "int actor crosswalk 0-9 [LEAVE-ALONE: reliable v2.7 field]",
+    "cb_balance_code": "int 0 none,1 benefits>costs,2 costs>benefits,3 mixed/balanced,4 asymmetric,8 unclear,9 N/A",
+    "cb_distribution_direction_code": "int 0 none,1 redistributive/public,2 institutional efficiency,3 market/platform capture,4 cost shift to learners/workers/public,5 mixed/contested,8 unclear,9 N/A",
+    "cb_cost_financial_code": "int 0|1|8|9 (NOW ALSO covers labor/time cost - absorbed the cut cb_cost_labor_time)",
+    "cb_cost_cognitive_psychological_code": "int 0|1|8|9 (cognitive/learning/psychological harm to individuals - merged cb_cost_cognitive_pedagogical + renamed from cb_cost_psychological_social)",
+    "cb_cost_credential_opportunity_code": "int 0|1|8|9",
+    "cb_cost_privacy_data_code": "int 0|1|8|9",
+    "cb_cost_surveillance_control_code": "int 0|1|8|9",
+    "cb_cost_access_inequality_code": "int 0|1|8|9",
+    "cb_cost_environmental_infrastructure_code": "int 0|1|8|9",
+    "cb_cost_compliance_burden_code": "int 0|1|8|9",
+    "cb_cost_rights_remedy_gap_code": "int 0|1|8|9 [TIGHTENED: present ONLY when a SPECIFIC rights/remedy/due-process gap is named, NOT on generic fairness language]",
+    "cb_benefit_learning_pedagogical_code": "int 0|1|8|9",
+    "cb_benefit_efficiency_labor_saving_code": "int 0|1|8|9",
+    "cb_benefit_financial_cost_saving_code": "int 0|1|8|9",
+    "cb_benefit_access_equity_code": "int 0|1|8|9",
+    "cb_benefit_quality_accuracy_code": "int 0|1|8|9 (NOW ALSO covers AI-assisted integrity/cheating detection - absorbed the cut cb_benefit_integrity_detection)",
+    "cb_benefit_consistency_standardization_code": "int 0|1|8|9 [LEAVE-ALONE: reliable v2.7 field]",
+    "cb_benefit_market_profit_code": "int 0|1|8|9",
+    "cb_benefit_public_good_code": "int 0|1|8|9",
+    "cb_benefit_accessibility_assistive_code": "int 0|1|8|9",
+    "cb_benefit_rights_protection_code": "int 0|1|8|9",
+    "gov_binding_status_code": "int [LOCK] 0=nonbinding,1=binding,2=partial/mixed,8=unclear,9=N/A",
+    "gov_enforcement_density_code": "int 0 none,1 weak/indirect,2 single strong or multiple weak,3 multi-level architecture,8 unclear,9 N/A",
+    "gov_fria_present_code": "int [LOCK] 0=no,1=yes,2=partial,9=N/A",
+    "gov_opensource_carveout_code": "int [LOCK] 0=no,1=yes,2=partial,9=N/A",
+    "gov_sector_carveout_code": "int [LOCK] 0=no,1=yes,2=partial,9=N/A",
+    "gov_standards_displacement_code": "int [LOCK] 0=absent,1=present,8=unclear,9=N/A",
+    "gov_remedy_present_code": "int [LOCK] 0=no,1=yes (administrative),2=yes (justiciable/external),8=unclear,9=N/A",
+    "gov_sanction_present_code": "int [LOCK] 0=no external sanction,1=external sanction present,8=unclear,9=N/A",
+    "gov_compliance_mechanism_code": "int [LOCK] 0=absent,1=present,8=unclear,9=N/A",
+    "journal_source_type_code": "int [JRN LOCK v2.7] 1=empirical,2=conceptual,3=review,4=theoretical,5=methodological,6=policy-oriented,7=mixed,8=unclear,9=N/A (non-journal layers code 9)",
+    "journal_empirical_basis_binary_code": "int [JRN LOCK v2.7] 0=no empirical basis,1=has empirical basis,8=unclear,9=N/A (non-journal layers code 9)",
+    "journal_method_type_code": "int [JRN LOCK v2.7] 0=none/non-empirical,1=quantitative,2=qualitative,3=mixed-methods,4=conceptual/theoretical,5=review/meta-analysis,6=computational/simulation,8=unclear,9=N/A (non-journal layers code 9) [LEAVE-ALONE: reliable v2.7 field]",
+    "journal_method_evidence_label_code": "int [JRN LOCK v2.7] 0=absent,1=empirical,2=experiential/anecdotal,3=theoretical,4=speculative/prospective,5=rhetorical/promotional,6=mixed,8=unclear,9=N/A (non-journal layers code 9)",
+    "journal_evidence_quality_strength_code": "int [JRN LOCK v2.7] 0=absent,2=weak,3=moderate,5=strong,8=unclear,9=N/A (non-journal layers code 9)",
+    "journal_level_of_analysis_code": "int [JRN LOCK v2.7] 0=other/emergent,1=classroom,2=institution,3=platform,4=state,5=labor market,6=public sphere,7=social structure,8=unclear,9=N/A (non-journal layers code 9)",
+    "learner_posture_code": "int [FRM LOCK v2.7] 1=AI-as-tutor,2=shortcut,3=collaborator,4=replacement-thinker,5=assistive-scaffold,6=cheating-mechanism,7=mixed,8=unclear,9=N/A (non-forum layers code 9)",
+    "assessment_object_code": "int [FRM LOCK v2.7] 0=none,1=essay,2=exam,3=grade,4=degree,5=classroom-assignment,6=admission,7=scholarship,8=job-application,9=research-funding,10=professional-credential,11=legal-document,12=curriculum,13=public-infrastructure,14=labor-system,15=governance-process,16=other; 88=unclear,99=N/A (SPECIAL missing codes; non-forum layers code 99)",
+    "external_link_boundary_code": "int [FRM LOCK v2.7] 0=no external object,1=referenced & included in coded text,2=referenced but NOT included,8=unclear,9=N/A (non-forum layers code 9)",
+    "detection_verification_presence_binary_code": "int [FRM LOCK v2.7] 0=absent,1=present,8=unclear,9=N/A (non-forum layers code 9)",
+    "detection_verification_presence_strength_code": "int [FRM LOCK v2.7] 0-5,8,9 (non-forum layers code 9) [Part A ladder]",
+    "surveillance_monitoring_presence_binary_code": "int [FRM LOCK v2.7] 0=absent,1=present,8=unclear,9=N/A (non-forum layers code 9)",
+    "surveillance_monitoring_presence_strength_code": "int [FRM LOCK v2.7] 0-5,8,9 (non-forum layers code 9) [Part A ladder]",
+    "overall_dominant_valence_code": "int [FRM LOCK v2.7] 1=positive,2=neutral/mixed,3=negative,4=contradictory/polarized,8=unclear,9=N/A (non-forum layers code 9)"
+  },
+  "narrative": {
+    "brief_summary": "string 150-250 words",
+    "major_argument": "string",
+    "primary_ethical_conflict": "string",
+    "responsibility_attribution": "string",
+    "institutional_framing": "string",
+    "temporal_orientation": "string",
+    "stakeholder_orientation": "string",
+    "enforcement_density_rationale": "string",
+    "alignment_justification": "string: explain why not one point higher and not one point lower",
+    "cap_rule_notes": "string: justify any 5s; state 'CAP OVERRIDE - [rule] - evidence: [quote]' if a cap is overridden",
+    "evidence_excerpts": "array of 5-8 strings (short paraphrase or <15-word quote), each with why it matters",
+    "emergent_codes": "array of strings",
+    "theory_links": "string (evidence-supported only; do not force)",
+    "methodological_caution": "string (if Partial access, state how it affects interpretation)",
+    "future_use_tag": "string of hashtags",
+    "reconciliation_flags": "array of strings: anticipated inter-coder disagreement points and any inferred crosswalks used"
+  }
+}
+
+
+======================================================================
+CODER WATCHOUT — PXY (calibration; obey it)
+======================================================================
+# Coder Calibration Watchout — PXY (v2.11)
+
+Neutral calibration guidance for this coder. Apply where text-grounded; it does not override the source or the schema.
+
+## Mirror calibration — YOUR POLE: MIXED (under-commit on strength, over-commit on the CAP)
+
+The Run-2 data shows two opposite tendencies in you:
+
+1. **Under-conservatism on DPPRA strength for self-authored sources** — you cap material that is actually operationalized. (Your standing watchout; kept below.)
+2. **Over-use of the 5 / CAP** — you assigned FOUR co-equal spine-5s on some documents (e.g. SRC_XXXXXX, SRC_XXXXXX). The CAP rule allows at most ONE dimension at 5 unless two are *genuinely co-equal on section share*. Four 5s is almost never defensible.
+
+Medication: apply the v2.11 PROPORTION GATE to every candidate 5 (leading theme in a plurality of major sections + removal test). If two dimensions tie on section share, you may name two co-equal 5s in `cap_rule_notes` — but never three or four.
+
+## eth_integrity (v2.11 — REDEFINED)
+
+Integrity is **principled consistency + follow-through** — alignment of professed values with actual/required conduct (epistemic honesty AND follow-through). int_* and decoupling are evidence streams feeding/undercutting the headline. A doc that merely STATES values = low (1-2); a doc that BINDS values to conduct or EXPOSES the say-do breach = high. Keep it text-grounded; do not auto-cap eth_integrity just because the source is self-authored.
+
+## DPPRA cap / override (your standing main watchout)
+
+Do not reduce a score solely because the source is self-authored. For self-authored corporate/nonprofit/institutional sources, do not automatically cap DPPRA at 2-3. A self-authored source may reach DPPRA strength 4 with strong evidence: named governance offices, formal review workflows, testing/benchmarking/red-teaming, audit trails, enforcement signals, deployed infrastructure, training pathways, stakeholder-facing mechanisms, external/expert/third-party evaluation. Remain at 2-3 for aspirational principles, voluntary frameworks, case studies without adoption evidence, self-reported impact, soft-governance without enforcement. Reserve 5 for independent verification, audit evidence, measured outcomes, or externally validated implementation.
+
+## Justice vs. Equity
+
+Keep Justice conservative but do not under-code it when a source goes beyond general equity language. Equity = access/inclusion/bias-mitigation/accessibility/digital-divide. Justice rises above 2 for rights, due process, contestability, appeal, remedy, redress, anti-discrimination enforcement, structural inequality, burden/benefit distribution, labor justice, democratic harms, legal protections.
+
+## Assessment Integrity
+
+Keep it narrow. Not for general model testing/benchmarking/red-teaming/TEVV (that is System/TEVV). Truthfulness/hallucinations/citations = Epistemic; source grounding/data lineage = Data/Provenance.
+
+## OUTPUT HYGIENE — HARD REQUIREMENTS (these are your recurring filing failures)
+
+These are not style preferences; outputs that violate them get rejected by the compiler and have to be re-run.
+
+1. **PRESERVE UNDERSCORES in every key.** Emit `eth_equity_code`, NOT `ethequitycode`. Do not strip, camelCase, or collapse separators. Every key must match the canonical schema string exactly.
+2. **EMIT EVERY KEY in the injected v2.11 schema** — including N/A fields. Cross-layer fields that don't apply get `9` (or `99` for `assessment_object_code`); do not silently omit them.
+3. **Use the v2.11 schema ONLY.** Do not fall back to an older key set (no `cb_cost_labor_time_code`, `cb_benefit_integrity_detection_code`, `cb_cost_legitimacy_trust_code`, etc. — those were cut). Do not emit the dropped `*_presence` binaries (Part F); emit the `*_strength` fields.
+4. **Valid JSON.** Escape any double-quote inside a string value (`\"`). Do not put raw unescaped quotes inside array-of-string elements (e.g. evidence excerpts) — that breaks the whole record.
+5. **Do NOT return a metadata-only exclusion** when a full source text is attached. If the document is present, code it; reserve exclusion for genuinely empty/unreadable input.
+6. Emit flat `meta` / `codes` / `narrative` blocks, one integer per `*_code` field, `meta.coder = "perplexity"`, `meta.prompt_version = "v2.11"`.
+
+## Manifest confirmation — NO HALT (hard rule; this is your single biggest failure mode)
+
+Every source handed to you has ALREADY passed the project's confirmation process BEFORE it reaches you. **User delivery = manifest confirmed.** You do not re-verify source identity and you NEVER halt on manifest grounds.
+
+- Always set `manifest_match_confirmed = "User-confirmed (final)"`.
+- **NEVER** emit `SOURCE MISMATCH`, `CODING PAUSED`, `Mismatch / uncertain`, `attached-file confirmed but no external manifest`, or any status/preamble that withholds or defers coding. There is no "stop and ask" branch — it has been removed.
+- A missing date/version, ISSN, or any single absent metadata field is NOT a stop condition. Code the document, leave that one field blank or `8`, and note it in `narrative.methodological_caution`.
+- "Attached-file confirmed" is NOT a lesser status that lets you pause — for this workflow it IS full confirmation. Do not treat the absence of a separate external manifest as a reason to halt; the user's delivery is the manifest.
+- If you genuinely feel uncertain about identity, you STILL code, and record the uncertainty in `narrative.methodological_caution`. Coding is mandatory; pausing is not an option the workflow offers you.
+
+Why this rule exists: in the v2.11 batch you halted on SRC_XXXXXX with "SOURCE MISMATCH — CODING PAUSED" while Claude and Codex coded it without issue. The article was never the problem — you stalled in the verification branch before reaching the coding task. That branch is now closed.
+
+## Compiler extraction
+
+Use clean field labels; every required quantitative field must be easy for the compiler to locate. Narrative explanation is fine, but never at the cost of the points above.
