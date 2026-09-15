@@ -1,0 +1,719 @@
+{
+  "layer": "ALL",
+  "n_docs": 65,
+  "coders": [
+    "claude",
+    "codex",
+    "gemini"
+  ],
+  "missing_convention": "8 and 9 treated as missing",
+  "headline_pooled_alpha": {
+    "ordinal_0_5": 0.725,
+    "nominal": 0.706,
+    "binary": 0.567
+  },
+  "pairwise_pooled_alpha": {
+    "ordinal_0_5": {
+      "claude+codex": 0.636,
+      "claude+gemini": 0.77,
+      "codex+gemini": 0.758
+    },
+    "nominal": {
+      "claude+codex": 0.7,
+      "claude+gemini": 0.741,
+      "codex+gemini": 0.676
+    },
+    "binary": {
+      "claude+codex": 0.564,
+      "claude+gemini": 0.533,
+      "codex+gemini": 0.595
+    }
+  },
+  "pairwise_excludes": {
+    "claude+codex": "gemini",
+    "claude+gemini": "codex",
+    "codex+gemini": "claude"
+  },
+  "per_field": [
+    {
+      "field": "assessment_object_code",
+      "type": "nominal",
+      "n_docs": 64,
+      "pct_agree": 88,
+      "fleiss_kappa": 0.538,
+      "kripp_alpha": 0.54
+    },
+    {
+      "field": "cb_balance_code",
+      "type": "nominal",
+      "n_docs": 65,
+      "pct_agree": 52,
+      "fleiss_kappa": 0.486,
+      "kripp_alpha": 0.489
+    },
+    {
+      "field": "cb_benefit_access_equity_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 57,
+      "fleiss_kappa": 0.376,
+      "kripp_alpha": 0.379
+    },
+    {
+      "field": "cb_benefit_accessibility_assistive_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 62,
+      "fleiss_kappa": 0.398,
+      "kripp_alpha": 0.401
+    },
+    {
+      "field": "cb_benefit_consistency_standardization_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 74,
+      "fleiss_kappa": 0.523,
+      "kripp_alpha": 0.526
+    },
+    {
+      "field": "cb_benefit_efficiency_labor_saving_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 65,
+      "fleiss_kappa": 0.373,
+      "kripp_alpha": 0.376
+    },
+    {
+      "field": "cb_benefit_evidence_label_code",
+      "type": "nominal",
+      "n_docs": 65,
+      "pct_agree": 54,
+      "fleiss_kappa": 0.265,
+      "kripp_alpha": 0.269
+    },
+    {
+      "field": "cb_benefit_financial_cost_saving_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 72,
+      "fleiss_kappa": 0.539,
+      "kripp_alpha": 0.541
+    },
+    {
+      "field": "cb_benefit_intensity_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 12,
+      "fleiss_kappa": 0.035,
+      "kripp_alpha": 0.233
+    },
+    {
+      "field": "cb_benefit_learning_pedagogical_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 58,
+      "fleiss_kappa": 0.382,
+      "kripp_alpha": 0.385
+    },
+    {
+      "field": "cb_benefit_market_profit_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 65,
+      "fleiss_kappa": 0.528,
+      "kripp_alpha": 0.53
+    },
+    {
+      "field": "cb_benefit_presence_strength_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 17,
+      "fleiss_kappa": 0.056,
+      "kripp_alpha": 0.305
+    },
+    {
+      "field": "cb_benefit_public_good_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 86,
+      "fleiss_kappa": 0.42,
+      "kripp_alpha": 0.423
+    },
+    {
+      "field": "cb_benefit_quality_accuracy_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 66,
+      "fleiss_kappa": 0.295,
+      "kripp_alpha": 0.298
+    },
+    {
+      "field": "cb_benefit_rights_protection_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 71,
+      "fleiss_kappa": 0.582,
+      "kripp_alpha": 0.584
+    },
+    {
+      "field": "cb_cost_access_inequality_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 74,
+      "fleiss_kappa": 0.601,
+      "kripp_alpha": 0.603
+    },
+    {
+      "field": "cb_cost_cognitive_psychological_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 57,
+      "fleiss_kappa": 0.409,
+      "kripp_alpha": 0.412
+    },
+    {
+      "field": "cb_cost_compliance_burden_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 58,
+      "fleiss_kappa": 0.432,
+      "kripp_alpha": 0.435
+    },
+    {
+      "field": "cb_cost_credential_opportunity_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 51,
+      "fleiss_kappa": 0.215,
+      "kripp_alpha": 0.219
+    },
+    {
+      "field": "cb_cost_environmental_infrastructure_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 66,
+      "fleiss_kappa": 0.5,
+      "kripp_alpha": 0.502
+    },
+    {
+      "field": "cb_cost_evidence_label_code",
+      "type": "nominal",
+      "n_docs": 65,
+      "pct_agree": 54,
+      "fleiss_kappa": 0.371,
+      "kripp_alpha": 0.374
+    },
+    {
+      "field": "cb_cost_financial_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 46,
+      "fleiss_kappa": 0.229,
+      "kripp_alpha": 0.233
+    },
+    {
+      "field": "cb_cost_intensity_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 17,
+      "fleiss_kappa": 0.046,
+      "kripp_alpha": 0.259
+    },
+    {
+      "field": "cb_cost_presence_strength_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 22,
+      "fleiss_kappa": 0.09,
+      "kripp_alpha": 0.327
+    },
+    {
+      "field": "cb_cost_privacy_data_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 85,
+      "fleiss_kappa": 0.57,
+      "kripp_alpha": 0.572
+    },
+    {
+      "field": "cb_cost_rights_remedy_gap_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 65,
+      "fleiss_kappa": 0.527,
+      "kripp_alpha": 0.529
+    },
+    {
+      "field": "cb_cost_surveillance_control_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 66,
+      "fleiss_kappa": 0.546,
+      "kripp_alpha": 0.548
+    },
+    {
+      "field": "cb_distribution_direction_code",
+      "type": "nominal",
+      "n_docs": 65,
+      "pct_agree": 37,
+      "fleiss_kappa": 0.397,
+      "kripp_alpha": 0.4
+    },
+    {
+      "field": "cb_primary_cost_bearer_code",
+      "type": "nominal",
+      "n_docs": 65,
+      "pct_agree": 53,
+      "fleiss_kappa": 0.443,
+      "kripp_alpha": 0.445
+    },
+    {
+      "field": "cb_primary_material_beneficiary_code",
+      "type": "nominal",
+      "n_docs": 65,
+      "pct_agree": 62,
+      "fleiss_kappa": 0.543,
+      "kripp_alpha": 0.546
+    },
+    {
+      "field": "cb_primary_value_capturer_code",
+      "type": "nominal",
+      "n_docs": 65,
+      "pct_agree": 61,
+      "fleiss_kappa": 0.518,
+      "kripp_alpha": 0.511
+    },
+    {
+      "field": "decoupling_signal_code",
+      "type": "ordinal_other",
+      "n_docs": 65,
+      "pct_agree": 26,
+      "fleiss_kappa": 0.279,
+      "kripp_alpha": 0.432
+    },
+    {
+      "field": "detection_verification_presence_binary_code",
+      "type": "binary",
+      "n_docs": 12,
+      "pct_agree": 67,
+      "fleiss_kappa": 0.071,
+      "kripp_alpha": 0.097
+    },
+    {
+      "field": "detection_verification_presence_strength_code",
+      "type": "ordinal05",
+      "n_docs": 12,
+      "pct_agree": 67,
+      "fleiss_kappa": -0.006,
+      "kripp_alpha": 0.089
+    },
+    {
+      "field": "dominant_value_type_code",
+      "type": "nominal",
+      "n_docs": 65,
+      "pct_agree": 80,
+      "fleiss_kappa": 0.714,
+      "kripp_alpha": 0.715
+    },
+    {
+      "field": "dppra_a_strength_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 34,
+      "fleiss_kappa": 0.305,
+      "kripp_alpha": 0.635
+    },
+    {
+      "field": "dppra_alignment_score_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 23,
+      "fleiss_kappa": 0.251,
+      "kripp_alpha": 0.617
+    },
+    {
+      "field": "dppra_d_strength_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 25,
+      "fleiss_kappa": 0.108,
+      "kripp_alpha": 0.312
+    },
+    {
+      "field": "dppra_p1_strength_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 26,
+      "fleiss_kappa": 0.221,
+      "kripp_alpha": 0.548
+    },
+    {
+      "field": "dppra_p2_strength_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 25,
+      "fleiss_kappa": 0.239,
+      "kripp_alpha": 0.522
+    },
+    {
+      "field": "dppra_r_strength_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 37,
+      "fleiss_kappa": 0.396,
+      "kripp_alpha": 0.76
+    },
+    {
+      "field": "eth_accountability_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 37,
+      "fleiss_kappa": 0.242,
+      "kripp_alpha": 0.564
+    },
+    {
+      "field": "eth_autonomy_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 26,
+      "fleiss_kappa": 0.209,
+      "kripp_alpha": 0.512
+    },
+    {
+      "field": "eth_beneficence_eth_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 14,
+      "fleiss_kappa": 0.089,
+      "kripp_alpha": 0.386
+    },
+    {
+      "field": "eth_beneficence_mech_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 17,
+      "fleiss_kappa": 0.154,
+      "kripp_alpha": 0.51
+    },
+    {
+      "field": "eth_equity_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 22,
+      "fleiss_kappa": 0.274,
+      "kripp_alpha": 0.745
+    },
+    {
+      "field": "eth_integrity_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 17,
+      "fleiss_kappa": -0.022,
+      "kripp_alpha": 0.108
+    },
+    {
+      "field": "eth_justice_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 17,
+      "fleiss_kappa": 0.183,
+      "kripp_alpha": 0.634
+    },
+    {
+      "field": "eth_nonmaleficence_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 23,
+      "fleiss_kappa": 0.193,
+      "kripp_alpha": 0.572
+    },
+    {
+      "field": "eth_privacy_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 34,
+      "fleiss_kappa": 0.402,
+      "kripp_alpha": 0.797
+    },
+    {
+      "field": "eth_transparency_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 48,
+      "fleiss_kappa": 0.391,
+      "kripp_alpha": 0.707
+    },
+    {
+      "field": "external_link_boundary_code",
+      "type": "nominal",
+      "n_docs": 12,
+      "pct_agree": 50,
+      "fleiss_kappa": 0.363,
+      "kripp_alpha": 0.381
+    },
+    {
+      "field": "gov_binding_status_code",
+      "type": "nominal",
+      "n_docs": 16,
+      "pct_agree": 60,
+      "fleiss_kappa": 0.569,
+      "kripp_alpha": 0.598
+    },
+    {
+      "field": "gov_compliance_mechanism_code",
+      "type": "nominal",
+      "n_docs": 16,
+      "pct_agree": 73,
+      "fleiss_kappa": 0.1,
+      "kripp_alpha": 0.124
+    },
+    {
+      "field": "gov_enforcement_density_code",
+      "type": "nominal",
+      "n_docs": 16,
+      "pct_agree": 33,
+      "fleiss_kappa": 0.372,
+      "kripp_alpha": 0.356
+    },
+    {
+      "field": "gov_fria_present_code",
+      "type": "nominal",
+      "n_docs": 16,
+      "pct_agree": 27,
+      "fleiss_kappa": 0.135,
+      "kripp_alpha": 0.201
+    },
+    {
+      "field": "gov_opensource_carveout_code",
+      "type": "nominal",
+      "n_docs": 16,
+      "pct_agree": 53,
+      "fleiss_kappa": 0.325,
+      "kripp_alpha": 0.349
+    },
+    {
+      "field": "gov_remedy_present_code",
+      "type": "nominal",
+      "n_docs": 16,
+      "pct_agree": 67,
+      "fleiss_kappa": 0.624,
+      "kripp_alpha": 0.64
+    },
+    {
+      "field": "gov_sanction_present_code",
+      "type": "nominal",
+      "n_docs": 16,
+      "pct_agree": 80,
+      "fleiss_kappa": 0.709,
+      "kripp_alpha": 0.722
+    },
+    {
+      "field": "gov_sector_carveout_code",
+      "type": "nominal",
+      "n_docs": 16,
+      "pct_agree": 20,
+      "fleiss_kappa": 0.184,
+      "kripp_alpha": 0.244
+    },
+    {
+      "field": "gov_standards_displacement_code",
+      "type": "nominal",
+      "n_docs": 16,
+      "pct_agree": 100,
+      "fleiss_kappa": null,
+      "kripp_alpha": 1.0
+    },
+    {
+      "field": "int_academic_intensity_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 75,
+      "fleiss_kappa": 0.398,
+      "kripp_alpha": 0.55
+    },
+    {
+      "field": "int_academic_presence_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 80,
+      "fleiss_kappa": 0.501,
+      "kripp_alpha": 0.504
+    },
+    {
+      "field": "int_assessment_intensity_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 60,
+      "fleiss_kappa": 0.292,
+      "kripp_alpha": 0.346
+    },
+    {
+      "field": "int_assessment_presence_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 66,
+      "fleiss_kappa": 0.364,
+      "kripp_alpha": 0.368
+    },
+    {
+      "field": "int_data_prov_intensity_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 26,
+      "fleiss_kappa": 0.261,
+      "kripp_alpha": 0.574
+    },
+    {
+      "field": "int_data_prov_presence_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 80,
+      "fleiss_kappa": 0.537,
+      "kripp_alpha": 0.539
+    },
+    {
+      "field": "int_epistemic_intensity_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 14,
+      "fleiss_kappa": 0.069,
+      "kripp_alpha": 0.27
+    },
+    {
+      "field": "int_epistemic_presence_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 82,
+      "fleiss_kappa": 0.077,
+      "kripp_alpha": 0.081
+    },
+    {
+      "field": "int_research_intensity_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 38,
+      "fleiss_kappa": 0.141,
+      "kripp_alpha": 0.393
+    },
+    {
+      "field": "int_research_presence_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 52,
+      "fleiss_kappa": 0.29,
+      "kripp_alpha": 0.294
+    },
+    {
+      "field": "int_system_tevv_intensity_code",
+      "type": "ordinal05",
+      "n_docs": 65,
+      "pct_agree": 32,
+      "fleiss_kappa": 0.3,
+      "kripp_alpha": 0.647
+    },
+    {
+      "field": "int_system_tevv_presence_code",
+      "type": "binary",
+      "n_docs": 65,
+      "pct_agree": 91,
+      "fleiss_kappa": 0.704,
+      "kripp_alpha": 0.706
+    },
+    {
+      "field": "journal_empirical_basis_binary_code",
+      "type": "binary",
+      "n_docs": 14,
+      "pct_agree": 86,
+      "fleiss_kappa": 0.754,
+      "kripp_alpha": 0.76
+    },
+    {
+      "field": "journal_evidence_quality_strength_code",
+      "type": "ordinal05",
+      "n_docs": 14,
+      "pct_agree": 36,
+      "fleiss_kappa": 0.27,
+      "kripp_alpha": 0.474
+    },
+    {
+      "field": "journal_level_of_analysis_code",
+      "type": "nominal",
+      "n_docs": 14,
+      "pct_agree": 64,
+      "fleiss_kappa": 0.605,
+      "kripp_alpha": 0.614
+    },
+    {
+      "field": "journal_method_evidence_label_code",
+      "type": "nominal",
+      "n_docs": 14,
+      "pct_agree": 36,
+      "fleiss_kappa": 0.236,
+      "kripp_alpha": 0.255
+    },
+    {
+      "field": "journal_method_type_code",
+      "type": "nominal",
+      "n_docs": 14,
+      "pct_agree": 86,
+      "fleiss_kappa": 0.794,
+      "kripp_alpha": 0.799
+    },
+    {
+      "field": "journal_source_type_code",
+      "type": "nominal",
+      "n_docs": 14,
+      "pct_agree": 79,
+      "fleiss_kappa": 0.756,
+      "kripp_alpha": 0.762
+    },
+    {
+      "field": "learner_posture_code",
+      "type": "nominal",
+      "n_docs": 6,
+      "pct_agree": 67,
+      "fleiss_kappa": 0.357,
+      "kripp_alpha": 0.5
+    },
+    {
+      "field": "market_capture_signal_code",
+      "type": "ordinal_other",
+      "n_docs": 65,
+      "pct_agree": 32,
+      "fleiss_kappa": 0.321,
+      "kripp_alpha": 0.571
+    },
+    {
+      "field": "overall_dominant_valence_code",
+      "type": "nominal",
+      "n_docs": 12,
+      "pct_agree": 50,
+      "fleiss_kappa": 0.508,
+      "kripp_alpha": 0.522
+    },
+    {
+      "field": "responsibility_concentration_code",
+      "type": "nominal",
+      "n_docs": 65,
+      "pct_agree": 52,
+      "fleiss_kappa": 0.16,
+      "kripp_alpha": 0.165
+    },
+    {
+      "field": "surveillance_monitoring_presence_binary_code",
+      "type": "binary",
+      "n_docs": 12,
+      "pct_agree": 83,
+      "fleiss_kappa": 0.738,
+      "kripp_alpha": 0.745
+    },
+    {
+      "field": "surveillance_monitoring_presence_strength_code",
+      "type": "ordinal05",
+      "n_docs": 12,
+      "pct_agree": 67,
+      "fleiss_kappa": 0.511,
+      "kripp_alpha": 0.723
+    }
+  ]
+}

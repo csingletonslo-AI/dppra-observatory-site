@@ -1,0 +1,68 @@
+src,field,consensus_value,strongest_counter,verdict,verdict_note,failure_type
+SRC_000002,eth_integrity=4,4,2–3,CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000002,eth_nonmaleficence=4,4,3,CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000002,eth_transparency=4,4,3 or 5,CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000002,eth_justice=4,4,3,CONSENSUS_VULNERABLE,,evidence_gap
+SRC_000002,int_system_tevv_intensity=4,4,2–3,CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000002,int_data_prov_intensity=4,4,2–3,CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000002,dppra_r_strength=2,2,0–1,CONSENSUS_HOLDS,,(n/a)
+SRC_000002,dppra_a_strength=4,4,3 or 5,CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000002,gov_enforcement_density=3,3,2,CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000002,dominant_value_type=2 (institutional),2,6 or 5,CONSENSUS_HOLDS,,(n/a)
+SRC_000002,cb_primary_material_beneficiary=6 (public/society),6,3 (institution/agency),CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000002,cb_benefit_evidence_label=2 (speculative/aspirational),2,1 (evidence-based) partial,CONSENSUS_HOLDS,,(n/a)
+SRC_000002,gov_remedy_present=1 (administrative),1,1 vs 0 tension,CONSENSUS_HOLDS,,(n/a)
+SRC_000002,14 cost/benefit binaries (all=1),1,mixed 0/1,CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000008,cb_cost_evidence_label_code,1 (evidence-based),2 (speculative/aspirational),CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000008,cb_benefit_evidence_label_code,1 (evidence-based),2 (speculative/aspirational),CONSENSUS_WRONG,,shared_blind_spot
+SRC_000008,journal_empirical_basis_binary_code,1 (empirical),0 / mixed-conceptual,CONSENSUS_HOLDS,,—
+SRC_000008,journal_method_type_code,2 (qualitative),2 holds,CONSENSUS_HOLDS,,—
+SRC_000008,dominant_value_type_code,2 (Institutional),3 (Market) or 6 (Humanistic),CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000008,market_capture_signal_code,2 (moderate),3 (high),CONSENSUS_VULNERABLE,,evidence_gap
+SRC_000008,int_epistemic_presence_code,1 (present),1 holds (intensity is the fight),CONSENSUS_HOLDS,,—
+SRC_000008,cb_benefit_public_good_code,1 (present),1 holds,CONSENSUS_HOLDS,,—
+SRC_000008,cb_benefit_access_equity_code,1 (present),0 (absent as a benefit),CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000008,cb_cost_access_inequality_code,1 (present),1 holds,CONSENSUS_HOLDS,,—
+SRC_000008,cb_benefit_efficiency_labor_saving_code,1 (present),1 holds,CONSENSUS_HOLDS,,—
+SRC_000008,cb_cost_privacy_data_code,1 (present),1 holds,CONSENSUS_HOLDS,,—
+SRC_000008,cb_benefit_intensity_code,3 (developed/localized),2 (mentioned/undeveloped),CONSENSUS_VULNERABLE,,evidence_gap
+SRC_000008,journal_level_of_analysis_code,2 (institution),public sphere / state,CONSENSUS_HOLDS,weakly,schema_ambiguity
+SRC_000008,cb_benefit_presence_strength_code,3,2,CONSENSUS_VULNERABLE,,evidence_gap
+SRC_000010,int_epistemic_intensity_code,4,2,CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000010,cb_cost_presence_strength_code,4,3,CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000010,cb_balance_code,4 (asymmetric),2 (costs>benefits),CONSENSUS_HOLDS,,schema_ambiguity
+SRC_000010,cb_primary_value_capturer_code** / **material_beneficiary_code,4 (platform/vendor),6 (public) — trap; or 8 (unclear),CONSENSUS_HOLDS,,evidence_gap
+SRC_000010,cb_primary_cost_bearer_code,6 (public/society),1 (learner) or 8,CONSENSUS_HOLDS,,schema_ambiguity
+SRC_000010,cb_distribution_direction_code,3 (market/platform capture),5 (mixed/contested),CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000010,overall_dominant_valence_code,3 (negative),4 (contradictory/polarized),CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000010,eth_autonomy_code,4,3,CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000010,eth_integrity_code,4,3,CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000010,eth_privacy_code,2,1,CONSENSUS_HOLDS,,evidence_gap
+SRC_000010,dppra_r_strength_code,0,(0),CONSENSUS_HOLDS,,—
+SRC_000010,int_data_prov_intensity_code,2,0/1,CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000017,eth_nonmaleficence,4,3,CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000017,eth_beneficence_eth,4,3,CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000017,eth_integrity,4,3,CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000017,eth_justice,3,2,CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000017,eth_transparency,3,2,CONSENSUS_VULNERABLE,,evidence_gap
+SRC_000017,eth_privacy,3,2 (defensible); 3 holds,CONSENSUS_HOLDS,,—
+SRC_000017,dppra_a_strength,2,1,CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000017,dppra_p2_strength,2,1,CONSENSUS_VULNERABLE,,evidence_gap
+SRC_000017,dominant_value_type,2 (Institutional Duty),6 (Humanistic Care),CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000017,cb_primary_cost_bearer / beneficiary / value_capturer,6 / 6 / 6,cost_bearer=6; value_capturer=3 (institution),CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000017,market_capture_signal,0,0 (holds),CONSENSUS_HOLDS,,—
+SRC_000017,responsibility_concentration,2 (distributed),2 (holds),CONSENSUS_HOLDS,,—
+SRC_000017,int_data_prov_presence,1,1 (holds),CONSENSUS_HOLDS,,—
+SRC_000017,int_system_tevv_presence,1,1 (holds; intensity is the fight),CONSENSUS_HOLDS,,—
+SRC_000017,cb_*_evidence_label** (cost & benefit),2 / 2,1 / 1,CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000025,market_capture_signal_code,2 (moderate),3 (high),CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000025,dominant_value_type_code,2 (institutional),3 (market),CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000025,cb_balance_code,1 (benefits>costs),4 (asymmetric) or 8,CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000025,cb_primary_material_beneficiary_code,6 (public/society),4 (platform/vendor),CONSENSUS_WRONG,,shared_blind_spot
+SRC_000025,cb_primary_value_capturer_code,4 (platform/vendor),(holds) 4,CONSENSUS_HOLDS,,—
+SRC_000025,cb_cost_evidence_label_code,2 (speculative),3 (rhetorical/symbolic)** or 0,CONSENSUS_VULNERABLE,,evidence_gap
+SRC_000025,int_system_tevv_presence_code,1 (present),(holds) 1,CONSENSUS_HOLDS,,—
+SRC_000025,int_data_prov_presence_code,1 (present),0 (absent),CONSENSUS_VULNERABLE,,schema_ambiguity
+SRC_000025,cb_benefit_public_good_code,1 (present),0 (absent),CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000025,cb_benefit_rights_protection_code,1 (present),0 (absent),CONSENSUS_VULNERABLE,,shared_blind_spot
+SRC_000025,cb_benefit_quality_accuracy / consistency_standardization,1 / 1,"1 / 1 (holds, weakly)",CONSENSUS_HOLDS,,—
