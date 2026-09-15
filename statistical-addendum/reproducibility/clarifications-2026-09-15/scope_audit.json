@@ -1,0 +1,75 @@
+{
+  "release": "2026-09-15",
+  "source_commit": "f23bfa2ad63ee4700852e8fc6f31edc3cac83051",
+  "scope": "Inventory and missingness documentation; no new statistical tests or pooled nominal/binary alpha reproduction.",
+  "source_files": {
+    "statistical-addendum/reproducibility/instrument/v2.14/GOV__Claude.txt": {
+      "git_blob_sha1": "26187e6bd0f982e2e649829f1aaaf5f903d873f4",
+      "sha256": "c857827fcfb54e46de820bdf4379cca92ee6b4d74bab762f5906aa72d9e970ef"
+    },
+    "statistical-addendum/reproducibility/ordinal_ratings.csv": {
+      "git_blob_sha1": "cab54e2eb000503e626ad049e2f855becb6a17ac",
+      "sha256": "108c261eca8633cdf7f24d107e072ecf45672a1a32f12e347eab7ffe0ffbd2fa"
+    },
+    "statistical-addendum/reproducibility/field_inventory.csv": {
+      "git_blob_sha1": "ce6ff4ac0d2d09b5c309e375eba357e6ca0b1c49",
+      "sha256": "eeb8738fa22d2a5be1423d6a08b1255d7f5cdc23cc58f9cc5e730d0c3339aff0"
+    },
+    "statistical-addendum/reproducibility/nominal-2026-09-14/nominal_inputs.csv": {
+      "git_blob_sha1": "c7d47ed77a60d5febe5e50df7c3c32c41215897d",
+      "sha256": "184ed61c6fbf50efefc6077a4c67fc9646cd5c9fa8163b5fffde9e46df4f89df"
+    },
+    "statistical-addendum/reproducibility/nominal-2026-09-14/nominal_results.json": {
+      "git_blob_sha1": "063eed1047c0a33df7f6d8d36547e22f8de2e686",
+      "sha256": "e4e4f351dc2fb00dd87a9cb6430aafd9c2598a20ba6a644668ae51643d311b24"
+    },
+    "observatory_site_data.json": {
+      "git_blob_sha1": "aa828b77dcaeae34408f16059c255240d70a7bff",
+      "sha256": "957cd8a004b594049cebf04de1f804a57e87f6581f77fbf185cbb2ffd82f633c"
+    }
+  },
+  "coded_fields": 91,
+  "narrative_fields": 16,
+  "ordinal_fields": 29,
+  "paired_nominal_fields": 17,
+  "documents": 65,
+  "sector_counts": {
+    "COR": 10,
+    "FRM": 12,
+    "GOV": 15,
+    "INS": 14,
+    "JRN": 14
+  },
+  "ordinal_slots": 5655,
+  "ordinal_blank_ratings": 472,
+  "ordinal_out_of_domain_blanks": 471,
+  "ordinal_within_domain_blanks": 1,
+  "ordinal_valid_ratings_before_matching": 5183,
+  "ordinal_common_document_field_units": 1727,
+  "ordinal_common_valid_ratings": 5181,
+  "valid_ratings_excluded_by_common_matching": 2,
+  "ordinal_blanks_by_coder": {
+    "Claude": 158,
+    "Codex": 157,
+    "Gemini": 157
+  },
+  "paired_nominal_complete_documents": {
+    "assessment_object_code": 3,
+    "cb_balance_code": 65,
+    "cb_benefit_evidence_label_code": 65,
+    "cb_cost_evidence_label_code": 65,
+    "cb_distribution_direction_code": 65,
+    "cb_primary_cost_bearer_code": 62,
+    "cb_primary_material_beneficiary_code": 65,
+    "cb_primary_value_capturer_code": 61,
+    "dominant_value_type_code": 65,
+    "external_link_boundary_code": 12,
+    "journal_level_of_analysis_code": 14,
+    "journal_method_evidence_label_code": 14,
+    "journal_method_type_code": 14,
+    "journal_source_type_code": 14,
+    "learner_posture_code": 3,
+    "overall_dominant_valence_code": 12,
+    "responsibility_concentration_code": 65
+  }
+}

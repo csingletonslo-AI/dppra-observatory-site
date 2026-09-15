@@ -1,0 +1,66 @@
+source_id,sector,title,author,year
+SRC_000002,GOV,"Advancing Governance, Innovation, and Risk Management for Agency Use of Artificial Intelligence","Executive Office of the President, Office of Management and Budget (OMB)",2024
+SRC_000003,GOV,M-24-18: Advancing the Responsible Acquisition of Artificial Intelligence in Government,"Executive Office of the President, Office of Management and Budget (OMB)",2024
+SRC_000004,GOV,"M-25-21: Accelerating Federal Use of AI through Innovation, Governance, and Public Trust","Executive Office of the President, Office of Management and Budget (OMB); Director Russell T. Vought",2025
+SRC_000005,GOV,Driving Efficient Acquisition of Artificial Intelligence in Government (OMB M-25-22),"Executive Office of the President, Office of Management and Budget (OMB)",2025
+SRC_000006,JRN,Algorithmic Decision-Making and Human Autonomy in Finance: A Systematic Review of AI Ethics Research,Journal of Statistical Theory and Applications (Springer Nature); academic authors (bibliometric review),2026
+SRC_000007,JRN,Explainable and responsible artificial intelligence in education: Ethical challenges in adaptive learning systems,"Lebar-Ndibiri Esther Chinyere (Rivers State University) & Felicia A. Orih (Benjamin Uwajumogu State College of Education), International Journal of Applied Resilience and Sustainability",2026
+SRC_000008,JRN,When Institutions Speak through Machines: EU Public Communication and Generative AI in Post-Digital Europe – A Policy and Interview Analysis,Sara Pane (Sapienza University of Rome); Information & Media (Vilnius University Press),2026
+SRC_000009,JRN,When Algorithms Govern Solidarity: A Fiqh Muamalah Perspective on Ethical Takaful in The Age of Artificial Intelligence,Dita Kharisma; Nofrianto; Yuke Rahmawati; Jawad Z. Salic (UIN Syarif Hidayatullah Jakarta; Mindanao State University),2026
+SRC_000010,FRM,AI is becoming epistemic infrastructure controlled by a handful of private individuals?,Forum original poster and commenters (anonymous public discourse),
+SRC_000011,FRM,AI/ML Ethicists [D],Anonymous forum OP and commenters (public discussion thread),
+SRC_000012,FRM,Automated Education Stunts Human Progress,Anonymous forum original poster (curriculum-developer/educator) plus commenters,2026
+SRC_000013,FRM,"Google signs classified Pentagon AI deal but exits $100 million drone swarm program — report claims employees revolted over ethical fears, delivered letter to CEO Pichai",Forum participants (news-aggregator comment thread),
+SRC_000014,FRM,[D] Paper Accepted Then Rejected: Can We Use Sky Sports Commentary Videos for Research? Need Advice,"Forum participants (OP research-group member + commenters), ML/research discussion forum",
+SRC_000015,COR,"Microsoft Responsible AI Standard, v2 — General Requirements",Microsoft Corporation,2022
+SRC_000016,COR,Responsible Scaling Policy (Version 2.2),Anthropic,2025
+SRC_000017,INS,ACM Code of Ethics and Professional Conduct (2018),Association for Computing Machinery (ACM),2018
+SRC_000018,INS,2023 Landscape: Confronting Tech Power (Executive Summary),AI Now Institute,2023
+SRC_000019,INS,Guidelines for Responsible Generative AI Use: Balancing Innovation and Responsibility at the University of North Alabama,University of North Alabama,2024
+SRC_000020,GOV,Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act),European Parliament and Council of the European Union,2024
+SRC_000021,GOV,Artificial Intelligence Risk Management Framework (AI RMF 1.0),"National Institute of Standards and Technology (NIST), U.S. Department of Commerce",2023
+SRC_000022,GOV,Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile (NIST AI 600-1),"National Institute of Standards and Technology (NIST), U.S. Department of Commerce",2024
+SRC_000023,GOV,"SB 53 — Transparency in Frontier Artificial Intelligence Act (TFAIA), Chapter 138",California State Legislature (Sen. Wiener); signed by Governor,2025
+SRC_000024,INS,"Ethically Aligned Design: A Vision for Prioritizing Human Well-being with Autonomous and Intelligent Systems, Version 2 (For Public Discussion)",The IEEE Global Initiative on Ethics of Autonomous and Intelligent Systems (IEEE),2017
+SRC_000025,COR,Responsible AI: Our 2024 report and ongoing work,Google (Google DeepMind / Google AI),2025
+SRC_000026,COR,"Frontier Safety Framework, Version 2.0",Google DeepMind,2025
+SRC_000027,COR,Model Spec (first draft),OpenAI,2024
+SRC_000028,GOV,Recommendation of the Council on Artificial Intelligence (OECD/LEGAL/0449),"Organisation for Economic Co-operation and Development (OECD), adopted by the OECD Council at Ministerial level on the proposal of the Committee on Digital Economy Policy (CDEP)",2019
+SRC_000029,INS,UNESCO Recommendation on the Ethics of Artificial Intelligence (UNESCO's Input in reply to the OHCHR report on Human Rights Council Resolution 47/23),"United Nations Educational, Scientific and Cultural Organization (UNESCO)",2021
+SRC_000030,INS,AI Safety Index — Summer 2025,Future of Life Institute (FLI),2025
+SRC_000031,GOV,Senate Bill 24-205 — Concerning Consumer Protections in Interactions with Artificial Intelligence Systems,Colorado General Assembly,2024
+SRC_000032,INS,Looking before we leap: Expanding ethical review processes for AI and data science research,"Ada Lovelace Institute, The Alan Turing Institute, and University of Exeter Institute for Data Science and Artificial Intelligence (IDSAI)",2022
+SRC_000033,INS,A Culture of Ethical AI: Report — What steps can organizers of AI conferences take to encourage reflection on the societal impacts of AI research?,"CIFAR, Partnership on AI, and the Ada Lovelace Institute",2022
+SRC_000034,INS,White Paper on AI Governance: Leadership insights and the Voluntary AI Safety Standard in practice,Governance Institute of Australia (in collaboration with the National AI Centre),2024
+SRC_000035,JRN,"Ethical theories, governance models, and strategic frameworks for responsible AI adoption and organizational success",Mahmoud Madanchian and Hamed Taherdoost (Frontiers in Artificial Intelligence),2025
+SRC_000036,JRN,"Artificial intelligence, complexity, and systemic resilience in global governance","Frontiers (journal article); authors AI, MF, DL (academic authors)",2025
+SRC_000037,JRN,Transparency and accountability in AI systems: safeguarding wellbeing in the age of algorithmic decision-making,Ben Chester Cheong (Singapore University of Social Sciences); Frontiers in Human Dynamics,2024
+SRC_000038,JRN,Ethics dumping in artificial intelligence,Jean-Christophe Belisle-Pipon and Gauthier Victor (Simon Fraser University),2024
+SRC_000039,JRN,AI governance: a systematic literature review,"Araz Batool, Didar Zowghi, Muneera Bano (CSIRO's Data61 / Australian National Science Agency)",2025
+SRC_000040,FRM,Matrix Discussion Questions (I'm outsourcing here),Anonymous forum OP (high-school teacher) + commenters,
+SRC_000041,FRM,AI Education: What do you think students should be taught about AI and at what age?,Reddit r/ChatGPT thread (OP u/gdunn07 + commenters),
+SRC_000042,JRN,"An Analytical Study of the Impact of Artificial Intelligence on Accounting, Finance, Economics, Business, and Management","Mr. Kiran Kailas Patil, S.S.M.M. Arts, Science and Commerce College, Pachora (Journal of Advanced Multidisciplinary Research Studies and Development, JAMRSD)",2026
+SRC_000043,JRN,The Role of Generative AI in Enhancing Financial Reporting Transparency and Accuracy,"Mahmoud Khalifa Ibrahim (Applied Science University, Bahrain) & Maged Mostafa Albaz (Majmaah University, Saudi Arabia)",2026
+SRC_000044,JRN,Role of Artificial Intelligence in Sustainable Development and Climate Action,"V. V. Agarkar (Dept. of Computer Science, Shri. Dnyaneshwar Maskuji Burungale Science and Arts College, Shegaon)",2026
+SRC_000045,JRN,Ethical Governance and Accountability: Legal and Ethical Dimensions in the Digital Age,"Adv. Pradnya Damle & Mr. Nilesh Patki, Shankar Narayan College of Arts, Commerce, Bhayandar (E), Maharashtra, India",2026
+SRC_000046,JRN,Digital Discrimination and Social Justice: A Political Science Study of Bias in AI and Algorithms,"Dr. Sandeep Ashok Bhadane, Department of Political Science, S.S.V.P.S. Arts, Commerce and Science College, Shindkheda (Journal of Advanced Multidisciplinary Research Studies and Development / JAMRSD)",2026
+SRC_000047,INS,The Presidio Recommendations on Responsible Generative AI,World Economic Forum (in collaboration with AI Commons),2023
+SRC_000048,INS,Algorithmic Accountability: A Primer (Tech Algorithm Briefing: How Algorithms Perpetuate Racial Bias and Inequality),"Data & Society Research Institute (Joan Donovan, Jeanna Matthews, Robyn Caplan, Lauren Hanson)",2018
+SRC_000049,INS,Responsible Practices for Synthetic Media: A Framework for Collective Action,Partnership on AI (PAI),2023
+SRC_000050,INS,Principled Artificial Intelligence: Mapping Consensus in Ethical and Rights-Based Approaches to Principles for AI,"Berkman Klein Center for Internet & Society, Harvard University (Fjeld, Achten, Hilligoss, Nagy, Srikumar)",2020
+SRC_000051,INS,Creating Trustworthy AI: A Mozilla White Paper on Challenges and Opportunities in the AI Era,Mozilla Foundation,2020
+SRC_000052,GOV,Blueprint for an AI Bill of Rights: Making Automated Systems Work for the American People,White House Office of Science and Technology Policy (OSTP),2022
+SRC_000053,GOV,"Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law (CETS No. 225)",Council of Europe,2024
+SRC_000054,GOV,Interim Measures for the Management of Generative Artificial Intelligence Services,Cyberspace Administration of China; National Development and Reform Commission; Ministry of Education; Ministry of Science and Technology; Ministry of Industry and Information Technology; Ministry of Public Security; State Administration of Radio and Television,2023
+SRC_000055,GOV,"A pro-innovation approach to AI regulation (White Paper, Command Paper 815)","UK Department for Science, Innovation and Technology (DSIT); presented to Parliament by the Secretary of State for Science, Innovation and Technology",2023
+SRC_000056,GOV,"Executive Order 14110 of October 30, 2023 — Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence",President of the United States (Executive Office of the President),2023
+SRC_000057,FRM,I asked chatgpt to make an image of how I treat it then asked it to explain the image in its own words,r/ChatGPT forum users (u/Big-Function3501 OP + commenters),
+SRC_000058,FRM,The Quality of Understanding...Dialogue over Division,Anonymous forum poster (AI-assisted essay) with reader comments,
+SRC_000059,FRM,"I asked my AI Soreyen, if you could write a profound letter to humanity about AI. What would it be?","Forum/social-media poster (relaying an AI persona, 'Soreyen')",
+SRC_000060,FRM,An AGI storyline - Chapter VII: The Fifth Face,Reddit user /u/Chemical-Call-9600 (r/ChatGPT),
+SRC_000061,FRM,[P] Open-sourcing a human parsing model trained on curated data to address ATR/LIP/iMaterialist quality issues,FASHN (fashn-ai); original poster plus five commenters,
+SRC_000062,COR,"Core Views on AI Safety: When, Why, What, and How",Anthropic,2023
+SRC_000063,COR,Preparedness Framework (Beta),OpenAI,2023
+SRC_000064,COR,Trusted AI / Guidelines for Responsible Generative AI (Salesforce Trust Layer),Salesforce (Office of Ethical and Humane Use),
+SRC_000065,COR,Responsible AI: From principles to practice,Amazon Web Services (AWS),2026
+SRC_000066,COR,AI Ethics — Principles for Trust and Transparency,IBM (Responsible Technology Board),2026
