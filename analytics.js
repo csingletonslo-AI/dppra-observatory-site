@@ -8,7 +8,7 @@
  * code is filled in this file does nothing.
  */
 (function () {
-  var GOATCOUNTER_CODE = '';
+  var GOATCOUNTER_CODE = 'csingleton';
 
   if (!GOATCOUNTER_CODE) return;
   var host = location.hostname;
